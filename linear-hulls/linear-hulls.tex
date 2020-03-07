@@ -37,6 +37,8 @@
 \addbibresource{../bib/ext.bib}
 \addbibresource{../bib/my.bib}
 \addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
 \input{../bib/ext.hyphens.bib}
 
 
@@ -47,6 +49,7 @@
 \newtheorem{property}[lemma]{Свойство}
 \newtheorem{remark}[lemma]{Замечание}
 \newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
 
 \usepackage{bbm}
 
@@ -74,25 +77,32 @@
 
 \section{Введение}
 
-Рассмотрим пространство ограниченных последовательностей с обычной нормой
+Рассмотрим пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
 \begin{equation*}
-	\|x\| = \sup_{k} |x_k|
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
 	.
 \end{equation*}
-Естественным обобщением предела с простанства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
 является понятие банахова предела.
-Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
-\begin{enumerate}
-	\item
-		$B \geqslant 0$
-	\item
-		$B\mathbbm{1} = 1$
-	\item
-		$B=BT$
-\end{enumerate}
-Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
-а $T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
+
+
+\begin{definition}
+	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
 Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}. 
+
 
 Сачестон~\cite{sucheston1967banach} установил, что
 для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
@@ -108,6 +118,7 @@
 	.
 \end{equation*}
 называют нижним и верхним функционалом Сачестона соотвественно.
+Заметим, что $p(x) = -q(-x)$.
 Неравенства \eqref{Sucheston} точны:
 для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
 $B\in\mathfrak{B}$ такой, что $Bx = r$.
@@ -135,7 +146,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
 В настоящей статье строится пример разделяющего множества,
 являющегося подмножеством $\Omega$ и имеющего меру нуль.
-Для построения таких множества используется следующий факт.
+Для построения такого множества используется следующий факт.
 
 \begin{lemma}[{\cite[\S 3, замечание 6]{Semenov2014geomprops}}]
 	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
