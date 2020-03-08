@@ -341,6 +341,21 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	\end{equation*}
 \end{example}
 
+\subsection{Частичный предел в функционале Сачестона}
+
+\begin{proposition}
+	\label{prop:Sucheston_partial_limit}
+	Предел в функционале Сачестона можно заменить частичным пределом, а именно
+	\begin{equation*}
+		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+		= \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{2^n} \sum_{k=m+1}^{m+2^n} x_k
+		.
+	\end{equation*}
+\end{proposition}
+Аналогичное соотношение выполнено и для функционала $q(x)$.
+
+TODO: надо ли это доказывать?
+
 \section{Разделяющее множество нулевой меры}
 
 \begin{theorem}
@@ -406,7 +421,8 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	\end{equation}
 
 	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
-	Кроме того, с учётом леммы~\ref{lem:sum_Br_k_c} имеем $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
+	Кроме того, с учётом леммы~\ref{lem:sum_Br_k_c} и утверждения~\ref{prop:Sucheston_partial_limit}
+	имеем $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
 	(На <<возмущённом>> блоке $u$ среднее, соответствующее функционалу $q$,
 	увеличивается не более чем на $2^{-n}$ и не влияет на значение функционала $p$,
 	в силу условия~\eqref{eq:Omega_a_b_gap}.)
