@@ -179,7 +179,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	что
 	\begin{equation}
 		\label{eq:binary_approximations_for_number}
-		\frac{d_{(k)}}{2^k} \leq d < \frac{d_{(k)}+1}{2^k}
+		\frac{d_{(k)}}{2^k} < d \leq \frac{d_{(k)}+1}{2^k}
 		.
 	\end{equation}
 \end{definition}
@@ -311,6 +311,18 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	\end{equation}
 \end{proof}
 
+Из~\eqref{eq:binary_approximations_for_number} непосредственно вытекает следующий факт.
+\begin{proposition}
+	\label{prop:Br_has_nulls}
+	Пусть $d<1-3/2^n$.
+	Тогда
+	\begin{equation}
+		(\operatorname{Br}(d,k))_j = 0 ~~\mbox{для}~~j = m\cdot 2^n + 1, m\in\mathbb{N} \cup\{0\}
+		.
+	\end{equation}
+\end{proposition}
+
+
 \begin{example}
 	Для $n=2$ и $d=1/3$ имеем:
 	\begin{equation*}
@@ -420,7 +432,7 @@ TODO: надо ли это доказывать?
 		\end{cases}
 	\end{equation}
 
-	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
+	В силу утверждения~\ref{prop:Br_has_nulls} все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
 	Кроме того, с учётом леммы~\ref{lem:sum_Br_k_c} и утверждения~\ref{prop:Sucheston_partial_limit}
 	имеем $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
 	(На <<возмущённом>> блоке $u$ среднее, соответствующее функционалу $q$,
