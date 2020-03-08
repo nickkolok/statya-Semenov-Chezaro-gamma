@@ -52,6 +52,7 @@
 \newtheorem{remark}[lemma]{Замечание}
 \newtheorem{corollary}{Следствие}[lemma]
 \newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
 
 \usepackage{bbm}
 
@@ -157,66 +158,74 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 \end{lemma}
 Затем в статье обсуждаются свойства линейных оболочек множеств, определённых с помощью функционалов Сачестона.
 
-\section{Разделяющее множество нулевой меры}
+\section{Вспомогательные построения}
 
-\begin{theorem}
-	\label{thm:Lin_Omega_Sucheston}
-	Пусть
-	$1 \geq a > b \geq 0$ и
-	$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$,
-	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
-	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
-\end{theorem}
+В данном параграфе вводятся некоторые вспомогательные объекты,
+которые потребуются далее при доказательстве теоремы~\ref{thm:Lin_Omega_Sucheston}.
 
-\begin{proof}
-	Выберем $n\in\mathbb{N}$ таким образом, что
-	\begin{equation}
-		\label{eq:Omega_a_b_gap}
-		a - b > \frac{3}{2^n}
-	\end{equation}
-	и $n$ чётно.
-	На протяжении всего дальнейшего доказательства будем считать $a$, $b$ и $n$ фиксированными.
-	Пусть
-	\begin{equation}
-		K = \{k\in\mathbb{N} : k \geq n\} = \{n, n+1, n+2, ...\}
-		.
-	\end{equation}
+\subsection{Двоичные приближения}	
 
-	Определим теперь двоичные приближения к произвольному числу $c\in[0;1]$
-	(в дальнейшем в качестве $c$ будут выступать $a$ и $b$):
+\begin{definition}
+	$k$-м двоичным приближением к произвольному числу $c\in[0;1]$
+	называется такое число $c_{(k)}\in\mathbb{N}\cup\{0\}$,
+	что
 	\begin{equation}
 		\label{eq:binary_approximations_for_number}
 		\frac{c_{(k)}}{2^k} \leq c < \frac{c_{(k)}+1}{2^k}
-		,
-		~~~c_{(k)}\in\mathbb{N}\cup\{0\}
 		.
 	\end{equation}
-	Заметим, что $c_{(k+1)}\in\{2c_{(k)},2c_{(k)}+1\}$.
+\end{definition}
 
-	Далее нам потребуется вспомогательная функция $\operatorname{Br}:K\times [0;1] \to \ell_\infty$,
-	генерирующая <<блоки>> из нулей и единиц, соответствующие приближению $c_{(k)}$ к числу $c\in[0;1]$ для $k \geq n$.
+\begin{remark}
+	Очевидно, что $c_{(k+1)}\in\{2c_{(k)},2c_{(k)}+1\}$.
+\end{remark}
 
-	Определение $\operatorname{Br}$ построим рекурсивно.
-	Сначала определим $\operatorname{Br}(k,c)$ для $k=n$ по следующему правилу:
-	\begin{equation}
-		(\operatorname{Br}(n,c))_j = \begin{cases}
-			1, & \mbox{~если~} 2^n - c_{(n)} < j \leq 2^n,
-			\\
-			0  & \mbox{~для остальных~} j
-			.
-		\end{cases}
-	\end{equation}
-	Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю;
-	кроме того, в $\operatorname{Br}(n,c)$ ровно $c_{(n)}$ единиц.
+\subsection{Последовательности-<<блоки>>}
 
-	Для каждого $k \geq n$ положим
-	\begin{equation}
-		\label{eq:Br(k+1,c)}
-		\operatorname{Br}(k+1,c) = \operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c) + (c_{(k+1)}-2c_{(k)})e_{2^k+2^n-c_{(n)}}
-		,
-	\end{equation}
-	где через $e_j$ обозначен $j$-й орт.
+Введём последовательности-<<блоки>> "---
+стабилизирующиеся на нуле последовательности,
+которые затем будут использованы для формирования последовательностей,
+обладающих некоторыми интересными свойствами.
 
+Пусть $n$ зафиксировано.
+Пусть
+\begin{equation}
+	K = \{k\in\mathbb{N} : k \geq n\} = \{n, n+1, n+2, ...\}
+	.
+\end{equation}
+
+
+Определим функцию $\operatorname{Br}:K\times [0;1] \to \ell_\infty$,
+генерирующую <<блоки>> из нулей и единиц,
+соответствующие приближению $c_{(k)}$ к числу $c\in[0;1]$ для $k \geq n$.
+
+Определение $\operatorname{Br}$ построим рекурсивно.
+Сначала определим $\operatorname{Br}(k,c)$ для $k=n$ по следующему правилу:
+\begin{equation}
+	(\operatorname{Br}(n,c))_j = \begin{cases}
+		1, & \mbox{~если~} 2^n - c_{(n)} < j \leq 2^n,
+		\\
+		0  & \mbox{~для остальных~} j
+		.
+	\end{cases}
+\end{equation}
+Заметим, что все элементы $\operatorname{Br}(n,c)$, начиная с $(2^n+1)$-го, равны нулю;
+кроме того, в $\operatorname{Br}(n,c)$ ровно $c_{(n)}$ единиц.
+
+Для каждого $k \geq n$ положим
+\begin{equation}
+	\label{eq:Br(k+1,c)}
+	\operatorname{Br}(k+1,c) = \operatorname{Br}(k,c) + T^{2^k}\operatorname{Br}(k,c) + (c_{(k+1)}-2c_{(k)})e_{2^k+2^n-c_{(n)}}
+	,
+\end{equation}
+где через $e_j$ обозначен $j$-й орт.
+
+
+\begin{proposition}
+	\label{prop:Br_k_c_0_1}
+	Последовательность $\operatorname{Br}(k,c)$ состоит из нулей и единиц.
+\end{proposition}
+\begin{proof}
 	Легко заметить (по индукции), что все элементы $\operatorname{Br}(k,c)$, начиная с $(2^k+1)$-го, равны нулю.
 	Следовательно, носители первых двух слагаемых в~\eqref{eq:Br(k+1,c)} не пересекаются.
 	Далее заметим, что третье слагаемое отлично от нуля тогда и только тогда,
@@ -239,9 +248,15 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 		,
 	\end{multline}
 	т.е. выражение~\eqref{eq:Br(k+1,c)} действительно задаёт последовательность из нулей и единиц.
-	Таким образом, в $k$-м блоке ровно $c_{(k)}$ единиц.
+\end{proof}
 
-	Заметим, что $\operatorname{supp}\operatorname{Br}(k,c) \subset \operatorname{supp}\operatorname{Br}(k+1,c)$
+\begin{remark}
+	Из доказательства утверждения~\ref{prop:Br_k_c_0_1} следует, что в $k$-м блоке ровно $c_{(k)}$ единиц.
+\end{remark}
+
+
+\begin{remark}
+	Выполнено включение $\operatorname{supp}\operatorname{Br}(k,c) \subset \operatorname{supp}\operatorname{Br}(k+1,c)$
 	и, более того, справедливо соотношение
 	\begin{equation}
 		(\operatorname{Br}(k,c))_j = \begin{cases}
@@ -251,16 +266,19 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 			.
 		\end{cases}
 	\end{equation}
+\end{remark}
 
-	Нетрудно заметить, что для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
+\begin{lemma}
+	\label{lem:sum_Br_k_c}
+	Для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
 	выполнено
 	\begin{equation}
 		c_{(m)} \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,c))_j \leq c_{(m)}+1
 		.
 	\end{equation}
-
-	Действительно,
-	представление~\eqref{eq:Br(k+1,c)} может быть переписано в виде:
+\end{lemma}
+\begin{proof}
+	Представление~\eqref{eq:Br(k+1,c)} может быть переписано в виде:
 	\begin{equation}
 		\operatorname{Br}(m+1,c) = \sum_{j=0}^{1} T^{j2^m} \operatorname{Br}(m,c) + \sum_{j=0}^{1} \gamma_{j} e_{j 2^m+2^n-c_{(n)}}
 		,
@@ -283,9 +301,10 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 		\in \{c_{(m)}, c_{(m)}+1\}
 		.
 	\end{equation}
+\end{proof}
 
-
-	Так, например, для $n=2$ и $c=1/3$ имеем:
+\begin{example}
+	Для $n=2$ и $c=1/3$ имеем:
 	\begin{equation*}
 		\begin{array}{lll}
 			c_{(2)} = 1/4, &
@@ -312,9 +331,28 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 			0,0,...)
 		\end{array}
 	\end{equation*}
+\end{example}
 
-	Однако напомним, что нам нужно представление для произвольного $x\in\Omega$
-	в виде линейной комбинации элементов из $\Omega^a_b$.
+\section{Разделяющее множество нулевой меры}
+
+\begin{theorem}
+	\label{thm:Lin_Omega_Sucheston}
+	Пусть
+	$1 \geq a > b \geq 0$ и
+	$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
+	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
+\end{theorem}
+
+\begin{proof}
+	Выберем $n\in\mathbb{N}$ таким образом, что
+	\begin{equation}
+		\label{eq:Omega_a_b_gap}
+		a - b > \frac{3}{2^n}
+	\end{equation}
+	и $n$ чётно.
+	На протяжении всего дальнейшего доказательства будем считать $a$, $b$ и $n$ фиксированными.
+
 	Очевидно, что существует разложение
 	\begin{equation}
 		x = \sum_{i=0}^{k-1} T^i x_i, \quad x_i \in \Omega
@@ -324,15 +362,15 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	кроме имеющих индексы $km+1$, $m\in\mathbb{N}_0$, являются нулевыми.
 	Пусть $k=2^n$; зафиксируем $i$ и в дальнейшем для удобства записи положим $w=x_i$.
 	Наша задача~--- построить конечную линейную комбинацию элементов из $\Omega^a_b$, равную $w$.
-
+	%
 	Положим
-	\begin{equation}
-		v = T^{2^n} \operatorname{Br}(2^ n   ,a) + T^{2^{n+1}} \operatorname{Br}(2^{n+1},b) +
-		T^{2^{n+2}} \operatorname{Br}(2^{n+2},a) + T^{2^{n+3}} \operatorname{Br}(2^{n+3},b) + ...
-	\end{equation}
-	Эта сумма является формальной, т.е. не сходится в смысле ряда по норме,
-	однако носители слагаемых попарно не пересекаются.
-	Иначе говоря,
+	%\begin{equation}
+	%	v = T^{2^n} \operatorname{Br}(2^ n   ,a) + T^{2^{n+1}} \operatorname{Br}(2^{n+1},b) +
+	%	T^{2^{n+2}} \operatorname{Br}(2^{n+2},a) + T^{2^{n+3}} \operatorname{Br}(2^{n+3},b) + ...
+	%\end{equation}
+	%Эта сумма является формальной, т.е. не сходится в смысле ряда по норме,
+	%однако носители слагаемых попарно не пересекаются.
+	%Иначе говоря,
 	\begin{equation}
 		v_j = \begin{cases}
 			0,  & \mbox{~если~} j \leq 2^n,
@@ -343,7 +381,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 			.
 		\end{cases}
 	\end{equation}
-	Положим теперь
+	и
 	\begin{equation}
 		u_j = \begin{cases}
 			v_j + w_j,  & \mbox{~если~} j \leq 2^n
@@ -356,7 +394,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	\end{equation}
 
 	Заметим, что все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
-	Кроме того, $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
+	Кроме того, с учётом леммы~\ref{lem:sum_Br_k_c} имеем $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
 	(На <<возмущённом>> блоке $u$ среднее, соответствующее функционалу $q$,
 	увеличивается не более чем на $2^{-n}$ и не влияет на значение функционала $p$,
 	в силу условия~\eqref{eq:Omega_a_b_gap}.)
