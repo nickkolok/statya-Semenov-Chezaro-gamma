@@ -306,8 +306,7 @@ $$
 	\rho(x,y)=
 	\begin{cases}
 		0, & \mbox{~если~} x=y, \\
-		1, & \mbox{~если~} x_1\neq y_1, \\
-		2^{-k} & \mbox{в остальных случаях}, %x,y\in\{0,1\}^\N, \\
+		2^{-k}, k = \min\{n:x_n \neq y_n\} - 1, & \mbox{~если~} x\neq y, %x,y\in\{0,1\}^\N, \\
 	\end{cases}
 $$
 где $k=\max\{n\in\N : x_m=y_m \ \text{для всех} \ 1\le m\le n\}$,
