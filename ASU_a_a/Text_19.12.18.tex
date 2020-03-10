@@ -53,9 +53,15 @@
 \input{../bib/ext.hyphens.bib}
 
 
+
+
 %Only referenced equations are numbered
+\let\etoolboxforlistloop\forlistloop % save the good meaning of \forlistloop
 \usepackage{mathtools}
 \mathtoolsset{showonlyrefs}
+\let\forlistloop\etoolboxforlistloop % restore the good meaning of \forlistloop
+
+% https://tex.stackexchange.com/questions/220268/biblatex-and-autonum-dont-work-together
 
 %\mathtoolsset{showonlyrefs=false}
 % (write an equation/multline to be force-numbered here)
