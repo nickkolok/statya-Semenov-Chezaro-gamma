@@ -481,88 +481,8 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
 \section{Линейные оболочки множеств, определяемых функционалами Сачестона}
 
-Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}$, где $a>b$.
-Оказывается, аналогичным свойством обладает и всё пространство $\ell_\infty$:
-$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
-$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
-
-\begin{lemma}
-	\label{lem:const_Lin_ell_infty}
-	Справедливо включение
-	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
-\end{lemma}
-
-\begin{proof}
-	В самом деле,
-	$\Omega^a_b \subset X^a_b$
-	и, следовательно,
-	\begin{equation}
-		\mathbbm{1} \in \Omega \subset \operatorname{Lin} \Omega^a_b \subset \operatorname{Lin} X^a_b
-		.
-	\end{equation}
-\end{proof}
-
-\begin{theorem}
-	\label{thm:Lin_ell_infty}
-	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
-\end{theorem}
-
-\begin{proof}
-	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
-
-	Не теряя общности, положим $x\geq 0$
-	(иначе представим сначала $x$ в виде $x = y - z$, где $y \geq 0$, $z \geq 0$.
-	и найдём представления для $y$ и $z$).
-
-	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
-	такой, что $p(y) > p(x) = q(x)  \geq q(y) \geq 0$.
-	Тогда в силу выпуклости функционала $p$ имеем
-	\begin{equation}
-		p(x+y) \geq p(y) > p(x) = q(x)
-		,
-	\end{equation}
-
-
-	\begin{equation}
-		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y) \leq q(x) < p(x+y)
-		,
-	\end{equation}
-	и задача сведена к отысканию представлений для $y$ и $x+y$.
-	Таким образом, случай $p(x) = q(x)$ можно исключить,
-	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
-
-	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
-	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
-	Тогда, очевидно,
-	\begin{equation}
-		\label{eq:x_representation}
-		x=(y-C\cdot\mathbbm{1})/k
-		.
-	\end{equation}
-	Представление~\eqref{eq:x_representation} искомое.
-	Действительно, в силу леммы~\ref{lem:const_Lin_ell_infty} выполнено
-	$C\cdot\mathbbm{1}\in X^a_b$; кроме того,
-	\begin{equation}
-		p(y) = k\cdot p(x) + C
-		=
-		%\\=
-		\frac{ap(x)-bp(x)+bp(x)-aq(x)}{p(x)-q(x)}
-		=
-		a
-		,
-	\end{equation}
-	\begin{equation}
-		q(y) = k\cdot q(x) + C
-		=
-		%\\=
-		\frac{aq(x)-bq(x)+bp(x)-aq(x)}{p(x)-q(x)}
-		=
-		b
-		.
-	\end{equation}
-\end{proof}
-
-Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:Lin_ell_infty}, верен и для подпространства
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}$, где $1\geq a>b\geq 0$.
+Оказывается, что аналогичным свойством обладает и ещё одно подмножество пространства $\ell_\infty$: подпространство
 $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 где~\cite{our-vzms-2018}
 \begin{equation*}
@@ -570,11 +490,10 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	.
 \end{equation*}
 В~\cite{our-ped-2018-alpha-Tx} показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
-пространство $A_0 c$ такой инвариантностью обладает.
+подпространство $A_0 c$ такой инвариантностью обладает.
 
 Пусть $Y^a_b = \{x\in A_0 c : p(x) = a, q(x) = b\}$, где $a>b$.
-Следуя той же схеме доказательства, что и для $\ell_\infty$,
-подготовим сначала вспомогательные леммы о константе.
+Подготовим сначала вспомогательные леммы о константе.
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
@@ -582,9 +501,6 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	Тогда справедливо включение
 	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
 \end{lemma}
-
-%TODO: доказательство не проходит при $a=-b$.
-%Составить отдельное (есть в блокноте).
 
 \begin{proof}
 	Не теряя общности, будем полагать, что $b\geq 0$, тогда $a>0$.
@@ -698,7 +614,7 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{theorem}
 	\label{thm:A_0_c_infty_lin}
-	Пусть $a\neq -b$.
+	%Пусть $a\neq -b$.
 	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0 c$.
 \end{theorem}
 
@@ -711,7 +627,91 @@ $A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0}, ~\ref{lem:const_Lin_alpha_0_a_eq_-b} и~\ref{lem:c_0_Lin_alpha_0}.
 
 	Пусть теперь $p(x) > q(x)$.
-	Снова, как и в доказательстве теоремы~\ref{thm:Lin_ell_infty},
+	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Тогда, очевидно,
+	\begin{equation}
+		\label{eq:x_representation}
+		x=(y-C\cdot\mathbbm{1})/k
+		.
+	\end{equation}
+	Представление~\eqref{eq:x_representation} искомое.
+	Действительно, в силу лемм~\ref{lem:const_Lin_alpha_0}~и~\ref{lem:const_Lin_alpha_0_a_eq_-b} выполнено
+	$C\cdot\mathbbm{1}\in Y^a_b$; кроме того,
+	\begin{equation}
+		p(y) = k\cdot p(x) + C
+		=
+		%\\=
+		\frac{ap(x)-bp(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		a
+		,
+	\end{equation}
+	\begin{equation}
+		q(y) = k\cdot q(x) + C
+		=
+		%\\=
+		\frac{aq(x)-bq(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		b
+		.
+	\end{equation}
+
+
+\end{proof}
+
+Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:A_0_c_infty_lin}, верен и для
+всего пространство $\ell_\infty$:
+$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
+$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
+
+
+\begin{lemma}
+	\label{lem:const_Lin_ell_infty}
+	Справедливо включение
+	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
+\end{lemma}
+
+\begin{proof}
+	В самом деле,
+	$Y^a_b \subset X^a_b$
+	и, следовательно,
+	\begin{equation}
+		\mathbbm{1} \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
+		.
+	\end{equation}
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Lin_ell_infty}
+	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
+
+	Не теряя общности, положим $x\geq 0$
+	(иначе представим сначала $x$ в виде $x = y - z$, где $y \geq 0$, $z \geq 0$.
+	и найдём представления для $y$ и $z$).
+
+	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
+	такой, что $p(y) > p(x) = q(x)  \geq q(y) \geq 0$.
+	Тогда в силу выпуклости функционала $p$ имеем
+	\begin{equation}
+		p(x+y) \geq p(y) > p(x) = q(x)
+		,
+	\end{equation}
+
+
+	\begin{equation}
+		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y) \leq q(x) < p(x+y)
+		,
+	\end{equation}
+	и задача сведена к отысканию представлений для $y$ и $x+y$.
+	Таким образом, случай $p(x) = q(x)$ можно исключить,
+	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
+
+	Снова, как и в доказательстве теоремы~\ref{thm:A_0_c_infty_lin},
 	положим $y=k\cdot x + C\cdot\mathbbm{1}$,
 	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
 	Дальнейшее доказательство переносится дословно.
