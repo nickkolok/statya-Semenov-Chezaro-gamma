@@ -1,0 +1,68 @@
+На множестве всех последовательностей из нулей и единиц определим метрику
+$$
+	\rho(x,y)=
+	\begin{cases}
+		0, & \mbox{~если~} x=y, \\
+		2^{-k}, k = \min\{n:x_n \neq y_n\} - 1, & \mbox{~если~} x\neq y. %x,y\in\{0,1\}^\N, \\
+	\end{cases}
+$$
+Как показано в \cite[Утверждение 2.1.8]{Edgar}, пара $(\{0,1\}^\mathbb{N}, \rho)$ действительно является метрическим пространством.
+Усилим этот результат.
+
+\begin{theorem}
+	\label{thm:metric_complete}
+	Метрическое пространство $(\{0,1\}^\mathbb{N}, \rho)$ полно.
+\end{theorem}
+
+\begin{proof}
+	Пусть $\{x_i\}$ "--- фундаментальная последовательность элементов из $\{0,1\}^\mathbb{N}$,
+	$x_i=\left((x_i)_1, (x_i)_2, (x_i)_3,...\right)$.
+	Тогда, согласно определению фундаментальной последовательности,
+	\begin{equation}
+		\forall(k\in\mathbb{N})
+		\exists(n_k \in \mathbb{N})
+		\forall(m,n \geq n_k)
+		[\rho(x_m,x_n)< 2^{-k}]
+		,
+	\end{equation}
+	в частности,
+	\begin{equation}
+		\label{eq:metric_n_k}
+		\forall(k\in\mathbb{N})
+		\exists(n_k \in \mathbb{N})
+		\forall(m > n_k)
+		\forall(s \leq k)
+		\left[
+			\left(x_m\right)_s = \left(x_{n_k}\right)_s
+		\right]
+		.
+	\end{equation}
+	Пусть $y\in\{0,1\}^\mathbb{N}$. Для каждого $k\in\mathbb{N}$ положим $y_k = \left(x_{n_k}\right)_k$,
+	где $n_k$ выбрано согласно~\eqref{eq:metric_n_k}.
+	Тогда
+	\begin{equation}
+		\forall(k\in\mathbb{N})
+		\exists(n_k \in \mathbb{N})
+		\forall(m > n_k)
+		\forall(s \leq k)
+		\left[
+			\left(x_m\right)_s = y_s
+		\right]
+		,
+	\end{equation}
+	т.е.
+	\begin{equation}
+		\label{eq:metric_n_k_convergency}
+		\forall(k\in\mathbb{N})
+		\exists(n_k \in \mathbb{N})
+		\forall(m > n_k)
+		\left[
+			\rho(x_m,y)< 2^{-k}
+		\right]
+		.
+	\end{equation}
+	Однако~\eqref{eq:metric_n_k_convergency} и означает,
+	что последовательность $\{x_i\}$ сходится к последовательности $y$ по метрике $\rho$.
+\end{proof}
+
+Заметим, что теорема~\ref{thm:metric_complete} переносится дословно на пару $(\ell_\infty,\rho)$.
