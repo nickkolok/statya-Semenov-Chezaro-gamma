@@ -1,7 +1,7 @@
 \documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel} %используем русский и английский языки с переносами
+\usepackage[croatian,german,french,english,russian]{babel}
 \usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
 \usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
 %\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
@@ -33,7 +33,7 @@
 
 \renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
 
-\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\usepackage[backend=biber,language=autobib,autolang=other,clearlang=true,style=gost-numeric,sorting=none]{biblatex}
 \addbibresource{../bib/general_monographies.bib}
 \addbibresource{../bib/ext.bib}
 \addbibresource{../bib/my.bib}
