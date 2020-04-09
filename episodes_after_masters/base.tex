@@ -28,6 +28,8 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
 
+\DeclareMathOperator{\ext}{ext}
+
 \newcommand{\longcomment}[1]{}
 
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
@@ -47,6 +49,7 @@
 \newtheorem{example}[lemma]{Пример}
 \newtheorem{property}[lemma]{Свойство}
 \newtheorem{remark}[lemma]{Замечание}
+\newtheorem{definition}[lemma]{Определение}
 \newtheorem{corollary}{Следствие}[lemma]
 
 \newtheorem{hhypothesis}[lemma]{Гипотеза}
@@ -108,6 +111,10 @@
 
 	\section{Об одной метрике на множестве последовательностей из нулей и единиц}
 	\input{Omega_metric_full.tex}
+
+	\section{О хаусдорфовой размерности одного класса множеств}
+	\input{Omega_Hausdorf.tex}
+
 
 \renewcommand\label[1]{}
 %\hypotlist

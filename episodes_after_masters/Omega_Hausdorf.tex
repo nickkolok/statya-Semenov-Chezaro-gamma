@@ -1,0 +1,58 @@
+На множестве $\Omega$ стандартным образом определяется размерность Хаусдорфа (см. например \cite[Секция 6]{Edgar}).
+Для непустого подмножества $F\subset \mathbb R^n$ и $s > 0$ определим $s$-мерную меру Хаусдорфа множества $F$ следующим образом:
+$$\mathcal H^s(F) := \lim_{\delta\to0} \inf \left\{\sum_{i=1}^\infty \left({\rm diam} \ U_i \right)^s \ : \ F\subset \bigcup_{i=1}^\infty  U_i, \  0\leqslant {\rm diam} \ U_i \leqslant \delta \right\}.$$
+
+Размерность Хаусдорфа множества  $F\subset \mathbb R^n$ определяется по формуле:
+$${\rm dim}_H F := \inf\{ s > 0 \ : \ \mathcal H^s(F)=0\}.$$
+
+
+
+Мы приведём определение самоподобных подмножеств множества $\Omega$ (см., например, \cite{falconer1997techniques}).
+
+\begin{definition}
+Множество $E\subset\Omega$ называется самоподобным, если существуют $m\in\mathbb{N}$,
+$m\geqslant2$, $0< r_1, \dots, r_m<1$ и функции $f_j : \Omega \to \Omega$, $j=1,\dots, m$ такие, что
+$$\rho(f_j(x), f_j(y)) = r_j \rho(x,y), \ \forall \ x,y \in \Omega, \ j=1,\dots, m$$
+и $E=\bigcup_{j=1}^m f_j(E).$
+\end{definition}
+
+
+
+\begin{lemma}
+	\label{lem:Hausdorf_measure}
+	Пусть $E\subset\Omega$ и $TE = E$.
+	Тогда размерность Хаусдорфа $E$ равна $1$.
+\end{lemma}
+
+\begin{proof}
+	Для $j=1,2$ определим функции $f_j : \Omega \to \Omega$ следующим образом:
+	$$f_1(x_1, x_2, \dots)=(0, x_1, x_2, \dots), \quad f_2(x_1, x_2, \dots)=(1, x_1, x_2, \dots).$$
+
+	Очевидно, что $E=f_1(E)\cup f_2(E).$
+
+	Теперь мы покажем, что размерность Хаусдорфа множества $E$ равна $1$.
+
+	Т.к. для $j=1,2$ верно
+	 $$\rho(f_j(x),f_j(y))=\frac12\rho(x,y), \ \forall \ x, y \in E,$$
+	 то функции $f_j$ являются преобразованиями подобия с коэффициентами $r_j=1/2$ для $j=1,2$.
+
+
+	По~\cite[Теорема 9.3]{Edgar} размерность Хаусдорфа $d$ множества $E$ является решением уравнения:
+	$$ r_1^d+r_2^d=1.$$
+	Т.к. $r_j=1/2$, то
+	$d=1.$
+\end{proof}
+
+Лемма~\ref{lem:Hausdorf_measure} позволяет несколько сократить доказательство
+[ТОDO: ссылка на ASU\_a\_a].
+Действительно, $x\in\Omega\setminus c$ принадлежит $W$ тогда и только тогда, когда
+\begin{equation}
+	\label{eq:dim_ext_B_W}
+	(\ext \mathfrak{B})x = \{0;1\}
+\end{equation}
+Очевидно, что соотношение~\eqref{eq:dim_ext_B_W} выполнено для $x$ тогда и только тогда, когда оно выполнено для $Tx$.
+
+
+
+
+
