@@ -1,0 +1,806 @@
+% Уважаемые Авторы!
+%Для подготовки pdf-файлы Вашей работы необходимо 
+%запускать компиляцию с помощью команды latex 
+%(в программе WinEdt это делается нажатием 
+%клавиш Shift + Ctrl + L), после этого нужно 
+%из получившегося dvi файла сделать pdf 
+%с помощью команды dvi2pdf (в программе WinEdt для 
+%этого есть специальная кнопка в верхней панели).
+%Не нужно использовать команду pdflatex, 
+%так как она препятствует команде \mag, 
+%которая производит увеличение страниц 
+%статьи для удобства редактирования.
+%Просим не использовать в тексте рукописи
+%нестандартные макроопределения.
+
+\documentclass{article}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[croatian,french,german,english,russian]{babel}
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts,amssymb}
+
+\hoffset -10mm
+\voffset -7mm
+
+
+\usepackage{mathrsfs}
+\usepackage[short]{mz2ewin.utf8}
+
+\theoremstyle{plain}
+
+\newtheorem{condition}{Условие}
+\newtheorem{lemma}{Лемма}
+\newtheorem{theorem}{Теорема}
+\newtheorem{proposition}{Предложение}
+\newtheorem{corollary}{Следствие}
+\newtheorem{notation}{Обозначения}
+\newtheorem{definition}{Определение}
+
+\theoremstyle{definition}
+\newtheorem{proof}{Доказательство}\def\theproof{}
+\newtheorem{remark}{Замечание}
+
+
+
+%{{TODO: switch to amsbib
+\usepackage[backend=biber,language=autobib,autolang=other,clearlang=true,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+%https://tex.stackexchange.com/questions/130344/using-citep-leads-to-missing-endcsname-inserted-error/130347#130347
+\makeatletter
+\let\ORG@NAT@sort@cites\NAT@sort@cites
+\def\NAT@sort@cites#1{%
+  \edef\@tempa{\detokenize{#1}}%
+  \ORG@NAT@sort@cites\@tempa
+}
+\makeatother
+
+%}}TODO
+
+
+
+\overfullrule5pt
+\mag1300
+\begin{document}
+
+\udk{517.968}
+
+\date{}
+
+\author{А.\,В.~Петров}
+\address{Национальный политехнический институт,
+г.~Иваново}
+\email{valeri@mail.ru}
+
+
+\author{В.\,В.~Иванов}
+\address{Открытый университет,
+г.~Москва}
+\email{ivanov@gmail.com}
+
+
+\title{Квазиклассическая асимптотика
+задачи Штурма--Лиувиля}
+
+
+
+\maketitle
+\begin{fulltext}
+
+%\begin{abstract}
+
+%\end{abstract}
+
+\begin{keywords}
+Задача Штурма --- Лиувилля, сингулярно возмущенные операторы, спектральные задачи.
+\end{keywords}
+
+
+\footnotetext{Данная работа была проделана при частичной
+поддержке гранта INTAS No. 4297F и гранта CGEPI
+IPN Мексика.}
+
+
+
+\section{Введение}
+
+Рассмотрим пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Через $c$ будем обозначать пространство сходящихся последовательностей.
+
+
+\begin{definition}
+	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}. 
+
+
+Сачестон~\cite{sucheston1967banach} установил, что
+для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	\mbox{~~~~и~~~~}
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соотвественно.
+Заметим, что $p(x) = -q(-x)$.
+Неравенства \eqref{Sucheston} точны:
+для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$~~\cite{lorentz1948contribution}.
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+
+При исследовании банаховых пределов особый интерес представляют разделяющие множества~\cite[\S 3]{Semenov2014geomprops}.
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является~\cite{semenov2010characteristic} множество всех последовательностей из 0 и 1,
+которое в дальнейшем мы будем обозначать через $\Omega$
+(иногда в литературе встречается также обозначение $\{0;1\}^\mathbb{N}$).
+
+Каждой последовательности $(x_1, x_2, \dots)\in \Omega$ можно поставить в соответствие число
+\begin{equation}\label{eq:bijection_omega_0_1}
+	\sum_{k=1}^\infty 2^{-k} x_k \in [0,1]
+	.
+\end{equation}
+С точностью до счётного множества это соответствие взаимно однозначно и определяет на множестве $\Omega$ меру,
+которую мы будем отождествлять с мерой Лебега на $[0,1]$.
+
+Оказывается, что из $\Omega$ можно выделить некоторые подмножества, которые также будут разделяющими,
+например \cite[\S 3, Теорема 11]{Semenov2014geomprops},
+\begin{equation}
+	U = \{ x\in\Omega: q(x) = 0, p(x) = 1 \}
+	.
+\end{equation}
+
+Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}.
+
+В настоящей статье строится пример разделяющего множества,
+являющегося подмножеством $\Omega$ и имеющего меру нуль.
+Для построения такого множества используется следующий факт.
+
+\begin{lemma}[{\cite[\S 3, замечание 6]{Semenov2014geomprops}}]
+	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
+	где $\operatorname{Lin} Y$ обозначает линейную оболочку $Y$.
+	Тогда $Y$ также является разделяющим множеством.
+\end{lemma}
+Затем в статье обсуждаются свойства линейных оболочек множеств, определённых с помощью функционалов Сачестона.
+
+\section{Вспомогательные построения}
+
+В данном параграфе вводятся некоторые вспомогательные объекты,
+которые потребуются далее при доказательстве теоремы~\ref{thm:Lin_Omega_Sucheston}.
+
+\subsection{Двоичные приближения}	
+
+\begin{definition}
+	$k$-м двоичным приближением к произвольному числу $d\in[0;1]$
+	называется такое число $d_{(k)}\in\mathbb{N}\cup\{0\}$,
+	что
+	\begin{equation}
+		\label{eq:binary_approximations_for_number}
+		\frac{d_{(k)}}{2^k} < d \leq \frac{d_{(k)}+1}{2^k}
+		.
+	\end{equation}
+\end{definition}
+
+\begin{remark}
+	Очевидно, что $d_{(k+1)}\in\{2d_{(k)},2d_{(k)}+1\}$.
+\end{remark}
+
+\subsection{Последовательности-<<блоки>>}
+
+Введём последовательности-<<блоки>> "---
+стабилизирующиеся на нуле последовательности,
+которые затем будут использованы для формирования последовательностей,
+обладающих некоторыми интересными свойствами.
+
+Пусть $n$ зафиксировано.
+Пусть
+\begin{equation}
+	K = \{k\in\mathbb{N} : k \geq n\} = \{n, n+1, n+2, ...\}
+	.
+\end{equation}
+
+
+Определим функцию $\operatorname{Br}:K\times [0;1] \to \ell_\infty$,
+генерирующую <<блоки>> из нулей и единиц,
+соответствующие приближению $d_{(k)}$ к числу $d\in[0;1]$ для $k \geq n$.
+
+Определение $\operatorname{Br}$ построим рекурсивно.
+Сначала определим $\operatorname{Br}(k,d)$ для $k=n$ по следующему правилу:
+\begin{equation}
+	(\operatorname{Br}(n,d))_j = \begin{cases}
+		1, & \mbox{~если~} 2^n - d_{(n)} < j \leq 2^n,
+		\\
+		0  & \mbox{~для остальных~} j
+		.
+	\end{cases}
+\end{equation}
+Заметим, что все элементы $\operatorname{Br}(n,d)$, начиная с $(2^n+1)$-го, равны нулю;
+кроме того, в $\operatorname{Br}(n,d)$ ровно $d_{(n)}$ единиц.
+
+Для каждого $k \geq n$ положим
+\begin{equation}
+	\label{eq:Br(k+1,d)}
+	\operatorname{Br}(k+1,d) = \operatorname{Br}(k,d) + T^{2^k}\operatorname{Br}(k,d) + (d_{(k+1)}-2d_{(k)})e_{2^k+2^n-d_{(n)}}
+	,
+\end{equation}
+где через $e_j$ обозначен $j$-й орт.
+
+
+\begin{proposition}
+	\label{prop:Br_k_c_0_1}
+	Последовательность $\operatorname{Br}(k,d)$ состоит из нулей и единиц.
+\end{proposition}
+\begin{proof}
+	Легко доказать по индукции, что все элементы $\operatorname{Br}(k,d)$, начиная с $(2^k+1)$-го, равны нулю.
+	Следовательно, носители первых двух слагаемых в~\eqref{eq:Br(k+1,d)} не пересекаются.
+	Далее заметим, что третье слагаемое отлично от нуля тогда и только тогда,
+	когда переход между приближениями $d_{(k)} / 2^k$ и $d_{(k+1)}/2^{k+1}$
+	приводит к улучшению приближения.
+	Более того,
+	\begin{multline}
+		\left(\operatorname{Br}(k,d) + T^{2^k}\operatorname{Br}(k,d)\right)_{2^k+2^n-d_{(n)}}
+		=
+		(\operatorname{Br}(k,d))_{2^n-d_{(n)}}
+		=
+		(\operatorname{Br}(k-1,d))_{2^n-d_{(n)}}
+		=
+		\\=
+		...
+		=
+		(\operatorname{Br}(n,d))_{2^n-d_{(n)}}
+		=
+		0
+		,
+	\end{multline}
+	т.е. выражение~\eqref{eq:Br(k+1,d)} действительно задаёт последовательность из нулей и единиц.
+\end{proof}
+
+\begin{remark}
+	Из доказательства утверждения~\ref{prop:Br_k_c_0_1} следует, что в $k$-м блоке ровно $d_{(k)}$ единиц.
+\end{remark}
+
+
+\begin{remark}
+	Выполнено включение $\operatorname{supp}\operatorname{Br}(k,d) \subset \operatorname{supp}\operatorname{Br}(k+1,d)$
+	и, более того, справедливо соотношение
+	\begin{equation}
+		(\operatorname{Br}(k,d))_j = \begin{cases}
+			(\operatorname{Br}(k+1,d))_j, & \mbox{~если~}  j \leq 2^k,
+			\\
+			0  & \mbox{~для остальных~} j
+			.
+		\end{cases}
+	\end{equation}
+\end{remark}
+
+\begin{lemma}
+	\label{lem:sum_Br_k_c}
+	Для любых таких $m$, $k$ и $i$, что $n \leq m \leq k$ и  $ i + 2^m - 1 \leq 2^k$,
+	выполнено
+	\begin{equation}
+		d_{(m)} \leq \sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,d))_j \leq d_{(m)}+1
+		.
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Представление~\eqref{eq:Br(k+1,d)} может быть переписано в виде:
+	\begin{equation}
+		\operatorname{Br}(m+1,d) = \sum_{j=0}^{1} T^{j2^m} \operatorname{Br}(m,d) + \sum_{j=0}^{1} \gamma_{j} e_{j 2^m+2^n-d_{(n)}}
+		,
+	\end{equation}
+	где $\gamma_{j} \in \{0,1\}$.
+	Продолжая по индукции, получаем
+	\begin{equation}
+		\operatorname{Br}(k,d) = \sum_{j=0}^{2^{k-m}-1} T^{j2^m} \operatorname{Br}(m,d) +
+		\sum_{j=0}^{2^{k-m}-1} T^{j2^m} \gamma_{j} e_{j2^m+2^n-d_{(n)}}
+		.
+	\end{equation}
+	Тогда
+	\begin{equation}
+		\sum_{j=i}^{i+2^m-1} (\operatorname{Br}(k,d))_j
+		=
+		\sum_{j=1}^{2^m-1} (\operatorname{Br}(m,d))_j
+		+ \gamma_h
+		=
+		d_{(m)} + \gamma_h
+		\in \{d_{(m)}, d_{(m)}+1\}
+		.
+	\end{equation}
+\end{proof}
+
+Из~\eqref{eq:binary_approximations_for_number} непосредственно вытекает следующий факт.
+\begin{proposition}
+	\label{prop:Br_has_nulls}
+	Пусть $d<1-3/2^n$.
+	Тогда
+	\begin{equation}
+		(\operatorname{Br}(d,k))_j = 0 \mbox{~~для~~}j = m\cdot 2^n + 1, m\in\mathbb{N} \cup\{0\}
+		.
+	\end{equation}
+\end{proposition}
+
+
+\subsection{Частичный предел в функционале Сачестона}
+
+\begin{proposition}
+	\label{prop:Sucheston_partial_limit}
+	Предел в функционале Сачестона можно заменить частичным пределом, а именно
+	\begin{equation*}
+		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+		= \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{2^n} \sum_{k=m+1}^{m+2^n} x_k
+		.
+	\end{equation*}
+\end{proposition}
+Аналогичное соотношение выполнено и для функционала $q(x)$.
+
+\section{Разделяющее множество нулевой меры}
+
+\begin{theorem}
+	\label{thm:Lin_Omega_Sucheston}
+	Пусть
+	$1 \geq a > b \geq 0$ и
+	$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
+	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
+\end{theorem}
+
+\begin{proof}
+	Выберем $n\in\mathbb{N}$ таким образом, что
+	\begin{equation}
+		\label{eq:Omega_a_b_gap}
+		a - b > \frac{3}{2^n}
+	\end{equation}
+	и $n$ чётно.
+
+	Очевидно, что существует разложение
+	\begin{equation}
+		x = \sum_{i=0}^{k-1} T^i x_i, \quad x_i \in \Omega
+		,
+	\end{equation}
+	где $k\in\mathbb{N}$ и все элементы последовательностей $x_i$,
+	кроме имеющих индексы $km+1$, $m\in\mathbb{N}_0$, являются нулевыми.
+	Пусть $k=2^n$; зафиксируем $i$ и в дальнейшем для удобства записи положим $w=x_i$.
+	Наша задача~--- построить конечную линейную комбинацию элементов из $\Omega^a_b$, равную $w$.
+	%
+	Положим
+	%\begin{equation}
+	%	v = T^{2^n} \operatorname{Br}(2^ n   ,a) + T^{2^{n+1}} \operatorname{Br}(2^{n+1},b) +
+	%	T^{2^{n+2}} \operatorname{Br}(2^{n+2},a) + T^{2^{n+3}} \operatorname{Br}(2^{n+3},b) + ...
+	%\end{equation}
+	%Эта сумма является формальной, т.е. не сходится в смысле ряда по норме,
+	%однако носители слагаемых попарно не пересекаются.
+	%Иначе говоря,
+	\begin{equation}
+		v_j = \begin{cases}
+			0,  & \mbox{~если~} j \leq 2^n,
+			\\
+			(\operatorname{Br}(2^{2k  },a))_{j-2^{2k  }},  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k   \geq n,
+			\\
+			(\operatorname{Br}(2^{2k+1},b))_{j-2^{2k+1}},  & \mbox{~если~} 2^{2k+1} < j \leq 2^{2k+2}, 2k+1 \geq n
+			.
+		\end{cases}
+	\end{equation}
+	Иначе говоря, сначала <<резервируется>> $2^n$ нулевых элементов
+	(большей частью для удобства записи, поскольку конечное количество членов в начале последовательности
+	не влияет на функционалы Сачестона),
+	а затем по очереди приписываются блоки "--- от первого элемента (нулевого) до последнего ненулевого элемента
+	(конца носителя).
+	Положим далее
+	\begin{equation}
+		u_j = \begin{cases}
+			v_j + w_j,  & \mbox{~если~} j \leq 2^n
+			\\
+			            & \mbox{~или~} 2^{4k+3} < j \leq 2^{4k+4} \mbox{~и~} 4k + 3 \geq n,
+			\\
+			v_j         & \mbox{~для остальных~} j
+			.
+		\end{cases}
+	\end{equation}
+
+	В силу утверждения~\ref{prop:Br_has_nulls} все элементы, к которым прибавляются ненулевые элементы $w_j$, равны нулю.
+	Кроме того, с учётом леммы~\ref{lem:sum_Br_k_c} и утверждения~\ref{prop:Sucheston_partial_limit}
+	имеем $p(u)=p(w)=a$ и $q(u)=q(w)=b$.
+	(На <<возмущённом>> блоке $u$ среднее, соответствующее функционалу $q$,
+	увеличивается не более чем на $2^{-n}$ и не влияет на значение функционала $p$,
+	в силу условия~\eqref{eq:Omega_a_b_gap}.)
+	Следовательно, $u,v\in\Omega^a_b$.
+	Заметим теперь, что
+	\begin{equation}
+		(u-v)_j = \begin{cases}
+			w_j,  & \mbox{~если~} j \leq 2^n,
+			\\
+			0,  & \mbox{~если~} 2^{2k  } < j \leq 2^{2k+1}, 2k    \geq n,
+			\\
+			0,  & \mbox{~если~} 2^{4k+1} < j \leq 2^{4k+2}, 4k + 1 \geq n,
+			\\
+			w_j,  & \mbox{~если~} 2^{4k+3} < j \leq 2^{4k+4}, 4k + 3 \geq n
+			.
+		\end{cases}
+	\end{equation}
+
+	Аналогично строятся пары элементов, разность которых равна $w_j$ на $2^{4k+i} < j \leq 2^{4k+i+1}, 4k + i \geq n$ для $i=0,1,2$
+	(требуется только обнулить первые $2^n$ элементов).
+	Складывая полученные таким образом $4\cdot 2^n$ разностей элементов из $\Omega^a_b$, получаем требуемый элемент $x$.
+
+\end{proof}
+
+\begin{corollary}
+	Множество $\Omega^a_b$ является разделяющим.
+	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль~\cite{semenov2010characteristic,connor1990almost},
+	то оно является разделяющим множеством нулевой меры.
+\end{corollary}
+
+
+
+\section{Линейные оболочки множеств, определяемых функционалами Сачестона}
+
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,\ q(x) = b\}$, где $1\geq a>b\geq 0$.
+Оказывается, что аналогичным свойством обладает и ещё одно подмножество пространства $\ell_\infty$: подпространство
+$A_0 c = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
+где~\cite{our-vzms-2018}
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation*}
+В~\cite{our-ped-2018-alpha-Tx} показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
+подпространство $A_0 c$ такой инвариантностью обладает.
+
+Пусть $Y^a_b = \{x\in A_0 c : p(x) = a, q(x) = b\}$, где $a>b$.
+Подготовим сначала вспомогательные леммы о константе.
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0}
+	Пусть $a\neq -b$.
+	Тогда справедливо включение
+	$\mathbb{I}\in \operatorname{Lin} Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Не теряя общности, будем полагать, что $b\geq 0$, тогда $a>0$.
+
+	Определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{equation}\label{operator_S}
+		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
+		.
+	\end{equation}
+	\begin{lemma}[{\cite{our-vzms-2018}}]
+		Для любого $x\in \ell_\infty$ выполнено равенство
+		\begin{equation}\label{alpha_S}
+			\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+			.
+		\end{equation}
+	\end{lemma}
+	Положим
+	\begin{equation}
+		\label{eq:y_for_s_alpha}
+		y = \left(0,1,0,\frac{1}{2},1,\frac{1}{2},0,\frac{1}{3},\frac{2}{3},1,\frac{2}{3},\frac{1}{3},0,...\right)
+		,
+	\end{equation}
+	тогда $Sy\in A_0 c$ и $\mathbb{I}-Sy = S(\mathbb{I}-y)\in A_0 c$.
+
+	Пусть $x=(a-b)Sy+b\mathbb{I}$, $z=(a-b)(\mathbb{I}-Sy)+b\mathbb{I}$.
+	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$ и, следовательно, $x,z\in Y^a_b$.
+	Кроме того, заметим, что
+	\begin{equation}
+		x+z = (a-b)Sy+b\mathbb{I} + (a-b)(\mathbb{I}-Sy)+b\mathbb{I}
+		=
+		(a-b)(Sy-Sy+\mathbb{I}) + 2 b\mathbb{I} = (a+b)\mathbb{I}
+		,
+	\end{equation}
+	откуда и следует, что $\mathbb{I}\in Y^a_b$.
+\end{proof}
+
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0_a_eq_-b}
+	Справедливо включение
+	$\mathbb{I}\in \operatorname{Lin} Y^a_{-a}$.
+\end{lemma}
+
+\begin{proof}
+	Определим линейный оператор $M:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{multline}
+		M\omega=\left(
+			0, 1\omega_1,
+			0, \frac{1}{2}\omega_2, 1\omega_2, \frac{1}{2}\omega_2,
+			0, \frac{1}{3}\omega_3, \frac{2}{3}\omega_3, 1\omega_3, \frac{2}{3}\omega_3, \frac{1}{3}\omega_3,
+			0, ...,
+		\right. \\ \left.
+			0, \frac{1}{p}\omega_p, \frac{2}{p}\omega_p, ..., \frac{p-1}{p}\omega_p, 1\omega_p,
+				\frac{p-1}{p}\omega_p, ..., \frac{2}{p}\omega_p, \frac{1}{p}\omega_p,
+			0, \frac{1}{p+1}\omega_{p+1}, ...
+		\right)
+		.
+	\end{multline}
+	Тогда $SM: \ell_\infty \to A_0 c$.
+
+	Положим $x=aS(2M(\mathbb{I})-\mathbb{I})$,
+	$y=-aS(2M(1,0,1,0,1,0,1,0,...)-\mathbb{I})$,
+	$z=-aS(2M(0,1,0,1,0,1,0,1,...)-\mathbb{I})$.
+
+	Тогда, очевидно, каждая из последовательностей $x,y,z$ содержит отрезки сколь угодно большой длины,
+	состоящие из $a$ (равно как и из $-a$), при этом $-a \leq x,y,z \leq a$.
+	Следовательно, $p(x)=p(y)=p(z) = a$ и $q(x)=q(y)=q(z) = -a$,
+	откуда $x,y,z \in Y^a_{-a}$.
+
+	Заметим теперь, что
+	\begin{multline}
+		x + y + z
+		=
+		\\=
+		aS(2M(\mathbb{I})-\mathbb{I}) - aS(2M(1,0,1,0,1,0,...)-\mathbb{I}) - aS(2M(0,1,0,1,0,1,...)-\mathbb{I})
+		=
+		\\=
+		aS(2M(\mathbb{I})-\mathbb{I}  -    2M(1,0,1,0,1,0,...)+\mathbb{I}  -    2M(0,1,0,1,0,1,...)+\mathbb{I})
+		=
+		\\=
+		aS(2M(\mathbb{I}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbb{I}+\mathbb{I}-\mathbb{I})
+		=
+		\\=
+		aS(2M(\mathbb{I}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbb{I})
+		=
+		aS\mathbb{I}
+		=
+		a\mathbb{I}
+		,
+	\end{multline}
+	откуда $\mathbb{I} \in \operatorname{Lin} Y^a_{-a}$.
+\end{proof}
+
+
+\begin{lemma}
+	\label{lem:c_0_Lin_alpha_0}
+	Справедливо включение $c_0 \subset Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Зафиксируем $z\in c_0$.
+	Выберем произвольный $x \in Y^a_b$.
+	Тогда $x+z\in Y^a_b$ и, очевидно, $z=(x+z)-x$.
+\end{proof}
+
+\begin{theorem}[{\cite[следствие 2]{our-mz2019ac0}}]
+	\label{thm:alpha_c_ac_c}
+	Пусть $x\in ac$, т.е. $p(x) = q(x)$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+\end{theorem}
+
+\begin{theorem}
+	\label{thm:A_0_c_infty_lin}
+	%Пусть $a\neq -b$.
+	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0 c$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in A_0 c$.
+
+	Пусть сначала $p(x) = q(x)$.
+	Тогда, согласно теореме~\ref{thm:alpha_c_ac_c}, $x\in c$
+	и $x$ может быть представлен в виде суммы константы и последовательности из $c_0$.
+	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0}, ~\ref{lem:const_Lin_alpha_0_a_eq_-b} и~\ref{lem:c_0_Lin_alpha_0}.
+
+	Пусть теперь $p(x) > q(x)$.
+	Положим $y=k\cdot x + C\cdot\mathbb{I}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Тогда, очевидно,
+	\begin{equation}
+		\label{eq:x_representation}
+		x=(y-C\cdot\mathbb{I})/k
+		.
+	\end{equation}
+	Представление~\eqref{eq:x_representation} искомое.
+	Действительно, в силу лемм~\ref{lem:const_Lin_alpha_0}~и~\ref{lem:const_Lin_alpha_0_a_eq_-b} выполнено
+	$C\cdot\mathbb{I}\in Y^a_b$; кроме того,
+	\begin{equation}
+		p(y) = k\cdot p(x) + C
+		=
+		%\\=
+		\frac{ap(x)-bp(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		a
+		,
+	\end{equation}
+	\begin{equation}
+		q(y) = k\cdot q(x) + C
+		=
+		%\\=
+		\frac{aq(x)-bq(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		b
+		.
+	\end{equation}
+
+
+\end{proof}
+
+Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:A_0_c_infty_lin}, верен и для
+всего пространство $\ell_\infty$:
+$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
+$X^a_b = \{x\in\ell_\infty : p(x) = a,\ q(x) = b\}$, $a>b$.
+
+
+\begin{lemma}
+	\label{lem:const_Lin_ell_infty}
+	Справедливо включение
+	$\mathbb{I}\in \operatorname{Lin} X^a_b$.
+\end{lemma}
+
+\begin{proof}
+	В самом деле,
+	$Y^a_b \subset X^a_b$
+	и, следовательно,
+	\begin{equation}
+		\mathbb{I} \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
+		.
+	\end{equation}
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Lin_ell_infty}
+	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
+
+	Не теряя общности, положим $x\geq 0$
+	(иначе представим сначала $x$ в виде $x = y - z$, где $y \geq 0$, $z \geq 0$.
+	и найдём представления для $y$ и $z$).
+
+	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
+	такой, что $p(y) > p(x) = q(x)  \geq q(y) \geq 0$.
+	Тогда в силу выпуклости функционала $p$ имеем
+	\begin{equation}
+		p(x+y) \geq p(y) > p(x) = q(x)
+		,
+	\end{equation}
+
+
+	\begin{equation}
+		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y) \leq q(x) < p(x+y)
+		,
+	\end{equation}
+	и задача сведена к отысканию представлений для $y$ и $x+y$.
+	Таким образом, случай $p(x) = q(x)$ можно исключить,
+	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
+
+	Снова, как и в доказательстве теоремы~\ref{thm:A_0_c_infty_lin},
+	положим $y=k\cdot x + C\cdot\mathbb{I}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Дальнейшее доказательство переносится дословно.
+\end{proof}
+
+%TODO: теорема с необходимыми (но не достаточными) условиями для того, чтобы множество было неразделяющим?
+%TODO: а разделяющее ли множество Кантора? Нулевой/ненулевой меры?
+
+\section{Заключительные замечания}
+Подмножество $\Omega$ нулевой меры, не являющееся разделяющим, сконструировать очень легко
+(например, можно взять конечное множество или множество ортов).
+Однако пока неясно, существует ли измеримое подмножество $\Omega$ ненулевой меры,
+не являющееся разделяющим множеством.
+Остаётся открытым и вопрос о том, какие множества (кроме $\Omega$, $A_0 c$ и самого $\ell_\infty$)
+обладают свойством, аналогичным установленному в теоремах~\ref{thm:Lin_Omega_Sucheston},~\ref{thm:Lin_ell_infty}~и~\ref{thm:A_0_c_infty_lin}.
+
+Автор выражает сердечную благодарность проф. Е.М. Семёнову за ценные оветы и плодотворное обсуждение.
+\end{fulltext}
+
+
+
+
+%{{TODO: switch to amsbib
+\printbibliography{}
+\end{document}
+%}}TODO
+
+\begin{thebibliography}{99}
+
+\RBibitem{1}
+\by И.\,Я.~Арефьева, И.\,В.~Волович, Е.\,В.~Писковский
+\paper Скатывание в модели Хиггса и эллиптические функции
+\jour Теоретическая и математическая физика
+\vol 172
+\issue 1 
+\yr 2012 
+\pages 138--154  
+
+
+\RBibitem{2}
+\by В.\,П.~Маслов
+\book Теория возмущений и асимптотические методы
+\publaddr М.
+\publ Изд-во Московского университета
+\yr 1965
+
+\Bibitem{3}
+\by B.~Hellfer
+\paper Theorie spectrale pour des operateurs elliptiques
+\jour Asterisque
+\vol 90
+\pages 1--15
+\yr 1984
+
+
+\RBibitem{4} 
+\by С.\,Ю.~Доброхотов,
+А.\,И.~Шафаревич 
+\paper Квазиклассическое квантование инвариантных изотропных многообразий гамильтоновых систем 
+\inbook Топологические методы в теории гамильтоновых систем 
+\publaddr М.
+\publ Факториал 
+\yr 1998
+
+%Электронный препринт в arXiv
+\RBibitem{5} 
+\by Ph.~Barbe
+\eprint Approximation of integrals over asymptotic sets with applications 
+to probability and statistics \eprintinfo 
+\href{http://arxiv.org/abs/math/0312132}{http://arxiv.org/abs/math/0312132}
+\yr 2003 
+
+ 
+%Статья в трудах конференции
+\RBibitem{6} 
+\by J.\,R.~Isbell
+\paper Epimorphisms and dominions
+\inbook Proceedings of the Conference on Categorical Algebra
+\publ Springer 
+\publaddr New York 
+\yr 1966 
+\pages 232--246
+
+%Препринт
+\RBibitem{7} 
+\by В.\,В.~Кузенов, С.\,В.~Рыжков
+\preprint Математическая модель взаимодействия лазерных пучков высокой энергии с плазменной мишенью в магнитном поле
+\preprintinfo Препринт ИПМех РАН, \No 942
+\publaddr М.
+\yr 2010
+
+\RBibitem{8} 
+\by K.\,O.~Friedrichs
+\book Perturbation of spectra in Hilbert space
+\publaddr Providence
+\publ American Mathematical Society
+\yr 1965
+
+
+\end{thebibliography}
+
+
+\end{document}

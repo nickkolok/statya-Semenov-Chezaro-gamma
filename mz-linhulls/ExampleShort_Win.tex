@@ -18,7 +18,7 @@
 
 
 \usepackage[T2A]{fontenc}
-\usepackage[cp1251]{inputenc}
+\usepackage[utf8,cp1251]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage[tbtags]{amsmath}
 \usepackage{amsfonts,amssymb}
@@ -43,6 +43,26 @@
 \theoremstyle{definition}
 \newtheorem{proof}{Доказательство}\def\theproof{}
 \newtheorem{remark}{Замечание}
+
+
+
+%{{TODO: switch to amsbib
+\inputencoding{utf8}
+
+\usepackage[backend=biber,language=autobib,autolang=other,clearlang=true,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+\inputencoding{cp1251}
+
+%}}TODO
+
 
 
 \overfullrule5pt
@@ -695,6 +715,16 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a,\ q(x) = b\}$, $a>b$.
 
 Автор выражает сердечную благодарность проф. Е.М. Семёнову за ценные оветы и плодотворное обсуждение.
 \end{fulltext}
+
+
+
+
+%{{TODO: switch to amsbib
+\inputencoding{utf8}
+\printbibliography
+\end{document}
+%}}TODO
+
 \begin{thebibliography}{99}
 
 \RBibitem{1}
