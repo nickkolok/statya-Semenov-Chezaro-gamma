@@ -1,0 +1,33 @@
+При изучении банаховых пределов и меры на множестве $\Omega$
+возникает закономерный вопрос о мере множества
+\begin{equation}
+	\{ x \in \Omega : Bx = \beta \}
+\end{equation}
+для заданного банахова предела $B$ и числа $\beta\in[0;1]$.
+(Хаусдорфова размерность этого множества равна 1 в силу леммы~\ref{lem:Hausdorf_measure}.)
+
+\begin{theorem}
+	Пусть $B \in \mathfrak{B}(C)$.
+	Тогда
+	\begin{equation}
+		\mes \{ x \in \Omega : Bx = 1/2 \} = 1
+		.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Так как $B \in \mathfrak{B}(C)$, то
+	\begin{equation}
+		\{ x \in \Omega : Bx = 1/2 \}
+		=
+		\{ x \in \Omega : BCx = 1/2 \}
+		\supset
+		\{ x \in \Omega : \lim_{n\to\infty} (Cx)_n = 1/2 \}
+		.
+	\end{equation}
+	Вместе с тем,
+	\begin{equation}
+		\mes \left\{ x \in \Omega : \lim_{n\to\infty} (Cx)_n  = 1/2 \right\} = 1
+	\end{equation}
+	(это следует из закона больших чисел~\cite{connor1990almost}).
+\end{proof}
