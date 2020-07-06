@@ -1,0 +1,123 @@
+% \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+% \usepackage{biblatex2bibitem}
+
+
+
+\makeatletter
+\def\print@bibitem@command{\textbackslash RBibitem}
+
+
+\protected\def\bibrangedash{%
+-{}-\penalty\hyphenpenalty}
+
+
+\protected\def\textendash{%
+-{}-\penalty\hyphenpenalty}
+
+\protected\def\textemdash{%
+-{}-{}-\penalty\hyphenpenalty}
+
+
+\DeclareUnicodeCharacter{2013}{-{}-}
+\DeclareUnicodeCharacter{2014}{-{}-}
+
+
+\renewbibmacro*{journal}{%
+  \ifboolexpr{
+    test {\iffieldundef{journaltitle}}
+    and
+    test {\iffieldundef{journalsubtitle}}
+  }
+    {}
+    {\printtext[journaltitle]{%
+       \printfield[journaltitle:amsbib]{journaltitle}%
+       \setunit{\subtitlepunct}%
+       \printfield{journalsubtitle}}}%
+}
+
+
+\DeclareFieldFormat{journaltitle:amsbib}{\\ \textbackslash jour #1}
+
+\DeclareFieldFormat*{pages}{\\ \textbackslash pages #1}
+\DeclareFieldFormat[article]{title}{\\ \textbackslash paper #1}
+\DeclareFieldFormat[book]{title}{\\ \textbackslash book #1}
+
+\newbibmacro*{year}{\\ \textbackslash yr \thefield{year}{} \def\addcomma{ } \def\addperiod{ }}
+
+%\renewcommand*{\setrespdelim}{}
+
+\DeclareFieldFormat[article]{number}{\\ \textbackslash issue #1}
+
+\renewcommand*{\bibfont}{}
+\renewcommand*{\subtitlepunct}{}
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\renewcommand*{\mkbibquote}[1]{}
+\renewcommand*{\labelnamepunct}{\addcomma\space}
+\renewbibmacro*{in:}{\\ \textbackslash inbook}
+
+
+% https://tex.stackexchange.com/questions/552509/tweak-authors-in-biblatex-gost/552511#552511
+	% 1
+	\renewbibmacro{bbx:dashcheck}{\textbackslash by }
+	\renewcommand{\bibnamedash}{}
+	%\DeclareFieldFormat{heading}{\textbackslash by #1}
+	% 2
+	\DeclareNameAlias{heading}{given-family}
+	% 3
+	\renewcommand*{\bibinitdelim}{\textbackslash,}
+	% 4
+	\renewcommand*{\bibnamedelimd}{\textasciitilde}
+
+
+\newcommand*{\blxgostdblslash}{}
+\renewbibmacro*{//}{}
+
+\DeclareFieldFormat*{volume}{\\ \textbackslash vol #1}
+\DeclareFieldFormat*{note}{\\ \textbackslash miscnote #1}
+
+\DeclareFieldFormat{isbn}{\\ \textbackslash isbn #1}
+\DeclareFieldFormat{issn}{\\ \textbackslash issn #1}
+\DeclareFieldFormat{url}{\\ \textbackslash elink #1}
+
+\DeclareFieldFormat{publisher}{\\ \textbackslash publ #1}
+
+\renewcommand*{\newblockpunct} {\space}
+
+
+\renewcommand*{\mkbibhdnamefamily}[1]{#1}
+
+
+\DeclareListFormat{publisher}{%
+  \\ \textbackslash publ
+  \ifnumgreater{\value{listcount}}{\value{liststart}}
+    {\ifnumless{\value{listcount}}{\value{liststop}}
+      {\addsemicolondelim}
+      {\ifnumequal{\value{listcount}}{\value{liststop}}
+        {\addsemicolondelim}
+        {}}}
+    {}%
+    #1\isdot}
+
+\newbibmacro*{publisher+location+date}{%
+  \def\addcolondelim{ }%
+  \usebibmacro{publisher+location}%
+  \\\textbackslash year%
+  \def\addcomma{ } \def\addperiod{ }%
+  \usebibmacro{date}}
+
+\DeclareListFormat{location}{%
+  \\ \textbackslash publaddr
+  \ifnumgreater{\value{listcount}}{\value{liststart}}
+    {\ifnumless{\value{listcount}}{\value{liststop}}
+      {\addsemicolondelim}
+      {\ifnumequal{\value{listcount}}{\value{liststop}}
+        {\addsemicolondelim}
+        {}}}
+    {}%
+    #1\isdot}
+
+
+
+\makeatother
+
+
