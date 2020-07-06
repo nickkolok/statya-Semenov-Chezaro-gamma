@@ -45,31 +45,6 @@
 
 
 
-%{{TODO: switch to amsbib
-\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
-\addbibresource{../bib/general_monographies.bib}
-\addbibresource{../bib/ext.bib}
-\addbibresource{../bib/my.bib}
-\addbibresource{../bib/Semenov.bib}
-\addbibresource{../bib/Bibliography_from_Usachev.bib}
-\addbibresource{../bib/classic.bib}
-
-\input{../bib/ext.hyphens.bib}
-
-%https://tex.stackexchange.com/questions/130344/using-citep-leads-to-missing-endcsname-inserted-error/130347#130347
-\makeatletter
-\let\ORG@NAT@sort@cites\NAT@sort@cites
-\def\NAT@sort@cites#1{%
-  \edef\@tempa{\detokenize{#1}}%
-  \ORG@NAT@sort@cites\@tempa
-}
-\makeatother
-
-
-
-\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
-
-%}}TODO
 
 
 
@@ -568,89 +543,95 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a,\ q(x) = b\}$, $a>b$.
 
 
 
-
-%{{TODO: switch to amsbib
-%\printbibliography{}
-
-
-\input{biblatex2amsbib-draft.tex}
-
-\printbibitembibliography{}
-\end{document}
-%}}TODO
-
 \begin{thebibliography}{99}
-
-\RBibitem{1}
-\by И.\,Я.~Арефьева, И.\,В.~Волович, Е.\,В.~Писковский
-\paper Скатывание в модели Хиггса и эллиптические функции
-\jour Теоретическая и математическая физика
-\vol 172
-\issue 1 
-\yr 2012 
-\pages 138--154  
-
-
-\RBibitem{2}
-\by В.\,П.~Маслов
-\book Теория возмущений и асимптотические методы
-\publaddr М.
-\publ Изд-во Московского университета
-\yr 1965
-
-\Bibitem{3}
-\by B.~Hellfer
-\paper Theorie spectrale pour des operateurs elliptiques
-\jour Asterisque
-\vol 90
-\pages 1--15
-\yr 1984
-
-
-\RBibitem{4} 
-\by С.\,Ю.~Доброхотов,
-А.\,И.~Шафаревич 
-\paper Квазиклассическое квантование инвариантных изотропных многообразий гамильтоновых систем 
-\inbook Топологические методы в теории гамильтоновых систем 
-\publaddr М.
-\publ Факториал 
-\yr 1998
-
-%Электронный препринт в arXiv
-\RBibitem{5} 
-\by Ph.~Barbe
-\eprint Approximation of integrals over asymptotic sets with applications 
-to probability and statistics \eprintinfo 
-\href{http://arxiv.org/abs/math/0312132}{http://arxiv.org/abs/math/0312132}
-\yr 2003 
-
- 
-%Статья в трудах конференции
-\RBibitem{6} 
-\by J.\,R.~Isbell
-\paper Epimorphisms and dominions
-\inbook Proceedings of the Conference on Categorical Algebra
-\publ Springer 
-\publaddr New York 
-\yr 1966 
-\pages 232--246
-
-%Препринт
-\RBibitem{7} 
-\by В.\,В.~Кузенов, С.\,В.~Рыжков
-\preprint Математическая модель взаимодействия лазерных пучков высокой энергии с плазменной мишенью в магнитном поле
-\preprintinfo Препринт ИПМех РАН, \No 942
-\publaddr М.
-\yr 2010
-
-\RBibitem{8} 
-\by K.\,O.~Friedrichs
-\book Perturbation of spectra in Hilbert space
-\publaddr Providence
-\publ American Mathematical Society
-\yr 1965
-
-
+	%
+	\RBibitem{Mazur}
+	\by S.~Mazur,
+	\paper O metodach sumomalności
+	\jour Ann. Soc. Polon. Math. (Supplement)
+	\yr 1929
+	\pages 102--107
+	%
+	\RBibitem{banach1993theorie}
+	\by S.~Banach,
+	\book Théorie des opérations linéaires,
+	\publaddr Sceaux
+	\publ Éditions Jacques Gabay
+	\year 1993
+	\pages iv+128
+	%\isbn 2-87647-148-5
+	\miscnote Reprint of the 1932 original
+	%
+	\RBibitem{sucheston1967banach}
+	\by L.~Sucheston,
+	\paper Banach limits
+	\jour Amer. Math. Monthly
+	\yr 1967
+	\vol 74
+	\pages 308--311
+	%\issn 0002-9890
+	%
+	\RBibitem{lorentz1948contribution}\by G.\,G.~Lorentz,
+	\paper A contribution to the theory of divergent sequences
+	\jour Acta Mathematica
+	\yr 1948
+	\vol 80
+	\issue 1
+	\pages 167--190
+	%\issn 0001-5962
+	%
+	\RBibitem{Semenov2014geomprops}
+	\by Е.\,М.~Семёнов, Ф.\,А.~Сукочев, А.\,С.~Усачев,
+	\paper Геометрические свойства множества банаховых пределов
+	\jour Известия Российской академии наук. Серия математическая
+	\yr 2014
+	\vol 78
+	\issue 3
+	\pages 177--204
+	%
+	\RBibitem{semenov2010characteristic}
+	\by Е.\,М.~Семенов, Ф.\,А.~Сукочев,
+	\paper Характеристические функции банаховых пределов
+	\jour Сибирский математический журнал
+	\yr 2010
+	\vol 51
+	\issue 4
+	\pages 904--910
+	%
+	\RBibitem{connor1990almost}
+	\by J.~Connor,
+	\paper Almost none of the sequences of 0’s and 1’s are almost convergent
+	\jour International Journal of Mathematics and Mathematical Sciences
+	\yr 1990
+	\vol 13
+	\issue 4
+	\pages 775--777
+	%
+	\RBibitem{our-vzms-2018}
+	\by Н.\,Н.~Авдеев, Е.\,М.~Семенов,
+	\paper Об асимптотических свойствах оператора Чезаро
+	\jour Воронежская Зимняя Математическая школа С.Г. Крейна -- 2018.
+	Материалы Международной конференции. Под ред. В.А. Костина.
+	\yr 2018
+	\pages 107--109
+	%
+	\RBibitem{our-ped-2018-alpha-Tx}
+	\by Н.\,Н.~Авдеев,
+	\paper О суперпозиции оператора сдвига и одной функции на пространстве
+	ограниченных последовательностей
+	\jour Некоторые вопросы анализа, алгебры, геометрии и математического
+	образования.
+	\yr 2018\pages 20--21
+	%
+	\RBibitem{our-mz2019ac0}
+	\by Н.\,Н.~Авдеев,
+	\paper О пространстве почти сходящихся последовательностей
+	\jour Математические заметки
+	\yr 2019
+	\vol 105
+	\issue 3
+	\pages 462--466
+	%\elink http://mi.mathnet.ru/rus/mz/v105/i3/p462
 \end{thebibliography}
 
 
