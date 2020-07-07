@@ -1,0 +1,95 @@
+Хорошо известен следующий факт
+[TODO: ссылка? Где это можно посмотреть?]
+
+\begin{lemma}
+	\label{lem:simple_powers_in_ac0}
+	Пусть $x_n = m^n$, $m\in\mathbb{N}$, $m\geq 2$.
+	Тогда 
+	\begin{equation}
+		\chi_x \in ac_0
+		.
+	\end{equation} 
+\end{lemma}
+
+Обобщим теперь утверждение леммы~\ref{lem:simple_powers_in_ac0}.
+
+\begin{lemma}
+	Пусть $y_n$ --- строго возрастающая последовательность,
+	$\chi_y\in\{0;1\}^\mathbb{N} \cap ac_0$.
+	Пусть $m \in \mathbb{N}$.
+	Тогда почти сходится к нулю последовательность $x_k$, определённая соотношением
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторых~} i,j\in\mathbb{N},
+			\\
+			0  &\mbox{~иначе}
+			.
+		\end{cases}
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Зафиксируем некоторое $K \in \mathbb{N}$ и покажем, что $p(x) < m^{-K}$.
+	Действительно, представим $x$ в виде суммы
+	\begin{equation}
+		\label{eq:ac0_powers_x_as_sum}
+		x \leq z_1 + z_2 + \dots + z_K + z'_{K+1}
+		,
+	\end{equation}
+	где
+	\begin{equation}
+		(z_j)_k = \begin{cases}
+			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторого~} i\in\mathbb{N},
+			\\
+			0  &\mbox{~иначе}
+			,
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		\label{eq:ac0_powers_residue}
+		(z'_j)_k = \begin{cases}
+			1, &\mbox{~если~} k = y_i \cdot m^{j'} \mbox{~для некоторых~} i,j'\in\mathbb{N},~~ j' > j,
+			\\
+			0  &\mbox{~иначе}
+			.
+		\end{cases}
+	\end{equation}
+	(Знак неравенства в~\eqref{eq:ac0_powers_x_as_sum} ставится ввиду того, что возможен случай
+	$y_i \cdot m^j = y_{i'} \cdot m^{j'}$ для $j\neq j'$.)
+	Понятно, что $p(z_j)=0$.
+	Таким образом,
+	\begin{equation}
+		p(x) \leq p(z_1) + p(z_2) + \dots + p(z_K) + p(z'_{K+1}) = p(z'_{K+1})
+		.
+	\end{equation}
+	Заметим, что в силу определения~\eqref{eq:ac0_powers_residue} $z'_j$ каждый отрезок из $m^{j+1}$ элементов
+	содержит не более одной единицы, и потому $p(z'_j) \leq m^{-j-1} < m^{-j}$.
+	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{K}$,
+	откуда $p(x) = 0$.
+\end{proof}
+
+\begin{corollary}
+	Пусть $\{p_1, ..., p_k\} \subset \mathbb{N}$,
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~для некоторых~} j_1,...,j_k\in\mathbb{N},
+			\\
+			0  &\mbox{~иначе}.
+		\end{cases}
+	\end{equation}
+\end{corollary}
+
+
+\begin{hypothesis}
+	Пусть $y_n$ и $z_n$ --- строго возрастающие последовательности,
+	$\chi_y,\chi_z\in\{0;1\}^\mathbb{N} \cap ac_0$.
+	Тогда почти сходится к нулю последовательность $x_k$, определённая соотношением
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = y_i \cdot z_j \mbox{~для некоторых~} i,j\in\mathbb{N},
+			\\
+			0  &\mbox{~иначе}
+			.
+		\end{cases}
+	\end{equation}
+\end{hypothesis}
