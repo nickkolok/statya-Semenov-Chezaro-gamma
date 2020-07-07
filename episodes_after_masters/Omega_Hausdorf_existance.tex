@@ -9,7 +9,7 @@ TODO: список!
 
 
 \begin{theorem}
-	\label{lem:Hausdorf_measure}
+	\label{thm:Hausdorf_measure_1_n}
 	Пусть $n\in\mathbb{N}$.
 	Тогда существует разделяющее множество $E\subset\Omega$ такое,
 	что $\dim_H E = 1/n$.
@@ -47,7 +47,31 @@ TODO: список!
 	$d=1/n.$
 \end{proof}
 
+\begin{remark}
+	У читателя может возникнуть закономерный вопрос о свойствах пересечения
+	\begin{equation}
+		\bigcap_{n\in \mathbb{N}} E_{2^n}
+		,
+	\end{equation}
+	где $E_n$ "--- множество, построенное по теореме~\ref{thm:Hausdorf_measure_1_n}, т.е.
+	\begin{equation}
+		Е_n = \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \mathbb{N}
+		,
+	\end{equation}
+	в частности о том, является ли оно разделяющим множеством нулевой хаусдорфовой размерности.
+	К сожалению, ответ на этот вопрос положителен только во второй части, а именно
+	\begin{equation}
+		\bigcap_{n\in \mathbb{N}} E_n = {(0,0,0,...)}
+		.
+	\end{equation}
+	Таким образом, пересечение вложенной последовательности разделяющих множеств может не быть разделяющим множеством.
+	Впрочем, существует и более простой пример:
+	в качестве вложенной последовательности разделяющих множеств следует взять $\{M_n\} = [0, 2^{-n}]$.
+	Очевидно, что $\bigcup\limits M_n = \{0\}$.
+\end{remark}
 
 
-
-
+\begin{remark}
+	Пусть $n>1$ и множество $E$ построено по теореме~\ref{thm:Hausdorf_measure_1_n}.
+	Тогда $p(E)< 1$ и, TODO: ref, мера $E$ равна нулю.
+\end{remark}
