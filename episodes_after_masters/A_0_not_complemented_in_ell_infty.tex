@@ -1,0 +1,180 @@
+Пусть $A_0 = \{x\in\ell_\infty : \alpha(x) = 0\}$.
+
+Известно, что в $\ell_\infty$ многие пространства недополняемы.
+
+TODO: краткий обзор - передрать из Conway 2nd ed., p. 94
+
++ ссылка на Алехно TODO: передрать из mz-ac0
+
+Целью настоящего параграфа является доказательство недополняемости пространства $A_0$ в $\ell_\infty$.
+
+Оно основано на доказательстве [TODO: Whitely],
+которое какой-то добрый человек изложил
+[TODO: ссылка на StackExchange] понятными (хотя и английскими) словами и нарезал на леммы.
+% https://math.stackexchange.com/questions/2467426/why-doesnt-c-0-admit-a-complement-in-l-infty/2467569#2467569
+
+\begin{lemma}
+	\label{lem:uncountable_subsets_of_N_with_finite_intersections}
+	Существует несчётное семейство подмножеств $\{S_i\}_{i\in I}$, $S_i \subset \mathbb{N}$,
+	такое, что каждое множество $S_i$ счётно, но для любых $i\neq j$ пересечение $S_i \cap S_j$ конечно.
+	%Then there is an uncountable family of infinite subsets of $\mathbb N$ with finite intersections.
+\end{lemma}
+
+\begin{proof}
+	Рассмотрим биекцию $\mathbb{N} \leftrightarrow \mathbb{Q}$.
+	Пусть $I = \mathbb{R}$.
+	Для каждого $i\in I$ положим $S_i = \{q_n\}$,
+	где $\{q_n\} \subset \mathbb{Q}$ "--- некоторая последовательность рациональных чисел,
+	сходящаяся к $i$.
+	%(Proof: switch from $\mathbb{N}$ to $\mathbb{Q}$, pick convergent sequences to irrationals.
+	%More details in [this question](https://math.stackexchange.com/q/162387).)
+\end{proof}
+
+\begin{lemma}
+	\label{lem:c_0_not_complemented}
+	Пусть линейный оператор $Q: \ell_\infty \to \ell_{\infty}$ таков, что $c_0\subseteq \ker Q$.
+	%Let $T: \ell_\infty \to \ell^{\infty}$ be an operator such that $\ker T\supseteq c_0$.
+	Тогда существует счётное подмножество $S \subset \mathbb{N}$ такое, что
+	\begin{equation}
+		\forall(x \in \ell_\infty : \supp x \subset S)[Qx = 0]
+		.
+	\end{equation}
+	%Then there is an infinite subset $A$ of $\mathbb{N}$ such that $P(x) = 0$ for all $x$ supported on $A$.
+\end{lemma}
+
+\begin{proof}
+	Пусть $\{S_i\}_{i \in I}$ есть семейство подмножеств $\mathbb{N}$,
+	удовлетворяющее условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	%Consider a family $\{A_i\}_{i \in I}$  as in Step 1.
+	Предположим противное:
+	\begin{equation}
+		\forall(i\in I)\exists(x_i \in \ell_\infty : \supp x_i \subset S_i)[Q(x_i) \neq 0]
+		.
+	\end{equation}
+	%Suppose to the contrary that for each $i \in I$ we can find $x_i \in \ell_\infty$ supported on $A_i$ such that $T(x_i) \neq 0$.
+	%Тогда, очевидно, $x_i \notin c_0$.
+	Нормализацией можно добиться того, что $\|x_i\|=1$ для всех $i \in I$.
+	(Нормализацией и добрым слово можно добиться гораздо большего, чем просто добрым словом)%TODO: выпилить!
+	% , in particular $x_i \notin c_0$. Normalizing $x_i$, we may assume that $\|x_i\|=1$ for all $i \in I$.
+	
+	Пусть $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
+	тогда $I = \bigcup\limits_{n\in\mathbb{N}} I_n$
+	и, в силу несчётности $I$, существует такое $n$,
+	что $I_n$ несчётно
+	(иначе $I$ было бы счётно как счётное объединение счётных множеств).
+	% Since $I$ is uncountable there must be $n \in \mathbb{N}$ such that $I_n := \{i \in I\,:\,(Tx_i)(n) \neq 0\}$ is uncountable.
+	
+	Пусть далее $I_{n,k} = \{i \in I\,:\,|(Qx_i)n| \geq 1/k\}$,
+	тогда $I_n = \bigcup\limits_{k\in\mathbb{N}} I_{n,k}$.
+	Аналогичные рассуждения показывают, что для некоторого $k$ множество $I_{n,k}$ несчётно.
+	% Since $I_n$ is uncountable, there must be $k$ such that $I_{n,k} := \{i \in I\,:\,|(Tx_i)(n)| \geq 1/k\}$ is uncountable.
+	Зафиксируем такое $I_{n,k}$ и в дальнейшем будем работать с ним.
+	% Now fix $n$ and $k$ such that $I_{n,k}$ is uncountable.
+	
+	Рассмотрим конечное множество $J \subset I_{n,k}$,
+	$\#J>1$ (здесь $\#J$ обозначает мощность множества $J$),
+	и положим
+	\begin{equation}
+		y = \sum_{j \in J} \operatorname{sign}{(Qx_j)_n} \cdot x_j
+		.
+	\end{equation}
+	%Let $J \subset I_{n,k}$ be finite and consider $y = \sum_{j \in J} \operatorname{sign}{[(Tx_j)(n)]} \cdot x_j$.
+	Тогда
+	\begin{equation}
+		\label{eq:non_complemented_sum_cardinality}
+		(Qy)_n = \sum_{j \in J} 
+		(\operatorname{sign}(Qx_j)_n)
+		\cdot (Qx_j)_n \geq \frac{\# J}{k}
+		.
+	\end{equation}
+	%Note that
+	%$$
+	%(Ty)(n) = \sum_{j \in J} \operatorname{sign}{[(Tx_j)(n)]}\cdot (Tx_j)(n) \geq \frac{\# J}{k}
+	%$$
+	%by our choice of $y$.
+	Поскольку пересечение $S_i \cap S_j$ конечно для любых $i \neq j$ и
+	$\supp x_j \subset S_j$,
+	то пересечение $\bigcap\limits_{j\in J} \supp x_j$ также конечно.
+	%Since $A_i \cap A_j$ is finite for $i \neq j$,
+	Следовательно, $y = f + z$,
+	где $\supp f$ конечен и $\|z\| \leq 1$.
+	% we can write $y = f + z$ where $f$ has finite support and $\|z\| \leq 1$.
+	Заметим, что $f\in c_0$ и, в силу условия $c_0 \subseteq \ker Q$ мы имеем $Qf = 0$.
+	% Thus $T(y) = T(f) + T(z) = T(z)$ by hypothesis on $T$
+	Следовательно, $Qy = Qz$ и $\|Q(y)\| \leq \|Q\| \|z\| \leq \|Q\|$.
+	%    and therefore $\|T(y)\| \leq \|T\| \|z\| \leq \|T\|$.
+	С учётом~\eqref{eq:non_complemented_sum_cardinality} получаем $\# J \leq \|Q\| k$ для любого $J\subset I_{n,k}$.
+	Таким образом мы получаем противоречие с тем фактом, что $I_{n,k}$ несчётно.
+	% This yields $\# J \leq \|P\| k$ contradicting that $I_{n,k}$ is infinite.
+\end{proof}
+
+\begin{theorem}
+	Пространство $A_0$ недополняемо в $\ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Предположим противное.
+	Тогда существует непрерывный проектор $P: \ell_\infty \to A_0$.
+	%If $c_0$ were complemented in $\ell_\infty$, there would be a continuous projection $P: \ell_\infty \to \ell_\infty$ with range $c_0$.
+	Применим лемму~\ref{lem:c_0_not_complemented} к оператору $I-P$ и найдём бесконечное подмножество $S\subset\mathbb{N}$ такое,
+	что $\forall(x\in\ell_\infty : \supp x \subset S)[(I-P)x = 0]$.
+	Но тогда $\alpha(P\chi_S) = \alpha(\chi_S) = 1$, т.е. $P\chi_S \notin A_0$.
+	Полученное противоречие завершает доказательство.
+	%  Applying Step 2 with $T = I-P$ we would find an infinite set $A$ such that $(I-P)(x) = 0$ for all sequences supported in $A$. But then $P(\chi_A) = \chi_A\notin c_0$, a contradiction. $\quad\Box $
+\end{proof}
+
+Аналогичную технику можно применить и к другим задачам о дополняемости.
+
+
+     
+
+\begin{lemma}
+	\label{lem:c_0_not_complemented_in_ac_0}
+	Пусть линейный оператор $Q: ac_0 \to ac_0$ таков, что $c_0\subseteq \ker Q$.
+	%Let $T: \ell_\infty \to \ell^{\infty}$ be an operator such that $\ker T\supseteq c_0$.
+	Тогда существует счётное подмножество $S \subset \mathbb{N}$ такое, что
+	\begin{equation}
+		\forall(x \in ac_0 : \supp x \subset S)[Qx = 0]
+		.
+	\end{equation}
+	%Then there is an infinite subset $A$ of $\mathbb{N}$ such that $P(x) = 0$ for all $x$ supported on $A$.
+\end{lemma}
+
+\begin{proof}
+	Пусть $\{U_i\}_{i \in I}$ есть семейство подмножеств $\mathbb{N}$,
+	удовлетворяющее условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	Определим множества $S_i$ через их характеристические функции:
+	\begin{equation}
+		\chi_{S_i} (n) = \begin{cases}
+			1, & ~\mbox{если}~ n = k^2, k\in U_i,
+			\\
+			0  & ~\mbox{иначе.}
+		\end{cases}
+	\end{equation}
+	Легко видеть, что семейство $\{S_i\}_{i \in I}$ удовлетворяет условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	%Consider a family $\{A_i\}_{i \in I}$  as in Step 1.
+	Предположим противное:
+	\begin{equation}
+		\forall(i\in I)\exists(x_i \in ac_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
+		.
+	\end{equation}
+	Дальнейшее доказательство переносится из леммы~\ref{lem:c_0_not_complemented} дословно.
+\end{proof}
+
+\begin{theorem}
+	Пространство $c_0$ недополняемо в $ac_0$.
+\end{theorem}
+
+
+\begin{proof}
+	Предположим противное.
+	Тогда существует непрерывный проектор $P: ac_0 \to c_0$.
+	Применим лемму~\ref{lem:c_0_not_complemented_in_ac_0} к оператору $I-P$
+	и найдём бесконечное подмножество $S\subset\mathbb{N}$ такое,
+	что $\forall(x\in ac_0 : \supp x \subset S)[(I-P)x = 0]$
+	(такой $x \in ac_0 \setminus c_0$ всегда найдётся, даже если $\chi_S \notin ac_0$).
+	Но тогда $Px\notin c_0$.
+	Полученное противоречие завершает доказательство.
+\end{proof}
+
+
