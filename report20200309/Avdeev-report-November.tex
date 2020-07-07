@@ -1,0 +1,237 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+\usepackage{bbm}
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\addbibresource{../../sct-statya/common/my.bib}
+
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}%[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{remark}[lemma]{Замечание}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\setcounter{page}{2}
+
+Одним из основных объектов научно-исследовательской работы, выполняемой при поддержке гранта,
+является пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+является понятие банахова предела.
+
+
+\begin{definition}
+	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}. 
+
+
+Сачестон~\cite{sucheston1967banach} установил, что
+для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соотвественно.
+Заметим, что $p(x) = -q(-x)$.
+Неравенства \eqref{Sucheston} точны:
+для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$~~\cite{lorentz1948contribution}.
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+Основным результатом, полученным в ходе исследования коммутации банаховых пределов и интеграла Лебега,
+стала невозможность аппроксимации произвольного банахова предела частичными функционалами Сачестона.
+
+Определим на пространстве $\ell_\infty$ функционал
+\begin{equation}
+	F_{i,j} (x) =\frac{1}{i} \sum_{k=j+1}^{j+i} x_k
+	.
+\end{equation}
+
+Можно легко доказать следующее утверждение:
+
+\begin{lemma}
+	Для любых $x\in\ell_\infty$, $B\in\mathfrak{B}$ и $\varepsilon>0$ существуют такие $i$ и $j$,
+	что
+	\begin{equation}
+		\label{eq:sucheston_approx_epsilon}
+		|Bx - F_{i,j}(x)| < \varepsilon
+		.
+	\end{equation}
+\end{lemma}
+
+Однако, как выясняется, можно найти такие две последовательности $x$ и $y$,
+банахов предел $B$ и число $\varepsilon>0$, что <<общих>> индексов в предыдущей лемме найти не удастся.
+
+\begin{example}
+	Пусть
+	\begin{equation}
+		x_k = \begin{cases}
+			1, \mbox{~если~} 2^{2m} \leq k < 2^{2m} + m, m > 6
+			\\
+			0 \mbox{~иначе,~}
+		\end{cases}
+	\end{equation}
+	\begin{equation}
+		y_k = \begin{cases}
+			1, \mbox{~если~} 2^{2m+1} \leq k < 2^{2m+1} + m, m > 6
+			\\
+			0 \mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+	Пусть $L = B|_{ac}$, где $B\in\mathfrak{B}$ ($L$, очевидно, не зависит от выбора $B$).
+	Непосредственно используя конструкции из доказательства теоремы Сачестона~\cite{sucheston1967banach},
+	можно последовательно продлить $L$ сначала на $A_1 = \operatorname{Lin}(ac, x)$
+	так, что $L(x) = 1 = p(x)$,
+	а затем и на $A_2 = \operatorname{Lin}(ac, x,y)$
+	так, что $L(y) = 1 = p(y)$
+	(это возможно, так как $y\notin A_1$).
+	Продлив $L$ на всё $\ell_\infty$ с сохранением неравенства $Lx\leq p(x)$,
+	мы получим банахов предел.
+	(Здесь мы обозначаем все продолжения функционала и полученный в результате банахов предел одной и той же буквой
+	для краткости.)
+
+	Пусть теперь $\varepsilon = 1/2$.
+	Попробуем найти общие $i$ и $j$.
+	Для $x$ условие~\eqref{eq:sucheston_approx_epsilon} принимает вид
+	\begin{equation}
+		|1 - F_{i,j}(x)| < 1/2
+		,
+	\end{equation}
+	или, с учётом неравенства $0 \leq F_{i,j}(x) \leq 1$,
+	\begin{equation}
+		\label{eq:suchecton_approx_x_1_2}
+		F_{i,j}(x) > 1/2
+		.
+	\end{equation}
+	Для выполнения условия~\eqref{eq:suchecton_approx_x_1_2} необходимо (хотя и не достаточно),
+	чтобы выполнялись неравенства
+	\begin{equation}
+		\label{eq:sucheston_approx_cases_j_x}
+		\begin{cases}
+			 2^{2m} - m \leq j < 2^{2m} + m,
+			 \\
+			 i \leq 2m
+			 .
+		\end{cases}
+	\end{equation}
+	Аналогично для $y$ получаем условия
+	\begin{equation}
+		\label{eq:sucheston_approx_cases_j_y}
+		\begin{cases}
+			 2^{2n+1} - n \leq j < 2^{2n+1} + n,
+			 \\
+			 i \leq 2n
+			 .
+		\end{cases}
+	\end{equation}
+	Легко видеть, что требования, накладываемые на $j$ в~\eqref{eq:sucheston_approx_cases_j_x} и~\eqref{eq:sucheston_approx_cases_j_y},
+	несовместимы.
+	Следовательно, <<общих>> индексов действительно не существует.
+\end{example}
+
+
+Для множеств точек с целочисленными расстояниями в евклидовом пространстве
+(англ. \textit{integral point sets}, общепринятый лаконичный перевод на русский язык отсутствует ввиду того,
+что подавляющая часть исследований по данному вопросу ведётся за границей)
+исследованы свойства, присущие множествам полуобщего положения
+(т.е. таким множествам, в которых никакие три точки не лежат на прямой).
+Установлено, что для таких множеств можно дать нижнюю оценку на диаметр в зависимости от мощности,
+более точную чем линейную, а именно полиномиальную с показателем $5/4$.
+Этот результат опубликован на arXiv~\cite{my-semi-general-5-4-bound-2019}.
+Ценность этого результата в том, что все полученные ранее другими учёными
+были линейными, а также в том, что полученная оценка является первой оценкой,
+специфичной для множест полуобщего положения.
+
+
+
+Таким образом, запланированные работы по гранту выполнены в полном объёме.
+
+
+
+
+\addcontentsline{toc}{chapter}{Список литературы}
+\small
+\printbibliography{}
+
+\end{document}

@@ -1,0 +1,205 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+\usepackage{bbm}
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\addbibresource{../../sct-statya/common/my.bib}
+
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}%[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{remark}[lemma]{Замечание}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\setcounter{page}{2}
+
+Одним из основных объектов научно-исследовательской работы, выполняемой при поддержке гранта,
+является пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+является понятие банахова предела.
+
+
+\begin{definition}
+	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}. 
+
+
+Сачестон~\cite{sucheston1967banach} установил, что
+для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соотвественно.
+Заметим, что $p(x) = -q(-x)$.
+Неравенства \eqref{Sucheston} точны:
+для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$~~\cite{lorentz1948contribution}.
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+
+При исследовании банаховых пределов особый интерес представляют разделяющие множества~\cite[\S 3]{Semenov2014geomprops}.
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является~\cite{semenov2010characteristic} множество всех последовательностей из 0 и 1,
+которое в дальнейшем мы будем обозначать через $\Omega$
+(иногда в литературе встречается также обозначение $\{0;1\}^\mathbb{N}$).
+
+Каждой последовательности $(x_1, x_2, \dots)\in \Omega$ можно поставить в соответствие число
+\begin{equation}\label{eq:bijection_omega_0_1}
+	\sum_{k=1}^\infty 2^{-k} x_k \in [0,1]
+	.
+\end{equation}
+С точностью до счётного множества это соответствие взаимно однозначно и определяет на множестве $\Omega$ меру,
+которую мы будем отождествлять с мерой Лебега на $[0,1]$.
+
+
+Именно исследование связи этой меры с почти сходимостью и ыло одним изосновных предметов научно-исследовательской работы.
+
+Для исследования этой связи было введено отображение (нелинейный оператор) $Q:\Omega\to\Omega$:
+\begin{equation}
+	(Qx)_k = \begin{cases}
+		x_k, &\mbox{если~} k = 1,
+		\\
+		|x_k-x_{k-1}|&\mbox{иначе}.
+	\end{cases}
+\end{equation}
+
+\begin{remark}
+	Может показаться, что оператор $Q$ очень сходен с оператором границы последовательности $\operatorname{bd}$
+	~\cite{keller1992invariant},
+	однако это не так.
+\end{remark}
+
+Установлено, что $Q$ является биекцией.
+
+Отображение $Q$ приложено к нахождению меры множества $W$,
+введённого в~\cite[\S 5]{Semenov2014geomprops}.
+
+Пусть $W$~--- множество всех последовательностей $\chi_e$, где $e =\bigcup_{k=1}^{\infty} [n_{2k-1}, n_{2k} )$
+и $\{n_k \}_{k=1}^{\infty}$
+удовлетворяет условию
+\begin{equation}
+	\label{eq:lim_j_n_kj_measure}
+	\lim_{j\to\infty}\frac{n_{k+j} - n_k}{j} = \infty
+\end{equation}
+равномерно по $k \in \mathbb{N}$.
+
+Множество $W$ является разделяющим множеством для банаховых пределов
+и играет важную роль в их исследовании.
+
+Установлено, что множество $W$ имеет меру нуль в смысле, определённом выше.
+Подробное доказательство готовится к публикации.
+
+Основными инструментами, используемыми в этом доказательстве, являются:
+\begin{itemize}
+	\item
+		классическая теорема Каратеодори~\cite[Theorem 1.53]{klenke2013probability};
+	\item
+		процедура <<пополнения>> борелевской сигма-алгебры до лебеговской~\cite[Example 1.71]{klenke2013probability};
+	\item
+		установленное в ходе научно-исследовательской работы по гранту свойство отображения $Q$ сохранять меру;
+	\item
+		установленное в ходе научно-исследовательской работы по гранту собственное вложение $QW \subset ac_0$;
+	\item
+		теорема Коннора о нулевой мере множества $ac\cap\Omega$~\cite{semenov2010characteristic,connor1990almost}.
+\end{itemize}
+
+Это результат анонсирован в~\cite{AvSU}, подробное доказательство готовится к публикации.
+
+В ходе дальнейшего исследования свойств биекции $Q$ и перспектив её приложения к вопросам меры было установлено,
+что $Q^{-2}ac_0$ не вложено в $ac_0$.
+
+Таким образом, запланированные работы по гранту выполнены в полном объёме.
+
+
+
+
+\addcontentsline{toc}{chapter}{Список литературы}
+\small
+\printbibliography{}
+
+\end{document}
