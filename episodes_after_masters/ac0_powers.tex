@@ -48,7 +48,8 @@
 	\begin{equation}
 		\label{eq:ac0_powers_residue}
 		(z'_j)_k = \begin{cases}
-			1, &\mbox{~если~} k = y_i \cdot m^{j'} \mbox{~для некоторых~} i,j'\in\mathbb{N},~~ j' > j,
+			1, &\mbox{~если~} k = y_i \cdot m^{j'} \mbox{~для некоторых~} i,j'\in\mathbb{N},~~ j' > j
+			\\ &\mbox{~и ни для какого~} j' \leq j \mbox{~не выполнено~} k = y_i \cdot m^{j'},
 			\\
 			0  &\mbox{~иначе}
 			.
@@ -64,7 +65,7 @@
 	\end{equation}
 	Заметим, что в силу определения~\eqref{eq:ac0_powers_residue} $z'_j$ каждый отрезок из $m^{j+1}$ элементов
 	содержит не более одной единицы, и потому $p(z'_j) \leq m^{-j-1} < m^{-j}$.
-	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{K}$,
+	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{-K}$,
 	откуда $p(x) = 0$.
 \end{proof}
 
