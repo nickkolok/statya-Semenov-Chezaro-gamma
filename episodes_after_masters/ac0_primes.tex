@@ -280,7 +280,88 @@
 	\end{enumerate}
 \end{theorem}
 
-\longcomment{
+Перейдём теперь к изучению верхнего функционала Сачестона $p(\psi(A))$.
+
+\begin{theorem}
+	\label{thm:ac0_primes_p_psi_A_prod}
+	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- счётное множество попарно взаимно простых чисел.
+	Тогда
+	\begin{equation}
+		p(\psi(A)) = \prod_{j=1}^\infty \frac{a_j -1}{a_j}
+		.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $k\in\mathbb{N}$.
+
+	Заметим, что верхний функционал Сачестона можно представить в виде
+	\begin{equation}
+		\label{eq:ac0_primes_px_lim_pnx}
+		p(x) = \lim_{n\to\infty} p_n(x)
+		,
+	\end{equation}
+	где
+	\begin{equation}
+		p_n(x) = \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
+		.
+	\end{equation}
+
+	Поскольку предел~\eqref{eq:ac0_primes_px_lim_pnx} существует, то для его оценки можно использовать предел подпоследовательности
+	$p_{n_k}(x)$, где $n_k = a_1\cdot a_2 \cdot ... \cdot a_k$.
+
+
+	Cреди первых $n_k$ элементов последовательности $\psi(A)$
+	ровно $\prod_{j=1}^k \frac{a_j-1}{a_j}$ единиц, поскольку комбинации остатков от деления
+	на взаимно простые числа $a_1, a_2, ..., a_k$ <<не успевают>> повторяться.
+	Следовательно,
+	\begin{equation}
+		p_{n_k}(\psi(A)) =
+		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
+		\geq
+		\frac{1}{n} \sum_{j=1}^{n_k} (\psi(A))_j
+		=
+		\prod_{i=1}^k \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+	Переходя к пределу по $k$, имеем
+	\begin{equation}
+		\label{eq:ac0_primes_p_psi_A_lower_bound}
+		p(\psi(A)) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		=
+		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+
+	Заметим теперь, что в любом отрезке последовательности $\psi(A)$ длины $n_k$
+	содержится не более $\prod_{j=1}^k \frac{a_j-1}{a_j}$ единиц
+	(могут попадаться <<дополнительные>> нули "--- элементы с индексами, кратными $a_j$ для $j>k$).
+	Значит,
+	\begin{equation}
+		p_{n_k}(\psi(A)) =
+		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
+		\leq
+		\prod_{i=1}^k \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+	Снова перейдя к пределу по $k$, получим
+	\begin{equation}
+		\label{eq:ac0_primes_p_psi_A_upper_bound}
+		p(\psi(A)) \leq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		=
+		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+
+	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
+\end{proof}
+
+\begin{remark}
+	В случае, когда $A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
+	и, соответственно, $p(\psi(A))=0$.
+\end{remark}
+
+
 
 В~\cite{euler1737variae} доказана следующая
 \begin{theorem}
@@ -297,6 +378,7 @@
 Из теоремы~\ref{thm:Euler_reverse_primes_diverge} выводится следующее утверждение.
 
 \begin{corollary}
+	\label{cor:ac0_primes_sum_ln_diverges}
 	Ряд
 	\begin{equation}
 		\sum_j \ln \frac{j+1}{j}
@@ -311,6 +393,7 @@
 	\end{equation}
 	получаем, что для достаточно больших $n$
 	\begin{equation}
+		\label{eq:ac0_primes_ineq_2nd_nice_lim}
 		\sqrt{e} < \left( 1 + \frac{1}{n} \right)^n < e^2
 		.
 	\end{equation}
@@ -324,7 +407,7 @@
 		\ln \frac{n+1}{n} > \frac{1}{2n}
 		.
 	\end{equation}
-	Пусть теперь $j$ пробегает все простые числа, тогда
+	Пусть теперь $j$ пробегает все достаточно большие простые числа, тогда
 	\begin{equation}
 		\sum_j \ln \frac{j+1}{j}  > \sum_j \frac{1}{2j} = \frac{1}{2} \sum_j \frac{1}{j}
 		.
@@ -333,8 +416,12 @@
 	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
 \end{proof}
 
+Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} незамедлительно вытекает
+\begin{corollary}
+	Пусть $\varepsilon \in {[} 0; 1)$.
+	Тогда существует такое счётное множество простых чисел $A$, что $p(\psi(A))=\varepsilon$.
+\end{corollary}
 
-}
 
 
 %\begin{lemma}
