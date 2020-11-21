@@ -1,0 +1,276 @@
+\documentclass[a4paper,11pt]{book}
+%\documentclass{book}
+%\usepackage{cmap}
+\usepackage[cp1251]{inputenc}
+\usepackage{latexsym}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage[russian,english]{babel}
+\usepackage{epsfig, epic}
+%\usepackage{eepic, rotating}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{calrsfs}
+\usepackage{bbm}
+%\usepackage{bbold}
+\usepackage{mathrsfs}
+\usepackage{epsfig}
+\usepackage{amscd}
+\usepackage[all]{xy}
+
+%\ifx\pdfoutput\undefined
+%\usepackage{graphicx}
+% \DeclareGraphicsExtensions{.eps}
+% \else
+%\usepackage[pdftex]{graphicx}
+% \DeclareGraphicsExtensions{.jpg}
+%\fi
+% \graphicspath{{pict/}}
+%% \DeclareGraphicsExtensions{.eps,.jpg}
+%%\DeclareGraphicsExtensions{.jpg}
+%%\DeclareGraphicsRule{.bmp}{bmp}{}{}
+
+
+%\usepackage {curves, eepic, epic}
+%\usepackage{amsxtra,  amsthm}
+%\input diagxy
+
+
+
+
+%\usepackage{makeidx}\makeindex
+
+
+
+\sloppy \textheight = 230mm \textwidth = 155mm \topmargin = -3mm
+\oddsidemargin=3mm \evensidemargin=4pt
+
+ \NeedsTeXFormat{LaTeX2e} \ProvidesPackage{bbold}[1994/04/06 Bbold symbol package]
+ \newcommand{\bbfamily}{\fontencoding{U}\fontfamily{bbold}\selectfont}
+ \newcommand{\textbb}[1]{{\bbfamily#1}}
+ \DeclareMathAlphabet{\mathbbt}{U}{bbold}{m}{n}
+
+\begin{document}
+
+
+
+\makeatletter%{@}
+
+
+\renewcommand{\thefootnote}{\fnsymbol{}}
+
+\newcommand{\Author}[2]{{
+\begin{center}\textbf{#1}\footnote{$\copyright$\ \Year\ #2}\end{center} \medskip}
+    \renewcommand{\@evenhead}
+    {\raisebox{0pt}[\headheight][0pt]%
+{\vbox{\hbox to\textwidth{\thepage \hfill\strut {\sl
+#2}}\hrule}}}}
+
+\newcommand{\shorttitle}[1]{
+\renewcommand{\@oddhead}{\raisebox{0pt}[\headheight][0pt]%
+{\vbox{\hbox to\textwidth{\strut {\sl #1}%\rightmark
+\hfill\thepage}\hrule}}} }
+
+ \headsep=3mm
+ \renewcommand{\section}[1]{\medskip\begin{center}\textbf{#1}\end{center}}
+ \newcommand{\subsec}[1]{\par\smallskip{\bf #1}}
+ \newcommand{\subsubsec}[1]{\qquad\qquad{\bf #1}}
+ \def\beginproof{\smallskip\par\text{$\vartriangleleft$}}
+ \def\endproof{\text{$\vartriangleright$}}
+ \def\Endproof{\text{$\vartriangleright$}\smallskip}
+
+ \makeatother%@
+
+
+%\newcommand{\beginarticle}{\newpage\thispagestyle{empty}
+%\begin{flushright}
+%\sl Владикавказский математический журнал\\
+%\Year, Том~\Vol, Выпуск~\issu, С.~\thepage--\endpage
+%\end{flushright}
+%\bigskip}
+
+\newcommand{\beginarticleeng}{\newpage\thispagestyle{empty}
+\begin{flushright}
+\sl Vladikavkaz Mathematical Journal\\
+\Year, Volume~\Vol, Issue~\issu, P.~\thepage--\endpage
+\end{flushright}
+\bigskip}
+
+\newcommand{\metadanrus}{
+\begin{flushright}
+\sl Владикавказский математический журнал\\
+\Year, Том~\Vol, Выпуск~\issu, С.~\beginpage--\endpage
+\end{flushright}
+\bigskip}
+
+
+\newcommand{\metadaneng}{
+\begin{flushright}
+\sl Vladikavkaz Mathematical Journal\\
+\Year, Volume~\Vol, Issue~\issu, P.~\beginpage--\endpage
+\end{flushright}
+\bigskip}
+
+\newcommand{\UDC}[1]{{\small{{\bf УДК} #1}}\par}
+\newcommand{\DOI}[1]{{\small{{\bf DOI} #1}}\par\vspace{4mm}}
+\newcommand{\Title}[1]{\begin{center}\uppercase{#1}\end{center} \vspace{0mm}}
+\newcommand{\TITLE}[1]{\begin{center}{#1}\end{center} \vspace{0mm}}
+\renewcommand{\title}[1]{\begin{center}#1\end{center} \vspace{0mm}}
+\newcommand{\Abstract}[1]{\hangindent17pt\hangafter=0\noindent{\footnotesize \bf Аннотация.\ }{\footnotesize#1} \bigskip\par\medskip}
+\newcommand{\Abstracteng}[1]{\hangindent17pt\hangafter=0\noindent{\footnotesize \bf Abstract.\ }{\footnotesize#1} \bigskip\par\medskip}
+
+
+\newcommand{\Lit}{\medskip\begin{center}\textbf{Литература}\end{center}}
+\newcommand{\Ref}{\medskip\begin{center}\textbf{References}\end{center}}
+
+
+%\newcommand{\endLit}{\end{enumerate}
+%
+\newcommand{\bib}[2]{{\baselineskip=11pt\footnotesize\item{}
+\textsl{#1\/}\ #2}}
+%
+\newcommand{\Address}[1]{\par\bigskip\baselineskip=11pt\hangindent24pt
+\hangafter=0\noindent{\footnotesize#1}\par\normalsize}
+%\newcommand{\email}[1]{#1}}
+\newcommand{\Endarticle}[2]{\bigskip\bigskip{\textit{#1\hfill Статья поступила
+#2}} \vfill\eject}
+%
+\newcommand{\Endproc}{\rm}
+\newcommand{\Proclaim}[1]{\smallskip{\textbf{#1\/~}}\sl}
+\newcommand{\proclaim}[1]{{\textbf{#1\/~}}\sl}
+\newcommand{\Teorema}[1]{\smallskip{\textbf{Теорема#1.\/~}}\sl}
+\newcommand{\teorema}[1]{{\textbf{Теорема#1.\/~}}\sl}
+\newcommand{\Sledstvie}[1]{\smallskip{\textbf{Следствие#1.\/~}}\sl}
+\newcommand{\sledstvie}[1]{{\textbf{Следствие#1.\/~}}\sl}
+\newcommand{\Lema}[1]{\smallskip\textbf{{Лемма#1}.\/~}\sl}
+\newcommand{\lema}[1]{\textbf{{Лемма#1}.\/~}\sl}
+\newcommand{\Predl}[1]{\smallskip\textbf{{Предложение#1}.\/~}\sl}
+\newcommand{\predl}[1]{\textbf{{Предложение#1}.\/~}\sl}
+\newcommand{\Utv}[1]{\smallskip\textbf{{Утверждение#1}.\/~}\sl}
+\newcommand{\utv}[1]{\textbf{{Утверждение#1}.\/~}\sl}
+%-----------------
+\newcommand{\Def}[1]{\smallskip{\sc Определение#1.}}
+\newcommand{\deff}[1]{{\sc Определение#1.}}
+\newcommand{\Zam}[1]{\smallskip{\sc Замечание#1.}}
+\newcommand{\zam}[1]{{\sc Замечание#1.}}
+\newcommand{\Primer}[1]{\smallskip{\sc Пример#1.}}
+\newcommand{\primer}[1]{{\sc Пример#1.}}
+\newcommand{\Zadacha}[1]{\smallskip{\sc Задача#1.}}
+\newcommand{\zadacha}[1]{{\sc Задача#1.}}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%     English
+\newcommand{\Lemma}[1]{\smallskip\textbf{{Lemma#1}.\/~}\sl}
+\newcommand{\lemma}[1]{\textbf{{Lemma#1}.\/~}\sl}
+\newcommand{\Theorem}[1]{\smallskip\textbf{{Theorem#1}.\/ }\sl}
+\newcommand{\theorem}[1]{{\textbf{Theorem#1.\/~}}\sl}
+\newcommand{\Corollary}[1]{\smallskip\textbf{{Corollary#1}.\/~}\sl}
+\newcommand{\corollary}[1]{\textbf{{Corollary#1}.\/~}\sl}
+\newcommand{\Proposition}[1]{\smallskip\textbf{{Proposition#1}.\/~}\sl}
+\newcommand{\proposition}[1]{\textbf{{Proposition#1}.\/~}\sl}
+\newcommand{\Crit}[1]{\smallskip\textbf{{Criterion#1}.\/ }\sl}
+%-------------
+\newcommand{\defin}[1]{{\sc Definition#1.}}
+\newcommand{\Definition}[1]{\smallskip{\sc Definition#1.}}
+\newcommand{\Remark}[1]{\smallskip{\sc Remark#1.}~}
+\newcommand{\Ex}[1]{\smallskip{\sc Example#1.}}
+\newcommand{\Problem}[1]{{\sc Problem#1:}}
+\newcommand{\Note}[1]{{\sc Note#1.}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%------------
+\newcommand{\slim}{\mathop{\fam0 s\text{-}\!\lim}}
+\def\osum{\mathop{o\text{-}\!\sum}}
+\def\oleqq{\mathop{\raisebox{1pt}{$\scriptstyle\bigcirc$}\hspace{-7.7pt}\raisebox{1.6pt}{$\scriptscriptstyle\leq$}\hspace{2pt}}}
+\def\bbold#1{{\mathbbm #1}}
+%\def\BbbO{\bbold O}
+%\def\Bbb#1{\fontencoding{}\fontfamily{bbold}\fontseries{m}\fontshape{n}
+%\fontsize\selectfont #1}}
+\def\Cal#1{\mathcal{#1}}
+\def\goth#1{\frak{#1}}
+
+\def\No{\textnumero}
+%%%%---------
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pg}[2]{\frac{{\partial}^2 #1}{\partial #2^2}}
+\renewcommand{\Re}{\mathop{\fam0 Re}}
+\newcommand{\Div}{\mathop{\fam0 div}}
+\newcommand{\supp}{\mathop{\fam0 supp}}
+\newcommand{\dom}{\mathop{\fam0 dom}}
+\newcommand{\const}{\mathop{\fam0 const}}
+\newcommand{\grad}{\mathop{\fam0 grad}}
+\newcommand{\sgn}{\mathop{\fam0 sgn}}
+\newcommand{\sign}{\mathop{\fam0 sign}}
+\newcommand{\rot}{\mathop{\fam0 rot}}
+\newcommand{\im}{\mathop{\fam0 Im}}
+\newcommand{\cl}{\mathop{\fam0 cl}}
+\newcommand{\mix}{\mathop{\fam0 mix}}
+\newcommand{\ind}{\mathop{\fam0 ind}}
+\newcommand{\proj}{\mathop{\fam0 proj}}
+\newcommand{\Ker}{\mathop{\fam0 Ker}}
+\newcommand{\card}{\mathop{\fam0 card}}
+\newcommand{\diag}{\mathop{\fam0 diag}}
+\newcommand{\loc}{\mathop{\fam0 loc}}
+\newcommand{\conv}{\mathop{\fam0 conv}}
+\newcommand{\Int}{\mathop{\fam0 Int}}
+\newcommand{\Sig}{\mathop{\fam0 Sig}}
+\newcommand{\new}{\mathop{\fam0 new}}
+\newcommand{\Inf}{\mathop{\fam0 Inf}}
+\newcommand{\Disp}{\mathop{\fam0 Disp}}
+\newcommand{\Orth}{\mathop{\fam0 Orth}}
+
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+
+
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+%---------------------
+\def\reduce{\mskip-5mu }
+
+%%%жирные нормы
+
+\def\Bnorml{\mathopen{\kern1pt\/ \vrule height6.5pt depth2.2pt width1pt\kern1.5pt}}
+\def\Bnormr{\mathclose{\kern1.5pt \vrule height6.5pt depth2.2pt width1pt\kern1pt}}
+\def\widevert{\kern1.5pt \vrule height7.5pt depth2.5pt width1pt\kern1pt}
+
+\def\[{\mathopen{\kern1pt\/ \vrule height8pt depth2.2pt width1pt\kern1.5pt}}
+\def\]{\mathclose{\kern1.5pt \vrule height8pt depth2.2pt width1pt\kern1pt}}
+
+%%%тройные нормы
+\def\tnorm{|\hspace{-1pt}|\hspace{-1pt}|}                        %|||
+\def\bigtnorm{\big|\hspace{-1.5pt}\big|\hspace{-1.5pt}\big|}     %\big|||
+\def\biggtnorm{\bigg|\hspace{-1.5pt}\bigg|\hspace{-1.5pt}\bigg|} %\bigg|||
+
+
+
+
+\def\sfatop{\mathopen{\kern1pt \vrule height5.5pt depth1.5pt width1pt\kern1pt}}
+\def\sfatcl{\mathclose{\kern1pt\vrule height5.5pt depth1.5pt width1pt\kern1pt}}
+
+\def\leftbbr{\mathopen{\kern1pt \vrule height14pt depth8pt width1pt\kern1.5pt}}
+\def\leftbbrr{\mathopen{\kern1pt\vrule height16pt depth13pt width1pt\kern1.5pt}}
+\def\rightbbrr{\mathclose{\kern1.5pt\vrule height16pt depth13pt width1pt\kern1pt}}
+\def\rightbbr{\mathclose{\kern1.5pt\vrule height14pt depth8pt width1pt\kern1pt}}
+
+%\def\reduce{\mskip-5mu }
+%\def\Bnorml{\reduce\left\bracevert\reduce\vphantom{X}}
+%\def\Bnormr{\vphantom{X}\reduce\right\bracevert\reduce}
+%---------------------
+\newcommand{\shortpage}{\enlargethispage{-\baselineskip}}
+\newcommand{\largepage}{\enlargethispage{+\baselineskip}}
+
+
+ \def\olim{\mathop{o\text{-}\fam0 lim\,}}
+ \def\bolim{\mathop{bo\text{-}\fam0 lim\,}}
+ \def\llim{\mathop{l\text{-}\fam0 lim\,}}
+ \def\Otimes{\overset{\underline{\phantom{\ \,}}}\otimes}
+
+
+ \def\to{\rightarrow}

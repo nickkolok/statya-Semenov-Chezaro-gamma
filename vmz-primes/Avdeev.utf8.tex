@@ -1,0 +1,222 @@
+\input vmj.tex
+
+\Russian
+
+ \def\endpage{??}
+
+
+
+
+ \let\thefootnote\relax\setcounter{section}{0}\setcounter{equation}{0}
+
+
+ \UDC{ } %УДК статьи
+ \DOI{ } %заполняется редакцией
+
+
+
+ \Title{Название статьи (строчными буквами)}
+
+ \shorttitle{краткое названия для колонтитула}
+
+ \begin{center}
+ Финансирование при наличии
+ \end{center}
+
+
+ \begin{center}
+ {И.~О.~Фамилия$^{1}$\\[4pt]}
+ {\rm\footnotesize{$^1$\,
+ Место работы\\
+ полный адрес места работы (страна, индекс, город, улица, номер дома)\\
+ E-mail: }}
+ \end{center}
+
+
+ \Abstract{ } %аннотация не менее 200-250слов
+
+ {\hangindent17pt\hangafter=0\noindent\footnotesize{\bf Ключевые слова:} №1, №2, ... \par} %ключевые слова
+
+ \smallskip
+
+ {\hangindent17pt\hangafter=0\noindent\footnotesize {\bf Mathematical Subject Classification (2000):}  №1, №2, ...\par} %математические классификаторы
+
+
+
+
+ %оформление параграфов
+ \section{N. Название параграфа}
+
+
+ %оформление теорем
+ \Teorema{ 1 {\rm (название теоремы при наличии)}}
+ %текст теоремы
+ \Endproc
+
+
+ %оформление доказательства
+ \beginproof
+ %текст доказательства
+ \endproof
+
+
+ %оформление леммы
+ \Lema{ 1}
+ %текст леммы
+ \Endproc
+
+
+ %оформление следствия
+ \Sledstvie{}
+ %текст следствия
+ \Endproc
+
+ %оформление замечания
+ \Zam{}
+ %текст замечания
+
+ %оформление примера
+ \Primer{}
+ %текст примера
+
+
+
+
+%%%% Список литературы на рус. яз.
+
+% При наличии DOI обязательно указывать!!!
+
+\Lit
+
+ \begin{enumerate}
+ {\footnotesize
+ \itemsep=0pt
+ \parskip=0pt
+
+
+ \bib{Канторович Л.~В., Акилов Г.~П.}
+ {Функциональный анализ.---М.: Наука,  1984.---750~с.} %ссылка на книгу
+
+ \bib{Рябых~В.~Г.}
+ {Приближение неаналитических функций аналитическими~/\!/ Мат. сб.---2006.---Т.~191, \No~2.---С.~87--94.}%ссылка на журнал
+
+ \bib{Дурдиев Д.~К., Тотиева Ж.~Д.}
+ Задача об определении одномерного ядра электровязкоупругости~/\!/
+ Сиб. мат. журн.---2017.---Т.~58, \No~3.---С.~553--572. DOI: 10.17377/smzh.2017.58.307. %ссылка на журнал
+
+ \bib{Бурчаев Х.~Х., Рябых В.~Г., Рябых Г.~Ю.}
+ {Некоторые свойства экстремальных функций линейных функционалов над пространствами Харди и Бергмана~/\!/
+ Мат. форум. Т. 9. Исслед. по мат. анализу, дифференц. уравнениям и мат.
+ моделированию.---Владикавказ: ЮМИ ВНЦ РАН, 2015.---С.~125--139.---(Итоги науки. Юг России).} %ссылка на сборник трудов
+
+ }
+ \end{enumerate}
+
+
+
+ \Address{\textit{Статья поступила  чч.мм.гггг.}\\[4pt]  % заполняется редакцией
+ \textsc{ФИО полностью}\\
+ место работы,\\
+ \textsl{должность}\\
+ полный адрес места работы\\
+ E-mail:
+ \par}
+
+
+
+
+ \newpage
+
+ % Заполняем данные на английском языке!
+
+
+ \bigskip
+ \begin{center}
+ НАЗВАНИЕ СТАТЬИ НА АНГЛ. ЯЗ. (заглавными буквами)
+ \end{center}
+
+
+ \begin{center}
+ Фамилия, И.~О. на англ. яз.$^{1}$\\[4pt]
+ {\rm\footnotesize{$^1$\,
+ место работы  на англ. яз.\\
+ полный адрес места работы на англ. яз.\\
+ E-mail: }}
+ \end{center}
+
+
+
+ {\hangindent0pt\hangafter=0\footnotesize{\textbf{Abstract.} Аннотация на англ. яз.
+ \par}
+
+ {\hangindent0pt\hangafter=0\footnotesize{\bf Key words:}~ключевые слова на англ. яз.
+ \par}
+
+
+
+%%%% Список литературы на англ. яз.
+
+% При наличии DOI обязательно указывать!!!
+
+% Указывать переводную версию статьи, книги, сборника при наличии!
+
+
+ \Ref
+
+ \begin{enumerate}
+ {\footnotesize
+ \itemsep=0pt
+ \parskip=0pt
+
+ \bib{Kantorovich, L.~V. and Akilov, G.~P.}
+ {\it Funktsional'nyy Analliz} [Functional Analysis],
+ Moscow,
+ Nauka,
+ 1984,
+ 750~p.
+ (in Russian).
+
+
+ \bib{Ryabykh, V.~G.}
+ Approximation of non-analytic functions by analytic functions.
+ {\it Sbornik: Mathematics},
+ 2006,
+ vol. 197,
+ no. 2,
+ pp. 225--233.
+
+
+ \bib{Durdiev, D.~K. and Totieva, Zh.~D.} The Problem of Finding the One-Dimensional Kernel of the Thermoviscoelasticity Equation,
+ \textit{Mathematical Notes},
+ 2018,
+ vol.~103,
+ no.~1--2,
+ p.~118--132.
+ DOI: 10.1134/S0001434618010145.
+
+
+ \bib{Burchaev, Kh.~Kh., Ryabykh, V.~G. and Ryabykh, G.~Yu.}
+ Some properties of the extremal functions of linear functionals on Hardy and Bergman spaces.
+ \textit{Mat. Forum. T. 9. Issledovaniya po Matematicheskomu Analizu, Differentsialnym Uravneniyam i Matematicheskomu Modelirovaniyu $($Itogi Nauki. Yug Rossii$)$}
+ [Math. Forum. Vol. 9. Studies in Mathematical Analysis, Differential Equations, and Mathematical Modeling (Review of Science: The South of Russia)],
+ Vladikavkaz, SMI VSC RAS,
+ 2015,
+ pp.~125--139
+ (in Russian).
+
+}
+\end{enumerate}
+
+
+
+
+ \Address{\textit{Received  }\\[4pt] % заполняется редакцией
+ \textsc{ФИО полностью на англ. яз.}\\
+ место работы  на англ. яз.,\\
+ полный адрес места работы на англ. яз.,\\
+ \textsl{Должность на англ. яз.}\\
+ E-mail:
+ \par}
+
+
+\end{document}
