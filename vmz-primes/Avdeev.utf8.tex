@@ -95,7 +95,7 @@
 	\end{equation}
 \end{lemma}
 
-\begin{proof}
+\beginproof
 	Зафиксируем некоторое $K \in \mathbb{N}$ и покажем, что $p(x) < m^{-K}$.
 	Действительно, представим $x$ в виде суммы
 	\begin{equation}
@@ -134,7 +134,7 @@
 	содержит не более одной единицы, и потому $p(z'_j) \leq m^{-j-1} < m^{-j}$.
 	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{-K}$,
 	откуда $p(x) = 0$.
-\end{proof}
+\endproof
 
 \begin{corollary}
 	\label{cor:ac0_powers_finite_set_of_numbers}
@@ -188,14 +188,14 @@
 %	? Только для подмножеств простых чисел ?
 %\end{theorem}
 %
-%\begin{proof}
-%\end{proof}
+%\beginproof
+%\endproof
 
 
 \begin{lemma}
 	Для любого непустого $A\subset \mathbb{N} $ выполнено $\psi(A) \notin ac_1$.
 \end{lemma}
-\begin{proof}
+\beginproof
 	Пусть $a_1\in A$.
 	Тогда из каждых идущих подряд $a_1$ элементов последовательности $\psi(A)$
 	хотя бы один нулевой,
@@ -204,7 +204,7 @@
 		p(\psi(A)) \leq \frac{a_1-1}{a_1} < 1
 		.
 	\end{equation}
-\end{proof}
+\endproof
 
 Оказывается, в более узком случае верно и более сильное утверждение.
 
@@ -214,7 +214,7 @@
 	(т.е. для любых двух чисел $a_1, a_2 \in A'$ их наибольший общий делитель равен единице).
 	Тогда для любого $A \supset A' $ выполнено $q(\psi(A))=0$.
 \end{lemma}
-\begin{proof}
+\beginproof
 	Пусть $A' = \{ a_1, a_2, ..., a_j, ... \}$.
 	Для краткости будем обозначать $\psi(A) = x$ и
 	\begin{equation}
@@ -314,7 +314,7 @@
 	$x_{n_{j+1} + j+1} = x_{n_{j} + j} = \dots = x_{n_2 + 1} = x_{n_2 + 2} = 0$.
 	
 	
-\end{proof}
+\endproof
 
 \begin{remark}
 	Понятно, что в качестве примера бесконечного множества
@@ -346,7 +346,7 @@
 	Пусть множество $A$ обладает $prp$-свойством.
 	Тогда существует бесконечное подмножество $A'\subset A$ попарно взаимно простых чисел.
 \end{lemma}
-\begin{proof}
+\beginproof
 	Зафиксируем $f_0\in A$, $f_0 \neq 1$ и представим $A$ в виде объединения трёх попарно непересекающихся множеств:
 	\begin{equation}
 		A = \{f_0\} \cup E \cup F
@@ -394,7 +394,7 @@
 	Итак, нам удалось получить число $f_0\in A$ и счётное множество $F$, обладающее $prp$-свойством
 	и состоящее из чисел, взаимно простых с $f_0$.
 	Продолжая по индукции, получим требуемое счётное множество попарно взаимно простых чисел. 
-\end{proof}
+\endproof
 
 %Условие леммы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
 %является не только достаточным, но и необходимым.
@@ -405,7 +405,7 @@
 	Тогда $A$ обладает $prp$-свойством.
 \end{lemma}
 
-\begin{proof}
+\beginproof
 	Предположим противное: пусть $A$ не обладает $prp$-свойством.
 	Тогда существует $n\in\mathbb{N}$ такое, что из множества $A$ можно выбрать $n$
 	попарно взаимно простых чисел, но нельзя выбрать $n+1$.
@@ -425,7 +425,7 @@
 	Следовательно, $a_0$ также взаимно просто с каждым из чисел $a_1, a_2, ..., a_n$,
 	и $\{a_0, a_1, a_2, ..., a_n\}\subset A$ "--- набор из $n+1$ попарно взаимно простых чисел.
 	Полученное противоречие завершает доказательство.
-\end{proof}
+\endproof
 
 Таким образом,
 из лемм~\ref{lem:ac0_primes_infinity_mutually_prime_subset},~\ref{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_prp_property}~и~\ref{lem:ac0_primes_q_psi_A_0_causes_prp}
@@ -455,7 +455,7 @@
 	\end{equation}
 \end{theorem}
 
-\begin{proof}
+\beginproof
 	Зафиксируем $k\in\mathbb{N}$.
 
 	Заметим, что верхний функционал Сачестона можно представить в виде
@@ -517,7 +517,7 @@
 	\end{equation}
 
 	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
-\end{proof}
+\endproof
 
 \begin{remark}
 	В случае, когда $A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
@@ -549,7 +549,7 @@
 	\end{equation}
 	где $j$ пробегает все простые числа, расходится.
 \end{corollary}
-\begin{proof}
+\beginproof
 	Из второго замечательного предела:
 	\begin{equation}
 		\lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = e
@@ -577,7 +577,7 @@
 	\end{equation}
 	Ряд в правой части есть ряд обратных простых чисел, который расходится в силу теоремы~\ref{thm:Euler_reverse_primes_diverge}.
 	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
-\end{proof}
+\endproof
 
 Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} незамедлительно вытекает
 \begin{corollary}
@@ -613,10 +613,6 @@
  \Endproc
 
 
- %оформление доказательства
- \beginproof
- %текст доказательства
- \endproof
 
 
  %оформление леммы
