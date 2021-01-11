@@ -515,7 +515,7 @@ $\supp x \subset \mathbb{N}$.
 \end{remark}
 
 \begin{definition}
-	Будем говорить, что множество $A\subset\mathbb{N}$ обладает $prp$-свойством (англ. ``pairwise relatively prime''),
+	Будем говорить, что множество $A\subset\mathbb{N}$ обладает $P$-свойством,
 	если для любого $n\in\mathbb{N}$ найдётся набор попарно взаимно простых чисел
 	\begin{equation}
 		\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
@@ -524,13 +524,13 @@ $\supp x \subset \mathbb{N}$.
 \end{definition}
 
 Из доказательства теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset} понятно,
-что для множества $A$ в условии леммы достаточно потребовать $prp$-свойства.
-Интересно, что на самом деле $prp$-свойство эквивалентно условиям,
+что для множества $A$ в условии леммы достаточно потребовать $P$-свойства.
+Интересно, что на самом деле $P$-свойство эквивалентно условиям,
 наложенным на множество $A$ в теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset}.
 
 \begin{lemma}
-	\label{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_prp_property}
-	Пусть множество $A$ обладает $prp$-свойством.
+	\label{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_P_property}
+	Пусть множество $A$ обладает $P$-свойством.
 	Тогда существует бесконечное подмножество $A'\subset A$ попарно взаимно простых чисел.
 \end{lemma}
 \begin{proof}
@@ -562,9 +562,9 @@ $\supp x \subset \mathbb{N}$.
 		.
 	\end{equation}
 
-	Покажем, что множество $F$ обладает $prp$-свойством.
+	Покажем, что множество $F$ обладает $P$-свойством.
 	Действительно, зафиксируем $n\in\mathbb{N}$.
-	Так как множество $A$ обладает $prp$-свойством,
+	Так как множество $A$ обладает $P$-свойством,
 	то в нём найдётся подмножество попарно взаимно простых чисел
 	$$G=\{a_1, a_2, ..., a_{n+k-1}, a_{n+k}\}\subset A.$$
 
@@ -576,9 +576,9 @@ $\supp x \subset \mathbb{N}$.
 	Следовательно, как минимум $n$ элементов из $G$ принадлежат множеству $F$,
 	и требуемый набор попарно взаимно простых чисел снова предъявлен.
 
-	Поскольку множество $F$ обладает $prp$-свойством, то оно, очевидно, счётно.
+	Поскольку множество $F$ обладает $P$-свойством, то оно, очевидно, счётно.
 
-	Итак, нам удалось получить число $f_0\in A$ и счётное множество $F$, обладающее $prp$-свойством
+	Итак, нам удалось получить число $f_0\in A$ и счётное множество $F$, обладающее $P$-свойством
 	и состоящее из чисел, взаимно простых с $f_0$.
 	Продолжая по индукции, получим требуемое счётное множество попарно взаимно простых чисел.
 \end{proof}
@@ -587,13 +587,13 @@ $\supp x \subset \mathbb{N}$.
 %является не только достаточным, но и необходимым.
 
 \begin{lemma}
-	\label{lem:ac0_primes_q_psi_A_0_causes_prp}
+	\label{lem:ac0_primes_q_psi_A_0_causes_P}
 	Пусть для множества $A\subset\mathbb{N}\setminus\{1\}$ выполнено $q(\psi(A))=0$.
-	Тогда $A$ обладает $prp$-свойством.
+	Тогда $A$ обладает $P$-свойством.
 \end{lemma}
 
 \begin{proof}
-	Предположим противное: пусть $A$ не обладает $prp$-свойством.
+	Предположим противное: пусть $A$ не обладает $P$-свойством.
 	Тогда существует $n\in\mathbb{N}$ такое, что из множества $A$ можно выбрать $n$
 	попарно взаимно простых чисел, но нельзя выбрать $n+1$.
 
@@ -615,14 +615,14 @@ $\supp x \subset \mathbb{N}$.
 \end{proof}
 
 Таким образом,
-из лемм~\ref{lem:ac0_primes_infinity_mutually_prime_subset},~\ref{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_prp_property}~и~\ref{lem:ac0_primes_q_psi_A_0_causes_prp}
+из лемм~\ref{lem:ac0_primes_infinity_mutually_prime_subset},~\ref{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_P_property}~и~\ref{lem:ac0_primes_q_psi_A_0_causes_P}
 незамедлительно следует
 \begin{theorem}
 	Пусть $A\subset \mathbb{N}\setminus\{1\}$.
 	Тогда следующие три условия эквивалентны:
 	\begin{enumerate}
 		\item
-			$A$ обладает $prp$-свойством
+			$A$ обладает $P$-свойством
 		\item
 			В $A$ существует счётное подмножество попарно взаимно простых чисел
 		\item
