@@ -785,9 +785,8 @@ $\supp x \subset \mathbb{N}$.
 	Тогда существует бесконечное число таких счётных множеств простых чисел $A$, что $p(\psi(A))=\varepsilon$.
 \end{corollary}
 
-
 \begin{corollary}
-	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть множество попарно взаимно простых чисел.
+	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел.
 	Тогда следующие условия эквивалентны:
 	\begin{enumerate}[label=(\roman*)]
 		\item
@@ -798,6 +797,12 @@ $\supp x \subset \mathbb{N}$.
 			$\prod_{j=1}^\infty \frac{a_j -1}{a_j} = 0$.
 	\end{enumerate}
 \end{corollary}
+
+\begin{proof}
+	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
+	поэтому условия (i) и (ii) эквивалентны.
+	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $p(\psi(A))=0$.
+\end{proof}
 
 
 
