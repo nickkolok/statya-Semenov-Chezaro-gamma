@@ -779,11 +779,37 @@ $\supp x \subset \mathbb{N}$.
 	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
 \end{proof}
 
-Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} незамедлительно вытекает
+Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
 	Пусть $\varepsilon \in {[} 0; 1)$.
 	Тогда существует бесконечное число таких счётных множеств простых чисел $A$, что $p(\psi(A))=\varepsilon$.
 \end{corollary}
+
+\begin{proof}
+	В силу следствия~\ref{cor:ac0_primes_sum_ln_diverges} мы можем выбрать такое множество простых чисел $A$,
+	что
+	\begin{equation}
+		\sum_{j\in A} \ln \frac{j}{j-1} = -\ln \varepsilon > 0
+		.
+	\end{equation}
+	Тогда в силу теоремы~\ref{thm:ac0_primes_p_psi_A_prod}
+	\begin{multline}
+		p(\psi(A)) = \prod_{j\in A} \frac{j - 1}{j}
+		=
+		\exp \sum_{j\in A} \ln \frac{j - 1}{j}
+		=
+		\exp \sum_{j\in A} \left( -\ln \frac{j}{j-1}\right)
+		=
+		\\=
+		\exp \left( -\sum_{j\in A} \ln \frac{j}{j-1}\right)
+		=
+		\exp (\ln \varepsilon)
+		=
+		\varepsilon
+		.
+	\end{multline}
+
+\end{proof}
 
 \begin{corollary}
 	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел.
