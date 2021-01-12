@@ -11,7 +11,7 @@
 \usepackage{geometry}
 \usepackage{wrapfig}
 \usepackage[colorlinks=true,allcolors=black]{hyperref}
-
+\usepackage{enumitem}
 
 
 \righthyphenmin=2
@@ -186,7 +186,7 @@ MSC~
 \begin{definition}
 	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
 	если
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item
 			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
 		\item
@@ -630,7 +630,7 @@ $\supp x \subset \mathbb{N}$.
 \begin{theorem}
 	Пусть $A\subset \mathbb{N}\setminus\{1\}$.
 	Тогда следующие условия эквивалентны:
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item
 			$A$ обладает $P$-свойством
 		\item
@@ -789,7 +789,7 @@ $\supp x \subset \mathbb{N}$.
 \begin{corollary}
 	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть множество попарно взаимно простых чисел.
 	Тогда следующие условия эквивалентны:
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item
 			$\psi(A)\in ac$.
 		\item
