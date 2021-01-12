@@ -178,13 +178,14 @@ MSC~
 Рассмотрим пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
 \begin{equation*}
 	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
-	.
+	,
 \end{equation*}
-и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+где $\mathbb{N}$ "--- множество натуральных чисел,
+и обычной полуупорядоченностью.
 
 
 \begin{definition}
-	Линейный функционал $B\in l_\infty^*$ называется банаховым пределом,
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
 	если
 	\begin{enumerate}[label=(\roman*)]
 		\item
@@ -192,7 +193,7 @@ MSC~
 		\item
 			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
 		\item
-			$B(Tx)=B(x)$ для всех $x\in l_\infty$, где $T$~---
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
 		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
 	\end{enumerate}
 \end{definition}
@@ -216,7 +217,7 @@ MSC~
 Пространство почти сходящихся последовательностей будем обозначать через $ac$.
 
 Уточняя результат Лоренца, Сачестон установил~\cite{sucheston1967banach}, что
-для любых $x\in l_\infty$ и $B\in\mathfrak{B}$
+для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
 \begin{equation}\label{Sucheston}
 	q(x) \leqslant Bx \leqslant p(x)
 	,
@@ -272,7 +273,7 @@ $\supp x \subset \mathbb{N}$.
 
 \begin{lemma}
 	Пусть $y = \{y_n\}$ --- строго возрастающая последовательность,
-	$\chi_y\in\{0;1\}^\mathbb{N} \cap ac_0$.
+	$\chi_y\in\Omega \cap ac_0$.
 	Пусть $m \in \mathbb{N}$
 	и последовательность $x=\{x_k\}$ определённа соотношением
 	\begin{equation}
@@ -507,7 +508,10 @@ $\supp x \subset \mathbb{N}$.
 		,
 	\end{equation}
 	следовательно,
-	$\psi(A)_{n_{j+1} + j+1} = \psi(A)_{n_{j} + j} = \dots = \psi(A)_{n_2 + 1} = \psi(A)_{n_2 + 2} = 0$.
+	\begin{equation}
+		\psi(A)_{n_{j+1} + j+1} = \psi(A)_{n_{j} + j} = \dots = \psi(A)_{n_{j} + 2} = \psi(A)_{n_{j} + 1} = 0
+		.
+	\end{equation}
 
 
 \end{proof}
@@ -682,7 +686,7 @@ $\supp x \subset \mathbb{N}$.
 		p_{n_k}(\psi(A)) =
 		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
 		\geq
-		\frac{1}{n} \sum_{j=1}^{n_k} (\psi(A))_j
+		\frac{1}{n_k} \sum_{j=1}^{n_k} (\psi(A))_j
 		=
 		\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
@@ -762,7 +766,7 @@ $\supp x \subset \mathbb{N}$.
 	\end{equation}
 	Прологарифмировав~\eqref{eq:ac0_primes_ineq_2nd_nice_lim}, получим
 	\begin{equation}
-		\frac{1}{2} < n \ln  1 + \frac{1}{n} < 2
+		\frac{1}{2} < n \ln \left( 1 + \frac{1}{n} \right) < 2
 		,
 	\end{equation}
 	откуда
