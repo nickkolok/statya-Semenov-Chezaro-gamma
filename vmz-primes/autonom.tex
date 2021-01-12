@@ -273,8 +273,8 @@ $\supp x \subset \mathbb{N}$.
 \begin{lemma}
 	Пусть $y = \{y_n\}$ --- строго возрастающая последовательность,
 	$\chi_y\in\{0;1\}^\mathbb{N} \cap ac_0$.
-	Пусть $m \in \mathbb{N}$.
-	Тогда почти сходится к нулю последовательность $x=\{x_k\}$, определённая соотношением
+	Пусть $m \in \mathbb{N}$
+	и последовательность $x=\{x_k\}$ определённа соотношением
 	\begin{equation}
 		x_k = \begin{cases}
 			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторых~} i,j\in\mathbb{N},
@@ -283,6 +283,7 @@ $\supp x \subset \mathbb{N}$.
 			.
 		\end{cases}
 	\end{equation}
+	Тогда $x\in ac_0$.
 \end{lemma}
 
 \begin{proof}
@@ -293,7 +294,7 @@ $\supp x \subset \mathbb{N}$.
 		x \leq z_1 + z_2 + \dots + z_K + z'_{K+1}
 		,
 	\end{equation}
-	где
+	где каждое слагаемое $z_j$ соответствует умножению индексов на $m^j$:
 	\begin{equation}
 		(z_j)_k = \begin{cases}
 			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторого~} i\in\mathbb{N},
@@ -302,18 +303,20 @@ $\supp x \subset \mathbb{N}$.
 			,
 		\end{cases}
 	\end{equation}
+	а слагаемое $z'_j$ соответствует умножению индексов на $m^{j+1}$, $m^{j+2},...$:
 	\begin{equation}
 		\label{eq:ac0_powers_residue}
 		(z'_j)_k = \begin{cases}
 			1, &\mbox{~если~} k = y_i \cdot m^{j'} \mbox{~для некоторых~} i,j'\in\mathbb{N},~~ j' > j
-			\\ &\mbox{~и ни для какого~} j' \leq j \mbox{~не выполнено~} k = y_i \cdot m^{j'},
+			,%\\ &\mbox{~и ни для какого~} j' \leq j \mbox{~не выполнено~} k = y_i \cdot m^{j'},
 			\\
 			0  &\mbox{~иначе}
 			.
 		\end{cases}
 	\end{equation}
 	(Знак неравенства в~\eqref{eq:ac0_powers_x_as_sum} ставится ввиду того, что возможен случай
-	$y_i \cdot m^j = y_{i'} \cdot m^{j'}$ для $j\neq j'$.)
+	$y_i \cdot m^j = y_{i'} \cdot m^{j'}$ для $j\neq j'$.
+	Например, в случае $y_1 = 3$, $y_2 = 6$ и $m=2$ имеем $y_1 \cdot m^2 = y_2 \cdot m^1$.)
 	Понятно, что $p(z_j)=0$.
 	Таким образом,
 	\begin{equation}
