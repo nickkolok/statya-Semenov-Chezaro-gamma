@@ -241,11 +241,12 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 Будем говорить, что $x\in ac_0$, если $x\in ac$ и $p(x)=q(x)=0$.
 Таким образом, функционалы Сачестона для почти сходимости играют такую же роль,
 как верхний и нижний пределы для <<обычной>> сходимости.
+Более подробно о свойствах сходящихся последовательностей и банаховых пределах см.~\cite{semenov2020geomBL}.
 
 
 Отдельный интерес представляет множество всех последовательностей из 0 и 1,
-которое в дальнейшем мы будем обозначать через $\Omega$
-(иногда в литературе~\cite{semenov2020geomBL,Semenov2014geomprops} встречается также обозначение $\{0;1\}^\mathbb{N}$).
+которое в дальнейшем мы будем обозначать через $\Omega$.
+%(иногда в литературе~\cite{semenov2020geomBL,Semenov2014geomprops} встречается также обозначение $\{0;1\}^\mathbb{N}$).
 Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
 $\supp x \subset \mathbb{N}$.
 
@@ -317,7 +318,7 @@ $\supp x \subset \mathbb{N}$.
 			.
 		\end{cases}
 	\end{equation}
-	(Знак неравенства в~\eqref{eq:ac0_powers_x_as_sum} ставится ввиду того, что возможен случай
+	(Знак неравенства в~\eqref{eq:ac0_powers_x_as_sum} возникает ввиду того, что возможен случай
 	$y_i \cdot m^j = y_{i'} \cdot m^{j'}$ для $j\neq j'$.
 	Например, в случае $y_1 = 3$, $y_2 = 6$ и $m=2$ имеем $y_1 \cdot m^2 = y_2 \cdot m^1$.)
 	Понятно, что $p(z_j)=0$.
@@ -406,7 +407,7 @@ $\supp x \subset \mathbb{N}$.
 	\end{equation}
 \end{proof}
 
-Оказывается, в более узком случае верно и более сильное утверждение.
+При дополнительных ограничениях верно и более сильное утверждение.
 
 \begin{theorem}
 	\label{lem:ac0_primes_infinity_mutually_prime_subset}
@@ -422,7 +423,7 @@ $\supp x \subset \mathbb{N}$.
 		.
 	\end{equation}
 
-	Предъявим такие номера $n_k$, что для любого $k$
+	Найдём такие номера $n_k$, что для любого $k$
 	\begin{equation}
 		\psi(A)_{n_k+1} = \psi(A)_{n_k+2} = \dots = \psi(A)_{n_k+k} = 0
 		.
@@ -459,7 +460,7 @@ $\supp x \subset \mathbb{N}$.
 		,
 	\end{equation}
 	следовательно,
-	$x_{n_2 + 1} = x_{n_2 + 2} = 0$.
+	$\psi(A)_{n_2 + 1} = \psi(A)_{n_2 + 2} = 0$.
 
 	Полученные рассуждения несложно продолжить по индукции.
 
@@ -591,11 +592,11 @@ $\supp x \subset \mathbb{N}$.
 	Следовательно, как минимум $n$ элементов из $G$ принадлежат множеству $F$,
 	и требуемый набор попарно взаимно простых чисел снова предъявлен.
 
-	Поскольку множество $F$ обладает $P$-свойством, то оно, очевидно, счётно.
+	%Поскольку множество $F$ обладает $P$-свойством, то оно, очевидно, счётно.
 
-	Итак, нам удалось получить число $f_0\in A$ и счётное множество $F$, обладающее $P$-свойством
+	Итак, нам удалось получить число $f_0\in A$ и бесконечное множество $F$, обладающее $P$-свойством
 	и состоящее из чисел, взаимно простых с $f_0$.
-	Продолжая по индукции, получим требуемое счётное множество попарно взаимно простых чисел.
+	Продолжая по индукции, получим требуемое бесконечное множество попарно взаимно простых чисел.
 \end{proof}
 
 %Условие теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
@@ -640,7 +641,7 @@ $\supp x \subset \mathbb{N}$.
 		\item
 			$A$ обладает $P$-свойством
 		\item
-			В $A$ существует счётное подмножество попарно взаимно простых чисел
+			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
 		\item
 			$q(\psi(A))=0$.
 	\end{enumerate}
@@ -653,10 +654,10 @@ $\supp x \subset \mathbb{N}$.
 
 \begin{theorem}
 	\label{thm:ac0_primes_p_psi_A_prod}
-	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- счётное множество попарно взаимно простых чисел.
+	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел.
 	Тогда
 	\begin{equation}
-		p(\psi(A)) = \prod_{j=1}^\infty \frac{a_j -1}{a_j}
+		p(\psi(A)) = \prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
 		.
 	\end{equation}
 \end{theorem}
@@ -725,10 +726,10 @@ $\supp x \subset \mathbb{N}$.
 	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
 \end{proof}
 
-\begin{remark}
+\begin{corollary}
 	В случае, когда $\mathbb{N}\setminus A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
 	и, соответственно, $p(\psi(A))=0$.
-\end{remark}
+\end{corollary}
 
 
 
@@ -788,36 +789,37 @@ $\supp x \subset \mathbb{N}$.
 Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
 	Пусть $\varepsilon \in {[} 0; 1)$.
-	Тогда существует бесконечное число таких счётных множеств простых чисел $A$, что $p(\psi(A))=\varepsilon$.
+	Существует бесконечное множество попарно непересекающихся подмножест простых чисел
+	$A_i$ такое, что $p(\psi(A_i))=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
 
-\begin{proof}
-	В силу следствия~\ref{cor:ac0_primes_sum_ln_diverges} мы можем выбрать такое множество простых чисел $A$,
-	что
-	\begin{equation}
-		\sum_{j\in A} \ln \frac{j}{j-1} = -\ln \varepsilon > 0
-		.
-	\end{equation}
-	Тогда в силу теоремы~\ref{thm:ac0_primes_p_psi_A_prod}
-	\begin{multline}
-		p(\psi(A)) = \prod_{j\in A} \frac{j - 1}{j}
-		=
-		\exp \sum_{j\in A} \ln \frac{j - 1}{j}
-		=
-		\exp \sum_{j\in A} \left( -\ln \frac{j}{j-1}\right)
-		=
-		\\=
-		\exp \left( -\sum_{j\in A} \ln \frac{j}{j-1}\right)
-		=
-		\exp (\ln \varepsilon)
-		=
-		\varepsilon
-		.
-	\end{multline}
+%\begin{proof}
+%	В силу следствия~\ref{cor:ac0_primes_sum_ln_diverges} мы можем выбрать такое множество простых чисел $A$,
+%	что
+%	\begin{equation}
+%		\sum_{j\in A} \ln \frac{j}{j-1} = -\ln \varepsilon > 0
+%		.
+%	\end{equation}
+%	Тогда в силу теоремы~\ref{thm:ac0_primes_p_psi_A_prod}
+%	\begin{multline}
+%		p(\psi(A)) = \prod_{j\in A} \frac{j - 1}{j}
+%		=
+%		\exp \sum_{j\in A} \ln \frac{j - 1}{j}
+%		=
+%		\exp \sum_{j\in A} \left( -\ln \frac{j}{j-1}\right)
+%		=
+%		\\=
+%		\exp \left( -\sum_{j\in A} \ln \frac{j}{j-1}\right)
+%		=
+%		\exp (\ln \varepsilon)
+%		=
+%		\varepsilon
+%		.
+%	\end{multline}
+%
+%\end{proof}
 
-\end{proof}
-
-\begin{corollary}
+\begin{theorem}
 	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел.
 	Тогда следующие условия эквивалентны:
 	\begin{enumerate}[label=(\roman*)]
@@ -826,9 +828,9 @@ $\supp x \subset \mathbb{N}$.
 		\item
 			$\psi(A)\in ac_0$.
 		\item
-			$\prod_{j=1}^\infty \frac{a_j -1}{a_j} = 0$.
+			$\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0$.
 	\end{enumerate}
-\end{corollary}
+\end{theorem}
 
 \begin{proof}
 	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
