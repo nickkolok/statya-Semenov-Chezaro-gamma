@@ -733,21 +733,17 @@ $\supp x \subset \mathbb{N}$.
 
 
 
-В~\cite{euler1737variae} доказана следующая
-\begin{theorem}
-	\label{thm:Euler_reverse_primes_diverge}
-	Ряд обратных простых чисел
-	\begin{equation}
-		\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \frac{1}{7} + ...
-		=
-		\sum_j \frac{1}{j},
-	\end{equation}
-	где $j$ пробегает все простые числа, расходится.
-\end{theorem}
+Классическая теорема Эйлера~\cite{euler1737variae} говорит о том, что
+ряд обратных простых чисел
+\begin{equation}
+	\frac{1}{2} + \frac{1}{3} + \frac{1}{5} + \frac{1}{7} + ...
+	=
+	\sum_j \frac{1}{j},
+\end{equation}
+где $j$ пробегает все простые числа, расходится.
+Из этой теоремы легко выводится следующее утверждение.
 
-Из теоремы~\ref{thm:Euler_reverse_primes_diverge} выводится следующее утверждение.
-
-\begin{corollary}
+\begin{lemma}
 	\label{cor:ac0_primes_sum_ln_diverges}
 	Ряд
 	\begin{equation}
@@ -755,38 +751,43 @@ $\supp x \subset \mathbb{N}$.
 		,
 	\end{equation}
 	где $j$ пробегает все простые числа, расходится.
-\end{corollary}
-\begin{proof}
-	Из второго замечательного предела:
-	\begin{equation}
-		\lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = e
-	\end{equation}
-	получаем, что для достаточно больших $n$
-	\begin{equation}
-		\label{eq:ac0_primes_ineq_2nd_nice_lim}
-		\sqrt{e} < \left( 1 + \frac{1}{n} \right)^n < e^2
-		.
-	\end{equation}
-	Прологарифмировав~\eqref{eq:ac0_primes_ineq_2nd_nice_lim}, получим
-	\begin{equation}
-		\frac{1}{2} < n \ln \left( 1 + \frac{1}{n} \right) < 2
-		,
-	\end{equation}
-	откуда
-	\begin{equation}
-		\ln \frac{n+1}{n} > \frac{1}{2n}
-		.
-	\end{equation}
-	Пусть теперь $j$ пробегает все достаточно большие простые числа, тогда
-	\begin{equation}
-		\sum_j \ln \frac{j+1}{j}  > \sum_j \frac{1}{2j} = \frac{1}{2} \sum_j \frac{1}{j}
-		.
-	\end{equation}
-	Ряд в правой части есть ряд обратных простых чисел, который расходится в силу теоремы~\ref{thm:Euler_reverse_primes_diverge}.
-	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
-\end{proof}
+\end{lemma}
+%\begin{proof}
+%	Из второго замечательного предела:
+%	\begin{equation}
+%		\lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = e
+%	\end{equation}
+%	получаем, что для достаточно больших $n$
+%	\begin{equation}
+%		\label{eq:ac0_primes_ineq_2nd_nice_lim}
+%		\sqrt{e} < \left( 1 + \frac{1}{n} \right)^n < e^2
+%		.
+%	\end{equation}
+%	Прологарифмировав~\eqref{eq:ac0_primes_ineq_2nd_nice_lim}, получим
+%	\begin{equation}
+%		\frac{1}{2} < n \ln \left( 1 + \frac{1}{n} \right) < 2
+%		,
+%	\end{equation}
+%	откуда
+%	\begin{equation}
+%		\ln \frac{n+1}{n} > \frac{1}{2n}
+%		.
+%	\end{equation}
+%	Пусть теперь $j$ пробегает все достаточно большие простые числа, тогда
+%	\begin{equation}
+%		\sum_j \ln \frac{j+1}{j}  > \sum_j \frac{1}{2j} = \frac{1}{2} \sum_j \frac{1}{j}
+%		.
+%	\end{equation}
+%	Ряд в правой части есть ряд обратных простых чисел, который расходится в силу теоремы~\ref{thm:Euler_reverse_primes_diverge}.
+%	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
+%\end{proof}
 
-Из следствия~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
+Из любого расходящегося ряда, члены которого положительны и стремятся к нулю,
+можно выделить ряд, сходящийся к любому наперёд заданному положительному числу.
+Аналогично, из любого расходящегося произведения положительных чисел, стремящихся к единице, можно выделить
+подпроизведение, сходящееся к наперёд заданному числу из интервала $(0;1)$.
+С учётом этого факта
+из леммы~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
 	Пусть $\varepsilon \in {[} 0; 1)$.
 	Существует бесконечное множество попарно непересекающихся подмножест простых чисел
