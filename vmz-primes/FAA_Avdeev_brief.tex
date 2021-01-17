@@ -16,14 +16,14 @@
 
 \righthyphenmin=2
 
-\usepackage[14pt]{extsizes}
+%\usepackage[14pt]{extsizes}
 
-\geometry{left=3cm}% левое поле
+\geometry{left=2cm}% левое поле
 \geometry{right=1cm}% правое поле
 \geometry{top=2cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
 
-\renewcommand{\baselinestretch}{1.3}
+%\renewcommand{\baselinestretch}{1.3}
 
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
@@ -46,61 +46,24 @@
 
 \usepackage{amsthm}
 \theoremstyle{definition}
-\newtheorem{lemma}{Лемма}[section]
+\newtheorem{lemma}{Лемма}
 \newtheorem{theorem}[lemma]{Теорема}
 \newtheorem{example}[lemma]{Пример}
 \newtheorem{property}[lemma]{Свойство}
 \newtheorem{remark}[lemma]{Замечание}
-\newtheorem{definition}[lemma]{Определение}
+\newtheorem{definition}{Определение}
 \newtheorem{designation}[lemma]{Обозначение}
 \newtheorem{corollary}{Следствие}[lemma]
 
-\newtheorem{hhypothesis}[lemma]{Гипотеза}
-
-
-\newcommand\hypotlist{ }
-\newcounter{hypcount}
-
-\makeatletter
-\usepackage{environ}
-\NewEnviron{hypothesis}{%
-
-	\edef\curlabel{hhypothesis\thehypcount}
-    \begin{hhypothesis}
-		\label{\curlabel}
-		\BODY%
-    \end{hhypothesis}
-	\edef\curref{\noexpand\ref{\curlabel}}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\paragraph{Гипотеза\!\!\!}}
-
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\expandafter\textbf\expandafter{\curref}}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\textbf{.}~~}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\BODY}
-
-	\addtocounter{hypcount}{1}
-}
-\makeatother
 
 %Only referenced equations are numbered
 \usepackage{mathtools}
-%\mathtoolsset{showonlyrefs}
+\mathtoolsset{showonlyrefs}
 
 %\mathtoolsset{showonlyrefs=false}
 % (an equation/multline to be force-numbered)
 %\mathtoolsset{showonlyrefs=true}
 
-% https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
-\usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
-
-%\newcommand{\longcomment}[1]{}
 
 
 \begin{document}
@@ -131,16 +94,23 @@ MSC~
 \end{center}
 
 
-\paragraph{Аннотация} (короткая, для ФАиП)
-\\
+\begin{flushright}
+	\textit{
+		Светлой памяти профессора \\
+		Александра Дмитриевича Баева
+	}
+\end{flushright}
+
+
+\paragraph{Аннотация.}
 Ограниченная последовательность $(x_1, x_2, ...)\in \ell_\infty$
 называется почти сходящейся, если
 $Bx$ принимает постоянное значение
 для любого банахова предела $B$.
-Работа посвящена изучения почти сходящихся последовательностей из 0 и 1.
+Работа посвящена изучения почти сходимости последовательностей из 0 и 1.
 
 
-Ключевые слова:
+\paragraph{Ключевые слова:}
 	ограниченная последовательность,
 	пространство ограниченных последовательностей,
 	банахов предел,
@@ -150,14 +120,25 @@ $Bx$ принимает постоянное значение
 	разложение на множители,
 	подмножеcтва натуральных чисел
 
-\begin{flushright}
-	\textit{
-		Светлой памяти профессора \\
-		Александра Дмитриевича Баева
-	}
-\end{flushright}
+\paragraph{Abstract.}
+A bounded sequence $(x_1, x_2, ...)\in \ell_\infty$
+is called almost convergent if the value of $Bx$
+does not depend on the choice of Banach limit $B$.
+The paper is devoted to almost convergence of 0-1-sequences.
 
-\section{Введение}
+\paragraph{Keywords:}
+	bounded sequence,
+	space of bounded sequences,
+	Banach limit,
+	Sucheston functional,
+	0-1-sequences,
+	factorization,
+	subsets of positive integers
+
+
+
+%\section{Введение}
+\paragraph{\S 1.}
 
 Рассмотрим пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
 \begin{equation*}
@@ -165,6 +146,7 @@ $Bx$ принимает постоянное значение
 	,
 \end{equation*}
 где $\mathbb{N}$ "--- множество натуральных чисел,
+$x=(x_1, x_2, ..., x_n, ...)$,
 и обычной полуупорядоченностью.
 
 
@@ -183,7 +165,7 @@ $Bx$ принимает постоянное значение
 \end{definition}
 Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
 Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{banach2001theory_rus}.
-
+%
 Лоренц доказал~\cite{lorentz1948contribution}, что существуют почти сходящиеся последовательности ---
 такие последовательности из $\ell_\infty$,
 на которых все банаховы пределы принимают одинаковые значения.
@@ -199,7 +181,7 @@ $Bx$ принимает постоянное значение
 
 
 Пространство почти сходящихся последовательностей будем обозначать через $ac$.
-
+%
 Уточняя результат Лоренца, Сачестон установил~\cite{sucheston1967banach}, что
 для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
 \begin{equation}\label{Sucheston}
@@ -231,7 +213,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 %(иногда в литературе~\cite{semenov2020geomBL,Semenov2014geomprops} встречается также обозначение $\{0;1\}^\mathbb{N}$).
 Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
 $\supp x \subset \mathbb{N}$.
-
+%
 В настоящей статье изучается взаимосвязь значений, которые могут принимать функционалы Сачестона
 на последовательностях $x\in \Omega$, и мультипликативных свойств множеств $\supp x$.
 
@@ -239,7 +221,8 @@ $\supp x \subset \mathbb{N}$.
 
 
 
-\section{Добавление множителей}
+%\section{Добавление множителей}
+\paragraph{\S 2.}
 
 Пользуясь критерием Лоренца~\eqref{eq:crit_Lorentz},
 нетрудно доказать следующую лемму.
@@ -248,19 +231,19 @@ $\supp x \subset \mathbb{N}$.
 	\label{lem:simple_powers_in_ac0}
 	Пусть $x_n = m^n$, $m\in\mathbb{N}$, $m\geq 2$.
 	Тогда
-	\begin{equation}
+	$
 		\chi_x \in ac_0
 		.
-	\end{equation}
+	$
 \end{lemma}
 
-Обобщим теперь утверждение леммы~\ref{lem:simple_powers_in_ac0}.
+Утверждение леммы~\ref{lem:simple_powers_in_ac0} может быть обобщено следующим образом.
 
 \begin{lemma}
 	Пусть $y = \{y_n\}$ --- строго возрастающая последовательность,
-	$\chi_y\in\Omega \cap ac_0$.
-	Пусть $m \in \mathbb{N}$
-	и последовательность $x=\{x_k\}$ определённа соотношением
+	$\chi_y\in\Omega \cap ac_0$ и
+	$m \in \mathbb{N}$
+	Тогда $x\in ac_0$, где последовательность $x=\{x_k\}$ определена соотношением
 	\begin{equation}
 		x_k = \begin{cases}
 			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторых~} i,j\in\mathbb{N},
@@ -269,9 +252,10 @@ $\supp x \subset \mathbb{N}$.
 			.
 		\end{cases}
 	\end{equation}
-	Тогда $x\in ac_0$.
 \end{lemma}
 
+
+\longcomment{
 \begin{proof}
 	Зафиксируем некоторое $K \in \mathbb{N}$ и покажем, что $p(x) < m^{-K}$.
 	Действительно, представим $x$ в виде суммы
@@ -314,6 +298,7 @@ $\supp x \subset \mathbb{N}$.
 	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{-K}$,
 	откуда $p(x) = 0$.
 \end{proof}
+}%\longcomment
 
 \begin{corollary}
 	\label{cor:ac0_powers_finite_set_of_numbers}
@@ -344,8 +329,8 @@ $\supp x \subset \mathbb{N}$.
 %\end{hypothesis}
 
 
-\section{Исключение множителей и \\  нижний функционал Сачестона}
-
+%\section{Исключение множителей и нижний функционал Сачестона}
+\paragraph{\S 3.}
 
 
 \begin{definition}
@@ -362,32 +347,18 @@ $\supp x \subset \mathbb{N}$.
 \end{definition}
 
 Так, например,
-\begin{equation}
+\begin{gather*}
 	\psi(\{2\}) = \psi(\{2, 4\}) = \psi(\{2,4,8,16,...\}) = (1,0,1,0,1,0,1,0,1,0,...),
-\end{equation}
-
-\begin{equation}
+\\
 	\psi(\{3\}) = \psi(\{3,9,27,...\}) = (1,1,0,\;1,1,0,\;1,1,0,\;1,1,0,\;1,1,0,\;...),
-\end{equation}
-
-\begin{equation}
-	\psi(\{2,3\}) = \psi(\{2,3,6\}) = (1,0,0,0,1,0,\;1,0,0,0,1,0,\;1,0,0,0,1,0,...),
-\end{equation}
+\\
+	\psi(\{2,3\}) = \psi(\{2,3,6\}) = (1,0,0,0,1,0,\;1,0,0,0,1,0,\;1,0,0,0,1,0,...).
+\end{gather*}
 
 
 \begin{lemma}
 	Для любого непустого $A\subset \mathbb{N} $ выполнено $\psi(A) \notin ac_1$.
 \end{lemma}
-\begin{proof}
-	Пусть $a_1\in A$.
-	Тогда из каждых идущих подряд $a_1$ элементов последовательности $\psi(A)$
-	хотя бы один нулевой,
-	следовательно,
-	\begin{equation}
-		p(\psi(A)) \leq \frac{a_1-1}{a_1} < 1
-		.
-	\end{equation}
-\end{proof}
 
 При дополнительных ограничениях верно и более сильное утверждение.
 
@@ -397,6 +368,8 @@ $\supp x \subset \mathbb{N}$.
 	(т.е. для любых двух чисел $a_1, a_2 \in A'$ их наибольший общий делитель равен единице).
 	Тогда для любого $A \supset A' $ выполнено $q(\psi(A))=0$.
 \end{theorem}
+
+\longcomment{
 \begin{proof}
 	Пусть $A' = \{ a_1, a_2, ..., a_j, ... \}$ и
 	\begin{equation}
@@ -501,28 +474,22 @@ $\supp x \subset \mathbb{N}$.
 
 \end{proof}
 
-\begin{remark}
-	Понятно, что в качестве примера бесконечного множества
-	попарно взаимно простых чисел можно взять любое бесконечное множество простых чисел.
-	Однако бывают бесконечные множества попарно взаимно простых чисел,
-	не содержащие простых чисел вовсе, например множество
-	\begin{equation}
-		A = \{ 2\cdot 3,~5 \cdot 7,~11 \cdot 13,~17\cdot 19,~23\cdot29,~31\cdot 37,~...\},
-	\end{equation}
-	элементами которого яляются произведения пар соседних простых чисел.
-\end{remark}
+}%\longcomment
+
 
 \begin{definition}
 	Будем говорить, что множество $A\subset\mathbb{N}$ обладает $P$-свойством,
 	если для любого $n\in\mathbb{N}$ найдётся набор попарно взаимно простых чисел
-	\begin{equation}
+	$
 		\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
 		.
-	\end{equation}
+	$
 \end{definition}
 
-Из доказательства теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset} понятно,
-что для множества $A$ в условии леммы достаточно потребовать $P$-свойства.
+В условии теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
+для множества $A$ достаточно потребовать $P$-свойства.
+%Из доказательства теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset} понятно,
+%что для множества $A$ в условии леммы достаточно потребовать $P$-свойства.
 Интересно, что на самом деле $P$-свойство эквивалентно условиям,
 наложенным на множество $A$ в теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset}.
 
@@ -531,6 +498,9 @@ $\supp x \subset \mathbb{N}$.
 	Пусть множество $A$ обладает $P$-свойством.
 	Тогда существует бесконечное подмножество $A'\subset A$ попарно взаимно простых чисел.
 \end{lemma}
+
+
+\longcomment{
 \begin{proof}
 	Зафиксируем $f_0\in A$, $f_0 \neq 1$ и представим $A$ в виде объединения трёх попарно непересекающихся множеств:
 	\begin{equation}
@@ -580,7 +550,7 @@ $\supp x \subset \mathbb{N}$.
 	и состоящее из чисел, взаимно простых с $f_0$.
 	Продолжая по индукции, получим требуемое бесконечное множество попарно взаимно простых чисел.
 \end{proof}
-
+}%\longcomment
 %Условие теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
 %является не только достаточным, но и необходимым.
 
@@ -590,6 +560,7 @@ $\supp x \subset \mathbb{N}$.
 	Тогда $A$ обладает $P$-свойством.
 \end{lemma}
 
+\longcomment{
 \begin{proof}
 	Предположим противное: пусть $A$ не обладает $P$-свойством.
 	Тогда существует $n\in\mathbb{N}$ такое, что из множества $A$ можно выбрать $n$
@@ -611,6 +582,7 @@ $\supp x \subset \mathbb{N}$.
 	и $\{a_0, a_1, a_2, ..., a_n\}\subset A$ "--- набор из $n+1$ попарно взаимно простых чисел.
 	Полученное противоречие завершает доказательство.
 \end{proof}
+}%\longcomment
 
 Таким образом,
 из теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
@@ -629,7 +601,8 @@ $\supp x \subset \mathbb{N}$.
 	\end{enumerate}
 \end{theorem}
 
-\section{Исключение множителей и \\ верхний функционал Сачестона}
+%\section{Исключение множителей и верхний функционал Сачестона}
+\paragraph{\S 4.}
 
 
 Перейдём теперь к изучению верхнего функционала Сачестона $p(\psi(A))$.
@@ -644,6 +617,7 @@ $\supp x \subset \mathbb{N}$.
 	\end{equation}
 \end{theorem}
 
+\longcomment{
 \begin{proof}
 	Зафиксируем $k\in\mathbb{N}$.
 
@@ -707,6 +681,7 @@ $\supp x \subset \mathbb{N}$.
 
 	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
 \end{proof}
+}%\longcomment
 
 \begin{corollary}
 	В случае, когда $\mathbb{N}\setminus A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
@@ -723,17 +698,6 @@ $\supp x \subset \mathbb{N}$.
 	\sum_j \frac{1}{j},
 \end{equation}
 где $j$ пробегает все простые числа, расходится.
-Из этой теоремы легко выводится следующее утверждение.
-
-\begin{lemma}
-	\label{cor:ac0_primes_sum_ln_diverges}
-	Ряд
-	\begin{equation}
-		\sum_j \ln \frac{j+1}{j}
-		,
-	\end{equation}
-	где $j$ пробегает все простые числа, расходится.
-\end{lemma}
 %\begin{proof}
 %	Из второго замечательного предела:
 %	\begin{equation}
@@ -763,16 +727,15 @@ $\supp x \subset \mathbb{N}$.
 %	Ряд в правой части есть ряд обратных простых чисел, который расходится в силу теоремы~\ref{thm:Euler_reverse_primes_diverge}.
 %	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
 %\end{proof}
-
 Из любого расходящегося ряда, члены которого положительны и стремятся к нулю,
 можно выделить ряд, сходящийся к любому наперёд заданному положительному числу.
 Аналогично, из любого расходящегося произведения положительных чисел, стремящихся к единице, можно выделить
 подпроизведение, сходящееся к наперёд заданному числу из интервала $(0;1)$.
 С учётом этого факта
-из леммы~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
+из теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
 	Пусть $\varepsilon \in {[} 0; 1)$.
-	Существует бесконечное множество попарно непересекающихся подмножест простых чисел
+	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
 	$A_i$ такое, что $p(\psi(A_i))=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
 
@@ -815,11 +778,12 @@ $\supp x \subset \mathbb{N}$.
 	\end{enumerate}
 \end{theorem}
 
-\begin{proof}
-	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
-	поэтому условия (i) и (ii) эквивалентны.
-	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $p(\psi(A))=0$.
-\end{proof}
+
+%\begin{proof}
+%	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
+%	поэтому условия (i) и (ii) эквивалентны.
+%	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $p(\psi(A))=0$.
+%\end{proof}
 
 
 
