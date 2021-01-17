@@ -32,8 +32,6 @@
 \DeclareMathOperator{\mes}{mes}
 \DeclareMathOperator{\supp}{supp}
 
-\newcommand{\longcomment}[1]{}
-
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 \addbibresource{../bib/general_monographies.bib}
 \addbibresource{../bib/ext.bib}
@@ -210,15 +208,11 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
 Отдельный интерес представляет множество всех последовательностей из 0 и 1,
 которое в дальнейшем мы будем обозначать через $\Omega$.
-%(иногда в литературе~\cite{semenov2020geomBL,Semenov2014geomprops} встречается также обозначение $\{0;1\}^\mathbb{N}$).
 Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
 $\supp x \subset \mathbb{N}$.
 %
 В настоящей статье изучается взаимосвязь значений, которые могут принимать функционалы Сачестона
 на последовательностях $x\in \Omega$, и мультипликативных свойств множеств $\supp x$.
-
-
-
 
 
 %\section{Добавление множителей}
@@ -255,51 +249,6 @@ $\supp x \subset \mathbb{N}$.
 \end{lemma}
 
 
-\longcomment{
-\begin{proof}
-	Зафиксируем некоторое $K \in \mathbb{N}$ и покажем, что $p(x) < m^{-K}$.
-	Действительно, представим $x$ в виде суммы
-	\begin{equation}
-		\label{eq:ac0_powers_x_as_sum}
-		x \leq z_1 + z_2 + \dots + z_K + z'_{K+1}
-		,
-	\end{equation}
-	где каждое слагаемое $z_j$ соответствует умножению индексов на $m^j$:
-	\begin{equation}
-		(z_j)_k = \begin{cases}
-			1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторого~} i\in\mathbb{N},
-			\\
-			0  &\mbox{~иначе}
-			,
-		\end{cases}
-	\end{equation}
-	а слагаемое $z'_j$ соответствует умножению индексов на $m^{j+1}$, $m^{j+2},...$:
-	\begin{equation}
-		\label{eq:ac0_powers_residue}
-		(z'_j)_k = \begin{cases}
-			1, &\mbox{~если~} k = y_i \cdot m^{j'} \mbox{~для некоторых~} i,j'\in\mathbb{N},~~ j' > j
-			,%\\ &\mbox{~и ни для какого~} j' \leq j \mbox{~не выполнено~} k = y_i \cdot m^{j'},
-			\\
-			0  &\mbox{~иначе}
-			.
-		\end{cases}
-	\end{equation}
-	(Знак неравенства в~\eqref{eq:ac0_powers_x_as_sum} возникает ввиду того, что возможен случай
-	$y_i \cdot m^j = y_{i'} \cdot m^{j'}$ для $j\neq j'$.
-	Например, в случае $y_1 = 3$, $y_2 = 6$ и $m=2$ имеем $y_1 \cdot m^2 = y_2 \cdot m^1$.)
-	Понятно, что $p(z_j)=0$.
-	Таким образом,
-	\begin{equation}
-		p(x) \leq p(z_1) + p(z_2) + \dots + p(z_K) + p(z'_{K+1}) = p(z'_{K+1})
-		.
-	\end{equation}
-	Заметим, что в силу определения~\eqref{eq:ac0_powers_residue} $z'_j$ каждый отрезок из $m^{j+1}$ элементов
-	содержит не более одной единицы, и потому $p(z'_j) \leq m^{-j-1} < m^{-j}$.
-	Таким образом, для любого $K\in\mathbb{N}$ выполнена оценка $p(x) < m^{-K}$,
-	откуда $p(x) = 0$.
-\end{proof}
-}%\longcomment
-
 \begin{corollary}
 	\label{cor:ac0_powers_finite_set_of_numbers}
 	Пусть $\{p_1, ..., p_k\} \subset \mathbb{N}$,
@@ -312,22 +261,6 @@ $\supp x \subset \mathbb{N}$.
 	\end{equation}
 	Тогда $x\in ac_0$.
 \end{corollary}
-
-
-%\begin{hypothesis}
-%	Пусть $y=\{y_n\}$ и $z=\{z_n\}$ --- строго возрастающие последовательности,
-%	$\chi_y,\chi_z\in\{0;1\}^\mathbb{N} \cap ac_0$.
-%	Тогда почти сходится к нулю последовательность $x=\{x_k\}$, определённая соотношением
-%	\begin{equation}
-%		x_k = \begin{cases}
-%			1, &\mbox{~если~} k = y_i \cdot z_j \mbox{~для некоторых~} i,j\in\mathbb{N},
-%			\\
-%			0  &\mbox{~иначе}
-%			.
-%		\end{cases}
-%	\end{equation}
-%\end{hypothesis}
-
 
 %\section{Исключение множителей и нижний функционал Сачестона}
 \paragraph{\S 3.}
@@ -369,114 +302,6 @@ $\supp x \subset \mathbb{N}$.
 	Тогда для любого $A \supset A' $ выполнено $q(\psi(A))=0$.
 \end{theorem}
 
-\longcomment{
-\begin{proof}
-	Пусть $A' = \{ a_1, a_2, ..., a_j, ... \}$ и
-	\begin{equation}
-		\label{eq:ac0_primes_A_j_prod_des}
-		A_j = \prod_{i=1}^j a_i
-		.
-	\end{equation}
-
-	Найдём такие номера $n_k$, что для любого $k$
-	\begin{equation}
-		\psi(A)_{n_k+1} = \psi(A)_{n_k+2} = \dots = \psi(A)_{n_k+k} = 0
-		.
-	\end{equation}
-	Тем самым мы докажем, что отрезок из любого наперёд заданного количества нулей подряд
-	встречается в последовательности $\psi(A)$ и, следовательно, $q(\psi(A)) = 0$.
-
-	Действительно,
-	пусть $n_1 = a_1 - 1$.
-	Рассмотрим множество  $F_1 = \{ n_1 + A_1, n_1 + 2A_1, n_1 + 3A_1, \dots, n_1 + a_2A_1 \}$
-	и отметим два следующих факта.
-
-	Во-первых, пусть $f \in F_1$,
-	тогда
-	\begin{equation}
-		f \equiv n_1 \mod a_1
-		.
-	\end{equation}
-	Во-вторых, числа $a_2$ и $A_1$ взаимно просты.
-	Следовательно, все $a_2$ чисел из множества $F_1$ дают разные остатки при делении на $a_2$.
-
-	В качестве $n_2$ возьмём такое $f\in F_1$, что
-	\begin{equation}
-		f \equiv a_2 - 2 \mod a_2
-		.
-	\end{equation}
-	Заметим, что тогда
-	\begin{equation}
-		n_2 + 1 \equiv n_1 + 1 \equiv 0 \mod a_1
-	\end{equation}
-	и
-	\begin{equation}
-		n_2 + 2 \equiv 0 \mod a_2
-		,
-	\end{equation}
-	следовательно,
-	$\psi(A)_{n_2 + 1} = \psi(A)_{n_2 + 2} = 0$.
-
-	Полученные рассуждения несложно продолжить по индукции.
-
-	Рассмотрим множество  $F_{j+1} = \{ n_j + A_j, n_j + 2A_j, n_j + 3A_j, \dots, n_j + a_{j+1}A_j \}$
-	и отметим два следующих факта.
-
-	Во-первых, пусть $f \in F_{j+1}$,
-	тогда
-	\begin{equation}
-		f \equiv n_j \mod A_j
-	\end{equation}
-	и, в силу~\eqref{eq:ac0_primes_A_j_prod_des},
-	\begin{equation}
-		\begin{array}{rl}
-		f &\equiv n_j \mod a_1
-		\\
-		f &\equiv n_j \mod a_2
-		\\
-		&\dots
-		\\
-		f &\equiv n_j \mod a_j
-		.
-		\end{array}
-	\end{equation}
-	Во-вторых, числа $a_{j+1}$ и $A_j$ взаимно просты, поскольку $a_{j+1}$ взаимно просто с каждым из чисел $a_1,...,a_j$.
-	Следовательно, все $a_{j+1}$ чисел из множества $F_j$ дают разные остатки при делении на $a_{j+1}$.
-
-	В качестве $n_{j+1}$ возьмём такое $f\in F_j$, что
-	\begin{equation}
-		f \equiv a_{j+1} - (j+1) \mod a_{j+1}
-		.
-	\end{equation}
-	Заметим, что тогда
-	\begin{equation}
-		\begin{array}{l}
-			n_{j+1} + 1 \equiv n_j + 1 \equiv n_{j-1} + 1 \equiv \dots \equiv n_2 + 1 \equiv n_1 + 1 \equiv 0 \mod a_1
-			\\
-			n_{j+1} + 2 \equiv n_j + 2 \equiv n_{j-1} + 2 \equiv \dots \equiv n_2 + 2 \equiv 0 \mod a_2
-			\\
-			\dots
-			\\
-			n_{j+1} + j \equiv n_j + j  \equiv 0 \mod a_j
-		\end{array}
-	\end{equation}
-	и
-	\begin{equation}
-		n_{j+1} + (j+1) \equiv 0 \mod a_{j+1}
-		,
-	\end{equation}
-	следовательно,
-	\begin{equation}
-		\psi(A)_{n_{j+1} + j+1} = \psi(A)_{n_{j} + j} = \dots = \psi(A)_{n_{j} + 2} = \psi(A)_{n_{j} + 1} = 0
-		.
-	\end{equation}
-
-
-\end{proof}
-
-}%\longcomment
-
-
 \begin{definition}
 	Будем говорить, что множество $A\subset\mathbb{N}$ обладает $P$-свойством,
 	если для любого $n\in\mathbb{N}$ найдётся набор попарно взаимно простых чисел
@@ -488,8 +313,6 @@ $\supp x \subset \mathbb{N}$.
 
 В условии теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
 для множества $A$ достаточно потребовать $P$-свойства.
-%Из доказательства теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset} понятно,
-%что для множества $A$ в условии леммы достаточно потребовать $P$-свойства.
 Интересно, что на самом деле $P$-свойство эквивалентно условиям,
 наложенным на множество $A$ в теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset}.
 
@@ -500,89 +323,12 @@ $\supp x \subset \mathbb{N}$.
 \end{lemma}
 
 
-\longcomment{
-\begin{proof}
-	Зафиксируем $f_0\in A$, $f_0 \neq 1$ и представим $A$ в виде объединения трёх попарно непересекающихся множеств:
-	\begin{equation}
-		A = \{f_0\} \cup E \cup F
-		,
-	\end{equation}
-	где
-	\begin{equation}
-		E = \{ a \in A \mid a \mbox{~не взаимно просто с~} f_0 \}
-		,
-	\end{equation}
-	\begin{equation}
-		F = \{ a \in A \mid a \mbox{ ~~~~взаимно просто с~} f_0 \}
-		.
-		%TODO: нормальное выравнивание!!
-	\end{equation}
-
-	Пусть разложение $f_0$ на простые множители имеет вид
-	\begin{equation}
-		f_0 = p_1^{j_1} \cdot p_2^{j_2} \cdot ... \cdot p_k^{j_k}
-		.
-	\end{equation}
-
-	Тогда множество $E$ можно представить в виде объединения (возможно пересекающихся) множеств:
-	\begin{equation}
-		E = \bigcup_{i=1}^{k} E_i,\quad E_i = \{a\in E \mid a \mbox{~кратно~} p_i\}
-		.
-	\end{equation}
-
-	Покажем, что множество $F$ обладает $P$-свойством.
-	Действительно, зафиксируем $n\in\mathbb{N}$.
-	Так как множество $A$ обладает $P$-свойством,
-	то в нём найдётся подмножество попарно взаимно простых чисел
-	$$G=\{a_1, a_2, ..., a_{n+k-1}, a_{n+k}\}\subset A.$$
-
-	Если $f_0\in G$, то $G\setminus f_0 \subset F$ в силу построения множеств $G$ и $F$, и требуемый набор попарно взаимно простых чисел предъявлен.
-
-	Пусть теперь $f_0\notin G$.
-	Заметим, что в каждое из множеств $E_i$ может входит не более одного элемента множества $G$
-	(в силу того, что при фиксированном $i$ все элементы множества $E_i$ имеют нетривиальный общий делитель).
-	Следовательно, как минимум $n$ элементов из $G$ принадлежат множеству $F$,
-	и требуемый набор попарно взаимно простых чисел снова предъявлен.
-
-	%Поскольку множество $F$ обладает $P$-свойством, то оно, очевидно, счётно.
-
-	Итак, нам удалось получить число $f_0\in A$ и бесконечное множество $F$, обладающее $P$-свойством
-	и состоящее из чисел, взаимно простых с $f_0$.
-	Продолжая по индукции, получим требуемое бесконечное множество попарно взаимно простых чисел.
-\end{proof}
-}%\longcomment
-%Условие теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
-%является не только достаточным, но и необходимым.
-
 \begin{lemma}
 	\label{lem:ac0_primes_q_psi_A_0_causes_P}
 	Пусть для множества $A\subset\mathbb{N}\setminus\{1\}$ выполнено $q(\psi(A))=0$.
 	Тогда $A$ обладает $P$-свойством.
 \end{lemma}
 
-\longcomment{
-\begin{proof}
-	Предположим противное: пусть $A$ не обладает $P$-свойством.
-	Тогда существует $n\in\mathbb{N}$ такое, что из множества $A$ можно выбрать $n$
-	попарно взаимно простых чисел, но нельзя выбрать $n+1$.
-
-	Пусть $\{a_1, a_2, ..., a_n\}\subset A$ "--- набор попарно взаимно простых чисел.
-	Так как $q(\psi(A))=0$, то в последовательности $\psi(A)$ найдётся отрезок, состоящий сплошь из нулей,
-	любой наперёд заданной длины.
-	Выберем $k$ таким, что
-	\begin{equation}
-		(\psi(A))_{k+1} = (\psi(A))_{k+2} = ... = (\psi(A))_{k+a_1a_2\cdots a_n} = 0
-		.
-	\end{equation}
-	Тогда существует такое число $k_0$, $k+1 \leq k_0 \leq k+a_1a_2\cdots a_n$,
-	что $k_0$ даёт в остатке $1$ при делении на $a_1a_2\cdots a_n$.
-	Так как $(\psi(A))_{k_0} = 0$, то $k_0 = m\cdot a_0$ для некоторых $m\in\mathbb{N}$ и $a_0\in A$.
-	С другой стороны, $k_0$ взаимно просто с каждым из чисел $a_1, a_2, ..., a_n$.
-	Следовательно, $a_0$ также взаимно просто с каждым из чисел $a_1, a_2, ..., a_n$,
-	и $\{a_0, a_1, a_2, ..., a_n\}\subset A$ "--- набор из $n+1$ попарно взаимно простых чисел.
-	Полученное противоречие завершает доказательство.
-\end{proof}
-}%\longcomment
 
 Таким образом,
 из теоремы~\ref{lem:ac0_primes_infinity_mutually_prime_subset}
@@ -617,71 +363,6 @@ $\supp x \subset \mathbb{N}$.
 	\end{equation}
 \end{theorem}
 
-\longcomment{
-\begin{proof}
-	Зафиксируем $k\in\mathbb{N}$.
-
-	Заметим, что верхний функционал Сачестона можно представить в виде
-	\begin{equation}
-		\label{eq:ac0_primes_px_lim_pnx}
-		p(x) = \lim_{n\to\infty} p_n(x)
-		,
-	\end{equation}
-	где
-	\begin{equation}
-		p_n(x) = \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
-		.
-	\end{equation}
-
-	Поскольку предел~\eqref{eq:ac0_primes_px_lim_pnx} существует, то для его оценки можно использовать предел подпоследовательности
-	$p_{n_k}(x)$, где $n_k = a_1\cdot a_2 \cdot ... \cdot a_k$.
-
-
-	Cреди первых $n_k$ элементов последовательности $\psi(A)$
-	ровно $\prod_{j=1}^k (a_j-1)$ единиц, поскольку комбинации остатков от деления
-	на взаимно простые числа $a_1, a_2, ..., a_k$ <<не успевают>> повторяться.
-	Следовательно,
-	\begin{equation}
-		p_{n_k}(\psi(A)) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
-		\geq
-		\frac{1}{n_k} \sum_{j=1}^{n_k} (\psi(A))_j
-		=
-		\prod_{i=1}^k \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-	Переходя к пределу по $k$, имеем
-	\begin{equation}
-		\label{eq:ac0_primes_p_psi_A_lower_bound}
-		p(\psi(A)) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
-		=
-		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-
-	Заметим теперь, что в любом отрезке последовательности $\psi(A)$ длины $n_k$
-	содержится не более $\prod_{j=1}^k (a_j-1)$ единиц
-	(могут попадаться <<дополнительные>> нули "--- элементы с индексами, кратными $a_j$ для $j>k$).
-	Значит,
-	\begin{equation}
-		p_{n_k}(\psi(A)) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
-		\leq
-		\prod_{i=1}^k \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-	Снова перейдя к пределу по $k$, получим
-	\begin{equation}
-		\label{eq:ac0_primes_p_psi_A_upper_bound}
-		p(\psi(A)) \leq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
-		=
-		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-
-	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
-\end{proof}
-}%\longcomment
 
 \begin{corollary}
 	В случае, когда $\mathbb{N}\setminus A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
@@ -698,35 +379,7 @@ $\supp x \subset \mathbb{N}$.
 	\sum_j \frac{1}{j},
 \end{equation}
 где $j$ пробегает все простые числа, расходится.
-%\begin{proof}
-%	Из второго замечательного предела:
-%	\begin{equation}
-%		\lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = e
-%	\end{equation}
-%	получаем, что для достаточно больших $n$
-%	\begin{equation}
-%		\label{eq:ac0_primes_ineq_2nd_nice_lim}
-%		\sqrt{e} < \left( 1 + \frac{1}{n} \right)^n < e^2
-%		.
-%	\end{equation}
-%	Прологарифмировав~\eqref{eq:ac0_primes_ineq_2nd_nice_lim}, получим
-%	\begin{equation}
-%		\frac{1}{2} < n \ln \left( 1 + \frac{1}{n} \right) < 2
-%		,
-%	\end{equation}
-%	откуда
-%	\begin{equation}
-%		\ln \frac{n+1}{n} > \frac{1}{2n}
-%		.
-%	\end{equation}
-%	Пусть теперь $j$ пробегает все достаточно большие простые числа, тогда
-%	\begin{equation}
-%		\sum_j \ln \frac{j+1}{j}  > \sum_j \frac{1}{2j} = \frac{1}{2} \sum_j \frac{1}{j}
-%		.
-%	\end{equation}
-%	Ряд в правой части есть ряд обратных простых чисел, который расходится в силу теоремы~\ref{thm:Euler_reverse_primes_diverge}.
-%	Про признаку сравнения отсюда следует, что и ряд в левой части расходится.
-%\end{proof}
+
 Из любого расходящегося ряда, члены которого положительны и стремятся к нулю,
 можно выделить ряд, сходящийся к любому наперёд заданному положительному числу.
 Аналогично, из любого расходящегося произведения положительных чисел, стремящихся к единице, можно выделить
@@ -738,32 +391,6 @@ $\supp x \subset \mathbb{N}$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
 	$A_i$ такое, что $p(\psi(A_i))=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
-
-%\begin{proof}
-%	В силу следствия~\ref{cor:ac0_primes_sum_ln_diverges} мы можем выбрать такое множество простых чисел $A$,
-%	что
-%	\begin{equation}
-%		\sum_{j\in A} \ln \frac{j}{j-1} = -\ln \varepsilon > 0
-%		.
-%	\end{equation}
-%	Тогда в силу теоремы~\ref{thm:ac0_primes_p_psi_A_prod}
-%	\begin{multline}
-%		p(\psi(A)) = \prod_{j\in A} \frac{j - 1}{j}
-%		=
-%		\exp \sum_{j\in A} \ln \frac{j - 1}{j}
-%		=
-%		\exp \sum_{j\in A} \left( -\ln \frac{j}{j-1}\right)
-%		=
-%		\\=
-%		\exp \left( -\sum_{j\in A} \ln \frac{j}{j-1}\right)
-%		=
-%		\exp (\ln \varepsilon)
-%		=
-%		\varepsilon
-%		.
-%	\end{multline}
-%
-%\end{proof}
 
 \begin{theorem}
 	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел.
@@ -777,15 +404,6 @@ $\supp x \subset \mathbb{N}$.
 			$\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0$.
 	\end{enumerate}
 \end{theorem}
-
-
-%\begin{proof}
-%	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
-%	поэтому условия (i) и (ii) эквивалентны.
-%	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $p(\psi(A))=0$.
-%\end{proof}
-
-
 
 \printbibliography{}
 
