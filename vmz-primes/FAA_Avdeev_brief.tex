@@ -16,23 +16,15 @@
 
 \righthyphenmin=2
 
-%\usepackage[14pt]{extsizes}
 
 \geometry{left=2cm}% левое поле
 \geometry{right=1cm}% правое поле
 \geometry{top=2cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
 
-%\renewcommand{\baselinestretch}{1.3}
 
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
 
-\DeclareMathOperator{\ext}{ext}
-\DeclareMathOperator{\mes}{mes}
 \DeclareMathOperator{\supp}{supp}
-
-
 
 \usepackage{cite}
 
@@ -56,7 +48,6 @@
 %\mathtoolsset{showonlyrefs=false}
 % (an equation/multline to be force-numbered)
 %\mathtoolsset{showonlyrefs=true}
-
 
 
 \begin{document}
@@ -148,7 +139,7 @@ $x=(x_1, x_2, ..., x_n, ...)$,
 	если
 	\begin{enumerate}[label=(\roman*)]
 		\item
-			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+			$B\geqslant0$, т.~е. $Bx \geqslant 0$ для $x \geqslant 0$,
 		\item
 			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
 		\item
