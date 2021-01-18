@@ -38,7 +38,7 @@
 \newtheorem{remark}[lemma]{Замечание}
 \newtheorem{definition}{Определение}
 \newtheorem{designation}[lemma]{Обозначение}
-\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{corollary}[lemma]{Следствие}
 
 
 %Only referenced equations are numbered
@@ -91,7 +91,7 @@ MSC~
 называется почти сходящейся, если
 $Bx$ принимает постоянное значение
 для любого банахова предела $B$.
-Работа посвящена изучения почти сходимости последовательностей из 0 и 1.
+Работа посвящена изучению почти сходимости последовательностей из 0 и 1.
 
 
 \paragraph{Ключевые слова:}
@@ -148,7 +148,7 @@ $x=(x_1, x_2, ..., x_n, ...)$,
 	\end{enumerate}
 \end{definition}
 Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
-Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{banach2001theory_rus}.
+Существование банаховых пределов было анонсировано Мазуром \cite{Mazur} и позднее доказано в книге Банаха~\cite{banach2001theory_rus}.
 %
 Лоренц доказал~\cite{lorentz1948contribution}, что существуют почти сходящиеся последовательности ---
 такие последовательности из $\ell_\infty$,
@@ -181,7 +181,7 @@ $x=(x_1, x_2, ..., x_n, ...)$,
 называют нижним и верхним функционалом Сачестона соответственно.
 Заметим, что $p(x) = -q(-x)$.
 Неравенства \eqref{Sucheston} точны:
-для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+для данного $x$ для любого $r\in[q(x), p(x)]$ найдётся банахов предел
 $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
 Легко видеть, что множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
@@ -275,10 +275,7 @@ $\supp x \subset \mathbb{N}$.
 \end{gather*}
 
 
-\begin{lemma}
-	Для любого непустого $A\subset \mathbb{N} $ выполнено $\psi(A) \notin ac_1$.
-\end{lemma}
-
+Для любого непустого $A\subset \mathbb{N} $ выполнено $\psi(A) \notin ac_1$.
 При дополнительных ограничениях верно и более сильное утверждение.
 
 \begin{theorem}
@@ -369,11 +366,11 @@ $\supp x \subset \mathbb{N}$.
 Из любого расходящегося ряда, члены которого положительны и стремятся к нулю,
 можно выделить ряд, сходящийся к любому наперёд заданному положительному числу.
 Аналогично, из любого расходящегося произведения положительных чисел, стремящихся к единице, можно выделить
-подпроизведение, сходящееся к наперёд заданному числу из интервала $(0;1)$.
+подпроизведение, сходящееся к наперёд заданному числу из интервала $(0,1)$.
 С учётом этого факта
 из теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
-	Пусть $\varepsilon \in {[} 0; 1)$.
+	Пусть $\varepsilon \in {[} 0, 1)$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
 	$A_i$ такое, что $p(\psi(A_i))=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
@@ -391,8 +388,6 @@ $\supp x \subset \mathbb{N}$.
 	\end{enumerate}
 \end{theorem}
 
-\subsection*{Список литературы}
-
 \begin{thebibliography}{99}
 %
 \bibitem{Mazur}
@@ -400,10 +395,10 @@ $\supp x \subset \mathbb{N}$.
 с. 102—107.
 %
 \bibitem{banach2001theory_rus}
-\emph{Банах} \emph{С.}. Теория линейных операций. — Регуляр. и хаот. динамика М, 2001.
+\emph{Банах} \emph{С.} Теория линейных операций. — Регуляр. и хаот. динамика М, 2001.
 %
 \bibitem{lorentz1948contribution}
-\emph{Lorentz} \emph{G. G.}. A contribution to the theory of divergent sequences // Acta Mathematica. —
+\emph{Lorentz} \emph{G. G.} A contribution to the theory of divergent sequences // Acta Mathematica. —
 1948. — т. 80, No 1. — с. 167—190. — ISSN 0001-5962.%
 \bibitem{sucheston1967banach}
 \emph{Sucheston} \emph{L.}. Banach limits // Amer. Math. Monthly. — 1967. — т. 74. — с. 308—311. —
@@ -415,7 +410,7 @@ ISSN 0002-9890.
 (454. — с. 153—194.
 %
 \bibitem{euler1737variae}
-\emph{Euler} \emph{L.}. Variae observationes circa series infinitas // Commentarii academiae scientiarum
+\emph{Euler} \emph{L.} Variae observationes circa series infinitas // Commentarii academiae scientiarum
 imperialis Petropolitanae. — 1737. — т. 9, No 1737. — с. 160—188.
 \end{thebibliography}
 
