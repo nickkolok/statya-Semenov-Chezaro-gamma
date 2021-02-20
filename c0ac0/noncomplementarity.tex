@@ -209,13 +209,11 @@ For further investigation of $\alpha(x)$ we also refer the reader to~\cite{avdee
 \begin{lemma}
 	\label{lem:c_0_not_complemented}
 	For each linear operator $Q: \ell_\infty \to \ell_{\infty}$ such that $c_0\subseteq \ker Q$,
-	%Let $T: \ell_\infty \to \ell^{\infty}$ be an operator such that $\ker T\supseteq c_0$.
-	There exists infinite subset $S \subset \mathbb{N}$ such that
+	there exists infinite subset $S \subset \mathbb{N}$ such that
 	\begin{equation}
 		\forall(x \in \ell_\infty : \supp x \subset S)[Qx = 0]
 		.
 	\end{equation}
-	%Then there is an infinite subset $A$ of $\mathbb{N}$ such that $P(x) = 0$ for all $x$ supported on $A$.
 \end{lemma}
 
 \begin{proof}
@@ -266,6 +264,82 @@ For further investigation of $\alpha(x)$ we also refer the reader to~\cite{avdee
 	Due to~\eqref{eq:non_complemented_sum_cardinality}, we obtain $\# J \leq \|Q\| k$ for every $J\subset I_{n,k}$.
 	This contradicts that $I_{n,k}$ is uncountable.
 \end{proof}
+
+\begin{theorem}
+	The subspace $A_0$ is not complemented in $\ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Suppose the contrary:
+	there exists a continuous projection $P: \ell_\infty \to A_0$.
+	Applying Lemma~\ref{lem:c_0_not_complemented} to $I-P$
+	we can find infinite subset $S\subset\mathbb{N}$
+	such that $\forall(x\in\ell_\infty : \supp x \subset S)[(I-P)x = 0]$.
+	But then $\alpha(P\chi_S) = \alpha(\chi_S) = 1$, that is $P\chi_S \notin A_0$,
+	which contaricts that $P$ is a projection onto $A_0$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+\begin{lemma}
+	\label{lem:c_0_not_complemented_in_ac_0}
+	For each linear operator $Q: ac_0 \to ac_0$ such that $c_0\subseteq \ker Q$,
+	there exists infinite subset $S \subset \mathbb{N}$ such that
+	\begin{equation}
+		\forall(x \in ac_0 : \supp x \subset S)[Qx = 0]
+		.
+	\end{equation}
+\end{lemma}
+
+
+\begin{proof}
+	Let $\{U_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
+	Define sets $S_i$ by their characteristic functions:
+	\begin{equation}
+		\chi_{S_i} (n) = \begin{cases}
+			1, & ~\mbox{if}~ n = k^2, k\in U_i,
+			\\
+			0  & ~\mbox{for other}~n.
+		\end{cases}
+	\end{equation}
+	The family of sets $\{S_i\}_{i \in I}$
+	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+
+	Suppose the contrary:
+	\begin{equation}
+		\forall(i\in I)\exists(x_i \in ac_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
+		.
+	\end{equation}
+	The proof is completed with the same argument with Lemma~\ref{lem:c_0_not_complemented}.
+\end{proof}
+
+\begin{theorem}
+	The subspace $c_0$ is not complemented in $ac_0$.
+\end{theorem}
+
+
+
+
+\begin{proof}
+	Suppose the contrary:
+	there exists a continuous projection $P: ac_0 \to c_0$.
+	Applying Lemma~\ref{lem:c_0_not_complemented_in_ac_0}to $I-P$
+	we can find infinite subset $S\subset\mathbb{N}$
+	such that $\forall(x\in ac_0 : \supp x \subset S)[(I-P)x = 0]$
+	(тsuch $x \in ac_0 \setminus c_0$ exists even if $\chi_S \notin ac_0$).
+	But then $Px\notin c_0$.
+	which contaricts that $P$ is a projection onto $c_0$.
+\end{proof}
+
+
 
 
 
