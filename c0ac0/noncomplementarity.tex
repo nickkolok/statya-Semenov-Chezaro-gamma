@@ -218,6 +218,56 @@ For further investigation of $\alpha(x)$ we also refer the reader to~\cite{avdee
 	%Then there is an infinite subset $A$ of $\mathbb{N}$ such that $P(x) = 0$ for all $x$ supported on $A$.
 \end{lemma}
 
+\begin{proof}
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
+	Suppose the contrary:
+	\begin{equation}
+		\forall(i\in I)\exists(x_i \in \ell_\infty : \supp x_i \subset S_i)[Q(x_i) \neq 0]
+		.
+	\end{equation}
+	Note that $x_i \notin c_0$.
+	Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
+
+	Set $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
+	then $I = \bigcup\limits_{n\in\mathbb{N}} I_n$
+	is uncountable.
+	Thus, we can find $n$ such that $I_n$ is also uncountable
+	(otherwise $I$ would be countable as a countable junction of countable sets).
+
+	Now set $I_{n,k} = \{i \in I\,:\,|(Qx_i)n| \geq 1/k\}$,
+	then $I_n = \bigcup\limits_{k\in\mathbb{N}} I_{n,k}$.
+	Applying the same argument, one can easily obtain that the set $I_{n,k}$ is uncountable for some $k$.
+	Let us pick such $I_{n,k}$ and proceed with it.
+
+	Let us consider a finite set $J \subset I_{n,k}$ with $\#J>1$
+	(here $\#J$ stands for the cardinality of the set $J$).
+	Take
+	\begin{equation}
+		y = \sum_{j \in J} \operatorname{sign}{(Qx_j)_n} \cdot x_j
+		.
+	\end{equation}
+	Then
+	\begin{equation}
+		\label{eq:non_complemented_sum_cardinality}
+		(Qy)_n = \sum_{j \in J}
+		(\operatorname{sign}(Qx_j)_n)
+		\cdot (Qx_j)_n \geq \frac{\# J}{k}
+		.
+	\end{equation}
+
+	Since the intersection $S_i \cap S_j$ is finite for any $i \neq j$ and
+	$\supp x_j \subset S_j$,
+	the intersection $\bigcap\limits_{j\in J} \supp x_j$ is also finite.
+	Hence, $y = f + z$,
+	where $\supp f$ is finite and $\|z\| \leq 1$.
+	Note, that $f\in c_0$ and, with $c_0 \subseteq \ker Q$ we have $Qf = 0$.
+	Thus, $Qy = Qz$ и $\|Q(y)\| \leq \|Q\| \|z\| \leq \|Q\|$.
+	Due to~\eqref{eq:non_complemented_sum_cardinality}, we obtain $\# J \leq \|Q\| k$ for every $J\subset I_{n,k}$.
+	This contradicts that $I_{n,k}$ is uncountable.
+\end{proof}
+
+
 
 \section{The space $A_0$}
 \label{sec:A0}
