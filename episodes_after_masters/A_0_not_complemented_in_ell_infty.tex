@@ -58,21 +58,21 @@ TODO: краткий обзор - передрать из Conway 2nd ed., p. 94
 	Нормализацией можно добиться того, что $\|x_i\|=1$ для всех $i \in I$.
 	(Нормализацией и добрым слово можно добиться гораздо большего, чем просто добрым словом)%TODO: выпилить!
 	% , in particular $x_i \notin c_0$. Normalizing $x_i$, we may assume that $\|x_i\|=1$ for all $i \in I$.
-	
+
 	Пусть $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
 	тогда $I = \bigcup\limits_{n\in\mathbb{N}} I_n$
 	и, в силу несчётности $I$, существует такое $n$,
 	что $I_n$ несчётно
 	(иначе $I$ было бы счётно как счётное объединение счётных множеств).
 	% Since $I$ is uncountable there must be $n \in \mathbb{N}$ such that $I_n := \{i \in I\,:\,(Tx_i)(n) \neq 0\}$ is uncountable.
-	
+
 	Пусть далее $I_{n,k} = \{i \in I\,:\,|(Qx_i)n| \geq 1/k\}$,
 	тогда $I_n = \bigcup\limits_{k\in\mathbb{N}} I_{n,k}$.
 	Аналогичные рассуждения показывают, что для некоторого $k$ множество $I_{n,k}$ несчётно.
 	% Since $I_n$ is uncountable, there must be $k$ such that $I_{n,k} := \{i \in I\,:\,|(Tx_i)(n)| \geq 1/k\}$ is uncountable.
 	Зафиксируем такое $I_{n,k}$ и в дальнейшем будем работать с ним.
 	% Now fix $n$ and $k$ such that $I_{n,k}$ is uncountable.
-	
+
 	Рассмотрим конечное множество $J \subset I_{n,k}$,
 	$\#J>1$ (здесь $\#J$ обозначает мощность множества $J$),
 	и положим
@@ -84,7 +84,7 @@ TODO: краткий обзор - передрать из Conway 2nd ed., p. 94
 	Тогда
 	\begin{equation}
 		\label{eq:non_complemented_sum_cardinality}
-		(Qy)_n = \sum_{j \in J} 
+		(Qy)_n = \sum_{j \in J}
 		(\operatorname{sign}(Qx_j)_n)
 		\cdot (Qx_j)_n \geq \frac{\# J}{k}
 		.
@@ -128,7 +128,7 @@ TODO: краткий обзор - передрать из Conway 2nd ed., p. 94
 Аналогичную технику можно применить и к другим задачам о дополняемости.
 
 
-     
+
 
 \begin{lemma}
 	\label{lem:c_0_not_complemented_in_ac_0}
