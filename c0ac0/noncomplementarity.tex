@@ -70,7 +70,7 @@
 % The text starts here
 
 \title{
-	The subspace $c_0$ is not coplemented in $ac_0$
+	The subspace $c_0$ is not complemented in $ac_0$
 }
 
 \author{
@@ -85,9 +85,9 @@
 \maketitle
 
 \paragraph{Abstract.}
-We proove that the subspace $c_0$ of sequences that converge to zero
+We prove that the subspace $c_0$ of sequences that converge to zero
 is not complemented in the space $ac_0$ of sequences that almost converge to zero.
-We proceed with applying the same technique to inclusion chain $c_0\subset A_0 \subset \ell_\infty$.
+We proceed with applying the same approach to inclusion chain $c_0\subset A_0 \subset \ell_\infty$.
 
 
 
@@ -95,7 +95,7 @@ We proceed with applying the same technique to inclusion chain $c_0\subset A_0 \
 \section{Introduction}
 
 
-The famous and unexpected result of Phillips~\cite{phillips1940linear}
+The famous and surprising result of Phillips~\cite{phillips1940linear}
 states that the subspace $c_0$ of sequences that converge to zero
 is not complemented in the space of all bounded sequences $\ell_\infty$
 endowed with the usual norm
@@ -182,7 +182,7 @@ where
 \end{equation}
 
 The function $\alpha(x)$, first introduced in~\cite{our-vzms-2018},
-may be considered as a way to tell \emph{how much non-Cauchy a given bounded sequence is}.
+may be considered as a way to characterize \emph{how much non-Cauchy a given bounded sequence is}.
 Note that the condition $\alpha(x) =0$ is weaker than the Cauchy condition,
 as well as the Lorentz's criterion~\eqref{eq:crit_Lorentz} is obviously weaker than
 than the classic definition of the limit.
@@ -218,6 +218,8 @@ The following lemma is a classic result, and we prove it here just for the sake 
 
 
 
+The following lemma is adapted from~\cite{mathSE_Phillips}
+with minimal changes to fit $ac_0$.
 
 \begin{lemma}
 	\label{lem:c_0_not_complemented_in_ac_0}
@@ -230,20 +232,13 @@ The following lemma is a classic result, and we prove it here just for the sake 
 \end{lemma}
 
 
-\begin{proof}
-	Let $\{U_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
-	that satisfy the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
-	Define sets $S_i$ by their characteristic functions:
-	\begin{equation}
-		\chi_{S_i} (n) = \begin{cases}
-			1, & ~\mbox{if}~ n = k^2, k\in U_i,
-			\\
-			0  & ~\mbox{for other}~n.
-		\end{cases}
-	\end{equation}
-	Obiously, the family of sets $\{S_i\}_{i \in I}$ also
-	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
 
+\begin{proof}
+	Notice first that for any subset $S \subset \mathbb{N}$
+	there exists $x\in ac_0$ with $\supp x \subseteq S$.
+
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	that satisfy the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
 	Suppose the contrary to the claim of the present lemma:
 	\begin{equation}
 		\forall(i\in I)\exists(x_i \in ac_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
@@ -259,7 +254,7 @@ The following lemma is a classic result, and we prove it here just for the sake 
 	(otherwise $I$ would be countable as a countable union of countable sets,
 	which contradicts to conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
 
-	Now consider $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
+	Сonsider now $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
 	then $I_n = \bigcup\limits_{k\in\mathbb{N}} I_{n,k}$.
 	Applying the same argument as above, one can easily see that the set $I_{n,k}$ is uncountable for some $k$.
 	Let us pick such $I_{n,k}$ and proceed with it.
@@ -369,6 +364,96 @@ The following lemma is a classic result, and we prove it here just for the sake 
 	which contradicts that $P$ is a projection onto $A_0$.
 \end{proof}
 
+
+
+\section{The subspace $c_0$ is not complemented in $A_0$}
+\label{sec:c0_in_A0}
+
+To prove the fact, we need some auxiliary constructions from~\cite{our-vzms-2018}.
+
+
+Let us define linear operator $F:\ell_\infty \to \ell_\infty$ as following:
+\begin{equation}
+	\label{operator_F}
+	(Fy)_k = y_{i+2}, \mbox{ for } 2^i < k \leq 2^i+1
+\end{equation}
+
+For example,
+$$
+	F(\{1,2,3,4,5,6, ...\}) = \{1,2,\,3,3,\,4,4,4,4,\,5,5,5,5,5,5,5,5,\,6...\}
+$$
+
+
+%Now we are going to prove some features of $F$.
+The following property of $F$ is obvious:
+
+\begin{proposition}
+	\label{thm:alpha_F}
+	\begin{equation}
+		\label{alpha_F}
+		\alpha(Fx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+	\end{equation}
+\end{proposition}
+
+Now define linear operator $F:\ell_\infty \to \ell_\infty$:
+\begin{multline*}
+	M\omega=\left(
+		0, 1\omega_1,
+		0, \frac{1}{2}\omega_2, 1\omega_2, \frac{1}{2}\omega_2,
+		0, \frac{1}{3}\omega_3, \frac{2}{3}\omega_3, 1\omega_3, \frac{2}{3}\omega_3, \frac{1}{3}\omega_3,
+		0, ...,
+	\right. \\ \left.
+		0, \frac{1}{p}\omega_p, \frac{2}{p}\omega_p, ..., \frac{p-1}{p}\omega_p, 1\omega_p,
+			\frac{p-1}{p}\omega_p, ..., \frac{2}{p}\omega_p, \frac{1}{p}\omega_p,
+		0, \frac{1}{p+1}\omega_{p+1}, ...
+	\right)
+	.
+\end{multline*}
+Note that due to Proposition~\ref{thm:alpha_F} we have $FM: \ell_\infty \to A_0$.
+
+
+\begin{lemma}
+	\label{lem:c_0_not_complemented_in_A_0}
+	For each linear operator $Q: A_0 \to A_0$ such that $c_0\subseteq \ker Q$,
+	there exists infinite subset $S \subset \mathbb{N}$ such that
+	\begin{equation}
+		\forall(x \in A_0 : \supp x \subset S)[Qx = 0]
+	\end{equation}
+	and $x\in A_0\setminus c_0$ such that $\supp x \in S$.
+\end{lemma}
+
+\begin{proof}
+	Let $\{U_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	defined by the equality $S_i = \supp FM\chi_{U_i}$.
+	Obviously, the family of sets $\{S_i\}_{i \in I}$ also
+	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	Moreover, for every $i\in I$ we have $x = FM\chi_{U_i} \in A_0\setminus c_0$.
+
+	Suppose the contrary to the claim of the lemma:
+	\begin{equation}
+		\forall(i\in I)\exists(x_i \in A_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
+		.
+	\end{equation}
+	The proof is completed with the same argument as Lemma~\ref{lem:c_0_not_complemented}.
+
+\end{proof}
+
+\begin{theorem}
+	The subspace $c_0$ is not complemented in $A_0$.
+\end{theorem}
+
+\begin{proof}
+	Suppose the contrary:
+	there exists a continuous projection $P: A_0 \to c_0$.
+	Applying Lemma~\ref{lem:c_0_not_complemented_in_A_0} to $I-P$
+	we can find infinite subset $S\subset\mathbb{N}$
+	such that $\forall(x\in A_0 : \supp x \subset S)[(I-P)x = 0]$,
+	and $x\in A_0 \setminus c_0$ such that $\supp x \subseteq S$.
+	But then $Px = x\notin c_0$,
+	which contradicts that $P$ is a projection onto $c_0$.
+\end{proof}
 
 
 \section{Acknowledgements}
