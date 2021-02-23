@@ -107,9 +107,8 @@ where $\mathbb{N}$ stands for the set of all positive integers:
 
 \begin{theorem}[\cite{phillips1940linear}]
 	\label{thm:phillips}
-	A bounded linear operator $P: \ell_\infty \to c_0$ such that for every
-	$x \in c_0$ the equality $Px =x$ holds,
-	does not exist.
+	There is no bounded linear operator $P: \ell_\infty \to c_0$ such that for every
+	$x \in c_0$ the equality $Px =x$ holds.
 \end{theorem}
 
 Later, some shorter proofs of Theorem~\ref{thm:phillips} appeared, e.g.~\cite{whitley1968projecting}.
@@ -170,7 +169,7 @@ Our proof is inspired by Whitley's approach~\cite{whitley1968projecting}
 and the discussion~\cite{mathSE_Phillips}.
 
 In Sections~\ref{sec:A0_in_ell_infty} and~\ref{sec:c0_in_A0}
-we proceed with applying the same technique to the inclusion chain $c_0 \subset A_0 \subset \ell_\infty$,
+we proceed with applying the same approach to the inclusion chain $c_0 \subset A_0 \subset \ell_\infty$,
 where
 \begin{equation}
 	A_0 = \{x\in\ell_\infty: \alpha(x) = 0\}
@@ -193,7 +192,7 @@ In~\cite{our-ped-2018-alpha-Tx} it is shown that $TA_0 = A_0$ despite the fact t
 one has $\alpha(Tx)<\alpha(x)$.
 For further investigation of $\alpha(x)$ we also refer the reader to~\cite{avdeev2021subsets}.
 
-\section{$c_0$ is not complemented in $ac_0$}
+\section{The subspace $c_0$ is not complemented in $ac_0$}
 \label{sec:c0_in_ac0}
 
 The following lemma is a classic result, and we prove it here just for the sake of completeness.
@@ -355,6 +354,7 @@ with minimal changes to fit $ac_0$.
 \begin{proof}
 	Suppose the contrary:
 	there exists a continuous projection $P: \ell_\infty \to A_0$.
+	Then $c_0\subset A_0\subset\ker (I-P)$.
 	Applying Lemma~\ref{lem:c_0_not_complemented} to $I-P$
 	we can find infinite subset $S\subset\mathbb{N}$
 	such that $\forall(x\in\ell_\infty : \supp x \subset S)[(I-P)x = 0]$.
@@ -395,7 +395,7 @@ The following property of $F$ is obvious:
 	\end{equation}
 \end{proposition}
 
-Now define linear operator $F:\ell_\infty \to \ell_\infty$:
+Now linear operator $F:\ell_\infty \to \ell_\infty$ as following:
 \begin{multline*}
 	M\omega=\left(
 		0, 1\omega_1,
@@ -419,7 +419,7 @@ Note that due to Proposition~\ref{thm:alpha_F} we have $FM: \ell_\infty \to A_0$
 	\begin{equation}
 		\forall(x \in A_0 : \supp x \subset S)[Qx = 0]
 	\end{equation}
-	and $x\in A_0\setminus c_0$ such that $\supp x \in S$.
+	and $x\in A_0\setminus c_0$ such that $\supp x \subseteq S$.
 \end{lemma}
 
 \begin{proof}
