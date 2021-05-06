@@ -12,6 +12,7 @@
 \usepackage{wrapfig}
 \usepackage[colorlinks=true,allcolors=black]{hyperref}
 \usepackage{enumitem}
+\usepackage{mathrsfs}
 
 
 \righthyphenmin=2
@@ -235,18 +236,18 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 как верхний и нижний пределы для <<обычной>> сходимости.
 Более подробно о свойствах сходящихся последовательностей и банаховых пределах см.~\cite{semenov2020geomBL}.
 
-Дальнейшим ослаблением понятия сходимости является сходимость по Чезаро (сходимость в среднем) [TODO: ссылка].
+Дальнейшим ослаблением понятия сходимости является сходимость по Чезаро (сходимость в среднем).
 Говорят, что последовательность $\{x_n\}\in\ell_\infty$ сходится по Чезаро к $t$, если
 \begin{equation}
-	\lim_{n\to\infty}\frac{x_1+x_2+...+x_n}{n} = t
+	\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i = t
 	.
 \end{equation}
 Легко заметить, что обсуждаемые обобщения верхнего и нижнего пределов удовлетворяют соотношению
 \begin{multline}
-	\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac{x_1+x_2+...+x_n}{n}
+	\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
 	\leq
 	\\ \leq
-	\limsup_{n\to\infty}\frac{x_1+x_2+...+x_n}{n}
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
 	\leq p(x)
 	\leq \limsup_{n\to\infty} x_n
 	.
@@ -258,8 +259,32 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
 $\supp x \subset \mathbb{N}$.
 
+Вслед за~\cite{hall1992behrend} будем обозначать через $\mathscr{M}A$ множество всех чисел,
+кратных элементам множества $A\subset\mathbb{N}$, т.е.
+\begin{equation}
+	\mathscr{M}A = \{ka: k\in\mathbb{N}, a\in A\}
+	,
+\end{equation}
+через $\chi A$ "--- характеристическую функцию множества $A$.
+
+В работах~\cite{davenport1936sequences,davenport1951sequences} доказано, что для любого
+$A=\{a_1,a_2,...\}\subset\mathbb{N}$
+выполнено
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
+	\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
+	.
+\end{equation}
+В работе~\cite[\S 7]{besicovitch1935density} построено такое множество $A\subset\mathbb{N}$, что
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
+	.
+\end{equation}
+За более подробной информацией о множествах типа $\mathscr{M}A$ отсылаем читателя к монографии~\cite{hall1996multiples}.
+
 В настоящей статье изучается взаимосвязь значений, которые могут принимать функционалы Сачестона
-на последовательностях $x\in \Omega$, и мультипликативных свойств множеств $\supp x$.
+на последовательностях $\chi\mathscr{M}A$, и свойств множества $A$.
 
 
 
@@ -275,7 +300,7 @@ $\supp x \subset \mathbb{N}$.
 	Пусть $x_n = m^n$, $m\in\mathbb{N}$, $m\geq 2$.
 	Тогда
 	\begin{equation}
-		\chi_x \in ac_0
+		\chi x \in ac_0
 		.
 	\end{equation}
 \end{lemma}
