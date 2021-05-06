@@ -56,40 +56,6 @@
 \newtheorem{designation}[lemma]{Обозначение}
 \newtheorem{corollary}{Следствие}[lemma]
 
-\newtheorem{hhypothesis}[lemma]{Гипотеза}
-
-
-\newcommand\hypotlist{ }
-\newcounter{hypcount}
-
-\makeatletter
-\usepackage{environ}
-\NewEnviron{hypothesis}{%
-
-	\edef\curlabel{hhypothesis\thehypcount}
-    \begin{hhypothesis}
-		\label{\curlabel}
-		\BODY%
-    \end{hhypothesis}
-	\edef\curref{\noexpand\ref{\curlabel}}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\paragraph{Гипотеза\!\!\!}}
-
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\expandafter\textbf\expandafter{\curref}}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\textbf{.}~~}
-
-	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
-	{\BODY}
-
-	\addtocounter{hypcount}{1}
-}
-\makeatother
-
 %Only referenced equations are numbered
 \usepackage{mathtools}
 %\mathtoolsset{showonlyrefs}
