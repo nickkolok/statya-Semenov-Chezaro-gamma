@@ -253,7 +253,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 
 
 
-\section{Добавление множителей}
+\section{Конечное число множителей}
 
 Пользуясь критерием Лоренца~\eqref{eq:crit_Lorentz},
 нетрудно доказать следующую лемму.
@@ -358,47 +358,21 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 %\end{hypothesis}
 
 
-\section{Исключение множителей и \\  нижний функционал Сачестона}
+\section{Бесконечное число множителей и \\  верхний функционал Сачестона}
 
 
-
-\begin{definition}
-	Через $\psi(A)$, где $A\subset\mathbb{N}\setminus\{1\}$,
-	будем обозначать последовательность из нулей и единиц,
-	определяемую соотношением
-	\begin{equation}
-		(\psi(A))_k = \begin{cases}
-			0, & \mbox{~если~} k = m\cdot a, m \in \mathbb{N}, a\in A,
-			\\
-			1  & \mbox{~иначе.}
-		\end{cases}
-	\end{equation}
-\end{definition}
-
-Так, например,
-\begin{equation}
-	\psi(\{2\}) = \psi(\{2, 4\}) = \psi(\{2,4,8,16,...\}) = (1,0,1,0,1,0,1,0,1,0,...),
-\end{equation}
-
-\begin{equation}
-	\psi(\{3\}) = \psi(\{3,9,27,...\}) = (1,1,0,\;1,1,0,\;1,1,0,\;1,1,0,\;1,1,0,\;...),
-\end{equation}
-
-\begin{equation}
-	\psi(\{2,3\}) = \psi(\{2,3,6\}) = (1,0,0,0,1,0,\;1,0,0,0,1,0,\;1,0,0,0,1,0,...).
-\end{equation}
 
 
 \begin{lemma}
-	Для любого непустого $A\subset \mathbb{N} $ выполнено $\psi(A) \notin ac_1$.
+	Для любого непустого $A\subset \mathbb{N} $ выполнено $\chi\mathscr{M}A \notin ac_0$.
 \end{lemma}
 \begin{proof}
 	Пусть $a_1\in A$.
-	Тогда из каждых идущих подряд $a_1$ элементов последовательности $\psi(A)$
-	хотя бы один нулевой,
+	Тогда из каждых идущих подряд $a_1$ элементов последовательности $\chi\mathscr{M}A$
+	хотя бы один равен единице,
 	следовательно,
 	\begin{equation}
-		p(\psi(A)) \leq \frac{a_1-1}{a_1} < 1
+		q(\chi\mathscr{M}A) \geq \frac{1}{a_1} > 0
 		.
 	\end{equation}
 \end{proof}
@@ -421,11 +395,11 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 
 	Найдём такие номера $n_k$, что для любого $k$
 	\begin{equation}
-		\psi(A)_{n_k+1} = \psi(A)_{n_k+2} = \dots = \psi(A)_{n_k+k} = 0
+		(\chi\mathscr{M}A)_{n_k+1} = (\chi\mathscr{M}A)_{n_k+2} = \dots = (\chi\mathscr{M}A)_{n_k+k} = 1
 		.
 	\end{equation}
-	Тем самым мы докажем, что отрезок из любого наперёд заданного количества нулей подряд
-	встречается в последовательности $\psi(A)$ и, следовательно, $q(\psi(A)) = 0$.
+	Тем самым мы докажем, что отрезок из любого наперёд заданного количества единиц подряд
+	встречается в последовательности $\chi\mathscr{M}A$ и, следовательно, $p(\chi\mathscr{M}A) = 1$.
 
 	Действительно,
 	пусть $n_1 = a_1 - 1$.
@@ -456,7 +430,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		,
 	\end{equation}
 	следовательно,
-	$\psi(A)_{n_2 + 1} = \psi(A)_{n_2 + 2} = 0$.
+	$(\chi\mathscr{M}A)_{n_2 + 1} = (\chi\mathscr{M}A)_{n_2 + 2} = 1$.
 
 	Полученные рассуждения несложно продолжить по индукции.
 
@@ -508,7 +482,8 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	\end{equation}
 	следовательно,
 	\begin{equation}
-		\psi(A)_{n_{j+1} + j+1} = \psi(A)_{n_{j} + j} = \dots = \psi(A)_{n_{j} + 2} = \psi(A)_{n_{j} + 1} = 0
+		(\chi\mathscr{M}A)_{n_{j+1} + j+1} = (\chi\mathscr{M}A)_{n_{j} + j} =
+		\dots = (\chi\mathscr{M}A)_{n_{j} + 2} = (\chi\mathscr{M}A)_{n_{j} + 1} = 1
 		.
 	\end{equation}
 
@@ -600,7 +575,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 
 \begin{lemma}
 	\label{lem:ac0_primes_q_psi_A_0_causes_P}
-	Пусть для множества $A\subset\mathbb{N}\setminus\{1\}$ выполнено $q(\psi(A))=0$.
+	Пусть для множества $A\subset\mathbb{N}\setminus\{1\}$ выполнено $p(\chi\mathscr{M}A)=1$.
 	Тогда $A$ обладает $P$-свойством.
 \end{lemma}
 
@@ -614,7 +589,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	любой наперёд заданной длины.
 	Выберем $k$ таким, что
 	\begin{equation}
-		(\psi(A))_{k+1} = (\psi(A))_{k+2} = ... = (\psi(A))_{k+a_1a_2\cdots a_n} = 0
+		(\chi\mathscr{M}A)_{k+1} = (\chi\mathscr{M}A)_{k+2} = ... = (\chi\mathscr{M}A)_{k+a_1a_2\cdots a_n} = 1
 		.
 	\end{equation}
 	Тогда существует такое число $k_0$, $k+1 \leq k_0 \leq k+a_1a_2\cdots a_n$,
@@ -639,21 +614,21 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		\item
 			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
 		\item
-			$q(\psi(A))=0$.
+			$p(\chi\mathscr{M}A)=0$.
 	\end{enumerate}
 \end{theorem}
 
-\section{Исключение множителей и \\ верхний функционал Сачестона}
+\section{Бесконечное количество множителей и \\ нижний функционал Сачестона}
 
 
-Перейдём теперь к изучению верхнего функционала Сачестона $p(\psi(A))$.
+Перейдём теперь к изучению верхнего функционала Сачестона $q(\chi\mathscr{M}A)$.
 
 \begin{theorem}
 	\label{thm:ac0_primes_p_psi_A_prod}
 	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел.
 	Тогда
 	\begin{equation}
-		p(\psi(A)) = \prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+		q(\chi\mathscr{M}A) = \prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
 		.
 	\end{equation}
 \end{theorem}
@@ -661,31 +636,31 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 \begin{proof}
 	Зафиксируем $k\in\mathbb{N}$.
 
-	Заметим, что верхний функционал Сачестона можно представить в виде
+	Заметим, что нижний функционал Сачестона можно представить в виде
 	\begin{equation}
 		\label{eq:ac0_primes_px_lim_pnx}
-		p(x) = \lim_{n\to\infty} p_n(x)
+		q(x) = \lim_{n\to\infty} q_n(x)
 		,
 	\end{equation}
 	где
 	\begin{equation}
-		p_n(x) = \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
+		q_n(x) = \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
 		.
 	\end{equation}
 
 	Поскольку предел~\eqref{eq:ac0_primes_px_lim_pnx} существует, то для его оценки можно использовать предел подпоследовательности
-	$p_{n_k}(x)$, где $n_k = a_1\cdot a_2 \cdot ... \cdot a_k$.
+	$q_{n_k}(x)$, где $n_k = a_1\cdot a_2 \cdot ... \cdot a_k$.
 
 
-	Cреди первых $n_k$ элементов последовательности $\psi(A)$
-	ровно $\prod_{j=1}^k (a_j-1)$ единиц, поскольку комбинации остатков от деления
+	Cреди первых $n_k$ элементов последовательности $\chi\mathscr{M}A$
+	ровно $\prod_{j=1}^k (a_j-1)$ нулей, поскольку комбинации остатков от деления
 	на взаимно простые числа $a_1, a_2, ..., a_k$ <<не успевают>> повторяться.
 	Следовательно,
 	\begin{equation}
-		p_{n_k}(\psi(A)) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
-		\geq
-		\frac{1}{n_k} \sum_{j=1}^{n_k} (\psi(A))_j
+		q_{n_k}(\chi\mathscr{M}A) =
+		\inf_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
+		\leq
+		\frac{1}{n_k} \sum_{j=1}^{n_k} (\chi\mathscr{M}A)_j
 		=
 		\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
@@ -693,27 +668,27 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	Переходя к пределу по $k$, имеем
 	\begin{equation}
 		\label{eq:ac0_primes_p_psi_A_lower_bound}
-		p(\psi(A)) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		q(\chi\mathscr{M}A) \leq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
 		=
 		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 
-	Заметим теперь, что в любом отрезке последовательности $\psi(A)$ длины $n_k$
-	содержится не более $\prod_{j=1}^k (a_j-1)$ единиц
-	(могут попадаться <<дополнительные>> нули "--- элементы с индексами, кратными $a_j$ для $j>k$).
+	Заметим теперь, что в любом отрезке последовательности $\chi\mathscr{M}A$ длины $n_k$
+	содержится не более $\prod_{j=1}^k (a_j-1)$ нулей
+	(могут попадаться <<дополнительные>> единицы "--- элементы с индексами, кратными $a_j$ для $j>k$).
 	Значит,
 	\begin{equation}
-		p_{n_k}(\psi(A)) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\psi(A))_j
-		\leq
+		q_{n_k}(\psi(A)) =
+		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
+		\geq
 		\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 	Снова перейдя к пределу по $k$, получим
 	\begin{equation}
 		\label{eq:ac0_primes_p_psi_A_upper_bound}
-		p(\psi(A)) \leq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		q(\chi\mathscr{M}A) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
 		=
 		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
 		.
@@ -723,8 +698,9 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 \end{proof}
 
 \begin{corollary}
-	В случае, когда $\mathbb{N}\setminus A$ конечно, из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\psi(A)\in ac_0$
-	и, соответственно, $p(\psi(A))=0$.
+	В случае, когда $\mathbb{N}\setminus A$ конечно,
+	из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\chi\mathscr{M}A\in ac_1$
+	и, соответственно, $q(\chi\mathscr{M}A)=1$.
 \end{corollary}
 
 
@@ -785,9 +761,9 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 С учётом этого факта
 из леммы~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
-	Пусть $\varepsilon \in {[} 0; 1)$.
+	Пусть $\varepsilon \in  (0; 1{[}$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
-	$A_i$ такое, что $p(\psi(A_i))=\varepsilon$ для любого $i\in\mathbb{N}$.
+	$A_i$ такое, что $q(\chi\mathscr{M}A)=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
 
 %\begin{proof}
@@ -821,18 +797,18 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	Тогда следующие условия эквивалентны:
 	\begin{enumerate}[label=(\roman*)]
 		\item
-			$\psi(A)\in ac$.
+			$\chi\mathscr{M}A\in ac$.
 		\item
-			$\psi(A)\in ac_0$.
+			$\chi\mathscr{M}A\in ac_1$.
 		\item
 			$\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0$.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $q(\psi(A))=0$,
+	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $p(\chi\mathscr{M}A)=1$,
 	поэтому условия (i) и (ii) эквивалентны.
-	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $p(\psi(A))=0$.
+	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $q(\chi\mathscr{M}A)=1$.
 \end{proof}
 
 
