@@ -383,7 +383,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	\label{lem:ac0_primes_infinity_mutually_prime_subset}
 	Пусть $A'$ "--- бесконечное подмножество попарно взаимно простых чисел
 	(т.е. для любых двух чисел $a_1, a_2 \in A'$ их наибольший общий делитель равен единице).
-	Тогда для любого $A \supset A' $ выполнено $q(\psi(A))=0$.
+	Тогда для любого $A \supset A' $ выполнено $p(\chi\mathscr{M}A)=1$.
 \end{theorem}
 \begin{proof}
 	Пусть $A' = \{ a_1, a_2, ..., a_j, ... \}$ и
@@ -585,7 +585,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	попарно взаимно простых чисел, но нельзя выбрать $n+1$.
 
 	Пусть $\{a_1, a_2, ..., a_n\}\subset A$ "--- набор попарно взаимно простых чисел.
-	Так как $q(\psi(A))=0$, то в последовательности $\psi(A)$ найдётся отрезок, состоящий сплошь из нулей,
+	Так как $p(\chi\mathscr{M}A)=1$, то в последовательности $\chi\mathscr{M}A$ найдётся отрезок, состоящий сплошь из единиц,
 	любой наперёд заданной длины.
 	Выберем $k$ таким, что
 	\begin{equation}
@@ -594,7 +594,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	\end{equation}
 	Тогда существует такое число $k_0$, $k+1 \leq k_0 \leq k+a_1a_2\cdots a_n$,
 	что $k_0$ даёт в остатке $1$ при делении на $a_1a_2\cdots a_n$.
-	Так как $(\psi(A))_{k_0} = 0$, то $k_0 = m\cdot a_0$ для некоторых $m\in\mathbb{N}$ и $a_0\in A$.
+	Так как $(\chi\mathscr{M}A)_{k_0} = 1$, то $k_0 = m\cdot a_0$ для некоторых $m\in\mathbb{N}$ и $a_0\in A$.
 	С другой стороны, $k_0$ взаимно просто с каждым из чисел $a_1, a_2, ..., a_n$.
 	Следовательно, $a_0$ также взаимно просто с каждым из чисел $a_1, a_2, ..., a_n$,
 	и $\{a_0, a_1, a_2, ..., a_n\}\subset A$ "--- набор из $n+1$ попарно взаимно простых чисел.
@@ -614,21 +614,21 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		\item
 			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
 		\item
-			$p(\chi\mathscr{M}A)=0$.
+			$p(\chi\mathscr{M}A)=1$.
 	\end{enumerate}
 \end{theorem}
 
 \section{Бесконечное количество множителей и \\ нижний функционал Сачестона}
 
 
-Перейдём теперь к изучению верхнего функционала Сачестона $q(\chi\mathscr{M}A)$.
+Перейдём теперь к изучению нижнего функционала Сачестона $q(\chi\mathscr{M}A)$.
 
 \begin{theorem}
 	\label{thm:ac0_primes_p_psi_A_prod}
 	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел.
 	Тогда
 	\begin{equation}
-		q(\chi\mathscr{M}A) = \prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+		q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
 		.
 	\end{equation}
 \end{theorem}
@@ -662,15 +662,15 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		\leq
 		\frac{1}{n_k} \sum_{j=1}^{n_k} (\chi\mathscr{M}A)_j
 		=
-		\prod_{i=1}^k \frac{a_i-1}{a_i}
+		1-\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 	Переходя к пределу по $k$, имеем
 	\begin{equation}
 		\label{eq:ac0_primes_p_psi_A_lower_bound}
-		q(\chi\mathscr{M}A) \leq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		q(\chi\mathscr{M}A) \leq 1-\lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
 		=
-		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
+		1-\prod_{i=1}^\infty \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 
@@ -679,10 +679,10 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 	(могут попадаться <<дополнительные>> единицы "--- элементы с индексами, кратными $a_j$ для $j>k$).
 	Значит,
 	\begin{equation}
-		q_{n_k}(\psi(A)) =
+		q_{n_k}(\chi\mathscr{M}A) =
 		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
 		\geq
-		\prod_{i=1}^k \frac{a_i-1}{a_i}
+		1-\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 	Снова перейдя к пределу по $k$, получим
@@ -690,7 +690,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		\label{eq:ac0_primes_p_psi_A_upper_bound}
 		q(\chi\mathscr{M}A) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
 		=
-		\prod_{i=1}^\infty \frac{a_i-1}{a_i}
+		1-\prod_{i=1}^\infty \frac{a_i-1}{a_i}
 		.
 	\end{equation}
 
@@ -761,7 +761,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 С учётом этого факта
 из леммы~\ref{cor:ac0_primes_sum_ln_diverges} и теоремы~\ref{thm:ac0_primes_p_psi_A_prod} вытекает
 \begin{corollary}
-	Пусть $\varepsilon \in  (0; 1{[}$.
+	Пусть $\varepsilon \in  (0; 1{]}$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
 	$A_i$ такое, что $q(\chi\mathscr{M}A)=\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{corollary}
