@@ -1,4 +1,4 @@
-\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\documentclass[a4paper,10pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian,english]{babel} %используем русский и английский языки с переносами
@@ -16,11 +16,8 @@
 \renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
 \makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
 
-\usepackage{geometry} % Меняем поля страницы.
-\geometry{left=2cm}% левое поле
-\geometry{right=1cm}% правое поле
-\geometry{top=2cm}% верхнее поле
-\geometry{bottom=2cm}% нижнее поле
+\textwidth=124mm
+\textheight=186mm
 
 \renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
 \renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
@@ -36,7 +33,7 @@
 
 
 
-\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+%\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
 
 %\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 %\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
