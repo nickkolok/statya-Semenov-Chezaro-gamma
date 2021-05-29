@@ -41,16 +41,18 @@
 \def\B{{\mathfrak{B}}}
 \def\ext{{\mathrm{ext}\,}}
 
-\usepackage[backend=biber,language=autobib,autolang=other,clearlang=true,style=gost-numeric,sorting=none]{biblatex}
-\addbibresource{../bib/general_monographies.bib}
-\addbibresource{../bib/ext.bib}
-\addbibresource{../bib/my.bib}
-\addbibresource{../bib/Semenov.bib}
-\addbibresource{../bib/Bibliography_from_Usachev.bib}
-\addbibresource{../bib/classic.bib}
+%\usepackage[backend=biber,language=autobib,autolang=other,clearlang=true,style=gost-numeric,sorting=none]{biblatex}
+%\addbibresource{../bib/general_monographies.bib}
+%\addbibresource{../bib/ext.bib}
+%\addbibresource{../bib/my.bib}
+%\addbibresource{../bib/Semenov.bib}
+%\addbibresource{../bib/Bibliography_from_Usachev.bib}
+%\addbibresource{../bib/classic.bib}
 
-\input{../bib/ext.hyphens.bib}
+%\input{../bib/ext.hyphens.bib}
 
+%\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
+\usepackage{cite}
 
 
 
@@ -252,7 +254,7 @@ $$B(\chi_e x)= Bx - B(x\chi_{ce})= Bx,$$
 	.
 \end{equation}
 С точностью до счётного множества это соответствие взаимно однозначно и определяет на множестве $\{0,1\}^\N$ меру, которую мы, как и меру Лебега на $[0,1]$, обозначаем символом $\mes$. Классический результат Э. Бореля утверждает, что почти все последовательности из $\{0,1\}^\N$ сходятся по Чезаро к $1/2$. В \cite{SS} доказано следующее утверждение:
-$$ \mes \, \{x\in \{0,1\}^\N: q(x)=0, \ p(x)=1\}=1.$$ Отсюда сразу вытекает утверждение \cite{Connor} о том, что
+$$ \mes \, \{x\in \{0,1\}^\N: q(x)=0, \ p(x)=1\}=1.$$ Отсюда сразу вытекает утверждение \cite{connor1990almost} о том, что
 \begin{equation}\label{ac_meas}
 \mes \, \{x\in \{0,1\}^\N: x\in ac\}=0.
 \end{equation}
@@ -643,7 +645,7 @@ B(f_n(t)) \in \bigcap_{m=1}^\infty \overline{{\rm conv} \{f_k(s)\}_{k\geqslant m
  \end{lem}
 
 \begin{proof}
-Для любого $t\in[0,1]$, применяя теорему Сачестона \cite{S} к числовой последовательности $f_n(t)$, получаем
+Для любого $t\in[0,1]$, применяя теорему Сачестона \cite{sucheston1967banach} к числовой последовательности $f_n(t)$, получаем
 \begin{equation}\label{f4}
 B(f_n(t)) \in \left[ q(f_n(t)), p(f_n(t)) \right].
  \end{equation}
@@ -745,7 +747,7 @@ B(f_n(t))= B\left(\sum_{k=1}^r g_k(t) \chi_{Q_k}\right)= \sum_{k=1}^r g_k(t) B\c
 что $\|f_n-g_{n,k}\|_{L_\infty}<\varepsilon_k$.
 Рассмотрим последовательности $g_k:=\{g_{n,k}\}_{n=1}^\infty$ состоящие лишь из конечного числа различных  элементов. По лемме \ref{l5} функция $Bg_k:= B(n\mapsto \{g_{n,k}\}_{n=1}^\infty)$ измерима для любого $k\in \N.$ Используя положительность банаховых пределов, получаем
 $$\|F_B-Bg_{k}\|_{L_\infty}\leqslant\|f_n-g_{n,k}\|_{L_\infty}<\varepsilon_k.$$
-Т.е. последовательность измеримых функций $Bg_k$ равномерно сходится к функции $F_B$. В силу~\cite[Теорема 4.2.2]{NatansonTF} $F_B$ также измерима.
+Т.е. последовательность измеримых функций $Bg_k$ равномерно сходится к функции $F_B$. В силу~\cite[Теорема 4.2.2]{Natanson} $F_B$ также измерима.
 \end{proof}
 
 Естественный подкласс банаховых пределов при рассмотрении аналогов теоремы Фубини был введён в \cite{Mokobodzki}.
@@ -765,7 +767,164 @@ $$\{ B\in \B : B=\gamma \circ C \ \text{для некоторого обобщё
 %\end{thm}
 
 
-\printbibliography
+
+\begin{thebibliography}{99}
+%
+\bibitem{Mazur}
+\emph{Mazur} \emph{S.} O metodach sumomalności // Ann. Soc. Polon. Math.
+(Supplement). — 1929. — Str. 102–107.
+%
+\bibitem{banach2001theory_rus}
+\emph{Банах} \emph{С.} Теория линейных операций. — Регуляр. и хаот.
+динамика М, 2001.
+%
+\bibitem{carey2006sledy}
+\emph{Кери} \emph{А. Л.}, \emph{Сукочев} \emph{Ф. А.} Следы Диксмье и
+некоторые приложения в некоммутативной геометрии // Успехи математических
+наук. — 2006. — Т. 61, 6 (372). — С. 45—110.
+%
+\bibitem{Sem_Sht}\emph{Семёнов} \emph{Е. М.}, \emph{Штейнберг} \emph{А. М.} Оценки норм
+операторных блоков в банаховых решетках // Математический сборник. —
+1985. — Т. 126, No 3. — С. 327—343.
+%
+\bibitem{Ast_Sem}
+\emph{Асташкин} \emph{С. В.}, \emph{Семёнов} \emph{Е. М.} Константы
+Лебега системы Уолша и банаховы пределы // Сибирский математический
+журнал. — 2016. — Т. 57, No 3. — С. 512—526.
+%
+\bibitem{SU}
+\emph{Семенов} \emph{Е. М.}, \emph{Усачев} \emph{А. С.} Коэффициенты
+Фурье–Хаара и банаховы пределы // Доклады Академии наук. Т. 425. — 2009. —
+С. 172—173.
+%
+\bibitem{U2}
+\emph{Usachev} \emph{A.} On Fourier–Haar coefficients of the function from the
+Marcinkiewicz space // Journal of Mathematical Analysis and Applications. —
+2014. — Vol. 414, no. 1. — Pp. 110–124.
+%
+\bibitem{semenov2020geomBL}
+\emph{Семёнов} \emph{Е. М.}, \emph{Сукочев} \emph{Ф. А.},
+\emph{Усачев} \emph{А. С.} Геометрия банаховых пределов и их приложения //
+Успехи математических наук. — 2020. — Т. 75, 4 (454). — С. 153—194.
+%
+\bibitem{lorentz1948contribution}
+\emph{Lorentz} \emph{G. G.} A contribution to the theory of divergent
+sequences // Acta Mathematica. — 1948. — Vol. 80, no. 1. — Pp. 167–190. — ISSN
+0001-5962.
+%
+\bibitem{sucheston1967banach}
+\emph{Sucheston} \emph{L.} Banach limits // Amer. Math. Monthly. — 1967. —
+Vol. 74. — Pp. 308–311. — ISSN 0002-9890.%
+\bibitem{Luxemburg}
+\emph{Luxemburg} \emph{W. A. J.} Nonstandard hulls, generalized limits and
+almost convergence // Analysis and geometry. — Bibliographisches Inst., Mannheim,
+1992. — Pp. 19–45.
+%
+\bibitem{Alekhno}
+\emph{Alekhno} \emph{E.} Superposition operator on the space of sequences
+almost converging to zero // Cent. Eur. J. Math. — 2012. — Vol. 10, no. 2. —
+Pp. 619–645. — ISSN 1895-1074. — DOI: {10.2478/s11533-011-0135-7}. —
+URL: {http://dx.doi.org/10.2478/s11533-011-0135-7}.
+%
+\bibitem{SSU2}
+\emph{Семёнов} \emph{Е. М.}, \emph{Сукочев} \emph{Ф. А.},
+\emph{Усачев} \emph{А. С.} Геометрические свойства множества банаховых
+пределов // Известия Российской академии наук. Серия математическая. —
+2014. — Т. 78, No 3. — С. 177—204.
+%
+\bibitem{ASSU4}
+Invariant Banach limits and their extreme points / E. Alekhno [et al.] // Studia
+Mathematica. — 2018. — Vol. 242, no. 1. — Pp. 79–107.
+%
+\bibitem{SSUZ2}
+Invariant Banach limits and applications to noncommutative geometry / E. Semenov
+[и др.] // Pacific Journal of Mathematics. — 2020. — Т. 306, No 1. — С. 357—373.
+%
+\bibitem{semenov2020dilation}
+Dilation invariant Banach limits / E. Semenov [и др.] // Indagationes
+Mathematicae. — 2020. — Т. 31, No 5. — С. 885—892.
+%
+\bibitem{AvSU}\emph{Авдеев} \emph{Н. Н.}, \emph{Семёнов} \emph{Е. М.},
+\emph{Усачев} \emph{А. С.} Банаховы пределы и мера на множестве
+последовательностей из 0 и 1 // Математические заметки. — 2019. — Т. 106,
+No 5. — С. 784—787.
+%
+\bibitem{SS}
+\emph{Семенов} \emph{Е. М.}, \emph{Сукочев} \emph{Ф. А.}
+Характеристические функции банаховых пределов // Сибирский математический
+журнал. — 2010. — Т. 51, No 4. — С. 904—910.
+%
+\bibitem{connor1990almost}
+\emph{Connor} \emph{J.} Almost none of the sequences of 0’s and 1’s are almost
+convergent // International Journal of Mathematics and Mathematical Sciences. —
+1990. — Vol. 13, no. 4. — Pp. 775–777.
+%
+\bibitem{keller1992invariant}
+\emph{Keller} \emph{G.}, \emph{Moore Jr} \emph{L.} Invariant means on the
+group of integers // Analysis and geometry. — 1992. — Pp. 1–18.
+%
+\bibitem{klenke2013probability}
+\emph{Klenke} \emph{A.} Probability theory: a comprehensive course. — Springer
+Science \& Business Media, 2013.
+%
+\bibitem{Avdeev2019}
+\emph{Авдеев} \emph{Н. Н.} О пространстве почти сходящихся
+последовательностей // Математические заметки. — 2019. — Т. 105, No 3. —
+С. 462—466.
+%
+\bibitem{Fekete}\emph{Fekete} \emph{M.} Über die {V}erteilung der {W}urzeln bei gewissen
+algebraischen {G}leichungen mit ganzzahligen {K}oeffizienten // Math. Z. — 1923. —
+Jg. 17, Nr. 1. — S. 228–249. — ISSN 0025-5874. — DOI:
+{10.1007/BF01504345}.
+%
+\bibitem{polia1978zadachi}
+\emph{Полиа} \emph{Г.}, \emph{Сеге} \emph{Г.} Задачи и теоремы из анализа.
+Т. 1. — Наука. Гл. ред. физ.-мат. лит., 1978.
+%
+\bibitem{Edgar}
+\emph{Edgar} \emph{G.} Measure, topology, and fractal geometry. — Springer
+Science \& Business Media, 2007.
+%
+\bibitem{falconer1997techniques}
+\emph{Falconer} \emph{K.} Techniques in fractal geometry. — John Wiley \&
+Sons, Ltd., Chichester, 1997. — Pp. xviii+256. — ISBN 0-471-95724-0.
+%
+\bibitem{Eberlein}
+\emph{Eberlein} \emph{W. F.} Banach-{H}ausdorff limits // Proc. Amer. Math.
+Soc. — 1950. — Vol. 1. — Pp. 662–665. — ISSN 0002-9939.
+%
+\bibitem{SS_JFA}
+\emph{Semenov} \emph{E. M.}, \emph{Sukochev} \emph{F. A.} Invariant
+{B}anach limits and applications // J. Funct. Anal. — 2010. — Vol. 259, no. 6. —
+Pp. 1517–1541. — ISSN 0022-1236. — DOI:
+{10.1016/j.jfa.2010.05.011}. — URL:
+{http://dx.doi.org/10.1016/j.jfa.2010.05.011}.
+%
+\bibitem{ASSU2}
+Порядковые и геометрические свойства множества банаховых пределов /
+Е. А. Алехно [и др.] // Алгебра и анализ. — 2016. — Т. 28, No 3. — С. 3—35.%
+\bibitem{FT}
+\emph{Fremlin} \emph{D. H.}, \emph{Talagrand} \emph{M.} A decomposition
+theorem for additive set-functions, with applications to Pettis integrals and ergodic
+means // Mathematische Zeitschrift. — 1979. — Vol. 168, no. 2. — Pp. 117–142.
+%
+\bibitem{Natanson}
+\emph{Натансон} \emph{И. П.} Теория функций вещественной переменной. —
+М.: Наука, 1974.
+%
+\bibitem{Mokobodzki}
+\emph{Mokobodzki} \emph{G.} Ultrafiltres rapides sur N. Construction d’une
+densité relative de deux potentiels comparables // Séminaire de Théorie du Potentiel,
+dirigé par M. Brelot, G. Choquet et J. Deny : 1967/68, Exp. 12. — 1969. — P. 22.
+%
+\bibitem{Bjorklund}
+\emph{Björklund} \emph{M.}, \emph{Hartnick} \emph{T.} Biharmonic functions
+on groups and limit theorems for quasimorphisms along random walks // Geometry
+\& Topology. — 2011. — Vol. 15, no. 1. — Pp. 123–143.
+\end{thebibliography}
+
+%\printbibliography
+%\printbibitembibliography
 
 
 \end{document}
