@@ -64,7 +64,7 @@
 
 \begin{frame}
 	\frametitle{Обобщения понятия сходимости в $\ell_\infty$}
-	\hspace{1.468em}
+	%\hspace{1.468em}
 	\begin{varwidth}[t]{\linewidth}
 		\centering
 		Верхний и нижний
@@ -72,8 +72,14 @@
 		пределы:
 		\\
 		$\displaystyle \limsup_{n\to\infty} x_n$
-		\\
+		,~
 		$\displaystyle \liminf_{n\to\infty} x_n$
+		\\~\\
+		\emph{
+			не характеризуют
+			\\
+			распределение элементов
+		}
 	\end{varwidth}
 	\hfill
 	\begin{varwidth}[t]{\linewidth}
@@ -115,7 +121,7 @@
 		$
 		равном. по $m\in\mathbb{N}$.
 	\end{varwidth}
-	\\
+	\\~\\
 	\vspace{1em}
 	\begin{varwidth}[t]{\linewidth}
 		$\displaystyle ac = \mathop{\cup}\limits_{t\in\mathbb R} ac_t$ "--- пространство почти сходящихся последовательностей
@@ -137,105 +143,33 @@
 \setbeamertemplate{navigation symbols}{результаты конкурсанта}
 
 
-
-
 \begin{frame}
-	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
-
-
-	\begin{llemma}
-		Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
-		\begin{equation*}
-			x_k = \left\{\begin{array}{ll}
-				1, & \mbox{~если~} k = n_i
-				\\
-				0  & \mbox{~иначе.~}
-			\end{array}\right.
-		\end{equation*}
-		Для того, чтобы $x\in ac_0$,
-		необходимо и достаточно, чтобы
-		\begin{equation}\label{lim_M(j)/j}
-			\lim_{j \to \infty} \frac{M(j)}{j} = \infty
-			,
-		\end{equation}
-		где
-		\begin{equation*}
-			%\quad\mbox{~где~\quad}
-			M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
-			.
-		\end{equation*}
-	\end{llemma}
-
-
-\end{frame}
-
-
-
-\begin{frame}
-	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
-
-
-	Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
-	для $x = (x_1, x_2, ...)\in\ell_\infty$ как
-	\begin{equation*}
-		(A_\lambda x)_k = \begin{cases}
-			1, & \mbox{~если~} x_k \geq \lambda
-			\\
-			0  & \mbox{~иначе.~}
-		\end{cases}
-	\end{equation*}
-
-	\begin{ttheorem}
-		\label{thm:lambda_prelim}
-		Пусть $x\in\ell_\infty$, $x\geq 0$.
-		Тогда
-		$
-			x\in ac_0
-		$
-		если и только если
-		для любого $\lambda > 0$
-		выполнено
-		$
-			A_\lambda x \in ac_0
-		$
-		.
-	\end{ttheorem}
-
-\end{frame}
-
-
-
-\begin{frame}
-	\frametitle{Критерий принадлежности $ac_0$~\cite{our-mz2019ac0}}
+	\frametitle{Пространства $ac$ и $ac_0$}
 
 
 
 	\begin{ttheorem}
-		Пусть $x\in\ell_\infty$, $x \geq 0$,
-		\begin{equation*}
+		Пусть ~$x\in\ell_\infty$,~~ $x \geq 0$,
+		~~
+		$\displaystyle
 			0<\lambda < \limsup_{k\to\infty} x_k
 			.
-		\end{equation*}
+		$
+		~~
 		Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
 		Обозначим
-		\begin{equation*}
+		$\displaystyle
 			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
 			.
-		\end{equation*}
+		$
 		Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
-		для любого $\lambda>0$
-		\begin{equation*}
+		независимо от выбора $\lambda$ было выполнено
+		$\displaystyle
 			\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
 			.
-		\end{equation*}
+		$
 	\end{ttheorem}
 
-
-	\begin{remark}
-		Требование произвольности $\lambda$ существенно.
-		Например, для $x_k = 1$ и $\lambda = 2$ имеем $A_\lambda x = 0 \in ac_0$,
-		но $x\notin ac_0$.
-	\end{remark}
 
 
 \end{frame}
