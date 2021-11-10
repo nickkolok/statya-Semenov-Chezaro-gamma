@@ -147,7 +147,7 @@
 	\frametitle{Пространства $ac$ и $ac_0$}
 
 
-
+	\vspace{0.4em}
 	\begin{ttheorem}
 		Пусть ~$x\in\ell_\infty$,~~ $x \geq 0$,
 		~~
@@ -171,73 +171,83 @@
 	\end{ttheorem}
 
 
-
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Функция $\alpha(x)$ и пространство $ac$~\cite{our-mz2019ac0}}
-	Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространств $c$
-	и $c_0$ соотв.
-	Легко видеть, что функция
-	\begin{equation*}
+	\vspace{0.8em}
+	Рассмотрим функцию
+	$\displaystyle
 		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
-	\end{equation*}
-	удовлетворяет условию Липшица с константой 2
-	и для $x\in c$ выполнено
-	$\alpha(x)=0$.
+	$.
+	%(условие $\alpha(x) = 0$ есть ослабленное определение фундаментальности).
+
 
 	\begin{llemma}
-	\label{thm:alpha_x_leq_2_rho_x_c}
 		Для любого $x\in\ell_\infty$
-		выполнено неравенство
+		выполнено
 		$
 			\alpha(x) \leq 2\rho(x, c)
-		$.
-	\end{llemma}
-
-
-	\begin{llemma}
-	\label{thm:rho_x_c_leq_alpha_t_s_x}
-		Для любого $x\in ac$ и для любого натурального $s$ верно
+		$,
+		\\
+		где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
+		\\
+		Для любых $x\in ac$,~$s\in\mathbb{N}$ верно
 		$
 			\rho(x,c)\leq \alpha(T^s x)
 		$,
-	%	где $T$~--- оператор сдвига влево, т.е.
-	%	$T(x_1,x_2,...) = (x_2,x_3,...)$.
+		\\
+		где $T$~--- оператор сдвига влево.%, т.е.
+		%$T(x_1,x_2,...) = (x_2,x_3,...)$.
+		\\
+		Обе оценки точны;
+		%\\
+		условие $x\in ac$ важно.
 	\end{llemma}
-
-	Обе оценки точны.
-	Условие $x\in ac$ существенно.
 
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Функция $\alpha(x)$ и пространство $ac$~\cite{our-mz2019ac0}}
+	\frametitle{Функция $\alpha(x)$}
+	\begin{equation*}
+		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+		;\qquad
+		A_0 = \{x\in\ell_\infty : \alpha(x) = 0\}
+	\end{equation*}
+	Условие $\alpha(x) = 0$ есть ослабленное определение фундаментальности.
+
 	\begin{ttheorem}
 	%\label{thm:rho_x_c_leq_alpha_t_s_x}
-		Для любого $x\in ac$
-		\begin{equation*}
+		Для любого $x\in ac$ верно
+		$\displaystyle
 			\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
-			.
-		\end{equation*}
+			;
+		$
+		в частности, $A_0 \cap ac = c$.
 	\end{ttheorem}
 
-	\begin{ccorollary}
-		Для любого $x\in ac_0$
-		\begin{equation*}
-			\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
-			.
-		\end{equation*}
-	\end{ccorollary}
 
-	Обе оценки точны~\cite{our-ped-2018-alpha-Tx}.
+	\begin{ttheorem}
+		Ни одно из множеств
+		$\displaystyle
+			\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}, ~n\in\mathbb{N};
+		$~
+		$\displaystyle
+			\bigcap\limits_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \};
+		$ ~
+		$\displaystyle
+			\bigcup_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}
+		$ не замкнуто ни по сложению, ни по умножению.
+	\end{ttheorem}
 
-	\begin{ccorollary}
-		Пусть $x\in ac$.
-		Тогда $x\in c$ если и только если $\alpha(x) = 0$.
-	\end{ccorollary}
+	\begin{ttheorem}
+		Пространство $A_0$ замкнуто относительно
+		\\
+		сложения и покоординатного умножения,
+		\\
+		а также операторов сдвига $T$, Чезаро $C$,
+		\\
+		растяжения $\sigma_n$ и сжатия $\sigma_{1/n}$,
+		\\
+		несепарабельно и недополняемо в $\ell_\infty$.
+	\end{ttheorem}
 
 \end{frame}
 
