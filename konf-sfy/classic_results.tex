@@ -1,0 +1,38 @@
+\par
+\begin{varwidth}[t]{0.3\linewidth}
+	\frametitle{Пространство $\ell_\infty$}
+	$\ell_\infty$~--- пространство всех ограниченных последовательностей
+	$x=(x_1, x_2, ..., x_n, ...)$
+	с нормой
+	$$
+		\|x\|_{\ell_\infty} = \sup_{k\in\mathbb{N}} |x_k|
+	$$
+	$c$~--- пространство всех сходящихся последовательностей.
+\end{varwidth}
+\hfill
+\begin{varwidth}[t]{0.25\linewidth}
+	\frametitle{Банаховы пределы}
+	Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+	\begin{enumerate}
+		\item
+			$B \geqslant 0$
+		\item
+			$B(1,1,1,1,1,...) = 1$
+		\item
+			$B=BT$, где $T$ "--- сдвиг.
+	\end{enumerate}
+\end{varwidth}
+\hfill
+\begin{varwidth}[t]{0.35\linewidth}
+\frametitle{Теорема Лоренца}
+	Для заданного $r\in\mathbb{R}$ равенство $Bx=r$ выполнено для всех $B\in\mathfrak{B}$
+	тогда и только тогда, когда
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = r
+	\end{equation*}
+	сходится равномерно по $m\in\mathbb{N}$.
+	\\
+	$ac$~---пространство всех таких $x \in \ell_\infty$.
+\end{varwidth}
+\par
+\vfill
