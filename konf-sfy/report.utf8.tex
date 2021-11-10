@@ -17,6 +17,8 @@
 
 \righthyphenmin=2
 
+% https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
+\usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
 
 
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
@@ -43,6 +45,11 @@
 %\usepackage{fontspec}
 %\setmainfont{Liberation Serif}
 \begin{document}
+{
+	\setbeamercolor{background canvas}{bg=}
+	\includepdf{pres_Avdeev_title.pdf}
+}
+%\setcounter{page}{2}
 
 
 \title{Асимптотические характеристики \\ ограниченных последовательностей}
