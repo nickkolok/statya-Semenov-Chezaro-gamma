@@ -20,6 +20,9 @@
 % https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
 \usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
 
+\usepackage{pbox}
+\usepackage{varwidth}
+
 
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 \addbibresource{../bib/Semenov.bib}
@@ -57,12 +60,57 @@
 {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{bg.jpg}}
 
 
-\title{Асимптотические характеристики \\ ограниченных последовательностей}
-\author{Выполнил: Авдеев Н.Н. \\ Научный руководитель: д.ф.-м.н., проф. Каменский М.И.}
-\institute{ Воронежский Государственный Университет \\ Кафедра функционального анализа и операторных уравнений}
-\date{Воронеж 2019}
-
-\maketitle
+\begin{frame}
+	\frametitle{Обобщения понятия сходимости $\ell_\infty$}
+	\pbox{0.5\linewidth}
+	{
+		Верхний и нижний
+		\\
+		пределы:
+		\\
+		$\displaystyle \limsup_{n\to\infty} x_n$
+		\\ \\
+		$\displaystyle \liminf_{n\to\infty} x_n$
+	}
+	\hfill
+	\pbox{0.5\linewidth}
+	{
+		Сходимость в среднем
+		\\
+		(по Чезаро):
+		\\
+		$\displaystyle \lim_{n\to\infty} (Cx)_n$
+		\\\\
+		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
+	}
+	\\
+	\begin{varwidth}{10em}
+		\centering
+		ping
+		\\
+		$$p$$
+	\end{varwidth}
+	\\
+	\begin{varwidth}{10em}
+		\centering
+		Верхний и нижний
+		\\
+		пределы:
+		$$ \limsup_{n\to\infty} x_n$$
+		$$\displaystyle \liminf_{n\to\infty} x_n$$
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}{10em}
+		\centering
+		Сходимость в среднем
+		\\
+		(по Чезаро):
+		\\
+		$\displaystyle \lim_{n\to\infty} (Cx)_n$
+		\\
+		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
+	\end{varwidth}
+\end{frame}
 
 
 \begin{frame}
