@@ -20,7 +20,6 @@
 % https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
 \usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
 
-\usepackage{pbox}
 \usepackage{varwidth}
 
 
@@ -50,6 +49,8 @@
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{navigation symbols}{}
 
+\setbeamertemplate{frametitle}[default][center]
+
 \begin{document}
 {
 	\setbeamercolor{background canvas}{bg=}
@@ -59,122 +60,82 @@
 \setbeamertemplate{background}
 {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{bg.jpg}}
 
+\setbeamertemplate{navigation symbols}{реферативная часть}
 
 \begin{frame}
-	\frametitle{Обобщения понятия сходимости $\ell_\infty$}
-	\pbox{0.5\linewidth}
-	{
+	\frametitle{Обобщения понятия сходимости в $\ell_\infty$}
+	\hspace{1.468em}
+	\begin{varwidth}[t]{\linewidth}
+		\centering
 		Верхний и нижний
 		\\
 		пределы:
 		\\
 		$\displaystyle \limsup_{n\to\infty} x_n$
-		\\ \\
+		\\
 		$\displaystyle \liminf_{n\to\infty} x_n$
-	}
-	\hfill
-	\pbox{0.5\linewidth}
-	{
-		Сходимость в среднем
-		\\
-		(по Чезаро):
-		\\
-		$\displaystyle \lim_{n\to\infty} (Cx)_n$
-		\\\\
-		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
-	}
-	\\
-	\begin{varwidth}{10em}
-		\centering
-		ping
-		\\
-		$$p$$
-	\end{varwidth}
-	\\
-	\begin{varwidth}{10em}
-		\centering
-		Верхний и нижний
-		\\
-		пределы:
-		$$ \limsup_{n\to\infty} x_n$$
-		$$\displaystyle \liminf_{n\to\infty} x_n$$
 	\end{varwidth}
 	\hfill
-	\begin{varwidth}{10em}
+	\begin{varwidth}[t]{\linewidth}
 		\centering
 		Сходимость в среднем
 		\\
 		(по Чезаро):
-		\\
 		$\displaystyle \lim_{n\to\infty} (Cx)_n$
 		\\
 		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
+		\\~\\
+		\emph{слишком универсальна}
 	\end{varwidth}
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Пространство $\ell_\infty$}
-	$\ell_\infty$~--- пространство всех ограниченных последовательностей
-	$x=(x_1, x_2, ..., x_n, ...)$
-	с нормой
-	$$
-		\|x\|_{\ell_\infty} = \sup_{k\in\mathbb{N}} |x_k|
-	$$
-	{Свойства:}
-
-	\begin{itemize}
-		\item
-			$\ell_\infty$~--- линейное пространство над полем $\mathbb{R}$
-		\item
-			$\ell_\infty$  несепарабельно
-		\item
-			$\ell_1 \subset \ell_2 \subset \dots \subset \ell_\infty$
-		\item
-			$\ell_1^* = \ell_\infty$
-		\item
-			$\ell_\infty^* \neq \ell_1$
-	\end{itemize}
-\end{frame}
-
-\begin{frame}\frametitle{Банаховы пределы}
-	Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
-	\begin{enumerate}
-		\item
+	\hfill
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Банаховы пределы $B\in \mathfrak{B}$:
+		\\
+		т. Хана--Банаха к $\lim: c\to\mathbb R$
+		\\
 			$B \geqslant 0$
-		\item
+		\\
 			$B\mathbbm{1} = 1$
-		\item
+		\\
 			$B=BT$
-	\end{enumerate}
-	Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
-	$T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
-
-	Простейшие свойства:
-	\begin{itemize}
-		\item
-			$\|B\|_{\ell_\infty^*} = 1$
-		\item
-			$Bx = \lim_{n\to\infty} x_n$ для любого $x=(x_1, x_2, ...) \in c$,
-			\\
-			где $c$~--- множество сходящихся последовательностей.
-
-			Таким образом,
-			банахов предел~--- естественное обобщение понятия предела сходящейся последовательности
-			на все ограниченные последовательности.
-	\end{itemize}
+		\\
+		\emph{почти сходимость}
+	\end{varwidth}
+	\\~\\~\\
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		\emph{Критерий Лоренца:}
+		$\displaystyle
+			x\in ac_t
+			\Leftrightarrow
+			\forall(B\in\mathfrak{B})[Bx = t]
+			\Leftrightarrow
+			\lim_{n\to\infty}  \sum_{k=m+1}^{m+n} \frac{x_k}n = t
+		$
+		равном. по $m\in\mathbb{N}$.
+	\end{varwidth}
+	\\
+	\vspace{1em}
+	\begin{varwidth}[t]{\linewidth}
+		$\displaystyle ac = \mathop{\cup}\limits_{t\in\mathbb R} ac_t$ "--- пространство почти сходящихся последовательностей
+	\end{varwidth}
+	\\
+	\vspace{1em}
+	\begin{varwidth}[t]{\linewidth}
+		Пример $x\in ac_0$:~~
+		$\displaystyle
+			x_k=\begin{cases}
+				1, & k=2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$
+	\end{varwidth}
 \end{frame}
 
-\begin{frame}\frametitle{Теорема Лоренца}
-	Для заданного $r\in\mathbb{R}$ равенство $Bx=r$ выполнено для всех $B\in\mathfrak{B}$
-	тогда и только тогда, когда
-	\begin{equation*}
-		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = r
-	\end{equation*}
-	сходится равномерно по всем $m\in\mathbb{N}$.
+\setbeamertemplate{navigation symbols}{результаты конкурсанта}
 
-	Множество всех таких $x \in \ell_\infty$ обозначается $ac$.
-\end{frame}
 
 
 
@@ -347,40 +308,6 @@
 \end{frame}
 
 
-\begin{frame}
-	\frametitle{Инвариантные банаховы пределы~\cite{our-ped-2018-inf-dim-ker}}
-	\begin{llemma}
-		Пусть $Q:\ell_\infty \to \ell_\infty$.
-		Для того, чтобы для любого банахова предела $B$
-		было выполнено $BQ = B$,
-		необходимо и достаточно, чтобы
-		\begin{equation}\label{Avdeev_1_ac0}
-			I-Q : \ell_\infty \to ac_0,
-		\end{equation}
-		где $I$~--- тождественный оператор на $\ell_\infty$.
-	\end{llemma}
-
-	\begin{eexample}
-		\begin{equation*}
-			(Qx)_k =
-			\begin{cases}
-				0,~\mbox{если}~ k = 2^n, n \in\mathbb{N},
-				\\
-				x_k~\mbox{иначе.}
-			\end{cases}
-		\end{equation*}
-
-		Выполнено $\dim \ker Q = \infty$ и $Q$ удовлетворяет условию (\ref{Avdeev_1_ac0}).
-	\end{eexample}
-
-
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Опубликованные работы}
-	\printbibliography{}
-\end{frame}
 
 
 \begin{frame}
@@ -388,10 +315,5 @@
 	Спасибо за внимание
 \end{frame}
 
-%%%%  ОФОРМЛЕНИЕ СПИСКА ЛИТЕРАТУРЫ %%%
-%\smallskip \centerline{\bf Литература}\nopagebreak
-
-%1. {\it Semenov E. M., Sukochev F. A.}
-% Invariant Banach limits and applications //Journal of Functional Analysis. – 2010. – Т. 259. – №. 6. – С. 1517-1541.
 
 \end{document}
