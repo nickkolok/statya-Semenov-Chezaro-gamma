@@ -1,0 +1,64 @@
+\begin{varwidth}[v]{0.52\linewidth}
+	\frametitle{Функция $\alpha(x)$ и пространство $A_0=\{x\in\ell_\infty:\alpha(x)=0\}$~\cite{avdeev2019space,our-ped-2018-alpha-Tx,our-vzms-2018}}
+
+	Рассмотрим функцию
+	$\displaystyle
+		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+	$.
+	\\
+	Условие $\alpha(x) = 0$ есть ослабленное условие Коши.
+	\vspace{0.25em}
+
+	\begin{lemma}
+		Для любого $x\in\ell_\infty$
+		выполнено
+		$
+			\alpha(x) \leq 2\rho(x, c)
+		$,
+		\\
+		где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
+		\\
+		Для любых $x\in ac$,~$s\in\mathbb{N}$ верно
+		$
+			\rho(x,c)\leq \alpha(T^s x)
+		$.
+		\\
+		Обе оценки точны;
+		%\\
+		условие $x\in ac$ существенно.
+	\end{lemma}
+	\begin{theorem}
+	%\label{thm:rho_x_c_leq_alpha_t_s_x}
+		Для любого $x\in ac$ верно
+		$\displaystyle
+			\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+			;
+		$
+		в частности, $A_0 \cap ac = c$.
+	\end{theorem}
+	\vspace{0.2em}
+	\begin{theorem}
+		Ни по сложению, ни по умножению не замкнуто ни  одно из множеств
+		$\displaystyle
+			\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \};%, ~n\in\mathbb{N};
+		$~
+		$$\displaystyle
+			\bigcap\limits_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \};
+		\hfill
+		\displaystyle
+			\bigcup_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}
+			.
+		$$
+		\vspace{-0.7em}
+	\end{theorem}
+
+	\begin{theorem}
+		Пространство $A_0$ замкнуто относительно
+		(покоординатного) умножения,
+		операторов сдвига $T$, Чезаро $C$,
+		растяжения $\sigma_n$ и сжатия $\sigma_{1/n}$,
+		несепарабельно и недополняемо в $\ell_\infty$.
+	\end{theorem}
+
+
+\end{varwidth}

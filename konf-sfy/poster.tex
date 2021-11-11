@@ -26,7 +26,7 @@
 \geometry{papersize={420mm,594mm}}% A2, вертикальный
 
 
-\renewcommand{\baselinestretch}{1.3}
+\renewcommand{\baselinestretch}{1.1}
 
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
@@ -39,7 +39,7 @@
 
 \usepackage{amsthm}
 \theoremstyle{definition}
-\newtheorem{lemma}{Лемма}[section]
+\newtheorem{lemma}{Лемма}%[section]
 \newtheorem{theorem}[lemma]{Теорема}
 \newtheorem{example}[lemma]{Пример}
 \newtheorem{property}[lemma]{Свойство}
@@ -59,7 +59,13 @@
 % (an equation/multline to be force-numbered)
 %\mathtoolsset{showonlyrefs=true}
 
-\newcommand{\frametitle}[1]{\begin{center}#1\end{center}}
+\newcommand{\frametitle}[1]{\begin{center}\textbf{\textsc{#1}}\end{center}}
+
+
+\makeatletter
+\def\thm@space@setup{\thm@preskip=0pt
+\thm@postskip=0pt}
+\makeatother
 
 
 \begin{document}
@@ -68,8 +74,7 @@
 \widowpenalty=10000
 	\Large
 	\begin{center}
-		ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ
-		УЧРЕЖДЕНИЕ ВЫСШЕГО ОБРАЗОВАНИЯ
+		ФГБОУ ВО
 		«ВОРОНЕЖСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ»
 		\\
 		Математический факультет
@@ -80,21 +85,28 @@
 	\end{center}
 	Автор: Николай Николаевич Авдеев, аспирант третьего года обучения
 	\\
-	Научный руководитель: д.ф.-м.н., проф. Е. М. Семенов.
+	Научный руководитель: д.ф.-м.н., проф. Евгений Михайлович Семенов
 	\\
-	\nocite{avdeev2021subsets,our-mz2021linearhulls}
-	\nocite{*}
+	\nocite{avdeev2021subsets,our-mz2019measure,avdeev2019space,our-ped-2018-alpha-Tx,our-vzms-2018}
 
 	\noindent
 	\input{classic_results}
-
+	\vfill
 	\qquad$\uparrow$ Классические понятия и результаты, использованные в работе
 	\hrule
 	\qquad$\downarrow$ Основные результаты, полученные автором
+	\vfill
+	\noindent
+	\input{my_results_ac0}
+	\hfill
+	\input{my_results_alpha}
+
 
 	\vfill
+
+	Представленная НИР содержит новые результаты в области фундаментального функционального анализа
 	\begin{center}
-		Список публикаций
+		Список основных публикаций с участием автора по теме НИР:
 	\end{center}
 
 	\renewcommand{\section}[2]{}%

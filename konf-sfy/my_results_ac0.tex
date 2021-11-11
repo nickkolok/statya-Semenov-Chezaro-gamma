@@ -1,0 +1,75 @@
+\begin{varwidth}[v]{0.455\linewidth}
+	\frametitle{Критерии принадлежности $ac_0$~\cite{avdeev2019space}}
+
+
+	\begin{lemma}
+		Пусть $n_i$~--- строго возрастающая последовательность чисел из $\mathbb{N}$,
+		$\displaystyle
+			x_k = \left\{\begin{array}{ll}
+				1, & \mbox{~если~} k = n_i
+				\\
+				0  & \mbox{~иначе.~}
+			\end{array}\right.
+		$
+		\\
+		$x\in ac_0$
+		тогда и только тогда, когда
+		$\displaystyle
+			\lim_{j \to \infty} {M(j)}/{j} = +\infty
+			,
+		$
+		где
+		$\displaystyle
+			%\quad\mbox{~где~\quad}
+			M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
+			.
+		$
+	\end{lemma}
+
+
+	\vspace{1.1em}
+	Определим нелинейный оператор $\lambda$--срезки $A_\lambda$
+	для $x\in\ell_\infty$ как
+	$\displaystyle
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~если~} x_k \geq \lambda
+			\\
+			0  & \mbox{~иначе.~}
+		\end{cases}
+	$
+
+	\vspace{0.3em}
+	\begin{theorem}
+		\label{thm:lambda_prelim}
+		Пусть $x\in\ell_\infty$, $x\geq 0$.
+		Тогда
+		$
+			x\in ac_0
+		$
+		если и только если
+		для любого $\lambda > 0$
+		выполнено
+		$
+			A_\lambda x \in ac_0
+		$
+		.
+	\end{theorem}
+	\begin{theorem}
+		Пусть $x\in\ell_\infty$, $x \geq 0$,
+		$\displaystyle
+			0<\lambda < \limsup_{k\to\infty} x_k
+		$,
+		$\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
+		Обозначим
+		$\displaystyle
+			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
+			.
+		$
+		$x\in ac_0$ тогда и только тогда, когда
+		для всех $\lambda$ выполнено
+		$\displaystyle
+			\lim_{j \to \infty} {M_{\lambda}(j)}/{j} = +\infty
+			.
+		$
+	\end{theorem}
+\end{varwidth}
