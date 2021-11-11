@@ -9,24 +9,35 @@
 	Условие $\alpha(x) = 0$ есть ослабленное условие Коши.
 	\vspace{0.25em}
 
+
+
+	\begin{theorem}
+		Пусть $(x\cdot y)_k = x_k\cdot y_k$.
+		Тогда
+		$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
+		где
+		$\displaystyle\|x\|_* = \limsup_{k\to\infty} |x_k|$
+		есть фактор"=норма $\ell_\infty$ по $c_0$.
+	\end{theorem}
 	\begin{lemma}
 		Для любого $x\in\ell_\infty$
 		выполнено
 		$
 			\alpha(x) \leq 2\rho(x, c)
 		$,
-		\\
-		где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
-		\\
-		Для любых $x\in ac$,~$s\in\mathbb{N}$ верно
-		$
-			\rho(x,c)\leq \alpha(T^s x)
-		$.
-		\\
-		Обе оценки точны;
 		%\\
-		условие $x\in ac$ существенно.
+		где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
 	\end{lemma}
+	%	\\
+	%	Для любых $x\in ac$,~$s\in\mathbb{N}$ верно
+	%	$
+	%		\rho(x,c)\leq \alpha(T^s x)
+	%	$.
+	%	\\
+	%	Обе оценки точны;
+	%	%\\
+	%	условие $x\in ac$ существенно.
+	%\end{lemma}
 	\begin{theorem}
 	%\label{thm:rho_x_c_leq_alpha_t_s_x}
 		Для любого $x\in ac$ верно
@@ -41,15 +52,15 @@
 		Ни по сложению, ни по умножению не замкнуто ни  одно из множеств
 		$\displaystyle
 			\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \};%, ~n\in\mathbb{N};
-		$~
+		$
 		$$\displaystyle
-			\bigcap\limits_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \};
+			\mathop{\cap}\limits_{n\in\mathbb{N}}\{x \in \ell_\infty {:\,} \alpha(T^n x) = \alpha(x) \};
 		\hfill
 		\displaystyle
-			\bigcup_{n\in\mathbb{N}}\{x \in \ell_\infty : \alpha(T^n x) = \alpha(x) \}
+			\mathop{\cup}_{n\in\mathbb{N}}\{x \in \ell_\infty {:\,} \alpha(T^n x) = \alpha(x) \}
 			.
 		$$
-		\vspace{-0.7em}
+		\vspace{-1.2em}
 	\end{theorem}
 
 	\begin{theorem}
