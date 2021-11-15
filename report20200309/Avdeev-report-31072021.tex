@@ -1,0 +1,235 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+
+\usepackage{bbm}
+\usepackage{mathrsfs}
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\addbibresource{../../sct-statya/common/my.bib}
+
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}%[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{remark}[lemma]{Замечание}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\setcounter{page}{2}
+
+
+За прошедший период в соответствии с планом исследованы последовательности из нулей и единиц,
+носитель которых определяется через набор допустимых множителей.
+Доказано, что конечность набора допустимых множителей влечёт почти сходимость
+порождённой последовательности.
+
+Приведём краткий обзор полученных результатов.
+
+Одним из основных объектов научно-исследовательской работы, выполняемой при поддержке гранта,
+является пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+является понятие банахова предела.
+
+\begin{definition}
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}%[label=(\roman*)]
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{banach1993theorie}.
+%
+Cуществуют почти сходящиеся последовательности ---
+такие последовательности из $\ell_\infty$,
+на которых все банаховы пределы принимают одинаковые значения.
+\begin{theorem}[критерий Лоренца~\cite{lorentz1948contribution}]
+	Для заданного $t\in\mathbb{R}$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
+	тогда и только тогда, когда
+	\begin{equation}
+		\label{eq:crit_Lorentz}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
+	\end{equation}
+	равномерно по $m\in\mathbb{N}$.
+\end{theorem}
+
+
+Пространство почти сходящихся последовательностей будем обозначать через $ac$.
+
+Уточняя результат Лоренца, Сачестон установил~\cite{sucheston1967banach}, что
+для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	\mbox{~~~~и~~~~}
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соответственно.
+Заметим, что $p(x) = -q(-x)$.
+Неравенства \eqref{Sucheston} точны:
+для данного $x$ для любого $t\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = t$.
+
+Легко видеть, что множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+в точности является пространством почти сходящихся последовательностей $ac$.
+Будем говорить, что $x\in ac_t$, если $x\in ac$ и $p(x)=q(x)=t$.
+Таким образом, функционалы Сачестона для почти сходимости играют такую же роль,
+как верхний и нижний пределы для <<обычной>> сходимости.
+Более подробно о свойствах почти сходящихся последовательностей и банаховых пределах см.~\cite{semenov2020geometry,avdeev2019space}.
+
+Дальнейшим ослаблением понятия сходимости является сходимость по Чезаро (сходимость в среднем).
+Говорят, что последовательность $\{x_n\}\in\ell_\infty$ сходится по Чезаро к $t$, если
+\begin{equation}
+	\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i = t
+	.
+\end{equation}
+Легко заметить, что обсуждаемые обобщения верхнего и нижнего пределов удовлетворяют соотношению
+\begin{multline}
+	\label{eq:generalization_of_limits}
+	\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+	\leq
+	\\ \leq
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+	\leq p(x)
+	\leq \limsup_{n\to\infty} x_n
+	.
+\end{multline}
+
+Существенно место в исследованиях, ыполняемых при поддержке гранта,
+занимает множество всех последовательностей из 0 и 1,
+которое в дальнейшем мы будем обозначать через $\Omega$.
+Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
+$\operatorname{supp} x \subset \mathbb{N}$.
+
+Вслед за~\cite{hall1992behrend} будем обозначать через $\mathscr{M}A$ множество всех чисел,
+кратных элементам множества $A\subset\mathbb{N}$, т.е.
+\begin{equation}
+	\mathscr{M}A = \{ka: k\in\mathbb{N}, a\in A\}
+	,
+\end{equation}
+через $\chi A$ "--- характеристическую функцию множества $A$.
+
+Так, например,
+\begin{gather}
+	\chi \mathscr{M}\!A(\{2\}) = \chi \mathscr{M}\!A(\{2, 4\}) = \chi \mathscr{M}\!A(\{2,4,8,16,...\})
+	= (0,1,0,1,0,1,0,1,0,...),
+\\
+	\chi \mathscr{M}\!A(\{3\}) = \chi \mathscr{M}\!A(\{3,9,27,...\}) = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
+\\
+	\chi \mathscr{M}\!A(\{2,3\}) = \chi \mathscr{M}\!A(\{2,3,6\}) = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
+\end{gather}
+
+Возникает закономерный вопрос о взаимосвязи структуры множества $A$
+и значений, которые принимают обобщения верхнего и нижнего пределов~\eqref{eq:generalization_of_limits}
+на последовательности $\chi \mathscr{M}\!A$.
+Так, в работах~\cite{davenport1936sequences,davenport1951sequences} доказано, что для любого
+$A=\{a_1,a_2,...\}\subset\mathbb{N}$
+выполнено
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
+	\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
+	.
+\end{equation}
+В работе~\cite[\S 7]{besicovitch1935density} построено такое множество $A\subset\mathbb{N}$, что
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
+	.
+\end{equation}
+
+В рамках работ по гранту проводится изучение аналогов классических результатов,
+известных для верхнего и нижнего пределов,
+на функционалы Сачестона
+изучается зависимость значений, которые могут принимать функционалы Сачестона
+на последовательностях $\chi\mathscr{M}A$, от свойств множества $A$.
+
+Доказано, что для любого конечного множества $A=\{a_1,...,a_k\}$
+функционалы Сачестона для последовательности $\chi\mathscr{M}A$ совпадают и обращаются в нуль,
+и, как следствие, $\chi\mathscr{M}A\in ac_0$.
+
+
+Статья с подробными результатами работ направлена во
+<<Владикавказский математический журнал>> (входит в Перечень ВАК) и ожидает рецензирования.
+
+
+
+
+
+Таким образом, запланированные работы по гранту выполнены в полном объёме.
+
+
+
+
+\addcontentsline{toc}{chapter}{Список литературы}
+\small
+\printbibliography{}
+
+\end{document}
