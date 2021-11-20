@@ -36,6 +36,7 @@
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 \addbibresource{../bib/my.bib}
 
+\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
 
 \usepackage{amsthm}
 \theoremstyle{definition}
@@ -87,7 +88,7 @@
 	\\
 	Научный руководитель: д.ф.-м.н., проф. Евгений Михайлович Семенов
 	\\
-	\nocite{avdeev2021subsets,avdeed2021AandA,our-mz2019measure,avdeev2019space,our-ped-2018-alpha-Tx,our-vzms-2018}
+	\nocite{avdeev2021subsets,avdeev2019banach,avdeev2019space,avdeed2021AandA,our-ped-2018-alpha-Tx,our-vzms-2018}
 
 	\noindent
 	\input{classic_results}
@@ -113,5 +114,7 @@
 	\renewcommand{\chapter}[2]{}% for other classes
 	\renewcommand{\baselinestretch}{0.95}
 	\printbibliography{}
+	\newpage
+	\printbibitembibliography{}
 
 \end{document}
