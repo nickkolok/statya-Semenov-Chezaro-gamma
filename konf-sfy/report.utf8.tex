@@ -22,14 +22,6 @@
 \usepackage{varwidth}
 
 
-\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
-\addbibresource{../bib/Semenov.bib}
-\addbibresource{../bib/my.bib}
-\addbibresource{../bib/ext.bib}
-
-\input{../bib/ext.hyphens.bib}
-
-
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{llemma}{Лемма}
@@ -59,7 +51,7 @@
 \setbeamertemplate{background}
 {\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{bg.jpg}}
 
-\setbeamertemplate{navigation symbols}{реферативная часть}
+\setbeamertemplate{navigation symbols}{\large\bf вводная (реферативная) часть}
 
 \begin{frame}
 	\frametitle{Обобщения понятия сходимости в $\ell_\infty$}
@@ -121,84 +113,222 @@
 		равном. по $m\in\mathbb{N}$.
 	\end{varwidth}
 	\\~\\
-	\vspace{1em}
+	\vspace{0.8em}
 	\begin{varwidth}[t]{\linewidth}
 		$\displaystyle ac = \mathop{\cup}\limits_{t\in\mathbb R} ac_t$ "--- пространство почти сходящихся последовательностей
 	\end{varwidth}
 	\\
-	\vspace{1em}
+	\vspace{0.8em}
+	\begin{varwidth}[t]{0.52\linewidth}\begin{hyphenrules}{nohyphenation}
+		Банаховы пределы применяются, в~частности,
+		в некоммутативной геометрии~---
+		концепции описания
+		пространства на основе общего видения
+		геометрии и анализа,
+		которая используется в квантовой теории поля и теории струн.
+	\end{hyphenrules}\end{varwidth}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Что такое почти сходимость?}
 	\begin{varwidth}[t]{\linewidth}
-		Пример $x\in ac_0$:~~
-		$\displaystyle
+		\hspace{3em}
+		Пример $x\in ac_0$, но $\displaystyle0=\liminf_{n\to\infty}x_n < \limsup_{n\to\infty}x_n=1$:~~
+		$$\displaystyle
 			x_k=\begin{cases}
 				1, & k=2^j,~j\in\mathbb N
 				\\
 				0 & \mbox{для прочих~} k
 			\end{cases}
-		$
+		$$
+		$x=(0,1,0,1,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;...)$
+	\end{varwidth}
+	\\
+	\vspace{2em}
+	\begin{varwidth}[t]{\linewidth}
+		Пример сходящейся по Чезаро к нулю последовательности $x\notin ac$:~~
+		$$\displaystyle
+			x_k=\begin{cases}
+				1, & 2^j-j < k \leq 2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$$
+		$x=(0,1,1,1,\;0,1,1,1,\;\;0,0,0,0,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,1,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,0,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,1,1,\;1,1,1,1,...)$
 	\end{varwidth}
 \end{frame}
 
-\setbeamertemplate{navigation symbols}{результаты конкурсанта}
+\setbeamertemplate{navigation symbols}{\large\bf результаты конкурсанта}
 
 
 \begin{frame}
-	\frametitle{Пространства $ac$ и $ac_0$}
-
-
-	\vspace{0.4em}
-	\begin{ttheorem}
-		Пусть ~$x\in\ell_\infty$,~~ $x \geq 0$,
-		~~
-		$\displaystyle
-			0<\lambda < \limsup_{k\to\infty} x_k
-			.
-		$
-		~~
-		Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
-		Обозначим
-		$\displaystyle
-			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
-			.
-		$
-		Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
-		независимо от выбора $\lambda$ было выполнено
-		$\displaystyle
-			\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
-			.
-		$
-	\end{ttheorem}
-
-
-	\vspace{0.8em}
-	Рассмотрим функцию
-	$\displaystyle
-		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
-	$.
-	%(условие $\alpha(x) = 0$ есть ослабленное определение фундаментальности).
+	\frametitle{Критерий принадлежности $ac_0$~\cite{avdeev2019space}}
 
 
 	\begin{llemma}
-		Для любого $x\in\ell_\infty$
+		Пусть $\{n_i\}\subset \mathbb{N}$~--- строго возрастающая последовательность,
+		$\displaystyle
+			x_k = \left\{\begin{array}{ll}
+				1, & \mbox{~если~} k = n_i
+				\\
+				0  & \mbox{~иначе.~}
+			\end{array}\right.
+		$
+
+		Для того, чтобы $x\in ac_0$,
+		необходимо и достаточно, чтобы
+		\begin{equation*}\label{lim_M(j)/j}
+			\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+			,
+			\quad\mbox{~где~\quad}
+			M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
+			.
+		\end{equation*}
+	\end{llemma}
+
+
+	(Нелинейный) оператор $\lambda$--срезки $A_\lambda$
+	для $x \in\ell_\infty$:~
+	$\displaystyle
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~если~} x_k \geq \lambda
+			\\
+			0  & \mbox{~иначе.~}
+		\end{cases}
+	$
+
+	\begin{ttheorem}
+		\label{thm:lambda_prelim}
+		Пусть $x\in\ell_\infty$, $x\geq 0$.
+		Тогда
+		$
+			x\in ac_0
+		$
+		\\
+		если
+		и только если
+		для любого $\lambda > 0$
+		\\
 		выполнено
 		$
-			\alpha(x) \leq 2\rho(x, c)
-		$,
-		\\
-		где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
-		\\
-		Для любых $x\in ac$,~$s\in\mathbb{N}$ верно
+			A_\lambda x \in ac_0
 		$
-			\rho(x,c)\leq \alpha(T^s x)
-		$,
-		\\
-		где $T$~--- оператор сдвига влево.%, т.е.
-		%$T(x_1,x_2,...) = (x_2,x_3,...)$.
-		\\
-		Обе оценки точны;
-		%\\
-		условие $x\in ac$ важно.
-	\end{llemma}
+		.
+	\end{ttheorem}
+
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{avdeev2019space}}
+
+
+
+	\begin{ttheorem}
+		Пусть $x\in\ell_\infty$, $x \geq 0$,
+		\begin{equation*}
+			0<\lambda < \limsup_{k\to\infty} x_k
+			.
+		\end{equation*}
+		Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
+		Обозначим
+		\begin{equation*}
+			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
+			.
+		\end{equation*}
+		Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+		для любого $\lambda>0$
+		\begin{equation*}
+			\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
+			.
+		\end{equation*}
+	\end{ttheorem}
+
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Функция $\alpha(x)$ и пространство $ac_0$}
+
+	\vspace{0.9em}
+	~~Рассмотрим функцию
+	$\displaystyle
+		\alpha(x) = \limsup_{i\to\infty} \max_{i \leq j \leq 2i} |x_i-x_j|
+	$
+	; пусть
+	$
+		A_0 = \{x\in\ell_\infty : \alpha(x) = 0\}
+	$.
+
+
+	\begin{varwidth}[t]{0.47\linewidth}
+		\begin{llemma}
+			Для любого $x\in\ell_\infty$
+			выполнено
+			\\\phantom{centering}
+			$
+				\alpha(x) \leq 2\rho(x, c)
+			$,
+			\\
+			где $\rho(x,c)$ "--- расстояние от $x$ до $c$.
+			\\
+			Для любых $x\in ac$,~$s\in\mathbb{N}$ выполнено
+			\\\phantom{centering}
+			$
+				\rho(x,c)\leq \alpha(T^s x)
+			$,
+			\\
+			где $T$~--- оператор сдвига влево.%, т.е.
+			%$T(x_1,x_2,...) = (x_2,x_3,...)$.
+			\\
+			Обе оценки точны;
+			\\
+			условие $x\in ac$ важно.
+		\end{llemma}
+
+		\begin{ttheorem}
+		%\label{thm:rho_x_c_leq_alpha_t_s_x}
+			Для любого $x\in ac$ выполнено\\
+			$\displaystyle
+				\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
+				;
+			$
+			\\
+			в частности, $A_0 \cap ac = c$.
+		\end{ttheorem}
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}[t]{0.52\linewidth}
+		\begin{ttheorem}
+			Пусть $(x\cdot y)_k = x_k\cdot y_k$.
+			Тогда
+			$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
+			где
+			$\displaystyle\|x\|_* = \limsup_{k\to\infty} |x_k|$
+			"--- фактор"=норма $\ell_\infty$ по $c_0$.
+		\end{ttheorem}
+		\begin{ttheorem}
+			$\displaystyle
+				\sup_{x\in\ell_\infty, \alpha(x)\neq 0} \frac{\alpha(Cx)}{\alpha(x)}=1
+				;
+				\qquad
+				\alpha(\sigma_n x) = \alpha(x);
+			$
+
+			\vspace{-0.3em}
+			$\displaystyle
+				\phantom{.}\hfill
+				\qquad
+				0\leq \alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)
+			$
+		\end{ttheorem}
+	\end{varwidth}
+
 
 \end{frame}
 
@@ -212,15 +342,7 @@
 	\end{equation*}
 	Условие $\alpha(x) = 0$ есть ослабленное условие Коши (определение фундаментальности).
 
-	\begin{ttheorem}
-	%\label{thm:rho_x_c_leq_alpha_t_s_x}
-		Для любого $x\in ac$ верно
-		$\displaystyle
-			\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x) \leq \alpha(x)
-			;
-		$
-		в частности, $A_0 \cap ac = c$.
-	\end{ttheorem}
+
 
 
 	\begin{ttheorem}
@@ -312,6 +434,7 @@
 	\vspace{10em}
 \end{frame}
 
+\setbeamertemplate{navigation symbols}{}
 
 \begin{frame}
 	{
