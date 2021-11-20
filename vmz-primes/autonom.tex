@@ -92,9 +92,9 @@ MSC~
 кратных элементам некоторого заданного множества,
 и устанавливаются необходимые и достаточные условия для обращения в единицу верхнего функционала Сачестона
 на такой последовательности.
-Доказывается, что нижний функционал Сачестона на такой последовательности
-может принимать любое значение от нуля до единицы (включительно),
-при этом в нуль никогда не обращается.
+Доказывается, что существует бесконечно много таких последовательностей,
+на которых нижний функционал Сачестона принимает значение 1,
+при этом в нуль нижний функционал Сачестона ни на одной такой последовательности не обращается.
 
 
 
@@ -611,18 +611,75 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 
 Перейдём теперь к изучению нижнего функционала Сачестона $q(\chi\mathscr{M}A)$.
 
+
+
+
 \begin{theorem}
 	\label{thm:ac0_primes_p_psi_A_prod}
 	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел.
 	Тогда
 	\begin{equation}
-		q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+		q(\chi\mathscr{M}A) \geq 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
 		.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	Зафиксируем $k\in\mathbb{N}$.
+	%Зафиксируем $k\in\mathbb{N}$.
+
+	Заметим, что нижний функционал Сачестона можно представить в виде
+	\begin{equation}
+		\label{eq:ac0_primes_px_lim_pnx}
+		q(x) = \lim_{n\to\infty} q_n(x)
+		,
+	\end{equation}
+	где
+	\begin{equation}
+		q_n(x) = \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
+		.
+	\end{equation}
+
+	Поскольку предел~\eqref{eq:ac0_primes_px_lim_pnx} существует, то для его оценки можно использовать предел подпоследовательности
+	$q_{n_k}(x)$, где $n_k = a_1\cdot a_2 \cdot ... \cdot a_k$.
+
+	Заметим теперь, что в любом отрезке последовательности $\chi\mathscr{M}A$ длины $n_k$
+	содержится не более $\prod_{j=1}^k (a_j-1)$ нулей
+	(могут попадаться <<дополнительные>> единицы "--- элементы с индексами, кратными $a_j$ для $j>k$).
+	Значит,
+	\begin{equation}
+		q_{n_k}(\chi\mathscr{M}A) =
+		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
+		\geq
+		1-\prod_{i=1}^k \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+	Снова перейдя к пределу по $k$, получим
+	\begin{equation}
+		\label{eq:ac0_primes_p_psi_A_upper_bound}
+		q(\chi\mathscr{M}A) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
+		=
+		1-\prod_{i=1}^\infty \frac{a_i-1}{a_i}
+		.
+	\end{equation}
+
+\end{proof}
+
+
+
+
+\begin{corollary}
+	\label{cor:ac0_primes_p_psi_A_prod}
+	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел
+	и $a_{n+1}>a_1\cdot...\cdot a_n$.
+	Тогда
+	\begin{equation}
+		q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+		.
+	\end{equation}
+\end{corollary}
+
+\begin{proof}
+	%Зафиксируем $k\in\mathbb{N}$.
 
 	Заметим, что нижний функционал Сачестона можно представить в виде
 	\begin{equation}
@@ -662,27 +719,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 		.
 	\end{equation}
 
-	Заметим теперь, что в любом отрезке последовательности $\chi\mathscr{M}A$ длины $n_k$
-	содержится не более $\prod_{j=1}^k (a_j-1)$ нулей
-	(могут попадаться <<дополнительные>> единицы "--- элементы с индексами, кратными $a_j$ для $j>k$).
-	Значит,
-	\begin{equation}
-		q_{n_k}(\chi\mathscr{M}A) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
-		\geq
-		1-\prod_{i=1}^k \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-	Снова перейдя к пределу по $k$, получим
-	\begin{equation}
-		\label{eq:ac0_primes_p_psi_A_upper_bound}
-		q(\chi\mathscr{M}A) \geq \lim_{k\to \infty} \prod_{i=1}^k \frac{a_i-1}{a_i}
-		=
-		1-\prod_{i=1}^\infty \frac{a_i-1}{a_i}
-		.
-	\end{equation}
-
-	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение теоремы.
+	Сопоставив~\eqref{eq:ac0_primes_p_psi_A_lower_bound} и~\eqref{eq:ac0_primes_p_psi_A_upper_bound}, получим утверждение следствия.
 \end{proof}
 
 \begin{corollary}
@@ -707,52 +744,25 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 \begin{lemma}
 	Пусть $\varepsilon \in  (0; 1{]}$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
-	$A_i$ такое, что $q(\chi\mathscr{M}A)=\varepsilon$ для любого $i\in\mathbb{N}$.
+	$A_i$ такое, что $q(\chi\mathscr{M}A)\geq\varepsilon$ для любого $i\in\mathbb{N}$.
 \end{lemma}
 
-%\begin{proof}
-%	В силу следствия~\ref{cor:ac0_primes_sum_ln_diverges} мы можем выбрать такое множество простых чисел $A$,
-%	что
-%	\begin{equation}
-%		\sum_{j\in A} \ln \frac{j}{j-1} = -\ln \varepsilon > 0
-%		.
-%	\end{equation}
-%	Тогда в силу теоремы~\ref{thm:ac0_primes_p_psi_A_prod}
-%	\begin{multline}
-%		p(\psi(A)) = \prod_{j\in A} \frac{j - 1}{j}
-%		=
-%		\exp \sum_{j\in A} \ln \frac{j - 1}{j}
-%		=
-%		\exp \sum_{j\in A} \left( -\ln \frac{j}{j-1}\right)
-%		=
-%		\\=
-%		\exp \left( -\sum_{j\in A} \ln \frac{j}{j-1}\right)
-%		=
-%		\exp (\ln \varepsilon)
-%		=
-%		\varepsilon
-%		.
-%	\end{multline}
-%
-%\end{proof}
+
 
 \begin{theorem}
-	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел.
-	Тогда следующие условия эквивалентны:
-	\begin{enumerate}[label=(\roman*)]
-		\item
-			$\chi\mathscr{M}A\in ac$.
-		\item
-			$\chi\mathscr{M}A\in ac_1$.
-		\item
-			$\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0$.
-	\end{enumerate}
+	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел
+	и
+	\begin{equation}
+		\label{eq:prod_causes_q}
+		\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0
+	\end{equation}
+	Тогда $\chi\mathscr{M}A\in ac$ и, более того, $\chi\mathscr{M}A\in ac_1$.
 \end{theorem}
 
 \begin{proof}
+	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие~\eqref{eq:prod_causes_q} влечёт равенство $q(\chi\mathscr{M}A)=1$.
 	По теореме~\ref{lem:ac0_primes_infinity_mutually_prime_subset} $p(\chi\mathscr{M}A)=1$,
-	поэтому условия (i) и (ii) эквивалентны.
-	По теореме~\ref{thm:ac0_primes_p_psi_A_prod} условие (iii) эквивалентно тому, что $q(\chi\mathscr{M}A)=1$.
+	откуда и следует требуемое.
 \end{proof}
 
 Авдеев Николай Николаевич
@@ -775,8 +785,9 @@ Then we consider characteristic sequences of sets of multiples
 and establish necessary and sufficient conditions
 for the upper Sucheston functional
 to be 1 on such sequence.
-We prove that the lower Sucheston functional
-on a characteristic sequence of set of multiples can take any value from the interval $(0;1]$.
+We prove that there are infinitely many sets of pairwise relative prime numbers
+that lower Sucheston functional evaluates to 1 on the corresponding set of multiples
+(and lower Sucheston functional never evaluates to 0 on a set of multiples).
 
 \paragraph{Keywords}
 	space of bounded sequences,
