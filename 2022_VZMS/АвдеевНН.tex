@@ -1,129 +1,88 @@
-\documentclass[a4paper,openbib]{report}
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
-\usepackage{amsfonts,amssymb}
-\usepackage{latexsym}
-\usepackage{euscript}
-\usepackage{enumerate}
-\usepackage{graphics}
-\usepackage[dvips]{graphicx}
-\usepackage{geometry}
-\usepackage{wrapfig}
-\usepackage[colorlinks=true,allcolors=black]{hyperref}
-\usepackage{mathrsfs}
-
-\usepackage{bbm}
+\documentclass{vzmsthesis}
 
 
-\righthyphenmin=2
-
-\usepackage[14pt]{extsizes}
-
-\geometry{left=3cm}% левое поле
-\geometry{right=1cm}% правое поле
-\geometry{top=2cm}% верхнее поле
-\geometry{bottom=2cm}% нижнее поле
-
-\renewcommand{\baselinestretch}{1.3}
-
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
-
-\newcommand{\longcomment}[1]{}
-
-\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
-\addbibresource{../bib/general_monographies.bib}
-\addbibresource{../bib/ext.bib}
-\addbibresource{../bib/my.bib}
-\addbibresource{../bib/Semenov.bib}
-\addbibresource{../bib/Bibliography_from_Usachev.bib}
-\addbibresource{../bib/classic.bib}
-
-\addbibresource{../../sct-statya/common/my.bib}
 
 
-\input{../bib/ext.hyphens.bib}
+%\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+%\addbibresource{../bib/general_monographies.bib}
+%\addbibresource{../bib/ext.bib}
+%\addbibresource{../bib/my.bib}
+%\addbibresource{../bib/Semenov.bib}
+%\addbibresource{../bib/Bibliography_from_Usachev.bib}
+%\addbibresource{../bib/classic.bib}
+
+%\addbibresource{../../sct-statya/common/my.bib}
+
+
+%\input{../bib/ext.hyphens.bib}
+
+%\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
+
 
 \usepackage{amsthm}
 \theoremstyle{definition}
 \newtheorem{lemma}{Лемма}%[section]
 \newtheorem{theorem}[lemma]{Теорема}
-\newtheorem{example}[lemma]{Пример}
-\newtheorem{property}[lemma]{Свойство}
-\newtheorem{corollary}{Следствие}[lemma]
 \newtheorem{definition}[lemma]{Определение}
-\newtheorem{remark}[lemma]{Замечание}
-
-%Only referenced equations are numbered
-\usepackage{mathtools}
-\mathtoolsset{showonlyrefs}
-
-%\mathtoolsset{showonlyrefs=false}
-% (an equation/multline to be force-numbered)
-%\mathtoolsset{showonlyrefs=true}
-
 
 \begin{document}
 
+\vzmstitle[
+	\footnote{Работа выполнена в Воронежском госуниверситете при поддержке РНФ, грант 19-11-00197.}
+]{
+	Обобщения предела и мультипликативные свойства носителя последовательности
+}
+\vzmsauthor{Авдеев}{Н.\,Н.}
+\vzmsinfo{Воронеж, ВГУ; {\it nickkolok@mail.ru; avdeev@math.vsu.ru}}
 
-Через $\ell_\infty$ обозначим пространство ограниченных последовательностей с обычной нормой
+\vzmscaption
+
+
+Обозначим пространство ограниченных последовательностей с обычными полуупорядоченностью и нормой
 \begin{equation*}
 	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
-	.
+	,
 \end{equation*}
-и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
-Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+где $\mathbb{N}$ "--- множество натуральных чисел, через $\ell_\infty$.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на $\ell_\infty$
 является понятие банахова предела.
 
 
 \begin{definition}
-	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом
+	(пишем: $B \in \mathfrak{B}$),
 	если
 	\begin{enumerate}
 		\item
 			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
 		\item
-			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
 		\item
-			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
-		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+			$B(x_1,x_2,\ldots)=B(x_2,x_3,\ldots)$.
 	\end{enumerate}
 \end{definition}
-Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
-Существование банаховых пределов было анонсировано С. Мазуром в~1929~г. и позднее доказано С.~Банахом в 1932 г.
-
-
-Сачестон в 1967 г. установил, что
+Существование банаховых пределов было анонсировано С. Мазуром в~1929~г. и доказано С.~Банахом~\cite{banach1993theorie}.
+%
+Сачестон установил~\cite{sucheston1967banach}, что
 для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
 \begin{equation}\label{Sucheston}
 	q(x) \leqslant Bx \leqslant p(x)
 	,
+	\quad\mbox{~~где}
 \end{equation}
-где
 \begin{equation*}
 	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	~~~~\mbox{и}~~~~
 	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
-	.
 \end{equation*}
-называют нижним и верхним функционалом Сачестона соотвественно.
-Заметим, что $p(x) = -q(-x)$.
+суть нижний и верхний функционалы Сачестона соотв.
 Неравенства \eqref{Sucheston} точны:
 для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
 $B\in\mathfrak{B}$ такой, что $Bx = r$.
 
 Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
-образует подпространство почти сходящихся последовательностей $ac$ (Лоренц, 1948 г.).
-На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
-
-Итак, последовательность $x = (x_1, x_2, \ldots)$ называется почти
-сходящейся к $\lambda \in \mathbb R^1$, если $Bx = \lambda$ для любого банахова
-предела $B \in \mathfrak B$.
-В этом случае мы будем писать $\operatorname{Lim} x_n = \lambda$. Множество
-последовательностей, почти сходящихся к $\lambda$, обозначается через $ac_\lambda$.
-
-
+образует~\cite{lorentz1948contribution} пространство почти сходящихся последовательностей $ac$.
+На каждом $x\in ac$ все $B\in \mathfrak{B}$ принимают одинаковые значения.
 
 
 
@@ -134,7 +93,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i = t
 	.
 \end{equation}
-Легко заметить, что обсуждаемые обобщения верхнего и нижнего пределов удовлетворяют соотношению
+Для обобщений верхнего и нижнего пределов верно, что
 \begin{multline}
 	\label{eq:generalization_of_limits}
 	\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
@@ -147,48 +106,34 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 \end{multline}
 
 
-Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
+Каждый $x\in \{0;1\}^\mathbb{N}$ можно отождествить с подмножеством
 $\operatorname{supp} x \subset \mathbb{N}$.
-Будем обозначать (см., напр., Hall, Tenenbaum, 1992) через $\mathscr{M}A$ множество всех чисел,
-кратных элементам множества $A\subset\mathbb{N}$, т.е.
+Обозначим
 \begin{equation}
 	\mathscr{M}A = \{ka: k\in\mathbb{N}, a\in A\}
 	,
 \end{equation}
-через $\chi A$ "--- характеристическую функцию множества $A$.
+где $\chi A$ "--- характеристическая функция множества $A$.
 
-Так, например,
-\begin{gather}
-	\chi \mathscr{M}\!A(\{2\}) = \chi \mathscr{M}\!A(\{2, 4\}) = \chi \mathscr{M}\!A(\{2,4,8,16,...\})
-	= (0,1,0,1,0,1,0,1,0,...),
-\\
-	\chi \mathscr{M}\!A(\{3\}) = \chi \mathscr{M}\!A(\{3,9,27,...\}) = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
-\\
-	\chi \mathscr{M}\!A(\{2,3\}) = \chi \mathscr{M}\!A(\{2,3,6\}) = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
-\end{gather}
-
-Возникает закономерный вопрос о взаимосвязи структуры множества $A$
+Возникает вопрос о взаимосвязи структуры множества $A$
 и значений, которые принимают обобщения верхнего и нижнего пределов~\eqref{eq:generalization_of_limits}
 на последовательности $\chi \mathscr{M}\!A$.
-Так, в работах Дэвенпорта и Эрдёша (1936 г., 1951 г.) доказано, что для любого
+Известно~\cite{davenport1951sequences}, что для любого
 $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 выполнено
-\begin{equation}
+\begin{equation*}
 	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
 	\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
 	.
-\end{equation}
-Построено (Besicovitch, 1935) такое множество $A\subset\mathbb{N}$, что
+\end{equation*}
+Построено~\cite[\S 7]{besicovitch1935density} такое множество $A\subset\mathbb{N}$, что
 \begin{equation}
 	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
 	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
 	.
 \end{equation}
-
-В статье~\cite{avdeev2021vmzprimes} изучаена зависимость значений, которые могут принимать функционалы Сачестона
-на последовательностях $\chi\mathscr{M}A$, от свойств множества $A$.
-Основной теоремой статьи~\cite{avdeev2021vmzprimes} является следующая:
-
+В~\cite{avdeev2021vmzprimes} получены аналогичные результаты для функционалов Сачестона,
+в частности,
 \begin{theorem}
 	Пусть $A\subset \mathbb{N}\setminus\{1\}$.
 	Тогда следующие условия эквивалентны:
@@ -200,7 +145,7 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 				.
 			$
 		\item
-			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+			В $A$ существует бесконечное подмножество попарно взаимно простых чисел.
 		\item
 			$p(\chi\mathscr{M}A)=1$.
 	\end{enumerate}
@@ -209,6 +154,60 @@ $A=\{a_1,a_2,...\}\subset\mathbb{N}$
 
 
 
-\printbibliography{}
+%\meaning\thebibliography
+
+%\printbibliography{}
+%\printbibitembibliography{}
+%\end{document}
+\vspace{-1.5em}
+\begin{thebibliography}{99}
+\vspace{-0.7em}
+{}
+\bibitem{banach1993theorie}
+\emph{Banach} \emph{S.} Théorie des opérations
+linéaires. — Sceaux : Éditions Jacques Gabay, 1993. —
+С. iv+128. — ISBN 2-87647-148-5. — Reprint of the
+1932 original.
+{}
+\bibitem{sucheston1967banach}
+\emph{Sucheston} \emph{L.} Banach limits // Amer.
+Math. Monthly. — 1967. — Т. 74. — С. 308—311. —
+ISSN 0002-9890.
+% — DOI: \href
+%{https://doi.org/10.2307/2316038} {\nolinkurl
+%{10.2307/2316038}}.
+{}
+\bibitem{lorentz1948contribution}
+\emph{Lorentz} \emph{G. G.} A contribution to the
+theory of divergent sequences // Acta Math. —
+1948. — Т. 80, No 1. — С. 167—190.
+%— ISSN 0001-5962. —
+%DOI: \href {https://doi.org/10.1007/BF02393648}
+%{\nolinkurl {10.1007/BF02393648}}.{}
+\bibitem{davenport1951sequences}
+\emph{Davenport} \emph{H.},
+\emph{Erdös} \emph{P.} On sequences of positive
+integers // J. Indian Math. Soc., New Series. — 1951. —
+Т. 15. — С. 19—24. — DOI: \href
+{https://doi.org/10.18311/JIMS/1951/17063}
+{\nolinkurl {10.18311/JIMS/1951/17063}}.
+{}
+\bibitem{besicovitch1935density}
+\emph{Besicovitch} \emph{A.} On the density of
+certain sequences of integers // Math.
+Annalen. — 1935. — Т. 110, No 1. — С. 336—341.
+ — DOI:
+\href {https://doi.org/10.1007/BF01448032}
+{\nolinkurl {10.1007/BF01448032}}.
+{}
+\bibitem{avdeev2021vmzprimes}
+\emph{Авдеев} \emph{Н. Н.} Почти сходящиеся
+последовательности из 0 и 1 и простые числа //
+Владикавказский математический журнал. — 2021. —
+Т. 23, No 4. — С. 5—14.
+% — DOI: \href
+%{https://doi.org/10.46698/p9825-1385-3019-c}
+%{\nolinkurl {10.46698/p9825-1385-3019-c}}.
+\end{thebibliography}
 
 \end{document}
