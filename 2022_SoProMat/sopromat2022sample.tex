@@ -1,0 +1,65 @@
+\documentclass[a4paper,14pt]{article}
+\usepackage[CP1251]{inputenc}
+%\usepackage{floatflt}
+\usepackage{float}
+\usepackage{cite}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage[dvips]{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\textheight=220mm
+\textwidth=160mm
+\oddsidemargin=0.1in
+\evensidemargin=0.1in
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\footnotesize{Современные проблемы математики и ее приложений}}
+\fancyhead[R]{\footnotesize{Тезисы конференции}}
+\fancyfoot{}
+\fancyfoot[L]{\footnotesize{Екатеринбург, Россия}}
+\fancyfoot[R]{\footnotesize{31 января -- 4 февраля, 2022}}
+\renewcommand{\footrulewidth}{0.1 mm}
+
+\begin{center}
+\textbf{Название доклада}\footnote{Исследование выполнено за счет гранта Российского научного фонда (проект № 00-00-00000).}\\
+\vspace{\baselineskip}
+Фамилия И.О., Фамилия И.О.\\
+\emph{Название организации, Город, Страна}\\ \emph{Название организации, Город, Страна}\\e-mail@imm.uran.ru, e-mail@imm.uran.ru
+\vspace{\baselineskip}\\
+\end{center}
+\vspace{\baselineskip}
+
+Текст доклада.
+
+\textbf{Теорема/Следствие/Лемма/Замечание.} {\sl Формулировка теоремы/следствия/леммы/ замечания.}
+
+Пример ссылки \cite{Pi1,Pi2,Pi3,Pi4,Pi5}.
+\\
+\begin{thebibliography}{99}
+
+\bibitem{Pi1}
+\small{M.~Hagie, The prime graph of a sporadic simple group. {\it Comm. Algebra}, {\bf 31}:~9 (2003), 4405--4424.}
+
+\bibitem{Pi2}
+\small{V.~D.~Mazurov, W.~J.~Shi, A note to the characterization of sporadic simple groups. {\it Algebra Colloq.},
+{\bf 5}:~3 (1998), 285--288.}
+
+\bibitem{Pi3}
+\small{P.~Poto\v{c}nik, P.~Spiga, G.~Verret, Cubic vertex--transitive graphs on up to 1280 vertices. arXiv:1201.5317v1 [math.CO].}
+
+\bibitem{Pi4}
+\small{J.~H.~Conway, R.~T.~Curtis, S.~P.~Norton, R.~A.~Parker, R.~A.~Wilson, Atlas of finite groups.
+Oxford: Clarendon Press, 1985.}
+
+\bibitem{Pi5}
+\small{А.~С.~Кондратьев, Н.~А.~Минигулов, О конечных неразрешимых $4$-примарных $3'$-группах. {\it Тезисы международной конференции "Алгебра, теория чисел и математическое моделирование динамических систем"\,, посвященной 70-летию А.Х. Журтова.} Нальчик: издательство КБГУ, 2019, 56--57.}
+\end{thebibliography}
+\end{document}

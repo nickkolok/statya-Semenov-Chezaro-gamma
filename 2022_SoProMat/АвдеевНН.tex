@@ -1,0 +1,313 @@
+\documentclass[a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage{mathrsfs}
+
+\usepackage{bbm}
+
+
+\righthyphenmin=2
+
+\usepackage[14pt]{extsizes}
+
+\geometry{left=3cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+\addbibresource{../bib/classic.bib}
+
+\addbibresource{../../sct-statya/common/my.bib}
+
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}%[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{remark}[lemma]{Замечание}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\begin{document}
+
+
+
+Одним из основных объектов научно-исследовательской работы, выполняемой при поддержке гранта,
+является пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на пространство $\ell_\infty$
+является понятие банахова предела.
+
+
+\begin{definition}
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром в~1929~г. и позднее доказано С.~Банахом в 1932 г.
+
+
+Сачестон в 1967 г. установил, что
+для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+\begin{equation}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+\end{equation}
+где
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+называют нижним и верхним функционалом Сачестона соотвественно.
+Заметим, что $p(x) = -q(-x)$.
+Неравенства \eqref{Sucheston} точны:
+для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$ (Лоренц, 1948 г.).
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+
+Итак, последовательность $x = (x_1, x_2, \ldots)$ называется почти
+сходящейся к $\lambda \in \mathbb R^1$, если $Bx = \lambda$ для любого банахова
+предела $B \in \mathfrak B$.
+В этом случае мы будем писать $\operatorname{Lim} x_n = \lambda$. Множество
+последовательностей, почти сходящихся к $\lambda$, обозначается через $ac_\lambda$.
+
+
+Представляет интерес вопрос об объекте, в некотором смысле двойственном пространству почти сходящихся последовательностей:
+насколько малым можно взять подмножество пространства $\ell_\infty$,
+чтобы для любых двух несовпадающих банаховых пределов в этом подмножестве всё ещё находился элемент,
+на котором эти бааховы пределы будут различаться?
+Так возникает понятие разделяющего множества~\cite[\S 3]{Semenov2014geomprops}.
+
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является~\cite{semenov2010characteristic} множество всех последовательностей из 0 и 1,
+которое в дальнейшем мы будем обозначать через $\Omega$
+(иногда в литературе встречается также обозначение $\{0;1\}^\mathbb{N}$).
+
+Множество $\Omega$, вообще говоря, интуитивно воспринимается малым по сравнению со всем пространством $\ell_\infty$.
+Однако можно ли найти ещё меньшее подмножество? Критерием малости теперь можно взять классическую меру.
+
+Каждой последовательности $(x_1, x_2, \dots)\in \Omega$ можно поставить в соответствие число
+\begin{equation}\label{eq:bijection_omega_0_1}
+	\sum_{k=1}^\infty 2^{-k} x_k \in [0,1]
+	.
+\end{equation}
+С точностью до счётного множества это соответствие взаимно однозначно и определяет на множестве $\Omega$ меру,
+которую мы будем отождествлять с мерой Лебега на $[0,1]$.
+
+Оказывается, что из $\Omega$ можно выделить некоторые подмножества, которые также будут разделяющими,
+например \cite[\S 3, Теорема 11]{Semenov2014geomprops},
+\begin{equation}
+	U = \{ x\in\Omega: q(x) = 0, p(x) = 1 \}
+	.
+\end{equation}
+
+Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}.
+
+В ходе выполнения работ по гранту был построен и опубликован в статье~\cite{avdeev2021vestnik} пример разделяющего множества,
+являющегося подмножеством $\Omega$ и имеющего меру нуль.
+Для построения такого множества используется следующий факт.
+
+\begin{lemma}[{\cite[\S 3, замечание 6]{Semenov2014geomprops}}]
+	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
+	где $\operatorname{Lin} Y$ обозначает линейную оболочку $Y$.
+	Тогда $Y$ также является разделяющим множеством.
+\end{lemma}
+
+Затем в этой же статье обсуждаются свойства линейных оболочек множеств, определённых с помощью функционалов Сачестона.
+В частности, доказывается,
+что наряду с использованным при построении разделяющего множества меры нуль включением
+\begin{equation}
+	\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}
+\end{equation}
+для любых $0\leq b < a \leq 1$,
+имеет место равенство
+\begin{equation}
+	\ell_\infty = \operatorname{Lin}\{x\in\ell_\infty : p(x) = a,~ q(x) = b\}
+\end{equation}
+для любых $a>b$.
+
+Возникает закономерный вопрос: для каких ещё подмножеств пространства $\ell_\infty$
+верны аналогичные соотношения?
+
+Оказывается, что аналогичным свойством обладает и ещё одно подмножество пространства $\ell_\infty$: подпространство
+$A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
+где~\cite{our-vzms-2018}
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation*}
+
+Пространство $A_0$ обладает рядом интересных свойств.
+
+
+\begin{theorem}[{\cite[следствие 2]{our-mz2019ac0}}]
+	\label{thm:alpha_c_ac_c}
+	Пусть $x\in ac$, т.е. $p(x) = q(x)$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+\end{theorem}
+Таким образом, $c = ac \cap A_0$.
+Включение $c\subset A_0$ собственное.
+
+В~\cite{our-ped-2018-alpha-Tx} показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
+подпространство $A_0$ такой инвариантностью обладает;
+из доказанного в~\cite{SSUZ2} соотношения
+\begin{equation}
+	\alpha(Cx) \leq \alpha(x)
+	,
+\end{equation}
+где $Cx$ есть оператор Чезаро
+\begin{equation}
+	(Cx)_n = \frac{1}{n} \sum_{k=1}^n x_k
+	,
+\end{equation}
+следует инвариантность пространства $A_0$ относительно оператора Чезаро.
+
+В статье~\cite{avdeev2021vestnik} доказывается,
+что пространство $A_0$ инвариантно относительно операторов растяжения $\sigma_n$
+и усредняющего сжатия $\sigma_{1/n}$.
+
+
+
+
+
+
+Дальнейшим ослаблением понятия сходимости является сходимость по Чезаро (сходимость в среднем).
+Говорят, что последовательность $\{x_n\}\in\ell_\infty$ сходится по Чезаро к $t$, если
+\begin{equation}
+	\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i = t
+	.
+\end{equation}
+Легко заметить, что обсуждаемые обобщения верхнего и нижнего пределов удовлетворяют соотношению
+\begin{multline}
+	\label{eq:generalization_of_limits}
+	\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+	\leq
+	\\ \leq
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+	\leq p(x)
+	\leq \limsup_{n\to\infty} x_n
+	.
+\end{multline}
+
+
+Понятно, что каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
+$\operatorname{supp} x \subset \mathbb{N}$.
+Будем обозначать (см., напр., Hall, Tenenbaum, 1992) через $\mathscr{M}A$ множество всех чисел,
+кратных элементам множества $A\subset\mathbb{N}$, т.е.
+\begin{equation}
+	\mathscr{M}A = \{ka: k\in\mathbb{N}, a\in A\}
+	,
+\end{equation}
+через $\chi A$ "--- характеристическую функцию множества $A$.
+
+Так, например,
+\begin{gather}
+	\chi \mathscr{M}\!A(\{2\}) = \chi \mathscr{M}\!A(\{2, 4\}) = \chi \mathscr{M}\!A(\{2,4,8,16,...\})
+	= (0,1,0,1,0,1,0,1,0,...),
+\\
+	\chi \mathscr{M}\!A(\{3\}) = \chi \mathscr{M}\!A(\{3,9,27,...\}) = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
+\\
+	\chi \mathscr{M}\!A(\{2,3\}) = \chi \mathscr{M}\!A(\{2,3,6\}) = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
+\end{gather}
+
+Возникает закономерный вопрос о взаимосвязи структуры множества $A$
+и значений, которые принимают обобщения верхнего и нижнего пределов~\eqref{eq:generalization_of_limits}
+на последовательности $\chi \mathscr{M}\!A$.
+Так, в работах Дэвенпорта и Эрдёша (1936 г., 1951 г.) доказано, что для любого
+$A=\{a_1,a_2,...\}\subset\mathbb{N}$
+выполнено
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
+	\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
+	.
+\end{equation}
+Построено (Besicovitch, 1935) такое множество $A\subset\mathbb{N}$, что
+\begin{equation}
+	\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
+	\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
+	.
+\end{equation}
+
+В статье~\cite{avdeev2021vmzprimes} изучаена зависимость значений, которые могут принимать функционалы Сачестона
+на последовательностях $\chi\mathscr{M}A$, от свойств множества $A$.
+Основной теоремой статьи~\cite{avdeev2021vmzprimes} является следующая:
+
+\begin{theorem}
+	Пусть $A\subset \mathbb{N}\setminus\{1\}$.
+	Тогда следующие условия эквивалентны:
+	\begin{enumerate}%[label=(\roman*)]
+		\item
+			Для любого $n\in\mathbb{N}$ найдётся набор попарно взаимно простых чисел
+			$
+				\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
+				.
+			$
+		\item
+			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+		\item
+			$p(\chi\mathscr{M}A)=1$.
+	\end{enumerate}
+\end{theorem}
+
+
+
+
+\printbibliography{}
+
+\end{document}
