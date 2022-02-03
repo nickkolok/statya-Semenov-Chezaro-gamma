@@ -1,0 +1,628 @@
+\documentclass[10pt,pdf,hyperref={unicode},aspectratio=169,color={usenames, dvipsnames}]{beamer}\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\usepackage{bbm}
+\usepackage{mathrsfs}
+
+
+\usepackage{varwidth}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{llemma}{Лемма}
+\newtheorem{ttheorem}[llemma]{Теорема}
+\newtheorem{eexample}[llemma]{Пример}
+\newtheorem{property}[llemma]{Свойство}
+\newtheorem{remark}[llemma]{Замечание}
+\newtheorem{ccorollary}{Следствие}[llemma]
+\newtheorem{hhypothesis}{Гипотеза}[llemma]
+\newtheorem{ddefinition}{Определение}[llemma]
+
+\righthyphenmin=2
+
+%\usetheme{Antibes}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme[onlymath]{serif} % default family is serif
+%\usepackage{fontspec}
+%\setmainfont{Liberation Serif}
+\begin{document}
+
+
+\title{
+	Обобщения предела и мультипликативные свойства носителя последовательности
+}
+\author{Н.Н.~Авдеев}
+\institute{ Воронежский Государственный Университет \\
+		{Работа выполнена  при поддержке РНФ, грант 19-11-00197.
+	}}
+\date{Воронеж 2022}
+
+\maketitle
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{\large{}}
+
+\begin{frame}
+	\frametitle{Обобщения понятия сходимости в $\ell_\infty$}
+	%\hspace{1.468em}
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Верхний и нижний
+		\\
+		пределы:
+		\\
+		$\displaystyle \limsup_{n\to\infty} x_n$
+		,~
+		$\displaystyle \liminf_{n\to\infty} x_n$
+		\\~\\
+		\emph{
+			не характеризуют
+			\\
+			распределение элементов
+		}
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Сходимость в среднем
+		\\
+		(по Чезаро):
+		$\displaystyle \lim_{n\to\infty} (Cx)_n$
+		\\
+		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
+		\\~\\
+		\emph{слишком универсальна}
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Банаховы пределы $B\in \mathfrak{B}$:
+		\\
+		т. Хана--Банаха к $\lim: c\to\mathbb R$
+		\\
+			$B \geqslant 0$
+		\\
+			$B\mathbbm{1} = 1$
+		\\
+			$B=BT$
+		\\
+		\emph{почти сходимость}
+	\end{varwidth}
+	\\~\\~\\
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		\emph{Критерий Лоренца:}
+		$\displaystyle
+			x\in ac_t
+			\Leftrightarrow
+			\forall(B\in\mathfrak{B})[Bx = t]
+			\Leftrightarrow
+			\lim_{n\to\infty}  \sum_{k=m+1}^{m+n} \frac{x_k}n = t
+		$
+		равном. по $m\in\mathbb{N}$.
+	\end{varwidth}
+	\\~\\
+	\vspace{0.8em}
+	\begin{varwidth}[t]{\linewidth}
+		$\displaystyle ac = \mathop{\cup}\limits_{t\in\mathbb R} ac_t$ "--- пространство почти сходящихся последовательностей
+	\end{varwidth}
+\end{frame}
+
+
+\begin{frame}\frametitle{Пространство $\ell_\infty$}
+	$\ell_\infty$~--- пространство всех ограниченных последовательностей
+	$x=(x_1, x_2, ..., x_n, ...)$
+	с нормой
+	$$
+		\|x\|_{\ell_\infty} = \sup_{k\in\mathbb{N}} |x_k|
+	$$
+	{Свойства:}
+
+	\begin{itemize}
+		\item
+			$\ell_\infty$~--- линейное пространство над полем $\mathbb{R}$
+		\item
+			$\ell_\infty$  несепарабельно
+		\item
+			$\ell_1 \subset \ell_2 \subset \dots \subset \ell_\infty$
+		\item
+			$\ell_1^* = \ell_\infty$
+		\item
+			$\ell_\infty^* \neq \ell_1$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Банаховы пределы}
+	Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+	\begin{enumerate}
+		\item
+			$B \geqslant 0$
+		\item
+			$B\mathbbm{1} = 1$
+		\item
+			$B=BT$
+	\end{enumerate}
+	Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
+	$T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
+
+	Простейшие свойства:
+	\begin{itemize}
+		\item
+			$\|B\|_{\ell_\infty^*} = 1$
+		\item
+			$Bx = \lim_{n\to\infty} x_n$ для любого $x=(x_1, x_2, ...) \in c$,
+			\\
+			где $c$~--- множество сходящихся последовательностей.
+
+			Таким образом,
+			банахов предел~--- естественное обобщение понятия предела сходящейся последовательности
+			на все ограниченные последовательности.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Свойства множества банаховых пределов $\mathfrak{B}$}
+	\begin{enumerate}
+		\item
+			$\mathfrak{B}$~--- замкнутое выпуклое подмножество $ S_{\ell_\infty^*}$~---
+			единичной сферы пространства $\ell_\infty^*$
+		\item
+			$d(\mathfrak{B}) = 2$
+		\item
+			$\mathfrak{B}$ слабо *-компактно
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Теорема Лоренца}
+	Для заданного $r\in\mathbb{R}$ равенство $Bx=r$ выполнено для всех $B\in\mathfrak{B}$
+	тогда и только тогда, когда
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = r
+	\end{equation*}
+	сходится равномерно по всем $m\in\mathbb{N}$.
+
+	Множество всех таких $x \in \ell_\infty$ обозначается $ac$.
+\end{frame}
+
+\begin{frame}\frametitle{Теорема Сачестона}
+	является уточнением теоремы Лоренца.
+	Пусть
+	\begin{equation*}
+		q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k,
+		~~~~~~~~
+		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k.
+	\end{equation*}
+	Тогда для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+	\begin{equation}\label{Sucheston}
+		q(x) \leqslant Bx \leqslant p(x)
+	\end{equation}
+	Неравенства (\ref{Sucheston}) точны:
+	для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+	$B\in\mathfrak{B}$ такой, что $Bx = r$.
+\end{frame}
+
+\begin{frame}\frametitle{Оператор Чезаро}
+	Оператор Чезаро $C:\ell_\infty\to \ell_\infty$ определяется равенством
+	\begin{equation*}
+		(Cx)_n = \frac{1}{n} \cdot \sum_{k=1}^n x_k
+	\end{equation*}
+	Свойства:
+	\begin{itemize}
+		\item
+			$\|C\|_{\ell_\infty,\ell_\infty} = 1$
+		\item
+			Оператор $C$ не является обратимым
+		\item
+			Существуют $B\in\mathfrak{B}$ такие, что $BC=B$.
+			Такие $B$ называются инвариантными относительно $C$,
+			их множество обозначается $\mathfrak{B}(C)$.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Что такое почти сходимость?}
+	\begin{varwidth}[t]{\linewidth}
+		\hspace{3em}
+		Пример $x\in ac_0$, но $\displaystyle0=\liminf_{n\to\infty}x_n < \limsup_{n\to\infty}x_n=1$:~~
+		$$\displaystyle
+			x_k=\begin{cases}
+				1, & k=2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$$
+		$x=(0,1,0,1,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;...)$
+	\end{varwidth}
+	\\
+	\vspace{2em}
+	\begin{varwidth}[t]{\linewidth}
+		Пример сходящейся по Чезаро к нулю последовательности $x\notin ac$:~~
+		$$\displaystyle
+			x_k=\begin{cases}
+				1, & 2^j-j < k \leq 2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$$
+		$x=(0,1,1,1,\;0,1,1,1,\;\;0,0,0,0,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,1,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,0,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,1,1,\;1,1,1,1,...)$
+	\end{varwidth}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{avdeev2019space}}
+
+
+	\begin{llemma}
+		Пусть $\{n_i\}\subset \mathbb{N}$~--- строго возрастающая последовательность,
+		$\displaystyle
+			x_k = \left\{\begin{array}{ll}
+				1, & \mbox{~если~} k = n_i
+				\\
+				0  & \mbox{~иначе.~}
+			\end{array}\right.
+		$
+
+		Для того, чтобы $x\in ac_0$,
+		необходимо и достаточно, чтобы
+		\begin{equation*}\label{lim_M(j)/j}
+			\lim_{j \to \infty} \frac{M(j)}{j} = +\infty
+			,
+			\quad\mbox{~где~\quad}
+			M(j) = \liminf_{i\to\infty} (n_{i+j} - n_i)
+			.
+		\end{equation*}
+	\end{llemma}
+
+
+	(Нелинейный) оператор $\lambda$--срезки $A_\lambda$
+	для $x \in\ell_\infty$:~
+	$\displaystyle
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~если~} x_k \geq \lambda
+			\\
+			0  & \mbox{~иначе.~}
+		\end{cases}
+	$
+
+	\begin{ttheorem}
+		\label{thm:lambda_prelim}
+		Пусть $x\in\ell_\infty$, $x\geq 0$.
+		Тогда
+		$
+			x\in ac_0
+		$
+		\\
+		если
+		и только если
+		для любого $\lambda > 0$
+		\\
+		выполнено
+		$
+			A_\lambda x \in ac_0
+		$
+		.
+	\end{ttheorem}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Критерий принадлежности $ac_0$~\cite{avdeev2019space}}
+
+
+
+	\begin{ttheorem}
+		Пусть $x\in\ell_\infty$, $x \geq 0$,
+		\begin{equation*}
+			0<\lambda < \limsup_{k\to\infty} x_k
+			.
+		\end{equation*}
+		Пусть $\{k: x_k \geq \lambda \} = \{n(\lambda,1),n(\lambda,2),...\}$.
+		Обозначим
+		\begin{equation*}
+			M_{\lambda}(j) = \liminf_{i\to\infty} n(\lambda,i+j) - n(\lambda,i)
+			.
+		\end{equation*}
+		Для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
+		для любого $\lambda>0$
+		\begin{equation*}
+			\lim_{j \to \infty} \frac{M_{\lambda}(j)}{j} = \infty
+			.
+		\end{equation*}
+	\end{ttheorem}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1}
+
+	Обсуждаемые обобщения верхнего и нижнего пределов удовлетворяют соотношению
+	\begin{equation}
+		\label{eq:generalization_of_limits}
+		\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+		\leq
+		\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+		\leq p(x)
+		\leq \limsup_{n\to\infty} x_n
+		.
+	\end{equation}
+
+
+	Каждый $x\in \Omega$ можно отождествить с подмножеством множества натуральных чисел
+	$\operatorname{supp} x \subset \mathbb{N}$.
+	Будем обозначать (см., напр., Hall, Tenenbaum, 1992) через $\mathscr{M}A$ множество всех чисел,
+	кратных элементам множества $A\subset\mathbb{N}$, т.е.
+	\begin{equation}
+		\mathscr{M}A = \{ka: k\in\mathbb{N}, a\in A\}
+		,
+	\end{equation}
+	через $\chi A$ "--- характеристическую функцию множества $A$.
+
+	Так, например,
+	\begin{gather}
+		\chi \mathscr{M}\!A(\{2\}) = \chi \mathscr{M}\!A(\{2, 4\}) = \chi \mathscr{M}\!A(\{2,4,8,16,...\})
+		= (0,1,0,1,0,1,0,1,0,...),
+	\\
+		\chi \mathscr{M}\!A(\{3\}) = \chi \mathscr{M}\!A(\{3,9,27,...\}) = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
+	\\
+		\chi \mathscr{M}\!A(\{2,3\}) = \chi \mathscr{M}\!A(\{2,3,6\}) = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
+	\end{gather}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1}
+
+
+	Возникает закономерный вопрос о взаимосвязи структуры множества $A$
+	и значений, которые принимают обобщения верхнего и нижнего пределов~\eqref{eq:generalization_of_limits}
+	на последовательности $\chi \mathscr{M}\!A$.
+	Так, в работах Дэвенпорта и Эрдёша (1936 г., 1951 г.) доказано, что для любого
+	$A=\{a_1,a_2,...\}\subset\mathbb{N}$
+	выполнено
+	\begin{equation}
+		\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
+		\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
+		.
+	\end{equation}
+	Построено (Besicovitch, 1935) такое множество $A\subset\mathbb{N}$, что
+	\begin{equation}
+		\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
+		\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
+		.
+	\end{equation}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+
+	\begin{llemma}
+		Пусть $y = \{y_n\}$ --- строго возрастающая последовательность,
+		$\chi y\in\Omega \cap ac_0$.
+		Пусть $m \in \mathbb{N}$
+		и последовательность $x=\{x_k\}$ определена соотношением
+		\begin{equation}
+			x_k = \begin{cases}
+				1, &\mbox{~если~} k = y_i \cdot m^j \mbox{~для некоторых~} i,j\in\mathbb{N},
+				\\
+				0  &\mbox{~иначе}
+				.
+			\end{cases}
+		\end{equation}
+		Тогда $x\in ac_0$.
+	\end{llemma}
+
+	\begin{ccorollary}
+		\label{cor:ac0_powers_finite_set_of_numbers}
+		Пусть $\{p_1, ..., p_k\} \subset \mathbb{N}$,
+		\begin{equation}
+			x_k = \begin{cases}
+				1, &\mbox{~если~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~для некоторых~} j_1,...,j_k\in\mathbb{N},
+				\\
+				0  &\mbox{~иначе}.
+			\end{cases}
+		\end{equation}
+		Тогда $x\in ac_0$.
+	\end{ccorollary}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+
+	\begin{hhypothesis}
+		Пусть $y=\{y_n\}$ и $z=\{z_n\}$ --- строго возрастающие последовательности,
+		$\chi_y,\chi_z\in\{0;1\}^\mathbb{N} \cap ac_0$.
+		Тогда почти сходится к нулю последовательность $x=\{x_k\}$, определённая соотношением
+		\begin{equation}
+			x_k = \begin{cases}
+				1, &\mbox{~если~} k = y_i \cdot z_j \mbox{~для некоторых~} i,j\in\mathbb{N},
+				\\
+				0  &\mbox{~иначе}
+				.
+			\end{cases}
+		\end{equation}
+	\end{hhypothesis}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+
+	\begin{llemma}
+		Для любого непустого $A\subset \mathbb{N} $ выполнено $\chi\mathscr{M}A \notin ac_0$.
+	\end{llemma}
+
+	\begin{ttheorem}
+		\label{lem:ac0_primes_infinity_mutually_prime_subset}
+		Пусть $A'$ "--- бесконечное подмножество попарно взаимно простых чисел
+		(т.е. для любых двух чисел $a_1, a_2 \in A'$ их наибольший общий делитель равен единице).
+		Тогда для любого $A \supset A' $ выполнено $p(\chi\mathscr{M}A)=1$.
+	\end{ttheorem}
+	\begin{ddefinition}
+		Будем говорить, что множество $A\subset\mathbb{N}$ обладает $P$-свойством,
+		если для любого $n\in\mathbb{N}$ найдётся набор попарно взаимно простых чисел
+		\begin{equation}
+			\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
+			.
+		\end{equation}
+	\end{ddefinition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+
+	\begin{llemma}
+		\label{lem:ac0_primes_infinity_mutually_prime_subset_equiv_to_P_property}
+		Пусть множество $A$ обладает $P$-свойством.
+		Тогда существует бесконечное подмножество $A'\subset A$ попарно взаимно простых чисел.
+	\end{llemma}
+	\begin{llemma}
+		\label{lem:ac0_primes_q_psi_A_0_causes_P}
+		Пусть для множества $A\subset\mathbb{N}\setminus\{1\}$ выполнено $p(\chi\mathscr{M}A)=1$.
+		Тогда $A$ обладает $P$-свойством.
+	\end{llemma}
+	\begin{ttheorem}
+		Пусть $A\subset \mathbb{N}\setminus\{1\}$.
+		Тогда следующие условия эквивалентны:
+		\begin{enumerate}
+			\item
+				$A$ обладает $P$-свойством
+			\item
+				В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+			\item
+				$p(\chi\mathscr{M}A)=1$.
+		\end{enumerate}
+	\end{ttheorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+
+	\begin{ttheorem}
+		\label{thm:ac0_primes_p_psi_A_prod}
+		Пусть $A = \{a_1, a_2, ...\}$ "--- бесконечное множество попарно взаимно простых чисел.
+		Тогда
+		\begin{equation}
+			q(\chi\mathscr{M}A) \geq 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+			.
+		\end{equation}
+	\end{ttheorem}
+	\begin{ccorollary}
+		\label{cor:ac0_primes_p_psi_A_prod}
+		Пусть $A = \{a_1, a_2, ...\}$ "--- бесконечное множество попарно взаимно простых чисел
+		и $a_{n+1}>a_1\cdot...\cdot a_n$.
+		Тогда
+		\begin{equation}
+			q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+			.
+		\end{equation}
+	\end{ccorollary}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Последовательности из 0 и 1 и функционалы Сачестона}
+	\begin{ttheorem}
+		Пусть $A=\{a_1, a_2, ... \}\subset\mathbb{N}$ "--- бесконечное множество попарно взаимно простых чисел
+		и
+		\begin{equation}
+			\label{eq:prod_causes_q}
+			\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right) = 0
+		\end{equation}
+		Тогда $\chi\mathscr{M}A\in ac$ и, более того, $\chi\mathscr{M}A\in ac_1$.
+	\end{ttheorem}
+
+\end{frame}
+
+
+\def\rinc{\color[rgb]{0.5,0,0}{(РИНЦ)~}}
+\def\vak{\color[rgb]{0.5,0.5,0}{(ВАК)~}}
+\def\mzm{\color[rgb]{0,0.5,0}{(WoS)~(Scopus)~}}
+
+\setbeamertemplate{bibliography item}{\insertbiblabel\small}
+
+\begin{frame}
+	\frametitle{Основные публикации с участием докладчика}
+	\vspace{-1.2em}
+	\hfill
+	\begin{varwidth}[t]{0.95\linewidth}
+	\setlength\itemsep{0pt}
+	\begin{thebibliography}{99}
+		\addtobeamertemplate{block begin}{\vspace*{-30pt}}{}
+		\addtobeamertemplate{block end}{}{\vspace*{-30pt}}
+		\setlength{\parskip}{0pt}%
+		\setlength{\itemsep}{0pt}
+		{}
+		\bibitem{avdeev2021subsets}\small
+			\emph{Avdeev N.} On Subsets of the Space of Bounded Sequences // Mathematical Notes. — 2021. — т. 109, No 1. — с. 150—154.
+			\mzm
+		{}
+		\vspace{-0.5em}
+		\bibitem{avdeev2019banach}\small
+			\emph{Avdeev} \emph{N.}, \emph{Semenov} \emph{E.}, \emph{Usachev} \emph{A.} Banach Limits and a Measure on the Set of 0-1-Sequences //
+			Mathematical Notes. — 2019. — т. 106, No 5/6. — с. 833—836.
+			\mzm
+		{}
+		\vspace{-0.5em}
+		\bibitem{avdeev2019space}\small
+			\emph{Avdeev} \emph{N.} On the Space of Almost Convergent Sequences // Mathematical Notes. — 2019. — т. 105, No 3/4. — с. 464—468.
+			%— DOI: \href
+			%{https://doi.org/10.1134/S0001434619030179} {\nolinkurl {10.1134/S0001434619030179}}. — URL: \url
+			%{https://www.scopus.com/record/display.uri?origin=inward&eid=2-s2.0-85065492318}.
+			\mzm
+		{}
+		\vspace{-0.5em}
+		\bibitem{avdeed2021AandA}\small
+			\emph{Авдеев} \emph{Н. Н.}, \emph{Семёнов} \emph{Е. М.}, \emph{Усачев} \emph{А. С.}
+			Банаховы пределы: экстремальные свойства,
+			инвариантность и теорема Фубини // Алгебра и анализ. — 2021. — т. 33, No 4. — с. 32—48.
+			\vak
+		{}
+		\vspace{-0.5em}
+		\bibitem{our-ped-2018-alpha-Tx}\footnotesize
+			\emph{Авдеев} \emph{Н. Н.} О суперпозиции оператора сдвига и одной функции на пространстве ограниченных последовательностей //
+			Некоторые вопросы анализа, алгебры, геометрии и математического образования. — 2018. — с. 20—21.
+			\rinc
+		{}
+		\vspace{-0.6em}
+		\bibitem{our-vzms-2018}\footnotesize
+			\emph{Авдеев} \emph{Н. Н.}, \emph{Семенов} \emph{Е. М.}
+			Об асимптотических свойствах оператора Чезаро \\// Материалы Воронежской Зимней
+			Математической\\школы С.Г. Крейна – 2018.  Под ред.\\В.А. Костина. — 2018. — с. 107—109.
+			\rinc
+	\end{thebibliography}
+	\end{varwidth}
+	\vspace{10em}
+\end{frame}
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{frame}
+	{
+		\huge\centering
+		~\\~\\~\\~\\
+		Спасибо за внимание
+	}
+	~\\
+	\vspace{6.28em}
+	nickkolok@mail.ru, avdeev@math.vsu.ru
+	\\
+	github.com/nickkolok
+	\\
+	arxiv.org/a/avdeev\_n\_1.html
+\end{frame}
+
+\end{document}
