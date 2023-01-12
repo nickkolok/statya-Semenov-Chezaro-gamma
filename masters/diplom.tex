@@ -1,4 +1,4 @@
-\documentclass[a4paper,openbib]{report}
+\documentclass[12pt,a4paper,openbib]{report}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
@@ -11,14 +11,20 @@
 \usepackage{geometry}
 \usepackage{wrapfig}
 \usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
 
+
+% https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
+\hypersetup{pdfpagemode=UseNone}
 
 
 \righthyphenmin=2
 
-\usepackage[14pt]{extsizes}
+%\usepackage[14pt]{extsizes}
 
-\geometry{left=3cm}% левое поле
+\geometry{left=2.5cm}% левое поле
 \geometry{right=1cm}% правое поле
 \geometry{top=2cm}% верхнее поле
 \geometry{bottom=2cm}% нижнее поле
@@ -28,12 +34,20 @@
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
 
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+
+
 \newcommand{\longcomment}[1]{}
 
 \usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
 \addbibresource{../bib/Semenov.bib}
 \addbibresource{../bib/my.bib}
 \addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
 
 \input{../bib/ext.hyphens.bib}
 
@@ -44,6 +58,8 @@
 \newtheorem{example}[lemma]{Пример}
 \newtheorem{property}[lemma]{Свойство}
 \newtheorem{remark}[lemma]{Замечание}
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
 \newtheorem{corollary}{Следствие}[lemma]
 
 \newtheorem{hhypothesis}[lemma]{Гипотеза}
@@ -134,6 +150,9 @@
 	\section{Пространство $\{x: \alpha(x) = 0\}$}
 	\input{../alpha_x_equiv_null_space.tex}
 
+	\section{О недополняемости некоторых вложений}
+	\input{../episodes_phd/noncomplementarity.tex}
+
 
 \chapter{Последовательности, почти сходящиеся к нулю (пространство $ac_0$)}
 
@@ -180,6 +199,23 @@
 
 	\section{Банаховы пределы, инвариантные относительно операторов $\sigma_{1/n}$}
 	\input{../invariant_sigma_1_n.tex}
+
+	\section{Мера прообраза числа при инвариантности банахова предела относительно оператора Чезаро}
+	\input{../episodes_after_masters/measure_Chesaro_invariant.tex}
+
+
+\chapter{Функционалы Сачестона и линейные оболочки}
+	\input{../episodes_phd/linhulls_intro.tex}
+
+	\section{О хаусдорфовой размерности одного класса множеств}
+	\input{../episodes_after_masters/Omega_Hausdorf.tex}
+
+	\section{О существовании разделяющих множеств малой хаусдорфовой размерности}
+	\input{../episodes_after_masters/Omega_Hausdorf_existance.tex}
+
+
+\chapter{Функционалы Сачестона и мультипликативные свойства носителя последовательности}
+	\input{../episodes_phd/factors_intro.tex}
 
 
 \chapter*{Заключение}
