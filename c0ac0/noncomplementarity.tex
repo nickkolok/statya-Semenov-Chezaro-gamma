@@ -136,7 +136,7 @@ for further discussion we refer the reader to~\cite[2.c--2.f]{lindenstrauss1977c
 
 The notion of almost convergence is a generalization of the notion of convergence.
 Before we proceed to it, we need to introduce the concept of Banach limits,
-which (expectably) provide a way to generalize the concept of the limit.
+which (expectably) provides a way to generalize the concept of the limit.
 
 \begin{definition}
 	A linear functional $B\in\ell_\infty^*$ is said to be a \emph{Banach limit} if
@@ -152,6 +152,9 @@ which (expectably) provide a way to generalize the concept of the limit.
 \end{definition}
 The set of all Banach limits is denoted by $\mathfrak{B}$.
 The existence of Banach limits was announced by Mazur~\cite{Mazur} and proved by Banach~\cite{banach1993theorie}.
+There are infinitely many Banach limits.
+Nevertheless, there exist such sequences that all Banach limits agree on them.
+The following definition is due to Lorentz~\cite{lorentz1948contribution}.
 
 \begin{definition}
 	A sequence $x\in \ell_\infty$ is said to be \emph{almost convergent} to $t\in \mathbb{R}$
@@ -163,8 +166,9 @@ The existence of Banach limits was announced by Mazur~\cite{Mazur} and proved by
 \end{definition}
 The set of all sequences that are almost convergent to $t$ is denoted by $ac_t$;
 the space of all almost convergent sequences is denoted by $ac$.
+Lorentz proved the following criterion of almost convergence~\cite{lorentz1948contribution}:
 
-\begin{theorem}[Lorentz,~\cite{lorentz1948contribution}]
+\begin{theorem}
 	A sequence $x=(x_1,x_2,...)$ is almost convergent to $t\in\mathbb{R}$ iff
 	\begin{equation}
 		\label{eq:crit_Lorentz}
@@ -173,11 +177,12 @@ the space of all almost convergent sequences is denoted by $ac$.
 	uniformly by $m\in\mathbb{N}$.
 \end{theorem}
 
+It's easy to see that $c_0 \subset ac_0$ and that the inclusion is proper.
 Alekhno gave an elegant proof~\cite[Theorem 8]{alekhno2006propertiesII}
 that $ac_0$ is not complemented in $\ell_\infty$.
 The proof is based on the original Phillips's proof of Theorem~\ref{thm:phillips}
 and uses some lemmas from there.
-For more details on Banach limits, we refer the reader to~\cite{sucheston1967banach,Eberlein,semenov2020geomBL}.
+For more details on Banach limits and almost convergence we refer the reader to~\cite{sucheston1967banach,Eberlein,semenov2020geomBL}.
 
 In Section~\ref{sec:c0_in_ac0} of the present article, we prove that $c_0$ is not complemented in $ac_0$.
 So, all the three inclusions
@@ -206,13 +211,12 @@ where
 
 The function $\alpha(x)$, first introduced in~\cite{our-vzms-2018},
 may be considered as a way to characterize \emph{how much non-Cauchy a given bounded sequence is}.
-Note that the condition $\alpha(x) =0$ is weaker than the Cauchy condition,
-as well as the Lorentz's criterion~\eqref{eq:crit_Lorentz} is obviously weaker than
-than the classic definition of the limit.
+Note that the condition $\alpha(x) =0$ is weaker than the Cauchy condition.
 
 It has turned out that the functional $\alpha(x)$ is closely related to the theory of Banach limits.
 In particular, the equality $A_0\cap ac_0 = c_0$ holds~\cite{avdeev2019space}.
-In~\cite{our-ped-2018-alpha-Tx} it is shown that $TA_0 = A_0$ despite the fact that for some $x\in\ell_\infty$
+In~\cite{our-ped-2018-alpha-Tx} it is shown that the set $A_0$ is shift-invariant, that is
+$TA_0 = A_0$ despite the fact that for some $x\in\ell_\infty$
 one has $\alpha(Tx)<\alpha(x)$.
 For further investigation of $\alpha(x)$ we also refer the reader to~\cite{avdeev2021subsets}.
 
