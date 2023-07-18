@@ -1,0 +1,89 @@
+Введём в рассмотрение семейство операторов
+$\tilde\sigma_k : \ell_\infty \to \ell_\infty$, $k>0$,
+определяемых следующим образом:
+\begin{equation}
+	(\tilde\sigma_k x)_n = x_{\left\lceil \dfrac{n}{k}\right\rceil}
+	.
+\end{equation}
+
+\begin{example}
+	\label{example:sigma_3_2}
+	\begin{equation}
+		\tilde\sigma_{3/2} x =
+		(x_1, x_2, x_2, \; x_3, x_4, x_4, \; x_5, ...)
+		.
+	\end{equation}
+\end{example}
+
+\begin{example}
+	\label{example:sigma_2_3}
+	\begin{equation}
+		\tilde\sigma_{2/3} x =
+		(x_2, x_3, \; x_5, x_6, \; x_8, ...)
+		.
+	\end{equation}
+\end{example}
+
+
+Заметим, что для $k\in \N$ выполнено равенство $\sigma_k = \tilde\sigma_k$
+(однако использовать обозначение без тильды мы не можем, чтобы избежать путаницы с операторами усреднения $\sigma_{1/k}$).
+Однако соотношение $\tilde\sigma_k \tilde\sigma_m = \tilde\sigma_{km}$ для нецелых $k$, вообще говоря, не выполняется.
+Чтобы это увидеть, достаточно рассмотреть суперпозиции $\tilde\sigma_{3/2} \tilde\sigma_{2/3}$ и
+$\tilde\sigma_{2/3} \tilde\sigma_{3/2}$ (см. примеры~\ref{example:sigma_3_2} и~\ref{example:sigma_2_3} выше).
+
+Таким образом, операторы $\tilde\sigma_k$ обобщают операторы $\sigma_k$,
+и возникает закономерный вопрос о соответствующих инвариантных банаховых пределах.
+
+\begin{theorem}
+	Пусть $k>0$, $k\in \mathbb{Q} \setminus \N$.
+	Тогда $\B(\tilde\sigma_k)=\varnothing$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $k$ представимо в виде несократимой дроби $k=p/q$, $p\in \N$, $q\in\N_2$.
+	Рассмотрим последовательность $x\in \ell_\infty$, заданную соотношением
+	\begin{equation}
+		x_k = \begin{cases}
+			1, \mbox{~если~} m=qn+1, n\in\N,
+			\\
+			0  \mbox{иначе.}
+		\end{cases}
+	\end{equation}
+	Последовательность $x$ периодична, и её период равен $q$.
+
+	Пусть $B\in \B$, тогда $Bx=\dfrac1q$ , поскольку любой банахов предел на периодической последовательности принимает значение, равное среднему арифметическому по периоду.
+	%TODO: ссылка!
+	Заметим, что $\tilde\sigma_{p/q}x \in \Omega$.
+	Более того, последовательность $\tilde\sigma_{p/q}x \in \Omega$ также периодична и имеет период, равный $p$.
+
+	Действительно,
+	\begin{multline}
+		(\tilde\sigma_{p/q}x \in \Omega)_{m+p} =
+		x_{\left\lceil \dfrac{m+p}{p/q}\right\rceil} =
+		x_{\left\lceil \dfrac{qm+qp}{p}\right\rceil} =
+		x_{\left\lceil \dfrac{qm}{p}+q\right\rceil} =
+		\\=
+		x_{q+\left\lceil \dfrac{qm}{p}\right\rceil} =
+		x_{\left\lceil \dfrac{qm}{p}\right\rceil} =
+		x_{\left\lceil \dfrac{m}{p/q}\right\rceil} =
+		(\tilde\sigma_{p/q}x \in \Omega)_{m+p}
+		.
+	\end{multline}
+
+\end{proof}
+
+\begin{theorem}
+	Пусть $k>0$, $k\in \mathbb{Q} \setminus \N$.
+	Тогда $\tilde\sigma_k ac_0 \not \subset ac_0$.
+\end{theorem}
+
+
+
+\begin{hypothesis}
+	Для любых натуральных $k > m$ существует такие $r, s\in\N$, что  $\tilde\sigma_{m/k} T^r \tilde\sigma_{k/m} = T^s$.
+\end{hypothesis}
+
+
+\begin{hypothesis}
+	Для любого $k \in \N$ выполнено $(\tilde\sigma_{\sqrt{k}})^2 - \sigma_k : \ell_\infty \to ac_0$.
+\end{hypothesis}
