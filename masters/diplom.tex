@@ -252,6 +252,13 @@
 
 
 \addcontentsline{toc}{chapter}{Список литературы}
+
+\makeatletter
+\ltx@iffilelater{biblatex-gost.def}{2017/02/01}%
+{\toggletrue{bbx:gostbibliography}%
+\renewcommand*{\revsdnamepunct}{\addcomma}}{}
+\makeatother
+
 \printbibliography{}
 
 \end{document}
