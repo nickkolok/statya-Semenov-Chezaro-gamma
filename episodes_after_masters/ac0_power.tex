@@ -97,7 +97,8 @@
 \begin{example}
 	Напомним,
 	%TODO: ссылка!
-	что любая периодическая последовательность почти сходится к своему среднему по периоду.
+	что любая периодическая последовательность почти сходится к своему среднему по периоду
+	(см. следствие~\ref{thm:period_ac_avg}).
 	Пусть
 	\begin{equation}
 		x = (1;1;-2;\ 1;1;-2;\ 1;1;-2;\ ...) \in ac_0
@@ -119,3 +120,99 @@
 \end{example}
 
 Однако для нечётной степени доказать аналог теоремы~\ref{thm:ac0_pow_even} не удастся "--- это показывает пример~\ref{example:ac0_pow_signum_classic}, в котором $x^+\in ac_1$, $x^-\in ac_{-1}$.
+
+В заключение приведём пример, в котором возведение в нечётную степень выводит не только из пространства $ac_0$,
+но и из более широкого пространства $ac$.
+
+\begin{example}
+	\label{example:cube_out_of_ac0}
+	%Напомним, что $\mathbb{N}_k = \{k, k+1, k+2, k+3,...\}$.
+	Пусть
+	\begin{equation}
+		x_n = \begin{cases}
+			 0, & \mbox{~если~} n < 2^{10},
+			\\
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			\\
+			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+		\end{cases}
+	\end{equation}
+	Таким образом,
+	\begin{multline}
+		x = (0,0,...,0,0, \; -2, 1, 1, \; -2, 1, 1, \; -2, 1, 1, ..., -2, 1, 1, \; 0, 0, 0, \\ ..., 0, 0, 0, ..., -2, 1, 1, \; -2, 1, 1, ... )
+		.
+	\end{multline}
+	Легко заметить, что в силу критерия Лоренца $x\in ac_0$.
+	С другой стороны,
+		\begin{equation}
+		(x^3)_n = \begin{cases}
+			 0, & \mbox{~если~} n < 2^{10},
+			\\
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			\\
+			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+		\end{cases}
+	\end{equation}
+	Получаем $p(x^3) = 0$, $q(x^3) = -2$, откуда $x^3 \notin ac$.
+\end{example}
+
+Аналогично строится и пример, когда возведение в нечётную степень, наоборот, вводит в пространство $ac_0$.
+
+\begin{example}
+	%Напомним, что $\mathbb{N}_k = \{k, k+1, k+2, k+3,...\}$.
+	Пусть
+	\begin{equation}
+		y_n = \begin{cases}
+			 0, & \mbox{~если~} n < 2^{10},
+			\\
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			\\
+			-\sqrt[3]{2}, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+		\end{cases}
+	\end{equation}
+	Тогда $p(y) = \frac{2-\sqrt[3]2}{3}$, $q(y) = 0$, и потому $y \notin ac_0$.
+	Однако легко заметить, что $y^3 = x$ из примера~\ref{example:cube_out_of_ac0} и потому $y^3\in ac_0$.
+\end{example}
+
+
+
+
+Рассуждения данного параграфа подталкивают нас к изучению следующего объекта.
+
+Пусть
+\begin{equation}
+	ac_0^{(2n+1)} = \{ x\in ac_0 : x^{2n+1} \in ac_0\}, \quad n\in\mathbb N
+	.
+\end{equation}
+(Множества $ac_0^{(2n)}$ мы в рассмотрение не вводим, поскольку каждое из них совпадает с $\Iac$ в силу теоремы~\ref{thm:ac0_pow_even}.)
+
+\begin{hypothesis}
+	$ac_0^{(2n+1)}$ замкнуто относительно сложения.
+\end{hypothesis}
+
+\begin{hypothesis}
+	$ac_0^{(2n+1)}$ замкнуто относительно умножения.
+\end{hypothesis}
+
+\begin{hypothesis}
+	$ac_0^{(2n+1)}$ замкнуто (топологически).
+\end{hypothesis}
+
+\begin{hypothesis}
+	$ac_0^{(2n+1)} = ac_0^{(2n+3)}$ для любого $n$ (или же, наоборот, там есть собственное включение).
+\end{hypothesis}
+
+\begin{hypothesis}
+	Если предыдущая гипотеза неверна, то встаёт вопрос об исследовании множеств
+	$\bigcup_{n\in\N}ac_0^{(2n+1)}$ и 	$\bigcap_{n\in\N}ac_0^{(2n+1)}$.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Пусть $x\in ac_0^{(2n+1)}$.
+	Тогда $x^{2n+1} \in ac_0^{(2n+1)}$.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Пусть $x\in ac_0^{(2n+1)}$.
+	Тогда $\sigma_k x \in ac_0^{(2n+1)}$ для любого $k\in \N$
+\end{hypothesis}
