@@ -1,0 +1,158 @@
+\begin{definition}
+	Линейный непрерывный оператор $G_{\{B_k\}}$, определённый равенством
+	\begin{equation}
+		(G_{\{B_k\}}x)_n = B_n x
+		,
+	\end{equation}
+	будем называть мультипорождённым последовательностью банаховых пределов $\{B_k\}\subset \B$.
+\end{definition}
+
+Понятно, что порождённый оператор является частным случаем мультипорождённого.
+
+\begin{lemma}
+	\label{lem:multigen_is_B-regular}
+	Всякий мультипорождённый оператор $G_{\{B_k\}}$ В-регулярен.
+\end{lemma}
+
+\begin{proof}
+	Проверим условия критерия В-регулярности (теорема~\ref{thm:crit_B_regularity}).
+	Действительно,
+	\begin{equation}
+		G_{\{B_k\}} \mathbbm 1 = \mathbbm 1 \in ac_1
+		,
+	\end{equation}
+	\begin{equation}
+		G_{\{B_k\}}\geq 0, \ \mbox{т.к.}\ (G_{\{B_k\}}x)_n \geq q(x) \ \mbox{для любого}~n\in\N
+		,
+	\end{equation}
+	\begin{equation}
+		G_{\{B_k\}} ac_0 = \{0\cdot \mathbbm1 \} \subset ac_0
+		.
+	\end{equation}
+\end{proof}
+
+\begin{corollary}
+	Для всякого мультипорождённого оператора $G_{\{B_k\}}$ непусто множество $\B(G_{\{B_k\}})$
+\end{corollary}
+
+\begin{hypothesis}
+	Всякий мультипорождённый оператор является существенно дружелюбным.
+\end{hypothesis}
+В пользу этой гипотезы говорит тот факт,
+%TODO: ссылка!
+что $|\ext B| = 2^{\mathfrak c}$.
+
+\begin{lemma}
+	Пусть множество ${\{B_k\}}$ конечно, тогда оператор $G_{\{B_k\}}$ компактен.
+\end{lemma}
+
+\begin{proof}
+	Достаточно заметить, что в таком случае ранг подпространства $G_{\{B_k\}} \ell_\infty$ конечен.
+\end{proof}
+
+\begin{hypothesis}
+	Оператор $G_{\{B_k\}}$ компактен тогда и только тогда, когда множество ${\{B_k\}}$ конечно.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Для мультипорождённого оператора $G_{\{B_k\}}$ имеет мест включение $\B (G_{\{B_k\}}) \subset \conv {\{B_k\}}$ конечно.
+	(Та же гипотеза "--- для равенства или для обратного включения)
+\end{hypothesis}
+
+\begin{remark}
+	Мультипорождённые операторы по своему определению в некотором смысле противоположны матричным операторам
+	(к последним относятся, например, оператор Чезаро $C$, операторы растяжения $\sigma_k$, усредняющего сжатия $\sigma_{1/k}$,
+	операторы неравномерного растяжения $\tilde\sigma_k$, оператор прореживания $A$ (равенство~\eqref{eq:oper_A_throws_out_2power_blocks}) и оператор покоординатного умножения $E$ из теоремы~\ref{thm:Eberlein_but_not_B-regular_exists}).
+\end{remark}
+
+\begin{theorem}
+	Мультипорождённый оператор не может иметь матричного представления.
+\end{theorem}
+
+\begin{proof}
+	TODO: доказать с помощью результата Седаева:
+	\begin{equation}
+		\ell_\infty^* = \ell_1 \oplus \{\varphi \in\ell_\infty^* : \varphi c_0 = \{0\}\}
+		.
+	\end{equation}
+\end{proof}
+
+Перейдём теперь к примеру мультипорождённого оператора, важному для понимания инвариантности банаховых пределов.
+
+\begin{example}
+	\label{ex:multigen_invariant_interval}
+	Пусть оператор $A:\ell_\infty\to\ell_\infty$
+	опеределён равенством~\eqref{eq:oper_A_throws_out_2power_blocks}:
+	\begin{multline}
+		Ax = (x_1, x_2, \not x_3, \not x_4, x_5, x_6, x_7, x_8, \not x_9, ..., \not x_{16}, x_{17}, x_{18}, ..., x_{31}, x_{32}, \not x_{33}, \not x_{34}, ..., \not x_{64},
+		\\
+		x_{65}, x_{66}, ..., x_{128}, \not x_{129}, ...)=
+		\\=
+		(x_1, x_2, \ x_5, x_6, x_7, x_8, \ x_{17}, x_{18}, ..., x_{31}, x_{32}, \ x_{65}, x_{66}, ..., x_{128}, \ x_{257},
+		\\
+		..., \ x_{2^{2n} +1}, x_{2^{2n} +2},  x_{2^{2n+1}}, \ \ x_{2^{2(n+1)} +1},  x_{2^{2(n+1)} +2},  x_{2^{2(n+1)+1}}, ...)
+	\end{multline}
+	Тогда оператор $A$ В-регулярен по теореме~\ref{eq:oper_A_throws_out_2power_blocks}.
+	Более того, в силу В-регулярности оператора $\sigma_2$ и того факта,
+	что суперпозиция двух В-регулярных операторов снова В-регулярна (лемма~\ref{lem:B-regular_superposition_and_addition}),
+	оператор $A\sigma_2$ также В-регулярен.
+
+	В силу теоремы~\ref{thm:B-regular_is_Eberlein} мы можем выбрать $B_1 \in \B (A)$ и $B_2 \in \B(A\sigma_2)$.
+	Убедимся, что $B_1 \ne B_2$, для этого достаточно предъявить одну последовательность, на которой
+	значения этих банаховых пределов не совпадают.
+	Пусть
+	\begin{equation}
+		y = \chi_{\cup_{n\in\N}(2^{2n}+1, 2^{2n+1}]}
+		,
+	\end{equation}
+	тогда
+	\begin{equation}
+		\sigma_2 y \approx \chi_{\cup_{n\in\N}(2^{2n+1}+1, 2^{2n+2}]}
+		.
+	\end{equation}
+	Следовательно, $B_1y = B_1Ay = B_1\mathbbm 1 = 1$, но $B_2y = B_2A\sigma_2 y = B_2(0\cdot \mathbbm 1) = 0$.
+
+	Определим оператор $H$ соотношением
+	\begin{equation}
+		Hx = (B_1 x, B_1 x, \ B_2 x, B_2 x, \ B_1 x, B_1 x, B_1 x, B_1 x, \ \underbrace{B_2 x, ..., B_2 x}_{8~\mbox{раз}}, ...)
+		.
+	\end{equation}
+
+	Оператор $H$ является мультипорождённым и потому В-регулярным в силу леммы~\ref{lem:multigen_is_B-regular}.
+	Значит, множество $\B(H)$ непусто.
+	Однако в нашем случае мы можем дополнительно охарактеризовать его.
+
+	Покажем, что $[B_1; B_2]\subset \B(H)$.
+	Действительно,
+	\begin{equation}
+		B_1 Hx  = (B_1 A) Hx = B_1 (AHx)  = B_1 ((B_1 x) \cdot \mathbbm 1) = B_1 x
+	\end{equation}
+	и
+	\begin{equation}
+		B_2 Hx  = (B_2 A\sigma_2) Hx = B_2 (A\sigma_2 Hx)  = B_2 ((B_2 x) \cdot \mathbbm 1) = B_2 x
+		,
+	\end{equation}
+	откуда и следует включение $[B_1; B_2]\subset \B(H)$.
+\end{example}
+
+\begin{hypothesis}
+	Верно равенство $[B_1; B_2] = \B(H)$.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Верно равенство $[B_1; B_2] \cap \B(\sigma_2) = \varnothing$.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Верно равенство $B(H) \cap \B(\sigma_2) = \varnothing$.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Оператор $(\sigma_2 H)^*$ переводит отрезок $[B_1; B_2]$ в $[B_2; B_1]$,
+	т.е. <<меняет местами>> два банаховых предела.
+\end{hypothesis}
+
+\begin{hypothesis}
+	Пример~\ref{ex:multigen_invariant_interval} может быть обобщён на симплекс произвольной окнечной размерности
+	(треугольник, тетраэдр и т.д.)
+\end{hypothesis}
