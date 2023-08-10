@@ -11,44 +11,7 @@ Theorem~\ref{thm:phillips} gives the very first example of a non-complemented su
 Later, more such subspaces were found;
 for further discussion we refer the reader to~\cite{lindenstrauss1979classical}.
 
-The notion of almost convergence is a generalization of the notion of convergence.
-Before we proceed to it, we need to introduce the concept of Banach limits,
-which (expectably) provide a way to generalize the concept of the limit.
 
-\begin{definition}
-	A linear functional $B\in\ell_\infty^*$ is said to be a \emph{Banach limit} if
-	\begin{enumerate}[label=(\roman*)]
-		\item
-			$B\geq0$, that is $Bx \geq 0$ for $x \geq 0$,
-		\item
-			$B\mathbb{I}=1$, where $\mathbb{I} =(1,1,\ldots)$,
-		\item
-			$B(Tx)=B(x)$ for $x\in \ell_\infty$,
-			where $T$ is the shift operator $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
-	\end{enumerate}
-\end{definition}
-The set of all Banach limits is denoted by $\mathfrak{B}$.
-The existence of Banach limits was announced by Mazur~\cite{Mazur} and proved by Banach~\cite{banach1993theorie}.
-
-\begin{definition}
-	A sequence $x\in \ell_\infty$ is said to be \emph{almost convergent} to $t\in \mathbb{R}$
-	if for every $B\in\mathfrak{B}$ the equality
-	\begin{equation}
-		Bx = t
-	\end{equation}
-	holds.
-\end{definition}
-The set of all sequences that are almost convergent to $t$ is denoted by $ac_t$;
-the space of all almost convergent sequences is denoted by $ac$.
-
-\begin{theorem}[Lorentz,~\cite{lorentz1948contribution}]
-	A sequence $x=(x_1,x_2,...)$ is almost convergent to $t\in\mathbb{R}$ iff
-	\begin{equation}
-		\label{eq:crit_Lorentz}
-		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
-	\end{equation}
-	uniformly by $m\in\mathbb{N}$.
-\end{theorem}
 
 Alekhno gave an elegant proof~\cite[Theorem 8]{alekhno2006propertiesII}
 that $ac_0$ is not complemented in $\ell_\infty$.
