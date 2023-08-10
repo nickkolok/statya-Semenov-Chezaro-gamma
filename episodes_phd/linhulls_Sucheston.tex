@@ -1,0 +1,225 @@
+Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}$, где $1\geq a>b\geq 0$.
+
+
+Пусть $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
+Подготовим сначала вспомогательные леммы о константе.
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0}
+	Пусть $a\neq -b$.
+	Тогда справедливо включение
+	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Не теряя общности, будем полагать, что $a>0$.
+
+	Определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{equation}\label{operator_S}
+		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
+		.
+	\end{equation}
+	\begin{lemma}[{\cite{our-vzms-2018}}]
+		Для любого $x\in \ell_\infty$ выполнено равенство
+		\begin{equation}\label{alpha_S}
+			\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+			.
+		\end{equation}
+	\end{lemma}
+	Положим
+	\begin{equation}
+		\label{eq:y_for_s_alpha}
+		y = \left(0,1,0,\frac{1}{2},1,\frac{1}{2},0,\frac{1}{3},\frac{2}{3},1,\frac{2}{3},\frac{1}{3},0,...\right)
+		,
+	\end{equation}
+	тогда $Sy\in A_0$ и $\mathbbm{1}-Sy = S(\mathbbm{1}-y)\in A_0$.
+
+	Пусть $x=(a-b)Sy+b\mathbbm{1}$, $z=(a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}$.
+	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$ и, следовательно, $x,z\in Y^a_b$.
+	Кроме того, заметим, что
+	\begin{equation}
+		x+z = (a-b)Sy+b\mathbbm{1} + (a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}
+		=
+		(a-b)(Sy-Sy+\mathbbm{1}) + 2 b\mathbbm{1} = (a+b)\mathbbm{1}
+		,
+	\end{equation}
+	откуда и следует, что $\mathbbm{1}\in Y^a_b$.
+\end{proof}
+
+
+\begin{lemma}
+	\label{lem:const_Lin_alpha_0_a_eq_-b}
+	Справедливо включение
+	$\mathbbm{1}\in \operatorname{Lin} Y^a_{-a}$.
+\end{lemma}
+
+\begin{proof}
+	Определим линейный оператор $M:\ell_\infty \to \ell_\infty$ следующим образом:
+	\begin{multline}
+		M\omega=\left(
+			0, 1\omega_1,
+			0, \frac{1}{2}\omega_2, 1\omega_2, \frac{1}{2}\omega_2,
+			0, \frac{1}{3}\omega_3, \frac{2}{3}\omega_3, 1\omega_3, \frac{2}{3}\omega_3, \frac{1}{3}\omega_3,
+			0, ...,
+		\right. \\ \left.
+			0, \frac{1}{p}\omega_p, \frac{2}{p}\omega_p, ..., \frac{p-1}{p}\omega_p, 1\omega_p,
+				\frac{p-1}{p}\omega_p, ..., \frac{2}{p}\omega_p, \frac{1}{p}\omega_p,
+			0, \frac{1}{p+1}\omega_{p+1}, ...
+		\right)
+		.
+	\end{multline}
+	Тогда $SM: \ell_\infty \to A_0$.
+	Положим
+	\begin{gather}
+		x=aS(2M(\mathbbm{1})-\mathbbm{1}),
+		\\
+		y=-aS(2M(1,0,1,0,1,0,1,0,...)-\mathbbm{1}),
+		\\
+		z=-aS(2M(0,1,0,1,0,1,0,1,...)-\mathbbm{1}).
+	\end{gather}
+
+	Тогда, очевидно, каждая из последовательностей $x,y,z$ содержит отрезки сколь угодно большой длины,
+	состоящие из $a$ (равно как и из $-a$), при этом $-a \leq x,y,z \leq a$.
+	Следовательно, $p(x)=p(y)=p(z) = a$ и $q(x)=q(y)=q(z) = -a$,
+	откуда $x,y,z \in Y^a_{-a}$.
+
+	Заметим теперь, что
+	\begin{multline}
+		x + y + z
+		=
+		\\=
+		aS(2M(\mathbbm{1})-\mathbbm{1}) - aS(2M(1,0,1,0,1,0,...)-\mathbbm{1}) - aS(2M(0,1,0,1,0,1,...)-\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1})-\mathbbm{1}  -    2M(1,0,1,0,1,0,...)+\mathbbm{1}  -    2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1}+\mathbbm{1}-\mathbbm{1})
+		=
+		\\=
+		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		=
+		aS\mathbbm{1}
+		=
+		a\mathbbm{1}
+		,
+	\end{multline}
+	откуда $\mathbbm{1} \in \operatorname{Lin} Y^a_{-a}$.
+\end{proof}
+
+
+\begin{lemma}
+	\label{lem:c_0_Lin_alpha_0}
+	Справедливо включение $c_0 \subset Y^a_b$.
+\end{lemma}
+
+\begin{proof}
+	Зафиксируем $z\in c_0$.
+	Выберем произвольный $x \in Y^a_b$.
+	Тогда $x+z\in Y^a_b$ и, очевидно, $z=(x+z)-x$.
+\end{proof}
+
+\begin{theorem}
+	\label{thm:A_0_c_infty_lin}
+	Пусть $a\neq -b$.
+	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in A_0$.
+
+	Пусть сначала $p(x) = q(x)$.
+	Тогда, согласно теореме~\ref{thm:alpha_c_ac_c}, $x\in c$
+	и $x$ может быть представлен в виде суммы константы и последовательности из $c_0$.
+	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0}, ~\ref{lem:const_Lin_alpha_0_a_eq_-b} и~\ref{lem:c_0_Lin_alpha_0}.
+
+	Пусть теперь $p(x) > q(x)$.
+	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Тогда, очевидно,
+	\begin{equation}
+		\label{eq:x_representation}
+		x=(y-C\cdot\mathbbm{1})/k
+		.
+	\end{equation}
+	Представление~\eqref{eq:x_representation} искомое.
+	Действительно, в силу лемм~\ref{lem:const_Lin_alpha_0}~и~\ref{lem:const_Lin_alpha_0_a_eq_-b} выполнено
+	$C\cdot\mathbbm{1}\in Y^a_b$; кроме того,
+	\begin{equation}
+		p(y) = k\cdot p(x) + C
+		=
+		%\\=
+		\frac{ap(x)-bp(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		a
+		,
+	\end{equation}
+	\begin{equation}
+		q(y) = k\cdot q(x) + C
+		=
+		%\\=
+		\frac{aq(x)-bq(x)+bp(x)-aq(x)}{p(x)-q(x)}
+		=
+		b
+		.
+	\end{equation}
+
+
+\end{proof}
+
+Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:A_0_c_infty_lin}, верен и для
+всего пространство $\ell_\infty$:
+$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
+$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
+
+
+\begin{lemma}
+	\label{lem:const_Lin_ell_infty}
+	Справедливо включение
+	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
+\end{lemma}
+
+\begin{proof}
+	В самом деле,
+	$Y^a_b \subset X^a_b$
+	и, следовательно,
+	\begin{equation}
+		\mathbbm{1} \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
+		.
+	\end{equation}
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Lin_ell_infty}
+	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+\end{theorem}
+
+\begin{proof}
+	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
+
+	Не теряя общности, положим $x\geq 0$
+	(иначе представим сначала $x$ в виде $x = y - z$, где $y \geq 0$, $z \geq 0$.
+	и найдём представления для $y$ и $z$).
+
+	Если $p(x) = q(x)$, то возьмём некоторый $y\in\ell_\infty$,
+	такой, что $p(y) > p(x) = q(x)  \geq q(y) \geq 0$.
+	Тогда в силу выпуклости функционала $p$ имеем
+	\begin{equation}
+		p(x+y) \geq p(y) > p(x) = q(x)
+		,
+	\end{equation}
+
+
+	\begin{equation}
+		q(x+y) = -p(-x-y) \leq -p(-x) -p(-y) = q(x) + q(y) \leq q(x) < p(x+y)
+		,
+	\end{equation}
+	и задача сведена к отысканию представлений для $y$ и $x+y$.
+	Таким образом, случай $p(x) = q(x)$ можно исключить,
+	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
+
+	Снова, как и в доказательстве теоремы~\ref{thm:A_0_c_infty_lin},
+	положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
+	Дальнейшее доказательство переносится дословно.
+\end{proof}
