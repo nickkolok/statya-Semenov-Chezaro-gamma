@@ -51,7 +51,7 @@
 	\label{thm:Zvol_pow_composed}
 	Пусть $x\in ac_0$, $x = x^+ +x^-$, $x^+\geq 0$, $x^- \leq 0$ и $x^+ \in ac_0$
 	(последнее включение эквивалентно условию $x^- \in ac_0$).
-	Пусть $n\in\mathbb{N}$ или $n = \frac1{2k+1}$, $k\in\mathbb{N}$.
+	Пусть $n\in\N$ или $n = \frac1{2k+1}$, $k\in\N$.
 	Тогда $x^n \in ac_0$.
 \end{theorem}
 
@@ -63,7 +63,7 @@
 	\label{thm:ac0_pow_even}
 	Пусть $x\in ac_0$, $x = x^+ +x^-$, $x^+\geq 0$, $x^- \leq 0$ и $x^+ \notin ac_0$
 	(последнее условие эквивалентно условию $x^- \notin ac_0$).
-	Пусть $n = 2k$, $k\in\mathbb{N}$.
+	Пусть $n = 2k$, $k\in\N$.
 	Тогда $x^n \notin ac_0$.
 \end{theorem}
 
@@ -126,15 +126,15 @@
 
 \begin{example}
 	\label{example:cube_out_of_ac0}
-	%Напомним, что $\mathbb{N}_k = \{k, k+1, k+2, k+3,...\}$.
+	%Напомним, что $\N_k = \{k, k+1, k+2, k+3,...\}$.
 	Пусть
 	\begin{equation}
 		x_n = \begin{cases}
 			 0, & \mbox{~если~} n < 2^{10},
 			\\
-			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 			\\
-			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
 		\end{cases}
 	\end{equation}
 	Таким образом,
@@ -148,9 +148,9 @@
 		(x^3)_n = \begin{cases}
 			 0, & \mbox{~если~} n < 2^{10},
 			\\
-			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 			\\
-			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
 		\end{cases}
 	\end{equation}
 	Получаем $p(x^3) = 0$, $q(x^3) = -2$, откуда $x^3 \notin ac$.
@@ -159,15 +159,15 @@
 Аналогично строится и пример, когда возведение в нечётную степень, наоборот, вводит в пространство $ac_0$.
 
 \begin{example}
-	%Напомним, что $\mathbb{N}_k = \{k, k+1, k+2, k+3,...\}$.
+	%Напомним, что $\N_k = \{k, k+1, k+2, k+3,...\}$.
 	Пусть
 	\begin{equation}
 		y_n = \begin{cases}
 			 0, & \mbox{~если~} n < 2^{10},
 			\\
-			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
+			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 			\\
-			-\sqrt[3]{2}, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N}.
+			-\sqrt[3]{2}, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
 		\end{cases}
 	\end{equation}
 	Тогда $p(y) = \frac{2-\sqrt[3]2}{3}$, $q(y) = 0$, и потому $y \notin ac_0$.
@@ -181,7 +181,7 @@
 
 Пусть
 \begin{equation}
-	ac_0^{(2n+1)} = \{ x\in ac_0 : x^{2n+1} \in ac_0\}, \quad n\in\mathbb N
+	ac_0^{(2n+1)} = \{ x\in ac_0 : x^{2n+1} \in ac_0\}, \quad n\in\N
 	.
 \end{equation}
 (Множества $ac_0^{(2n)}$ мы в рассмотрение не вводим, поскольку каждое из них совпадает с $\Iac$ в силу теоремы~\ref{thm:ac0_pow_even}.)

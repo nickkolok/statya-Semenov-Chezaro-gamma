@@ -20,7 +20,7 @@
 \paragraph{Замечание.}
 Так как $M(j)$ есть нижний предел последовательности натуральных чисел,
 то он всегда достигается,
-т.е. $M(j)\in\mathbb{N}$.
+т.е. $M(j)\in\N$.
 
 Более того, для любого $j$ существует лишь конечное количество отрезков длины $M(j)$,
 содержащих более $j$ единиц,
@@ -53,7 +53,7 @@
 Очевидно, что в таком случае $c>0$.
 
 По определению нижнего предела найдётся счётное множество
-$J\subset\mathbb{N}$ такое, что
+$J\subset\N$ такое, что
 \begin{equation}
 	\forall(j\in J)\left[c \leq \frac{M(j)}{j} \leq c+1 \right],
 \end{equation}
@@ -63,9 +63,9 @@ $J\subset\mathbb{N}$ такое, что
 Т.к. $x\in ac_0$, то
 \begin{equation}\label{Lorencz_ac0_epsilon}
 	\forall(\varepsilon>0)
-	\exists(n_0\in\mathbb{N})
+	\exists(n_0\in\N)
 	\forall(n \geq n_0)
-	\forall(m\in\mathbb{N})
+	\forall(m\in\N)
 	\left[
 		\frac{1}{n} \sum_{k=m+1}^{m+n}x_k < \varepsilon
 	\right]
@@ -74,7 +74,7 @@ $J\subset\mathbb{N}$ такое, что
 
 Положим $\varepsilon = 1/(c+2)$ и отыщем $n_0$.
 Положим $n\in J$, $n\geq n_0$.
-(Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\mathbb{N}$.)
+(Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\N$.)
 Выберем $m$ так, чтобы отрезок длины $n\cdot(c+1)$,
 содержащий не менее $n$ единиц,
 начинался с $m+1$.
@@ -109,8 +109,8 @@ $J\subset\mathbb{N}$ такое, что
 
 По определению предела \eqref{lim_M(j)/j_dost} означает, что
 \begin{equation}\label{lim_M(j)/j_ifty_def}
-	\forall(C  \in\mathbb{N})
-	\exists(j_0\in\mathbb{N})
+	\forall(C  \in\N)
+	\exists(j_0\in\N)
 	\forall(j \geq j_0)
 	\left[
 		\frac{M(j)}{j}>C
@@ -120,9 +120,9 @@ $J\subset\mathbb{N}$ такое, что
 Покажем, что выполнен модификированный критерий Лоренца почти сходимости последовательности к нулю
 \eqref{crit_pos_ac0}, т.е.
 \begin{equation}
-	\forall(B  \in\mathbb{N})
-	\exists(n_0\in\mathbb{N})
-	\exists(m_0\in\mathbb{N})
+	\forall(B  \in\N)
+	\exists(n_0\in\N)
+	\exists(m_0\in\N)
 	\forall(n\geq n_0)
 	\forall(m\geq m_0)
 	\\

@@ -8,7 +8,7 @@
 	\label{lem:const_Lin_alpha_0}
 	Пусть $a\neq -b$.
 	Тогда справедливо включение
-	$\mathbbm{1}\in \operatorname{Lin} Y^a_b$.
+	$\one\in \operatorname{Lin} Y^a_b$.
 \end{lemma}
 
 \begin{proof}
@@ -32,25 +32,25 @@
 		y = \left(0,1,0,\frac{1}{2},1,\frac{1}{2},0,\frac{1}{3},\frac{2}{3},1,\frac{2}{3},\frac{1}{3},0,...\right)
 		,
 	\end{equation}
-	тогда $Sy\in A_0$ и $\mathbbm{1}-Sy = S(\mathbbm{1}-y)\in A_0$.
+	тогда $Sy\in A_0$ и $\one-Sy = S(\one-y)\in A_0$.
 
-	Пусть $x=(a-b)Sy+b\mathbbm{1}$, $z=(a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}$.
+	Пусть $x=(a-b)Sy+b\one$, $z=(a-b)(\one-Sy)+b\one$.
 	Тогда $p(x)=p(z)=a$, $q(x)=q(z)=b$ и, следовательно, $x,z\in Y^a_b$.
 	Кроме того, заметим, что
 	\begin{equation}
-		x+z = (a-b)Sy+b\mathbbm{1} + (a-b)(\mathbbm{1}-Sy)+b\mathbbm{1}
+		x+z = (a-b)Sy+b\one + (a-b)(\one-Sy)+b\one
 		=
-		(a-b)(Sy-Sy+\mathbbm{1}) + 2 b\mathbbm{1} = (a+b)\mathbbm{1}
+		(a-b)(Sy-Sy+\one) + 2 b\one = (a+b)\one
 		,
 	\end{equation}
-	откуда и следует, что $\mathbbm{1}\in Y^a_b$.
+	откуда и следует, что $\one\in Y^a_b$.
 \end{proof}
 
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0_a_eq_-b}
 	Справедливо включение
-	$\mathbbm{1}\in \operatorname{Lin} Y^a_{-a}$.
+	$\one\in \operatorname{Lin} Y^a_{-a}$.
 \end{lemma}
 
 \begin{proof}
@@ -71,11 +71,11 @@
 	Тогда $SM: \ell_\infty \to A_0$.
 	Положим
 	\begin{gather}
-		x=aS(2M(\mathbbm{1})-\mathbbm{1}),
+		x=aS(2M(\one)-\one),
 		\\
-		y=-aS(2M(1,0,1,0,1,0,1,0,...)-\mathbbm{1}),
+		y=-aS(2M(1,0,1,0,1,0,1,0,...)-\one),
 		\\
-		z=-aS(2M(0,1,0,1,0,1,0,1,...)-\mathbbm{1}).
+		z=-aS(2M(0,1,0,1,0,1,0,1,...)-\one).
 	\end{gather}
 
 	Тогда, очевидно, каждая из последовательностей $x,y,z$ содержит отрезки сколь угодно большой длины,
@@ -88,23 +88,23 @@
 		x + y + z
 		=
 		\\=
-		aS(2M(\mathbbm{1})-\mathbbm{1}) - aS(2M(1,0,1,0,1,0,...)-\mathbbm{1}) - aS(2M(0,1,0,1,0,1,...)-\mathbbm{1})
+		aS(2M(\one)-\one) - aS(2M(1,0,1,0,1,0,...)-\one) - aS(2M(0,1,0,1,0,1,...)-\one)
 		=
 		\\=
-		aS(2M(\mathbbm{1})-\mathbbm{1}  -    2M(1,0,1,0,1,0,...)+\mathbbm{1}  -    2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		aS(2M(\one)-\one  -    2M(1,0,1,0,1,0,...)+\one  -    2M(0,1,0,1,0,1,...)+\one)
 		=
 		\\=
-		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1}+\mathbbm{1}-\mathbbm{1})
+		aS(2M(\one) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\one+\one-\one)
 		=
 		\\=
-		aS(2M(\mathbbm{1}) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\mathbbm{1})
+		aS(2M(\one) - 2M(1,0,1,0,1,0,...) - 2M(0,1,0,1,0,1,...)+\one)
 		=
-		aS\mathbbm{1}
+		aS\one
 		=
-		a\mathbbm{1}
+		a\one
 		,
 	\end{multline}
-	откуда $\mathbbm{1} \in \operatorname{Lin} Y^a_{-a}$.
+	откуда $\one \in \operatorname{Lin} Y^a_{-a}$.
 \end{proof}
 
 
@@ -134,17 +134,17 @@
 	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0}, ~\ref{lem:const_Lin_alpha_0_a_eq_-b} и~\ref{lem:c_0_Lin_alpha_0}.
 
 	Пусть теперь $p(x) > q(x)$.
-	Положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	Положим $y=k\cdot x + C\cdot\one$,
 	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
 	Тогда, очевидно,
 	\begin{equation}
 		\label{eq:x_representation}
-		x=(y-C\cdot\mathbbm{1})/k
+		x=(y-C\cdot\one)/k
 		.
 	\end{equation}
 	Представление~\eqref{eq:x_representation} искомое.
 	Действительно, в силу лемм~\ref{lem:const_Lin_alpha_0}~и~\ref{lem:const_Lin_alpha_0_a_eq_-b} выполнено
-	$C\cdot\mathbbm{1}\in Y^a_b$; кроме того,
+	$C\cdot\one\in Y^a_b$; кроме того,
 	\begin{equation}
 		p(y) = k\cdot p(x) + C
 		=
@@ -176,7 +176,7 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
 \begin{lemma}
 	\label{lem:const_Lin_ell_infty}
 	Справедливо включение
-	$\mathbbm{1}\in \operatorname{Lin} X^a_b$.
+	$\one\in \operatorname{Lin} X^a_b$.
 \end{lemma}
 
 \begin{proof}
@@ -184,7 +184,7 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
 	$Y^a_b \subset X^a_b$
 	и, следовательно,
 	\begin{equation}
-		\mathbbm{1} \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
+		\one \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
 		.
 	\end{equation}
 \end{proof}
@@ -219,7 +219,7 @@ $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
 	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
 
 	Снова, как и в доказательстве теоремы~\ref{thm:A_0_c_infty_lin},
-	положим $y=k\cdot x + C\cdot\mathbbm{1}$,
+	положим $y=k\cdot x + C\cdot\one$,
 	где $k=\frac{a-b}{p(x)-q(x)}$, $C=\frac{bp(x)-aq(x)}{p(x)-q(x)}$.
 	Дальнейшее доказательство переносится дословно.
 \end{proof}

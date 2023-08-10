@@ -63,15 +63,15 @@ The following lemma is a classical result, and we prove it for the sake of compl
 \begin{lemma}
 	\label{lem:uncountable_subsets_of_N_with_finite_intersections}
 	There exists an uncountable family of subsets
-	$\{S_i\}_{i\in I}$, $S_i \subset \mathbb{N}$,
+	$\{S_i\}_{i\in I}$, $S_i \subset \N$,
 	such that each $S_i$ is countable and for every $i\neq j$ the intersection $S_i \cap S_j$ is finite.
 \end{lemma}
 
 \begin{proof}
-	Consider a bijection $\mathbb{N} \leftrightarrow \mathbb{Q}$
-	and let $I = \mathbb{R}$.
+	Consider a bijection $\N \leftrightarrow \Q$
+	and let $I = \R$.
 	For $i\in I$ we set $S_i = \{q_n\}$,
-	where $\{q_n\} \subset \mathbb{Q}$ is a sequence which converges monotonically to $i$.
+	where $\{q_n\} \subset \Q$ is a sequence which converges monotonically to $i$.
 \end{proof}
 
 
@@ -86,7 +86,7 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 \begin{lemma}
 	\label{lem:c_0_not_complemented_in_ac_0}
 	For each linear operator $Q: ac_0 \to ac_0$ such that $c_0\subseteq \ker Q$,
-	there exists infinite subset $S \subset \mathbb{N}$ such that
+	there exists infinite subset $S \subset \N$ such that
 	\begin{equation}
 		\forall(x \in ac_0 : \supp x \subset S)[Qx = 0]
 		.
@@ -96,7 +96,7 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 
 
 \begin{proof}
-	Notice first that for any infinite subset $S \subset \mathbb{N}$
+	Notice first that for any infinite subset $S \subset \N$
 	there exists $x\in ac_0\setminus c_0$ with $\supp x \subseteq S$.
 	Indeed, we can find such $x$ with $0 < x \leq \chi_S$
 	that contains infinitely many ones, and the distance between the ones
@@ -104,11 +104,11 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 
 
 
-	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\N$
 	that satisfy the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
 	Suppose to the contrary that
 	\begin{equation}
-		\forall(\mbox{infinite }S\subset\mathbb{N})\exists(x \in ac_0 : \supp x \subset S)[Qx \neq 0]
+		\forall(\mbox{infinite }S\subset\N)\exists(x \in ac_0 : \supp x \subset S)[Qx \neq 0]
 		.
 	\end{equation}
 	In particular,
@@ -121,13 +121,13 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 	Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
 
 	Consider $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
-	then $I = \bigcup\limits_{n\in\mathbb{N}} I_n$.
+	then $I = \bigcup\limits_{n\in\N} I_n$.
 	Thus, we can find $n$ such that $I_n$ is also uncountable
 	(otherwise $I$ would be countable as a countable union of countable sets,
 	which contradicts to conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
 
 	Сonsider now $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
-	then $I_n = \bigcup\limits_{k\in\mathbb{N}} I_{n,k}$.
+	then $I_n = \bigcup\limits_{k\in\N} I_{n,k}$.
 	Applying the same argument as above, one can easily see that the set $I_{n,k}$ is uncountable for some $k$.
 	Let us choose such $I_{n,k}$ and proceed with it.
 
@@ -178,7 +178,7 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 	Suppose to the contrary that
 	there exists a continuous projection $P: ac_0 \to c_0$.
 	Applying Lemma~\ref{lem:c_0_not_complemented_in_ac_0} to $I-P$
-	we can find infinite subset $S\subset\mathbb{N}$
+	we can find infinite subset $S\subset\N$
 	such that $\forall(x\in ac_0 : \supp x \subset S)[(I-P)x = 0]$
 	(such $x \in ac_0 \setminus c_0$ exists even if $\chi_S \notin ac_0$).
 	But then $Px\notin c_0$,
@@ -197,7 +197,7 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 \begin{lemma}
 	\label{lem:c_0_not_complemented}
 	For each linear operator $Q: \ell_\infty \to \ell_{\infty}$ such that $c_0\subseteq \ker Q$,
-	there exists infinite subset $S \subset \mathbb{N}$ such that
+	there exists infinite subset $S \subset \N$ such that
 	\begin{equation}
 		\forall(x \in \ell_\infty : \supp x \subset S)[Qx = 0]
 		.
@@ -205,11 +205,11 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 \end{lemma}
 
 \begin{proof}
-	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\N$
 	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
 	Suppose to the contrary that
 	\begin{equation}
-		\forall(\mbox{infinite }S\subset\mathbb{N})\exists(x \in \ell_\infty : \supp x \subset S)[Qx \neq 0]
+		\forall(\mbox{infinite }S\subset\N)\exists(x \in \ell_\infty : \supp x \subset S)[Qx \neq 0]
 		.
 	\end{equation}
 	In particular,
@@ -233,7 +233,7 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 	there exists a continuous projection $P: \ell_\infty \to A_0$.
 	Then $c_0\subset A_0\subset\ker (I-P)$.
 	Applying Lemma~\ref{lem:c_0_not_complemented} to $I-P$
-	we can find infinite subset $S\subset\mathbb{N}$
+	we can find infinite subset $S\subset\N$
 	such that $\forall(x\in\ell_\infty : \supp x \subset S)[(I-P)x = 0]$.
 	Let $S' \subset S$ be such that $\chi_S$ contains
 	infinite quantities of both ones and zeros.
@@ -288,7 +288,7 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 \begin{lemma}
 	\label{lem:c_0_not_complemented_in_A_0}
 	For each linear operator $Q: A_0 \to A_0$ such that $c_0\subseteq \ker Q$,
-	there exists infinite subset $S \subset \mathbb{N}$ such that
+	there exists infinite subset $S \subset \N$ such that
 	\begin{equation}
 		\forall(x \in A_0 : \supp x \subset S)[Qx = 0]
 	\end{equation}
@@ -296,9 +296,9 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 \end{lemma}
 
 \begin{proof}
-	Let $\{U_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	Let $\{U_i\}_{i \in I}$ be a family of subsets of $\N$
 	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
-	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\mathbb{N}$
+	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\N$
 	defined by the equality $S_i = \supp FM\chi_{U_i}$.
 	Obviously, the family of sets $\{S_i\}_{i \in I}$ also
 	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
@@ -306,7 +306,7 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 
 	Suppose to the contrary that
 	\begin{equation}
-		\forall(\mbox{infinite }S\subset\mathbb{N})\exists(x \in A_0 : \supp x \subset S)[Qx \neq 0]
+		\forall(\mbox{infinite }S\subset\N)\exists(x \in A_0 : \supp x \subset S)[Qx \neq 0]
 		.
 	\end{equation}
 	In particular,
@@ -326,7 +326,7 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 	Suppose to the contrary that
 	there exists a continuous projection $P: A_0 \to c_0$.
 	Applying Lemma~\ref{lem:c_0_not_complemented_in_A_0} to $I-P$
-	we can find infinite subset $S\subset\mathbb{N}$
+	we can find infinite subset $S\subset\N$
 	such that $\forall(x\in A_0 : \supp x \subset S)[(I-P)x = 0]$,
 	and $x\in A_0 \setminus c_0$ such that $\supp x \subseteq S$.
 	But then $Px = x\notin c_0$,

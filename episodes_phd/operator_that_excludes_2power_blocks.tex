@@ -73,7 +73,7 @@
 	а) Пусть $x\geq 0$.
 	Тогда $Bx = B_1 Ax \geq 0$ в силу того, что $A\geq 0$.
 
-	б) Очевидно, что $A\mathbbm 1 = \mathbbm 1$, поэтому $B\mathbbm 1 = B_1 A \mathbbm 1 = B_1 \mathbbm 1 = 1$.
+	б) Очевидно, что $A\one = \one$, поэтому $B\one = B_1 A \one = B_1 \one = 1$.
 
 	в) В силу того, что оператор $A$ является оператором взятия подпоследовательности,
 	выполнено включение $Ac_0 \subset c_0$.
@@ -93,7 +93,7 @@
 \end{proof}
 
 \begin{lemma}
-	Для любого банахова предела $B_1$ выполено $B_1 A \in \mathfrak B \setminus \B (\sigma_{2^{2n-1}})$, $n\in \mathbb N$.
+	Для любого банахова предела $B_1$ выполено $B_1 A \in \mathfrak B \setminus \B (\sigma_{2^{2n-1}})$, $n\in \N$.
 \end{lemma}
 
 \begin{proof}
@@ -104,17 +104,17 @@
 	Тогда $Bu = Bw$ для любого $B\in\B$ и $u \approx w$.
 
 	Положим $x = \chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}$.
-	Тогда $\sigma_{2^{2n}} x \approx x$ и $\sigma_{2^{2n-1}} x \approx \mathbbm 1 - x$.
-	Заметим, что $Ax \approx \mathbbm 1$.
+	Тогда $\sigma_{2^{2n}} x \approx x$ и $\sigma_{2^{2n-1}} x \approx \one - x$.
+	Заметим, что $Ax \approx \one$.
 
 	Предположим противное утверждению теоремы.
 	Пусть $B \in \B(A) \cap \B (\sigma_{2^{2n-1}})$, $n\in \N$.
 	Тогда
 	\begin{multline}
-		1 = B\mathbbm1 = BAx = (BA)x = Bx =
+		1 = B\one = BAx = (BA)x = Bx =
 		(B\sigma_{2^{2n-1}}) x = B (\sigma_{2^{2n-1}} x) =
 		\\=
-		B(\mathbbm1 -x) = 1 - Bx = 1 - (BA)x = 1-1 = 0
+		B(\one -x) = 1 - Bx = 1 - (BA)x = 1-1 = 0
 		.
 	\end{multline}
 	Полученное противоречие завершает доказательство.
@@ -128,12 +128,12 @@
 \begin{remark}
 	Оператор $A$ переводит банаховы пределы <<достаточно далеко>>. Действительно, пусть
 	\begin{equation}
-		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1
+		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
 		,
 	\end{equation}
 	тогда
 	\begin{equation}
-		\sigma_2 y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \mathbbm 1
+		\sigma_2 y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one
 		.
 	\end{equation}
 	Пусть $B\in\B$, тогда $BA\in\B$ и $BA\sigma_2\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}.
@@ -141,8 +141,8 @@
 	\begin{multline}
 		\|BA-BA\sigma_2\| \geq \dfrac{\| BAy-BA\sigma_2y \|}{\|y\|} = \| BAy-BA\sigma_2y \| =
 		\\=
-		\left\| BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1\right)-
-		BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \mathbbm 1\right) \right\|=
+		\left\| BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one\right)-
+		BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one\right) \right\|=
 		\\=
 		\left\| 2BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}-
 		2BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]}  \right\|=
@@ -150,7 +150,7 @@
 		2\left\| BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}-
 		BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]}  \right\|=
 		\\=
-		2\left\| B \mathbbm 1- B (0\cdot \mathbbm 1)  \right\|=
+		2\left\| B \one- B (0\cdot \one)  \right\|=
 		2\left\| 1- 0  \right\|= 2 = \diam \B
 		.
 		\end{multline}
@@ -161,7 +161,7 @@
 	%TODO: \sigma_{2^{2n+1}}
 	Пусть снова
 	\begin{equation}
-		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1
+		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
 		.
 	\end{equation}
 	Рассмотрим $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$.
@@ -181,7 +181,7 @@
 \end{hypothesis}
 
 \begin{hypothesis}
-	Множество $\B(A) \cap \B (\sigma_{2^{2n}})$ непусто для любого $n\in \mathbb N$.
+	Множество $\B(A) \cap \B (\sigma_{2^{2n}})$ непусто для любого $n\in \N$.
 \end{hypothesis}
 
 \begin{hypothesis}

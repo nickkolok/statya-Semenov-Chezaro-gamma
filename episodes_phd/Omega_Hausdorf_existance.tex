@@ -10,7 +10,7 @@ TODO: список!
 
 \begin{theorem}
 	\label{thm:Hausdorf_measure_1_n}
-	Пусть $n\in\mathbb{N}$.
+	Пусть $n\in\N$.
 	Тогда существует разделяющее множество $E\subset\Omega$ такое,
 	что $\dim_H E = 1/n$.
 \end{theorem}
@@ -18,7 +18,7 @@ TODO: список!
 \begin{proof}
 	Пусть
 	\begin{equation}
-		Е= \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \mathbb{N}
+		Е= \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
 		,
 	\end{equation}
 	т.е. у последовательности $x \in E$ равны нулю все элементы, кроме, быть может, $x_n$, $x_{2n}$, $x_{3n}$ и т.д.
@@ -50,18 +50,18 @@ TODO: список!
 \begin{remark}
 	У читателя может возникнуть закономерный вопрос о свойствах пересечения
 	\begin{equation}
-		\bigcap_{n\in \mathbb{N}} E_{2^n}
+		\bigcap_{n\in \N} E_{2^n}
 		,
 	\end{equation}
 	где $E_n$ "--- множество, построенное по теореме~\ref{thm:Hausdorf_measure_1_n}, т.е.
 	\begin{equation}
-		Е_n = \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \mathbb{N}
+		Е_n = \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
 		,
 	\end{equation}
 	в частности о том, является ли оно разделяющим множеством нулевой хаусдорфовой размерности.
 	К сожалению, ответ на этот вопрос положителен только во второй части, а именно
 	\begin{equation}
-		\bigcap_{n\in \mathbb{N}} E_n = {(0,0,0,...)}
+		\bigcap_{n\in \N} E_n = {(0,0,0,...)}
 		.
 	\end{equation}
 	Таким образом, пересечение вложенной последовательности разделяющих множеств может не быть разделяющим множеством.

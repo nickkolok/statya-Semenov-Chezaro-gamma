@@ -11,7 +11,7 @@
 \end{theorem}
 
 \begin{proof}
-	%Зафиксируем $k\in\mathbb{N}$.
+	%Зафиксируем $k\in\N$.
 
 	Заметим, что нижний функционал Сачестона можно представить в виде
 	\begin{equation}
@@ -21,7 +21,7 @@
 	\end{equation}
 	где
 	\begin{equation}
-		q_n(x) = \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
+		q_n(x) = \inf_{m\in\N}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
 		.
 	\end{equation}
 
@@ -34,7 +34,7 @@
 	Значит,
 	\begin{equation}
 		q_{n_k}(\chi\mathscr{M}A) =
-		\sup_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
+		\sup_{m\in\N}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
 		\geq
 		1-\prod_{i=1}^k \frac{a_i-1}{a_i}
 		.
@@ -65,7 +65,7 @@
 \end{corollary}
 
 \begin{proof}
-	%Зафиксируем $k\in\mathbb{N}$.
+	%Зафиксируем $k\in\N$.
 
 	Заметим, что нижний функционал Сачестона можно представить в виде
 	\begin{equation}
@@ -75,7 +75,7 @@
 	\end{equation}
 	где
 	\begin{equation}
-		q_n(x) = \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
+		q_n(x) = \inf_{m\in\N}  \frac{1}{n} \sum_{j=m}^{m+n-1} x_j
 		.
 	\end{equation}
 
@@ -89,7 +89,7 @@
 	Следовательно,
 	\begin{equation}
 		q_{n_k}(\chi\mathscr{M}A) =
-		\inf_{m\in\mathbb{N}}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
+		\inf_{m\in\N}  \frac{1}{n_k} \sum_{j=m}^{m+n_k-1} (\chi\mathscr{M}A)_j
 		\leq
 		\frac{1}{n_k} \sum_{j=1}^{n_k} (\chi\mathscr{M}A)_j
 		=
@@ -109,7 +109,7 @@
 \end{proof}
 
 \begin{corollary}
-	В случае, когда $\mathbb{N}\setminus A$ конечно,
+	В случае, когда $\N\setminus A$ конечно,
 	из следствия~\ref{cor:ac0_powers_finite_set_of_numbers} непосредственно вытекает, что $\chi\mathscr{M}A\in ac_1$
 	и, соответственно, $q(\chi\mathscr{M}A)=1$.
 \end{corollary}
@@ -130,13 +130,13 @@
 \begin{lemma}
 	Пусть $\varepsilon \in  (0; 1{]}$.
 	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
-	$A_i$ такое, что $q(\chi\mathscr{M}A)\geq\varepsilon$ для любого $i\in\mathbb{N}$.
+	$A_i$ такое, что $q(\chi\mathscr{M}A)\geq\varepsilon$ для любого $i\in\N$.
 \end{lemma}
 
 
 
 \begin{theorem}
-	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\mathbb{N}$ есть бесконечное множество попарно взаимно простых чисел
+	Пусть $A=\{a_1, a_2, ..., a_n, ...\}\subset\N$ есть бесконечное множество попарно взаимно простых чисел
 	и
 	\begin{equation}
 		\label{eq:prod_causes_q}

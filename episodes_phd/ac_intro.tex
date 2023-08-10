@@ -9,7 +9,7 @@
 		\item
 			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
 		\item
-			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+			$B\one=1$, где $\one =(1,1,\ldots)$,
 		\item
 			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
 		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
@@ -28,23 +28,23 @@
 который оказывается исключительно удобен при проверке последовательности на принадлежность пространству $ac$.
 
 \begin{theorem}[Критерий Лоренца]
-	Для заданного $t\in\mathbb{R}$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
+	Для заданного $t\in\R$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
 	тогда и только тогда, когда
 	\begin{equation}
 		\label{eq:crit_Lorentz}
 		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
 	\end{equation}
-	равномерно по $m\in\mathbb{N}$.
+	равномерно по $m\in\N$.
 \end{theorem}
 
 Если некоторый $x\in\ell_\infty$ удовлетворяет~\eqref{eq:crit_Lorentz},
 то мы будем говорить, что $x$ почти сходится к $t$,
 и писать: $x\in ac_t$.
-Таким образом, очевидно, $ac = \bigcup\limits_{t\in\mathbb R} ac_t$.
+Таким образом, очевидно, $ac = \bigcup\limits_{t\in\R} ac_t$.
 
 Равномерный предел в критерии Лоренца можно заменить на двойной~\cite[Теорема 1]{zvol2022ac}:
 \begin{theorem}
-	Для заданного $t\in\mathbb{R}$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
+	Для заданного $t\in\R$ равенство $Bx=t$ выполнено для всех $B\in\B$
 	тогда и только тогда, когда
 	\begin{equation}
 		\label{eq:crit_Lorentz}
@@ -79,9 +79,9 @@
 \end{equation}
 где
 \begin{equation*}
-	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	q(x) = \lim_{n\to\infty} \inf_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	~~~~\mbox{и}~~~~
-	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	p(x) = \lim_{n\to\infty} \sup_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	.
 \end{equation*}
 называют нижним и верхним функционалом Сачестона соотвественно.
@@ -115,7 +115,7 @@ $B\in\mathfrak{B}$ такой, что $Bx = r$.
 	Пусть
 	\begin{equation}
 		x_k = \begin{cases}
-			1, & ~\mbox{если}~ k = 2^n, ~ n\in\mathbb N,
+			1, & ~\mbox{если}~ k = 2^n, ~ n\in\N,
 			\\
 			0  & ~\mbox{иначе}.
 		\end{cases}

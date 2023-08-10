@@ -21,12 +21,12 @@
 \begin{proof}
 	Определим оператор $G_B$ равенством
 	\begin{equation}
-		G_B x = (Bx, Bx, Bx, ...) = (Bx)\cdot\mathbbm 1
+		G_B x = (Bx, Bx, Bx, ...) = (Bx)\cdot\one
 		.
 	\end{equation}
 	Легко видеть, что
 	\begin{equation}
-		B G_B x = B(Bx, Bx, Bx, ...) = B((Bx)\cdot\mathbbm 1) = (Bx)\cdot B(\mathbbm 1)= (Bx)\cdot 1 = Bx
+		B G_B x = B(Bx, Bx, Bx, ...) = B((Bx)\cdot\one) = (Bx)\cdot B(\one)= (Bx)\cdot 1 = Bx
 	\end{equation}
 	для любого $x\in\ell_\infty$.
 	Значит, $B\in \B (G_B)$ и $\B (G_B)$ непусто.
@@ -35,7 +35,7 @@
 	Последнее означает, что на некоторой последовательности $y\in\ell_\infty$ выполнено $B_1y \ne By$.
 	Тогда
 	\begin{equation}
-		B_1 G_B y = B_1(By, By, By, ...) = B_1((By)\cdot\mathbbm 1) = (By)\cdot B_1(\mathbbm 1)= (By)\cdot 1 = By \ne B_1y
+		B_1 G_B y = B_1(By, By, By, ...) = B_1((By)\cdot\one) = (By)\cdot B_1(\one)= (By)\cdot 1 = By \ne B_1y
 		.
 	\end{equation}
 	Таким образом, $B_1 G_B \ne B_1$, и $B_1 \notin \B (G_B)$.
@@ -72,10 +72,10 @@
 	действительно определён корректно.
 	\begin{multline}
 		G_{\lambda B_1+(1-\lambda) B_2} =
-		\left((\lambda B_1+(1-\lambda) B_2) x\right)\mathbbm 1 =
-		(\lambda B_1 x) \mathbbm 1 +((1-\lambda) B_2 x)\mathbbm 1 =
+		\left((\lambda B_1+(1-\lambda) B_2) x\right)\one =
+		(\lambda B_1 x) \one +((1-\lambda) B_2 x)\one =
 		\\=
-		\lambda (B_1 x) \mathbbm 1 +(1-\lambda) (B_2 x)\mathbbm 1 =
+		\lambda (B_1 x) \one +(1-\lambda) (B_2 x)\one =
 		\lambda G_{B_1} x +(1-\lambda) G_{B_2 x}
 		.
 	\end{multline}
@@ -94,9 +94,9 @@
 	Пусть $x\in\ell_\infty$, тогда
 	\begin{equation}
 		G_{B_1}G_{B_2}x =
-		G_{B_1} ( (B_2 x) \cdot \mathbbm 1 ) =
-		(B_2 x) \cdot G_{B_1} ( \mathbbm 1 ) =
-		(B_2 x) \cdot  \mathbbm 1 =
+		G_{B_1} ( (B_2 x) \cdot \one ) =
+		(B_2 x) \cdot G_{B_1} ( \one ) =
+		(B_2 x) \cdot  \one =
 		G_{B_2}x
 		.
 	\end{equation}
@@ -151,7 +151,7 @@
 		\\=
 		B\left(\dfrac{mx_1 + (k-m) Bx}{k}, \dfrac{mx_2 + (k-m) Bx}{k}, \dfrac{mx_3 + (k-m) Bx}{k}, ...\right)=
 		\\=
-		\dfrac{m}{k} \cdot Bx + \dfrac{k-m}{k} B ( (Bx)\cdot \mathbbm 1) =
+		\dfrac{m}{k} \cdot Bx + \dfrac{k-m}{k} B ( (Bx)\cdot \one) =
 		(Bx) \cdot \left(\dfrac m k + \dfrac{k-m}k \right) = Bx
 		,
 	\end{multline}
@@ -166,7 +166,7 @@
 		\\=
 		B_2\left(\dfrac{mx_1 + (k-m) B_1x}{k}, \dfrac{mx_2 + (k-m) B_1x}{k}, \dfrac{mx_3 + (k-m) B_1x}{k}, ...\right)=
 		\\=
-		\dfrac{m}{k} \cdot B_2x + \dfrac{k-m}{k} B_2 ( (B_1x)\cdot \mathbbm 1) =
+		\dfrac{m}{k} \cdot B_2x + \dfrac{k-m}{k} B_2 ( (B_1x)\cdot \one) =
 		(B_2x) \cdot \dfrac m k + (B_1x)\cdot \dfrac{k-m}k \ne B_2x
 		,
 	\end{multline}
@@ -199,9 +199,9 @@
 \begin{proof}
 	Пусть $X$ "--- единичный шар в $\ell_\infty$,
 	тогда $BX = [-1;1]$
-	и множество $G_B X = [-1;1] \cdot \mathbbm 1$
+	и множество $G_B X = [-1;1] \cdot \one$
 	компактно,
-	поскольку сходимость любой его подпоследовательности $\{y_j = G_B x_j = (Bx_j) \cdot \mathbbm\}_{j\in\N}$
+	поскольку сходимость любой его подпоследовательности $\{y_j = G_B x_j = (Bx_j) \cdot \one\}_{j\in\N}$
 	в норме пространства $\ell_\infty$ эквивалентна сходимости последовательности
 	$\{Bx_j\}_{j\in\N}$ в норме пространства $\R$,
 	в котором любой отрезок "--- компакт.

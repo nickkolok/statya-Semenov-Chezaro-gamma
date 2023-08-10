@@ -18,7 +18,7 @@
 	Проверим условия критерия В-регулярности (теорема~\ref{thm:crit_B_regularity}).
 	Действительно,
 	\begin{equation}
-		G_{\{B_k\}} \mathbbm 1 = \mathbbm 1 \in ac_1
+		G_{\{B_k\}} \one = \one \in ac_1
 		,
 	\end{equation}
 	\begin{equation}
@@ -26,7 +26,7 @@
 		,
 	\end{equation}
 	\begin{equation}
-		G_{\{B_k\}} ac_0 = \{0\cdot \mathbbm1 \} \subset ac_0
+		G_{\{B_k\}} ac_0 = \{0\cdot \one \} \subset ac_0
 		.
 	\end{equation}
 \end{proof}
@@ -114,7 +114,7 @@
 		\sigma_2 y \approx \chi_{\cup_{n\in\N}(2^{2n+1}+1, 2^{2n+2}]}
 		.
 	\end{equation}
-	Следовательно, $B_1y = B_1Ay = B_1\mathbbm 1 = 1$, но $B_2y = B_2A\sigma_2 y = B_2(0\cdot \mathbbm 1) = 0$.
+	Следовательно, $B_1y = B_1Ay = B_1\one = 1$, но $B_2y = B_2A\sigma_2 y = B_2(0\cdot \one) = 0$.
 
 	Определим оператор $H$ соотношением
 	\begin{equation}
@@ -129,11 +129,11 @@
 	Покажем, что $[B_1; B_2]\subset \B(H)$.
 	Действительно,
 	\begin{equation}
-		B_1 Hx  = (B_1 A) Hx = B_1 (AHx)  = B_1 ((B_1 x) \cdot \mathbbm 1) = B_1 x
+		B_1 Hx  = (B_1 A) Hx = B_1 (AHx)  = B_1 ((B_1 x) \cdot \one) = B_1 x
 	\end{equation}
 	и
 	\begin{equation}
-		B_2 Hx  = (B_2 A\sigma_2) Hx = B_2 (A\sigma_2 Hx)  = B_2 ((B_2 x) \cdot \mathbbm 1) = B_2 x
+		B_2 Hx  = (B_2 A\sigma_2) Hx = B_2 (A\sigma_2 Hx)  = B_2 ((B_2 x) \cdot \one) = B_2 x
 		,
 	\end{equation}
 	откуда и следует включение $[B_1; B_2]\subset \B(H)$.
@@ -156,11 +156,11 @@
 	т.е. <<меняет местами>> два банаховых предела.
 	Действительно,
 	\begin{equation}
-		B_1 (\sigma_2 H)x  = (B_1 A) (\sigma_2 H)x = B_1 (A(\sigma_2 H)x)  = B_1 ((B_2 x) \cdot \mathbbm 1) = B_2 x
+		B_1 (\sigma_2 H)x  = (B_1 A) (\sigma_2 H)x = B_1 (A(\sigma_2 H)x)  = B_1 ((B_2 x) \cdot \one) = B_2 x
 	\end{equation}
 	и
 	\begin{equation}
-		B_2 (\sigma_2 H)x  = (B_2 A\sigma_2) (\sigma_2 H)x = B_2 (A\sigma_4 Hx)  = B_2 ((B_1 x) \cdot \mathbbm 1) = B_1 x
+		B_2 (\sigma_2 H)x  = (B_2 A\sigma_2) (\sigma_2 H)x = B_2 (A\sigma_4 Hx)  = B_2 ((B_1 x) \cdot \one) = B_1 x
 		.
 	\end{equation}
 	Тогда, очевидно, $\frac{B_1 + B_2}2 \in \B(\sigma_2 H)$.
