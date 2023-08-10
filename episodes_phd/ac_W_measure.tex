@@ -180,6 +180,37 @@
 \end{equation}
 откуда $\mu(W)=0$.
 
-\begin{hypothesis}
+\begin{lemma}
 	Включение $QW\subset \Omega\cap ac_0$ собственное.
+\end{lemma}
+
+\begin{proof}
+	Пусть
+	\begin{equation}
+		x = (1,0,0,...,0,0,...),
+	\end{equation}
+	тогда
+	\begin{equation}
+		Qx = (1,1,0,0,...,0,0,...) \notin W
+		.
+	\end{equation}
+\end{proof}
+
+\begin{hypothesis}
+	Включение $QW\subset (\Omega\cap ac_0) \setminus c_{00}$, где через $c_{00}$ обозначается множество последовательностей,
+	стабилизирующихся на нуле, собственное.
+\end{hypothesis}
+
+\begin{lemma}
+	$Q^{-2} ac_0 \not \subset ac_0$.
+\end{lemma}
+
+\begin{proof}
+	Пусть $x=(1,0,1,0,...)$.
+	Тогда $Qx = \mathbbm 1$ и $Q^2 x = (1,0,0,0,...) \in c_{00} \subset ac_0$,
+	хотя $x\notin ac_0$.
+\end{proof}
+
+\begin{hypothesis}
+	$Q^{-2} ac_0 \subset ac$.
 \end{hypothesis}
