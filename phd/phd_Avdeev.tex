@@ -1,0 +1,294 @@
+\documentclass[12pt,a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+
+
+% https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
+\hypersetup{pdfpagemode=UseNone}
+
+
+\righthyphenmin=2
+
+%\usepackage[14pt]{extsizes}
+
+\geometry{left=2.5cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
+\newtheorem{corollary}{Следствие}[lemma]
+
+\newtheorem{hhypothesis}[lemma]{Гипотеза}
+
+
+\newcommand\hypotlist{ }
+\newcounter{hypcount}
+
+\makeatletter
+\usepackage{environ}
+\NewEnviron{hypothesis}{%
+
+	\edef\curlabel{hhypothesis\thehypcount}
+    \begin{hhypothesis}
+		\label{\curlabel}
+		\BODY%
+    \end{hhypothesis}
+	\edef\curref{\noexpand\ref{\curlabel}}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\paragraph{Гипотеза\!\!\!}}
+
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\expandafter\textbf\expandafter{\curref}}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\textbf{.}~~}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\BODY}
+
+	\addtocounter{hypcount}{1}
+}
+\makeatother
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+% https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
+\usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+\includepdf{title.pdf}
+\setcounter{page}{2}
+\tableofcontents
+
+\chapter*{Введение}
+\addcontentsline{toc}{chapter}{Введение}
+
+\section*{Общая характеристика работы}
+\addcontentsline{toc}{section}{Общая характеристика работы}
+
+\input{introduction_common_phd.tex}
+
+\input{introduction.tex}
+
+\chapter{$\alpha$--функция как асимптотическая характеристика ограниченной последовательности}
+
+	\section{Определение и элементарные свойства $\alpha$--функции}
+	\input{../alpha_x_intro.tex}
+
+	\section{$\alpha$--функция и оператор сдвига $T$}
+	\input{../alpha_Tx_leq_alpha_x.tex}
+
+	\section{О характере сходимости последовательности $\alpha(T^n x)/ \alpha(x)$}
+	\input{../alpha_Tx_frac_alpha_x.tex}
+
+	\section{О множествах $\{x: \alpha(T^n x) = \alpha(x)\}$}
+	\input{../alpha_Tx_equiv_alpha_x.tex}
+
+	\section{$\alpha$--функция и семейство операторов $\sigma_n$}
+	\input{../alpha_sigma_n.tex}
+
+	\section{$\alpha$--функция и семейство операторов $\sigma_{1/n}$}
+	\input{../alpha_sigma_1_n.tex}
+
+	\section{$\alpha$--функция и оператор Чезаро $C$}
+	\input{../alpha_Cx.tex}
+
+	\section{$\alpha$--функция и оператор суперпозиции}
+	\input{../alpha_xy.tex}
+
+	\section{Функционалы $\alpha^*$ и $\alpha_*$}
+	\input{../alpha_star.tex}
+
+	\section{Пространство $\{x: \alpha(x) = 0\}$}
+	\input{../alpha_x_equiv_null_space.tex}
+
+	\section{О недополняемости некоторых вложений}
+	\input{../episodes_phd/noncomplementarity.tex}
+
+
+\chapter{Последовательности, почти сходящиеся к нулю (пространство $ac_0$)}
+
+	\input{../episodes_phd/ac_intro.tex}
+
+	\section{Эквивалентность Дамерау--Левенштейна}
+	\input{../episodes_phd/equiv_Damerau.tex}
+
+	\section{Переформулировка критерия Лоренца почти сходимости последовательности к нулю}
+	\input{../criterion_ac0_quantors.tex}
+
+	\section{О почти сходимости к нулю последовательности из нулей и единиц}
+	\input{../episode_criterion_ac0.tex}
+
+	\section{Замечание о свойствах последовательности $M(j)$}
+	\input{../episode_C_j.tex}
+
+	\section{Существование предела последовательности $M(j)$}
+	\input{../episode_M_j_limit.tex}
+
+	\section{Срезочный критерий почти сходимости к нулю неотрицательной последовательности}
+	\input{../ac0_criterion_lambda.tex}
+
+	\section{Пространство $ac_0$ и $\alpha$--функция}
+	\input{../alpha_ac0_c0.tex}
+
+	\section{$\alpha$--функция на пространстве $ac$ и расстояние до пространства $c$}
+	\input{../alpha_ac_distance.tex}
+
+	\section{Усиленная теорема Коннора}
+	\input{../episode_Connor_generalized.tex}
+
+	\section{О мере одного множества}
+	\input{../ac_W_measure.tex}
+
+	\section{Пространство $ac_0$ и возведение в степень}
+	\input{../episodes_after_masters/ac0_power.tex}
+
+\chapter{Банаховы пределы, инвариантные относительно операторов}
+
+	\input{../episodes_phd/invariant_BL_intro.tex}
+
+	\section{Оператор с конечномерным ядром, для которого не существует инвариантного банахова предела}
+	\input{../example_finite_dim_kernel.tex}
+
+	\section{Оператор с бесконечномерным ядром, относительно которого инвариантен любой банахов предел}
+	\input{../example_infinite_dim_kernel.tex}
+
+	\section{О классах линейных операторов, для которых множества инвариантных банаховых пределов совпадают}
+	\input{../linear_op_equiv_ac0.tex}
+
+	\section{Мощность множества линейных операторов, относительно которых инвариантен банахов предел}
+	\input{../power_operators_invariant.tex}
+
+	\section{Банаховы пределы, инвариантные относительно операторов $\sigma_{1/n}$}
+	\input{../invariant_sigma_1_n.tex}
+
+	\section{Операторы $\tilde\sigma_k$}
+	\input{../episodes_after_masters/operators_sigma_k.tex}
+
+	\section{Мера прообраза числа при инвариантности банахова предела относительно оператора Чезаро}
+	\input{../episodes_after_masters/measure_Chesaro_invariant.tex}
+
+
+	\section{Классификация линейных операторов в свете банаховых пределов}
+	\input{../episodes_after_masters/operators_classification.tex}
+
+	\section{Пример дружелюбного не эберлейнового оператора}
+	\input{../episodes_after_masters/amiable_but_not_Eberlein_operator.tex}
+
+	\section{Об одном В-регулярном операторе}
+	\input{../episodes_after_masters/operator_that_excludes_2power_blocks.tex}
+
+	\section{Пример эберлейнового не В-регулярного оператора}
+	\input{../episodes_after_masters/Eberlein_but_not_B-regular_operator.tex}
+
+	\section{Обратная задача об инвариантности и порождённый оператор}
+	\input{../episodes_after_masters/reverse_invariance.tex}
+
+	%\section{Компактность порождённого оператора}
+	%\input{../episodes_phd/generated_operator_is_compact.tex}
+
+	\section{Мультипорождённые операторы}
+	\input{../episodes_phd/multigenerated_operators.tex}
+
+
+\chapter{Функционалы Сачестона и линейные оболочки}
+	\input{../episodes_phd/linhulls_intro.tex}
+
+	\section{О хаусдорфовой размерности одного класса множеств}
+	\input{../episodes_after_masters/Omega_Hausdorf.tex}
+
+	\section{О существовании разделяющих множеств малой хаусдорфовой размерности}
+	\input{../episodes_after_masters/Omega_Hausdorf_existance.tex}
+
+
+\chapter{Функционалы Сачестона и мультипликативные свойства носителя последовательности}
+	\input{../episodes_phd/factors_intro.tex}
+
+
+\chapter*{Заключение}
+\addcontentsline{toc}{chapter}{Заключение}
+\input{conclusion.tex}
+
+
+\chapter*{Список сформулированных гипотез}
+\addcontentsline{toc}{chapter}{Список сформулированных гипотез}
+
+\renewcommand\label[1]{}
+\hypotlist
+
+
+\addcontentsline{toc}{chapter}{Список литературы}
+
+\makeatletter
+\ltx@iffilelater{biblatex-gost.def}{2017/02/01}%
+{\toggletrue{bbx:gostbibliography}%
+\renewcommand*{\revsdnamepunct}{\addcomma}}{}
+\makeatother
+
+\printbibliography{}
+
+\end{document}
