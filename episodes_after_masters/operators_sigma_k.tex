@@ -58,7 +58,7 @@ $\tilde\sigma_{2/3} \tilde\sigma_{3/2}$ (см. примеры~\ref{example:sigma
 
 	Действительно,
 	\begin{multline}
-		(\tilde\sigma_{p/q}x \in \Omega)_{m+p} =
+		(\tilde\sigma_{p/q}x )_{m+p} =
 		x_{\left\lceil \dfrac{m+p}{p/q}\right\rceil} =
 		x_{\left\lceil \dfrac{qm+qp}{p}\right\rceil} =
 		x_{\left\lceil \dfrac{qm}{p}+q\right\rceil} =
@@ -66,7 +66,7 @@ $\tilde\sigma_{2/3} \tilde\sigma_{3/2}$ (см. примеры~\ref{example:sigma
 		x_{q+\left\lceil \dfrac{qm}{p}\right\rceil} =
 		x_{\left\lceil \dfrac{qm}{p}\right\rceil} =
 		x_{\left\lceil \dfrac{m}{p/q}\right\rceil} =
-		(\tilde\sigma_{p/q}x \in \Omega)_{m+p}
+		(\tilde\sigma_{p/q}x \in)_{m}
 		.
 	\end{multline}
 
@@ -79,11 +79,72 @@ $\tilde\sigma_{2/3} \tilde\sigma_{3/2}$ (см. примеры~\ref{example:sigma
 
 
 
+
+\begin{theorem}
+	Пространство $ac_0$ не замкнуто относительно любого оператора $\tilde\sigma_k$, $k\in\Q^+\setminus \N$.
+\end{theorem}
+
+\begin{proof}
+	Пусть $k=p/q$ есть несократимая дробь.
+	Определим последовательность $x\in\ell_\infty$ соотношением:
+	\begin{equation}
+		x_m = \begin{cases}
+		\end{cases}
+	\end{equation}
+	TODO: набрать доказательство.
+\end{proof}
+
 \begin{hypothesis}
-	Для любых натуральных $k > m$ существует такие $r, s\in\N$, что  $\tilde\sigma_{m/k} T^r \tilde\sigma_{k/m} = T^s$.
+	\label{hyp:tilde_sigma_k_x_notin_ac0}
+	Для любого $k \in \R^+\setminus \N$ ($k \in \Q^+\setminus \N$) существует такой $x\in ac_0$, что $\tilde\sigma_{k} x \notin ac$.
+\end{hypothesis}
+
+В пользу гипотезы~\ref{hyp:tilde_sigma_k_x_notin_ac0} говорит следующий
+\begin{example}
+	Определим последовательность $x\in\ell_\infty$ следующим соотношением:
+	\begin{equation}
+		x_k = \begin{cases}
+			(-1)^k, &~\mbox{если}~ 2^{2n} < k \leq 2^{2n+1}, ~ n \in \N_0
+			\\
+			(-1)^{k+1} &~\mbox{иначе}
+			.
+		\end{cases}
+	\end{equation}
+	Тогда $x\in ac_0$, но
+	\begin{equation}
+		(\tilde\sigma_{1/2} x)_k = \begin{cases}
+			-1, &~\mbox{если}~ 2^{2n} < k \leq 2^{2n+1}, ~ n \in \N_0
+			\\
+			1 &~\mbox{иначе}
+			.
+		\end{cases}
+	\end{equation}
+	Имеем $p(\tilde\sigma_{1/2} x) = 1$, $q(\tilde\sigma_{1/2} x) = -1$,
+	откуда $\tilde\sigma_{1/2} x \notin ac$.
+\end{example}
+
+
+
+\begin{hypothesis}
+	Для любых натуральных $k > m$ существуют такие $r, s\in\N$, что  $\tilde\sigma_{m/k} T^r \tilde\sigma_{k/m} = T^s$.
 \end{hypothesis}
 
 
 \begin{hypothesis}
 	Для любого $k \in \N$ выполнено $(\tilde\sigma_{\sqrt{k}})^2 - \sigma_k : \ell_\infty \to ac_0$.
+\end{hypothesis}
+
+
+
+\begin{hypothesis}
+	Пусть $x\in ac_0$.
+	Для того, чтобы $x\in \mathcal{I}(ac_0)$, необходимо и достаточно,
+	чтобы $\tilde\sigma_{k} x \in ac_0$ для любого $k\in \Q^+$.
+\end{hypothesis}
+
+
+\begin{hypothesis}
+	Пусть $x\in ac_0$.
+	Для того, чтобы $x\in \mathcal{I}(ac_0)$, необходимо и достаточно,
+	чтобы $\tilde\sigma_{k} x \in ac_0$ для любого $k\in \R^+$.
 \end{hypothesis}
