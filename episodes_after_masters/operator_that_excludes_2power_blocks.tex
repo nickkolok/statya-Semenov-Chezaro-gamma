@@ -13,6 +13,16 @@
 
 В дальнейшем этот оператор окажется очень полезен при построении других операторов и банаховых пределов.
 
+Очевидна следующая
+
+\begin{lemma}
+	\label{lem:supp_I_ac0}
+	Пусть $x\in \mathcal I(ac_0)$, $Y \subset \supp x$ и $y = x \cdot \chi_Y$.
+	Тогда $y \in \mathcal I(ac_0)$.
+\end{lemma}
+
+%TODO2: если совсем прижмёт - аккуратно, со вкусом доказать!
+
 \begin{lemma}
 	\label{lem:AT-TA}
 	$AT - TA: \ell_\infty \to \mathcal{I}(ac_0)$.
@@ -48,10 +58,11 @@
 			0 ~~&\mbox{иначе}.
 		\end{cases}
 	\end{equation}
-	Ввиду включения $\supp (AT-TA)x \subset \supp y$ имеем $(AT-TA)x \in \mathcal I (ac_0)$.
+	Ввиду включения $\supp (AT-TA)x \subset \supp y$ имеем $(AT-TA)x \in \mathcal I (ac_0)$ по лемме~\ref{lem:supp_I_ac0}.
 \end{proof}
 
 \begin{theorem}
+	\label{thm:A_block_thrower_is_B-regular}
 	Оператор $A$ является В-регулярным.
 \end{theorem}
 
@@ -86,8 +97,12 @@
 \end{lemma}
 
 \begin{proof}
-	Пусть знак приближенного равенства $\approx$ означает совпадение всех координат двух последовательностей,
-	кроме, быть может, конечного количества координат.
+	Напомним (см. определение~\ref{def:Damerau_Levenshein_distance}), что знак приближенного равенства $ u \approx w$ означает,
+	что конечно расстояние Дамерау--Левенштейна между последовательностями
+	$u$ и $w$,
+	т.е. что $w$ можно получить из $u$ конечным числом вставок, удалений и замен элементов.
+	Тогда $Bu = Bw$ для любого $B\in\B$ и $u \approx w$.
+
 	Положим $x = \chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}$.
 	Тогда $\sigma_{2^{2n}} x \approx x$ и $\sigma_{2^{2n-1}} x \approx \mathbbm 1 - x$.
 	Заметим, что $Ax \approx \mathbbm 1$.
@@ -109,6 +124,61 @@
 	Например, для $B_1 \in \mathfrak B (\sigma_2)$ имеем $B_1 \ne B_1 A$, что показывает,
 	что оператор $A$ является существенно дружелюбным.
 \end{remark}
+
+\begin{remark}
+	Оператор $A$ переводит банаховы пределы <<достаточно далеко>>. Действительно, пусть
+	\begin{equation}
+		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1
+		,
+	\end{equation}
+	тогда
+	\begin{equation}
+		\sigma_2 y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \mathbbm 1
+		.
+	\end{equation}
+	Пусть $B\in\B$, тогда $BA\in\B$ и $BA\sigma_2\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}.
+	Но
+	\begin{multline}
+		\|BA-BA\sigma_2\| \geq \dfrac{\| BAy-BA\sigma_2y \|}{\|y\|} = \| BAy-BA\sigma_2y \| =
+		\\=
+		\left\| BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1\right)-
+		BA\left(2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \mathbbm 1\right) \right\|=
+		\\=
+		\left\| 2BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}-
+		2BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]}  \right\|=
+		\\=
+		2\left\| BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]}-
+		BA\chi_{\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]}  \right\|=
+		\\=
+		2\left\| B \mathbbm 1- B (0\cdot \mathbbm 1)  \right\|=
+		2\left\| 1- 0  \right\|= 2 = \diam \B
+		.
+		\end{multline}
+\end{remark}
+
+\begin{remark}
+	Оператор $A$ переводит банаховы пределы <<достаточно далеко>> от $\B(\sigma_{2^{2n-1}})$.
+	%TODO: \sigma_{2^{2n+1}}
+	Пусть снова
+	\begin{equation}
+		y \approx 2\chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \mathbbm 1
+		.
+	\end{equation}
+	Рассмотрим $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$.
+	Тогда  $y \approx - \sigma_{2^{2n-1}} y$,
+	откуда $B_1 y = B_1 \sigma_{2^{2n-1}} y = 0$
+	Однако для любого $B_2 \in \B$ имеем $B_2 A y = 1$,
+	т.е.
+	\begin{equation}
+		\|B_1 - B_2 A\| \geq \dfrac{\|B_1y - B_2 Ay\|}{\|y\|} = \|B_1y - B_2 Ay\| = 1
+		.
+	\end{equation}
+\end{remark}
+
+\begin{hypothesis}
+	Пусть $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$, и $B_2\in \B$.
+	Тогда $\|B_1 - B_2 A\| = 2 = \diam \B$.
+\end{hypothesis}
 
 \begin{hypothesis}
 	Множество $\B(A) \cap \B (\sigma_{2^{2n}})$ непусто для любого $n\in \mathbb N$.
