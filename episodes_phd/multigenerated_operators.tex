@@ -11,7 +11,7 @@
 
 \begin{lemma}
 	\label{lem:multigen_is_B-regular}
-	Всякий мультипорождённый оператор $G_{\{B_k\}}$ В-регулярен.
+	Всякий мультипорождённый оператор $G_{\{B_k\}}$ является В-регулярным оператором.
 \end{lemma}
 
 \begin{proof}
@@ -55,7 +55,11 @@
 \end{hypothesis}
 
 \begin{hypothesis}
-	Для мультипорождённого оператора $G_{\{B_k\}}$ имеет мест включение $\B (G_{\{B_k\}}) \subset \conv {\{B_k\}}$ конечно.
+	Для мультипорождённого оператора $G_{\{B_k\}}$ имеет место включение
+	\begin{equation}
+		\B (G_{\{B_k\}}) \subset \conv {\{B_k\}}
+		.
+	\end{equation}
 	(Та же гипотеза "--- для равенства или для обратного включения)
 \end{hypothesis}
 
@@ -147,12 +151,22 @@
 	Верно равенство $B(H) \cap \B(\sigma_2) = \varnothing$.
 \end{hypothesis}
 
-\begin{hypothesis}
+\begin{remark}
 	Оператор $(\sigma_2 H)^*$ переводит отрезок $[B_1; B_2]$ в $[B_2; B_1]$,
 	т.е. <<меняет местами>> два банаховых предела.
-\end{hypothesis}
+	Действительно,
+	\begin{equation}
+		B_1 (\sigma_2 H)x  = (B_1 A) (\sigma_2 H)x = B_1 (A(\sigma_2 H)x)  = B_1 ((B_2 x) \cdot \mathbbm 1) = B_2 x
+	\end{equation}
+	и
+	\begin{equation}
+		B_2 (\sigma_2 H)x  = (B_2 A\sigma_2) (\sigma_2 H)x = B_2 (A\sigma_4 Hx)  = B_2 ((B_1 x) \cdot \mathbbm 1) = B_1 x
+		.
+	\end{equation}
+	Тогда, очевидно, $\frac{B_1 + B_2}2 \in \B(\sigma_2 H)$.
+\end{remark}
 
 \begin{hypothesis}
-	Пример~\ref{ex:multigen_invariant_interval} может быть обобщён на симплекс произвольной окнечной размерности
-	(треугольник, тетраэдр и т.д.)
+	Пример~\ref{ex:multigen_invariant_interval} может быть обобщён на симплекс произвольной конечной размерности
+	(треугольник, тетраэдр и т.д.).
 \end{hypothesis}
