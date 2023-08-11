@@ -201,12 +201,34 @@
 	В этом случае $x \in ac_0^{(2n+1)}$ тогда и только тогда, когда $y \in ac_0^{(2n+1)}$.
 \end{lemma}
 
-%TODO! Через бином Ньютона.
-%\begin{proof}
-%	\begin{equation}
-%		x
-%	\end{equation}
-%\end{proof}
+\begin{proof}
+	Заметим, что
+	\begin{multline}
+		x^{2n+1} =
+		(y + (x-y))^{2n+1} =
+		\sum_{k=0}^{2n+1} C_{2n+1}^k y^{2n+1-k} (x-y)^{k} =
+		\\=
+		y^{2n+1} + \sum_{k=1}^{2n+1} C_{2n+1}^k y^{2n+1-k} (x-y)^{k} =
+		%\\=
+		y^{2n+1} + (x-y) \cdot \sum_{k=1}^{2n+1} C_{2n+1}^k y^{2n+1-k} (x-y)^{k-1}
+		,
+	\end{multline}
+	где $C_{m}^k = \dfrac{m!}{k!(m-k)!}$ "--- биномиальные коэффициенты.
+	Если $y^{2n+1} \in ac_0$, то $B y^{2n+1} =0 $ для любого $B\in \B$.
+
+	Зафиксируем произвольный $B \in \B$.
+	Заметим, что
+	\begin{equation}
+		(x-y) \cdot \sum_{k=1}^{2n+1} C_{2n+1}^k y^{2n+1-k} (x-y)^{k-1} \in \Iac
+	\end{equation}
+	в силу включения $x-y\in\Iac$ и определения $\Iac$ как идеала по умножению.
+	Тогда
+	\begin{equation}
+		B\left((x-y) \cdot \sum_{k=1}^{2n+1} C_{2n+1}^k y^{2n+1-k} (x-y)^{k-1}\right) = 0
+	\end{equation}
+	и $B x^{2n+1} = B y^{2n+1} =0$.
+	В силу произвольности выбора $B \in \B$ получаем, что $x^{2n+1} \in ac_0$.
+\end{proof}
 
 \begin{remark}
 	Для последовательностей $x,y \in \ell_\infty$ ни одно из условий $x\approx y$ и $x-y\in\Iac$
