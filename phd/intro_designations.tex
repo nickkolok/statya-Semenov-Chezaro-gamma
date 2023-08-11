@@ -55,7 +55,7 @@
 \paragraph{Нормы.}
 Запись $\|\cdot\|$ без уточнений будет обозначать норму в пространстве $\ell_\infty$, $\ell_\infty^*$
 или в пространстве операторов, действующих из $\ell_\infty$ в $\ell_\infty$ (обозначаемом $\mathcal L (\ell_\infty, \ell_\infty)$~)
-в зависимости от природу аргумента.
+в зависимости от природы аргумента.
 В случае, если нужно ввести другую норму (например, фактор-норму $\ell_\infty / c_0$, как в теореме~\ref{thm:alpha_xy}),
 это будет оговорено явно.
 
@@ -75,19 +75,80 @@
 Следующие обозначения операторов будут широко использоваться в тексте диссертации.
 \begin{itemize}
 	\item
-		Оператор сдвига:
+		Оператор сдвига влево:
+		\begin{equation}
+			T(x_1, x_2, x_3, x_4, ...) = (x_2, x_3, x_4, ...)
+			.
+		\end{equation}
 	\item
-		Оператор растяжения:
+		Оператор сдвига вправо:
+		\begin{equation}
+			U(x_1, x_2, x_3, x_4, ...) = (0, x_1, x_2, x_3, x_4, ...)
+			.
+		\end{equation}
 	\item
-		Оператор усредняющего сжатия:
+		Оператор растяжения ($n\in\N$):
+		\begin{equation}
+			\sigma_n (x_1, x_2, x_3, ...) = (
+				\underbrace{x_1,...,x_1}_{n~\mbox{раз}},
+				\underbrace{x_2,...,x_2}_{n~\mbox{раз}},
+				\underbrace{x_3,...,x_3}_{n~\mbox{раз}},
+				...)
+			.
+		\end{equation}
+	\item
+		Оператор усредняющего сжатия ($n\in\N$):
+		\begin{equation}
+			\sigma_{1/n} x = n^{-1}
+			\left(
+				\sum_{i=1}^{n} x_i,
+				\sum_{i=n+1}^{2n} x_i,
+				\sum_{i=2n+1}^{3n} x_i,
+				...
+			\right).
+		\end{equation}
 	\item
 		Оператор Чезаро:
+		\begin{equation}
+			(Cx)_n = {1}/{n} \cdot \sum_{k=1}^n x_k
+			,
+		\end{equation}
+		т.е.
+		\begin{equation}
+			С (x_1, x_2, x_3, ...) = \left(
+			x_1,
+			\dfrac{x_1+x_2}2,
+			\dfrac{x_1+x_2 + x_3}3,
+			\dfrac{x_1+x_2+x_3+x_4}4,
+			\dfrac{x_1+...+x_n}n,
+			...\right)
+			.
+		\end{equation}
+
 	\item
 		Оператор суперпозиции (покоординатного умножения):
+		\begin{equation}
+			x \cdot y = (x_1\cdot y_1; ~~x_2\cdot y_2; ~~x_3\cdot y_3; ~...)
+		\end{equation}
 \end{itemize}
 
-TODO!
 
 \paragraph{Специальные функции и множества.}
 
-TODO!
+Через $\B$ будем обозначать множество всех банаховых пределов;
+через $\B(H)$ ~--- множество всех банаховых пределов, инвариантных относительно оператора $H$.
+%TODO: ссылку на теорему/определние?
+
+Нижний и верхний функционалы Сачестона соответственно:
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+
+Кроме того, мы будем часто пользоваться функцией
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation}
