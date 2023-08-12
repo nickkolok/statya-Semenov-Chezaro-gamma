@@ -1,34 +1,96 @@
-The famous result of Phillips~\cite{phillips1940linear}
-states that $c_0$ is not complemented in $\ell_\infty$:
+В работе~\cite{phillips1940linear} Филлипс доказал весьма неожиданный (для своего времени) результат:
+простанство $c_0$ недополняемо в $\ell_\infty$.
+Говоря формально, справедлива следующая
 
-\begin{theorem}[\cite{phillips1940linear}]
+
+\begin{theorem}[Филлипса]
 	\label{thm:phillips}
-	There is no bounded linear operator $P: \ell_\infty \to c_0$ such that for every
-	$x \in c_0$ the equality $Px =x$ holds.
+	Не существует непрерывного линейного оператора $P: \ell_\infty \to c_0$ такого, что для любого
+	$x \in c_0$ выполнено равенство $Px =x$.
+\end{theorem}
+Подобные операторы называются \emph{проекторами}.
+
+Теорема~\ref{thm:phillips} была первым примером недополняемого вложения пространств.
+Позже были найдены и другие примеры;
+%TODO: краткий обзор - передрать из Conway 2nd ed., p. 94
+отсылаем читателя, например, к~\cite{lindenstrauss1979classical}.
+
+Е.А. Алехно привёл~\cite[Theorem 8]{alekhno2006propertiesII} элегентное доказательство
+того, что $ac_0$ недополняемо в $\ell_\infty$.
+Это доказательство основано на изначальном доказательстве Филлипса теоремы~\ref{thm:phillips}
+и использует некоторые леммы из~\cite{phillips1940linear}.
+
+Вложение $c_0 \subset ac_0$ также недополняемо.
+Непосредственное явное упоминание этого факта найти не удалось, однако он достаточно легко следует из~\cite[теорема 4]{ASSU2},
+доказательство которой опирается на идеи~\cite{whitley1968projecting}~и~\cite[Theorem 6.9]{Carothers}.
+Приведём эту теорему (в несколько ослабленной форме, для которой достаточно уже введённой терминологии)
+и соотвествующее следствие, предварив одной вспомогательной леммой, доказательство коей является столь же классическим, сколь и кратким,
+и приводится здесь исключительно ради полноты изложения.
+
+\begin{definition}
+	Семейство множеств $\{A_\lambda\}_{\lambda \in \Lambda}$ называется почти дизъюнктным,
+	если для $\lambda, \mu \in \Lambda$, $\lambda \ne \mu$,
+	пересечение $A_\lambda \cap A_\mu$ конечно.
+\end{definition}
+
+\begin{lemma}
+	\label{lem:uncountable_subsets_of_N_with_finite_intersections}
+	Существует почти дизъюнктное несчётное семейство подмножеств $\{S_i\}_{i\in I}$, $S_i \subset \mathbb{N}$.
+\end{lemma}
+
+\begin{proof}
+	Рассмотрим биекцию $\N \leftrightarrow \Q$.
+	Пусть $I = \R$.
+	Для каждого $i\in I$ положим $S_i = \{q_n\}$,
+	где $\{q_n\} \subset \mathbb{Q}$ "--- некоторая последовательность рациональных чисел,
+	сходящаяся к $i$.
+	%(Proof: switch from $\mathbb{N}$ to $\mathbb{Q}$, pick convergent sequences to irrationals.
+	%More details in [this question](https://math.stackexchange.com/q/162387).)
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Alekhno_noncomplementarity_general}
+	Пусть $X$ и $Y$ "--- такие линейные подпространства в $\ell_\infty$,
+	что $c_{00} \subseteq Y \subsetneq X \subseteq \ell_\infty$.
+	Пусть существует такое несчётное почти дизъюнктное семейство множеств натуральных чисел $\{A_\lambda\}_{\lambda \in \Lambda}$,
+	$A_\lambda \subseteq \N$, что для любого $\lambda \in \Lambda$ имеет место включение $\chi_{A\lambda} \in X \setminus Y$.
+	Тогда вложение $Y \subset X$ недополняемо.
 \end{theorem}
 
-Theorem~\ref{thm:phillips} gives the very first example of a non-complemented subspace.
-Later, more such subspaces were found;
-for further discussion we refer the reader to~\cite{lindenstrauss1979classical}.
+\begin{corollary}
+	Вложение $c_0\subsetneq ac_0$ недополняемо.
+	Вложение $c_0\subsetneq \Iac$ недополняемо.
+\end{corollary}
 
+\begin{proof}
+	Возьмём почти дизъюнктное семейство $\{S_i\}_{i\in I}$, $S_i \subset \mathbb{N}$
+	из леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}
+	и построим новое семейство $\{A_i\}_{i\in I}$, $A_i \subset \mathbb{N}$
+	по правилу
+	\begin{equation}
+		A_i = \{ 2^n : n\in S_i \}
+		.
+	\end{equation}
+	Легко видеть, что семейство $\{A_i\}_{i\in I}$ снова является почти дизъюнктным.
+	Более того, $\chi_{A_i} \in ac_0 \setminus c_0$ и $\chi_{A_i} \in \Iac \setminus c_0$ для любого $i\in I$.
 
+	Таким образом, выполнены все условия теоремы~\ref{thm:Alekhno_noncomplementarity_general}
+	для цепочки вложений $c_{00} \subseteq c_0 \subsetneq ac_0 \subseteq \ell_\infty$ и
+	для цепочки вложений $c_{00} \subseteq c_0 \subsetneq \Iac \subseteq \ell_\infty$.
+\end{proof}
 
-Alekhno gave an elegant proof~\cite[Theorem 8]{alekhno2006propertiesII}
-that $ac_0$ is not complemented in $\ell_\infty$.
-The proof is based on the original Phillips's proof of Theorem~\ref{thm:phillips}
-and uses some lemmas from there.
-For more details on Banach limits, we refer the reader to~\cite{sucheston1967banach,Eberlein,semenov2020geomBL}.
+%TODO: а что там с \Iac \subset ac_0 ?
 
-In Section~\ref{sec:c0_in_ac0} of the present article, we prove that $c_0$ is not complemented in $ac_0$.
-So, all the three inclusions
+Итак, все три вложения в цепочке
 \begin{equation}
 	c_0 \subset \ell_\infty,
 	\quad
 	ac_0 \subset \ell_\infty,
-	\quad\mbox{and}\quad
+	\quad\mbox{и}\quad
 	c_0 \subset ac_0,
 \end{equation}
-are not complemented.
+недополняемы.
+
 Our proof is inspired by Whitley's approach~\cite{whitley1968projecting}
 and the discussion~\cite{mathSE_Phillips}.
 
