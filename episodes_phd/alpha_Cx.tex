@@ -26,58 +26,58 @@
 
 % В Демидовиче этого не нашёл
 
-\paragraph{Доказательство.}
-Равенство \eqref{summa_drobey} равносильно равенству
-\begin{equation}\label{summa_drobey_multiplied}
-	\sum_{i=0}^{p-1} i \cdot 2^i = 2^p(p-2) + 2
-	.
-\end{equation}
-Докажем это равенство методом математической индукции.
+\begin{proof}
+	Равенство \eqref{summa_drobey} равносильно равенству
+	\begin{equation}\label{summa_drobey_multiplied}
+		\sum_{i=0}^{p-1} i \cdot 2^i = 2^p(p-2) + 2
+		.
+	\end{equation}
+	Докажем это равенство методом математической индукции.
 
-\paragraph{База индукции.}
-Для $p=2$ имеем
-\begin{equation}
-	\sum_{i=0}^{2-1} i \cdot 2^i = 0 \cdot 2^0 + 1 \cdot 2^1 = 2
-\end{equation}
-и
-\begin{equation}
-	2^2(2-2) + 2 = 2
-	.
-\end{equation}
-Видим, что для $p=2$ соотношение \eqref{summa_drobey_multiplied} выполняется.
+	\paragraph{База индукции.}
+	Для $p=2$ имеем
+	\begin{equation}
+		\sum_{i=0}^{2-1} i \cdot 2^i = 0 \cdot 2^0 + 1 \cdot 2^1 = 2
+	\end{equation}
+	и
+	\begin{equation}
+		2^2(2-2) + 2 = 2
+		.
+	\end{equation}
+	Видим, что для $p=2$ соотношение \eqref{summa_drobey_multiplied} выполняется.
 
-\paragraph{Шаг индукции.}
-Пусть соотношение \eqref{summa_drobey_multiplied} выполняется для $p=m$, $m\geq 2$, т.е.
-\begin{equation}\label{summa_drobey_multiplied_m}
-	\sum_{i=0}^{m-1} i \cdot 2^i = 2^m(m-2) + 2
-	.
-\end{equation}
+	\paragraph{Шаг индукции.}
+	Пусть соотношение \eqref{summa_drobey_multiplied} выполняется для $p=m$, $m\geq 2$, т.е.
+	\begin{equation}\label{summa_drobey_multiplied_m}
+		\sum_{i=0}^{m-1} i \cdot 2^i = 2^m(m-2) + 2
+		.
+	\end{equation}
 
-Покажем, что тогда соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$.
-Действительно,
-\begin{multline}
-	\sum_{i=0}^{(m+1)-1} i \cdot 2^i
-	=
-	\sum_{i=0}^{m} i \cdot 2^i
-	=
-	\sum_{i=0}^{m - 1} i \cdot 2^i + m\cdot 2 ^m
-	\mathop{=}^{\eqref{summa_drobey_multiplied_m}}
-	2^m(m-2) + 2 + m\cdot 2 ^m
-	=
-	\\=
-	m\cdot2^m-2\cdot2^m  + 2 + m\cdot 2 ^m
-	=
-	m\cdot2^{m+1}-2^{m+1}  + 2
-	=
-	\\=
-	2^{m+1}(m-1)  + 2
-	=
-	2^{m+1}((m+1)-1)  + 2
-	,
-\end{multline}
-т.е. соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$,
-что и требовалось доказать.
-
+	Покажем, что тогда соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$.
+	Действительно,
+	\begin{multline}
+		\sum_{i=0}^{(m+1)-1} i \cdot 2^i
+		=
+		\sum_{i=0}^{m} i \cdot 2^i
+		=
+		\sum_{i=0}^{m - 1} i \cdot 2^i + m\cdot 2 ^m
+		\mathop{=}^{\eqref{summa_drobey_multiplied_m}}
+		2^m(m-2) + 2 + m\cdot 2 ^m
+		=
+		\\=
+		m\cdot2^m-2\cdot2^m  + 2 + m\cdot 2 ^m
+		=
+		m\cdot2^{m+1}-2^{m+1}  + 2
+		=
+		\\=
+		2^{m+1}(m-1)  + 2
+		=
+		2^{m+1}((m+1)-1)  + 2
+		,
+	\end{multline}
+	т.е. соотношение \eqref{summa_drobey_multiplied} выполняется и для $p=m+1$,
+	что и требовалось доказать.
+\end{proof}
 
 
 \subsection{Вспомогательный оператор $S$}
@@ -103,42 +103,41 @@
 	\end{equation}
 \end{lemma}
 
-\paragraph{Доказательство.}
+\begin{proof}
+	\begin{equation*}
+		\alpha(Sx) =
+		\varlimsup_{i\to\infty} \sup_{i < j \leq 2i} | (Sx)_i - (Sx)_j | = ...
+	\end{equation*}
+	Положим для каждого $i$ число $m_i$ так,
+	что $m_i = 2^{k_i}$, $i \leq m_i < 2i$
+	(очевидно, это всегда можно сделать).
+	\begin{equation*}
+		... =
+		\varlimsup_{i\to\infty} \max \left\{
+			\max_{i   < j \leq m_i} | (Sx)_i - (Sx)_j |,
+			\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+		\right\} =
+		...
+	\end{equation*}
+	Но при $2^{k_i - 1} < i < j \leq m_i = 2^{k_i}$
+	имеем $(Sx)_i = (Sx)_j$, и первый модуль обращается в нуль.
 
-\begin{equation*}
-	\alpha(Sx) =
-	\varlimsup_{i\to\infty} \sup_{i < j \leq 2i} | (Sx)_i - (Sx)_j | = ...
-\end{equation*}
-Положим для каждого $i$ число $m_i$ так,
-что $m_i = 2^{k_i}$, $i \leq m_i < 2i$
-(очевидно, это всегда можно сделать).
-\begin{equation*}
-	... =
-	\varlimsup_{i\to\infty} \max \left\{
-		\max_{i   < j \leq m_i} | (Sx)_i - (Sx)_j |,
-		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
-	\right\} =
-	...
-\end{equation*}
-Но при $2^{k_i - 1} < i < j \leq m_i = 2^{k_i}$
-имеем $(Sx)_i = (Sx)_j$, и первый модуль обращается в нуль.
+	\begin{equation*}
+		... =
+		\varlimsup_{i\to\infty}
+			\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
+		=
+		...
+	\end{equation*}
+	Но при $2^{k_i - 1} < i \leq m_i = 2^{k_i} < j \leq 2^{k_i+1}$
+	имеем $(Sx)_i = x_{k_i+1}$, $(Sx)_j = x_{k_i+2}$, откуда
+	\begin{equation}\label{alpha_S_sosedi}
+		... =
+		\varlimsup_{k\to\infty}
+			| x_{k+1} - x_k |
+	\end{equation}
+\end{proof}
 
-\begin{equation*}
-	... =
-	\varlimsup_{i\to\infty}
-		\max_{m_i < j \leq 2i } | (Sx)_i - (Sx)_j |
-	=
-	...
-\end{equation*}
-Но при $2^{k_i - 1} < i \leq m_i = 2^{k_i} < j \leq 2^{k_i+1}$
-имеем $(Sx)_i = x_{k_i+1}$, $(Sx)_j = x_{k_i+2}$, откуда
-\begin{equation}\label{alpha_S_sosedi}
-	... =
-	\varlimsup_{k\to\infty}
-		| x_{k+1} - x_k |
-\end{equation}
-
-Лемма доказана.
 
 \begin{lemma}
 	\begin{equation}\label{summa_S_less}
@@ -147,16 +146,15 @@
 	\end{equation}
 \end{lemma}
 
-\paragraph{Доказательство.}
+\begin{proof}
+	\begin{equation*}
+		\sum_{k=2}^{2^p} (Sy)_k =
+		\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} (Sy)_k =
+		\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} y_{i+2} =
+		\sum_{i=0}^{p-1} 2^i y_{i+2}
+	\end{equation*}
+\end{proof}
 
-\begin{equation*}
-	\sum_{k=2}^{2^p} (Sy)_k =
-	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} (Sy)_k =
-	\sum_{i=0}^{p-1} \sum_{k=2^i+1}^{2^{i+1}} y_{i+2} =
-	\sum_{i=0}^{p-1} 2^i y_{i+2}
-\end{equation*}
-
-Лемма доказана.
 
 
 \begin{lemma}
@@ -168,19 +166,17 @@
 	Здесь и далее $(Tx)_n = x_{n+1}$.
 \end{lemma}
 
-\paragraph{Доказательство.}
-
-\begin{multline*}
-	\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
-	\sum_{m = i}^{i+j}\sum_{k=2^m+1}^{2^{m+1}} (Sx)_k =
-	\sum_{m = i}^{i+j}2^m \cdot x_{m+2} =
-	\\=
-	2^i \cdot \sum_{n = 0}^{j}2^n \cdot x_{n+2+i} =
-	2^i \cdot \sum_{n = 0}^{j}2^n (T^i x)_{n+2} =
-	2^i \cdot \sum_{k=2}^{2^{j+1}} (ST^i x)_k
-\end{multline*}
-
-Лемма доказана.
+\begin{proof}
+	\begin{multline*}
+		\sum_{k=2^i+1}^{2^{i+j+1}} (Sx)_k =
+		\sum_{m = i}^{i+j}\sum_{k=2^m+1}^{2^{m+1}} (Sx)_k =
+		\sum_{m = i}^{i+j}2^m \cdot x_{m+2} =
+		\\=
+		2^i \cdot \sum_{n = 0}^{j}2^n \cdot x_{n+2+i} =
+		2^i \cdot \sum_{n = 0}^{j}2^n (T^i x)_{n+2} =
+		2^i \cdot \sum_{k=2}^{2^{j+1}} (ST^i x)_k
+	\end{multline*}
+\end{proof}
 
 \subsection{Вспомогательная функция $k_b$}
 
@@ -197,21 +193,21 @@
 	\end{equation}
 \end{lemma}
 
-\paragraph{Доказательство.}
+\begin{proof}
+	\begin{multline*}
+		\alpha (Cx) \mathop{=}\limits^{def}
+		\varlimsup_{i\to \infty} \sup_{i<j\leq 2i} |(Cx)_i - (Cx)_j| \geq
+		\varlimsup_{i\to \infty} |(Cx)_i - (Cx)_{2i}| =
+		\\ =
+		\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{2i} \right| =
+		\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{i}- \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+		\\=
+		\varlimsup_{i\to \infty} \left|\frac{1}{2i}\sum_{k=1}^i - \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
+		\varlimsup_{i\to \infty} k_i(x)
+	\end{multline*}
+\end{proof}
 
-\begin{multline*}
-	\alpha (Cx) \mathop{=}\limits^{def}
-	\varlimsup_{i\to \infty} \sup_{i<j\leq 2i} |(Cx)_i - (Cx)_j| \geq
-	\varlimsup_{i\to \infty} |(Cx)_i - (Cx)_{2i}| =
-	\\ =
-	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{2i} \right| =
-	\varlimsup_{i\to \infty} \left|\frac{1}{i}\sum_{k=1}^i  - \frac{1}{2i}\sum_{k=1}^{i}- \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
-	\\=
-	\varlimsup_{i\to \infty} \left|\frac{1}{2i}\sum_{k=1}^i - \frac{1}{2i}\sum_{k=i+1}^{2i}\right| =
-	\varlimsup_{i\to \infty} k_i(x)
-\end{multline*}
-
-\paragraph{Примечание.}
+%\paragraph{Примечание.}
 Введение функции $k_b(x)$ позволит нам в дальнейшем перейти от работы с оператором Чезаро
 к несложным преобразованиям сумм.
 

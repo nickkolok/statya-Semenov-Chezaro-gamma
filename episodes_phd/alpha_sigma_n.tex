@@ -7,69 +7,70 @@
 	\end{equation}
 \end{theorem}
 
-\paragraph{Доказательство.}
-По определению
-\begin{equation}
-	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
-\end{equation}
+\begin{proof}
+	По определению
+	\begin{equation}
+		\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	\end{equation}
 
-Положим
-\begin{equation}
-	\alpha_i(x) =
-	\max_{i<j\leqslant 2i} |x_i - x_j| =
-	\max_{i\leqslant j\leqslant 2i} |x_i - x_j|
-\end{equation}
+	Положим
+	\begin{equation}
+		\alpha_i(x) =
+		\max_{i<j\leqslant 2i} |x_i - x_j| =
+		\max_{i\leqslant j\leqslant 2i} |x_i - x_j|
+	\end{equation}
 
-Тогда
-\begin{equation}
-	\alpha(x) = \varlimsup_{i\to\infty} \alpha_i(x)
-\end{equation}
+	Тогда
+	\begin{equation}
+		\alpha(x) = \varlimsup_{i\to\infty} \alpha_i(x)
+	\end{equation}
 
-Пусть $y = \sigma_n x$.
-Тогда для $k=1, ..., n-1$, $a\in\N$ имеем
-\begin{multline}
-	\alpha_{an-k}(y) =
-	\max_{an-k \leqslant j \leqslant 2an-2k} |y_{an-k} - y_j| =
-	\\=
-	(\mbox{т.к.}~y_{an-(n-1)}=y_{an-(n-2)}=...=y_{an-k}=...=y_{an-1}=y_{an})=
-	\\=
-	\max_{an \leqslant j \leqslant 2an-2k} |y_{an} - y_j| \leqslant
-	\\ \leqslant
-	(\mbox{переходим к максимуму по большему множеству}) \leqslant
-	\\ \leqslant
-	\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
-	\alpha_{an}(y)
-\end{multline}
+	Пусть $y = \sigma_n x$.
+	Тогда для $k=1, ..., n-1$, $a\in\N$ имеем
+	\begin{multline}
+		\alpha_{an-k}(y) =
+		\max_{an-k \leqslant j \leqslant 2an-2k} |y_{an-k} - y_j| =
+		\\=
+		(\mbox{т.к.}~y_{an-(n-1)}=y_{an-(n-2)}=...=y_{an-k}=...=y_{an-1}=y_{an})=
+		\\=
+		\max_{an \leqslant j \leqslant 2an-2k} |y_{an} - y_j| \leqslant
+		\\ \leqslant
+		(\mbox{переходим к максимуму по большему множеству}) \leqslant
+		\\ \leqslant
+		\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
+		\alpha_{an}(y)
+	\end{multline}
 
-С другой стороны,
-\begin{multline}
-	\alpha_{an}(y) =
-	\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
-	\\ =
-	(\mbox{т.к.}~y=\sigma_n x,~\mbox{можем рассматривать только}~j=kn)=
-	\\ =
-	\max_{an \leqslant kn \leqslant 2an} |y_{an} - y_{kn}| =
-	\max_{a \leqslant k \leqslant 2a} |y_{an} - y_{kn}| =
-	\max_{a \leqslant k \leqslant 2a} |x_a - x_k| =
-	\alpha_a(x)
-\end{multline}
+	С другой стороны,
+	\begin{multline}
+		\alpha_{an}(y) =
+		\max_{an \leqslant j \leqslant 2an} |y_{an} - y_j| =
+		\\ =
+		(\mbox{т.к.}~y=\sigma_n x,~\mbox{можем рассматривать только}~j=kn)=
+		\\ =
+		\max_{an \leqslant kn \leqslant 2an} |y_{an} - y_{kn}| =
+		\max_{a \leqslant k \leqslant 2a} |y_{an} - y_{kn}| =
+		\max_{a \leqslant k \leqslant 2a} |x_a - x_k| =
+		\alpha_a(x)
+	\end{multline}
 
-Таким образом, для $k=1, ..., n-1$, $a\in\N$ имеем соотношения:
-\begin{gather}
-	\alpha_{an}(y) = \alpha_a(x),
-\\
-	\alpha_{an-k}(y) \leqslant \alpha_a(x),
-\end{gather}
-откуда немедленно следует, что
-\begin{equation}
-	\varlimsup_{i\to\infty} \alpha_i(y) =
-	\varlimsup_{i\to\infty} \alpha_i(x),
-\end{equation}
-т.е.
-\begin{equation}
-	\alpha(\sigma_n x) = \alpha(x),
-\end{equation}
-что и требовалось доказать.
+	Таким образом, для $k=1, ..., n-1$, $a\in\N$ имеем соотношения:
+	\begin{gather}
+		\alpha_{an}(y) = \alpha_a(x),
+	\\
+		\alpha_{an-k}(y) \leqslant \alpha_a(x),
+	\end{gather}
+	откуда немедленно следует, что
+	\begin{equation}
+		\varlimsup_{i\to\infty} \alpha_i(y) =
+		\varlimsup_{i\to\infty} \alpha_i(x),
+	\end{equation}
+	т.е.
+	\begin{equation}
+		\alpha(\sigma_n x) = \alpha(x),
+	\end{equation}
+	что и требовалось доказать.
+\end{proof}
 
 В статье \cite[lemma 16]{Semenov2010invariant} доказывается, что
 \begin{equation}
