@@ -68,6 +68,7 @@
 	и построим новое семейство $\{A_i\}_{i\in I}$, $A_i \subset \mathbb{N}$
 	по правилу
 	\begin{equation}
+		\label{eq:c0_noncomplemented_in_ac0_set_family}
 		A_i = \{ 2^n : n\in S_i \}
 		.
 	\end{equation}
@@ -91,8 +92,30 @@
 \end{equation}
 недополняемы.
 
-Our proof is inspired by Whitley's approach~\cite{whitley1968projecting}
-and the discussion~\cite{mathSE_Phillips}.
+Перейдём теперь к изучению пространства $A_0$.
+
+\begin{lemma}
+	Вложение $A_0 \subset \ell_\infty$ недополняемо.
+\end{lemma}
+
+\begin{proof}
+	В теореме~\ref{thm:Alekhno_noncomplementarity_general}
+	положим $Y=A_0$, $X=\ell_\infty$.
+	Тогда для сесмества множеств~\eqref{eq:c0_noncomplemented_in_ac0_set_family}
+	выполнены все условия теоремы~\ref{thm:Alekhno_noncomplementarity_general}.
+\end{proof}
+
+Однако для вложения $c_0 \subset A_0$ применить теорему~\ref{thm:Alekhno_noncomplementarity_general}
+непосредственно не удастся.
+Осноная проблема заключается в том, что для любого бесконечного множества $F \subset \N$ такого, что
+дополнение $\N \setminus F$ также бесконечно, последовательность $\chi_F \notin A_0$,
+поскольку $\alpha(F) = 1$.
+
+Поэтому мы проведём доказательство недополняемости полностью,
+во многом опираясь на идеи~\cite{whitley1968projecting} и дискуссию~\cite{mathSE_Phillips}
+
+
+
 
 In Sections~\ref{sec:A0_in_ell_infty} and~\ref{sec:c0_in_A0}
 we proceed with applying the same approach to the inclusion chain $c_0 \subset A_0 \subset \ell_\infty$,
