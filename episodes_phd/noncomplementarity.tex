@@ -264,58 +264,6 @@ The following lemma is inspired by~\cite{mathSE_Phillips}.
 
 
 
-\section{The subspace $A_0$ is not complemented in $\ell_\infty$}
-\label{sec:A0_in_ell_infty}
-
-
-
-\begin{lemma}
-	\label{lem:c_0_not_complemented}
-	For each linear operator $Q: \ell_\infty \to \ell_{\infty}$ such that $c_0\subseteq \ker Q$,
-	there exists infinite subset $S \subset \N$ such that
-	\begin{equation}
-		\forall(x \in \ell_\infty : \supp x \subset S)[Qx = 0]
-		.
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-	Let $\{S_i\}_{i \in I}$ be a family of subsets of $\N$
-	such that conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections} are hold.
-	Suppose to the contrary that
-	\begin{equation}
-		\forall(\mbox{infinite }S\subset\N)\exists(x \in \ell_\infty : \supp x \subset S)[Qx \neq 0]
-		.
-	\end{equation}
-	In particular,
-	\begin{equation}
-		\forall(i\in I)\exists(x_i \in \ell_\infty : \supp x_i \subset S_i)[Q(x_i) \neq 0]
-		.
-	\end{equation}
-	The rest of the proof is similar to that of Lemma~\ref{lem:c_0_not_complemented_in_ac_0}.
-\end{proof}
-
-
-
-
-
-\begin{theorem}
-	The subspace $A_0$ is not complemented in $\ell_\infty$.
-\end{theorem}
-
-\begin{proof}
-	Suppose to the contrary that
-	there exists a continuous projection $P: \ell_\infty \to A_0$.
-	Then $c_0\subset A_0\subset\ker (I-P)$.
-	Applying Lemma~\ref{lem:c_0_not_complemented} to $I-P$
-	we can find infinite subset $S\subset\N$
-	such that $\forall(x\in\ell_\infty : \supp x \subset S)[(I-P)x = 0]$.
-	Let $S' \subset S$ be such that $\chi_S$ contains
-	infinite quantities of both ones and zeros.
-	But then $\alpha(P\chi_{S'}) = \alpha(\chi_{S'}) = 1$ and $P\chi_{S'} \notin A_0$,
-	which contradicts the fact  that $P$ is a projection onto $A_0$.
-\end{proof}
-
 
 
 \section{The subspace $c_0$ is not complemented in $A_0$}
