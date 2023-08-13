@@ -338,7 +338,58 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 		\forall(i\in I)\exists(x_i \in A_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
 		.
 	\end{equation}
-	The rest of the proof is similar to that of Lemma~\ref{lem:c_0_not_complemented_in_ac_0}.
+
+	Note that $x_i \notin c_0$ because $c_0\subseteq \ker Q$.
+	Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
+
+	Consider $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
+	then $I = \bigcup\limits_{n\in\N} I_n$.
+	Thus, we can find $n$ such that $I_n$ is also uncountable
+	(otherwise $I$ would be countable as a countable union of countable sets,
+	which contradicts to conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
+
+	Сonsider now $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
+	then $I_n = \bigcup\limits_{k\in\N} I_{n,k}$.
+	Applying the same argument as above, one can easily see that the set $I_{n,k}$ is uncountable for some $k$.
+	Let us choose such $I_{n,k}$ and proceed with it.
+
+	So, we have an uncountable set $I_{n,k}$ and
+	\begin{equation}
+		\forall(i\in I_{n,k})\exists(x_i \in ac_0 : \supp x_i \subset S_i)\Bigl[\|x_i\|=1 \mbox{~~and~~} |(Qx_i)_n| \geq 1/k\Bigr]
+		.
+	\end{equation}
+
+	Consider a finite set $J \subset I_{n,k}$ with $\#J>1$
+	(here $\#J$ stands for the cardinality of the set $J$).
+	Take
+	\begin{equation}
+		y = \sum_{j \in J} \operatorname{sign}{(Qx_j)_n} \cdot x_j
+		.
+	\end{equation}
+	Since the intersection $S_i \cap S_j$ is finite for any $i \neq j$ and
+	$\supp x_j \subset S_j$,
+	the intersection $\bigcap\limits_{j\in J} \supp x_j$ is also finite.
+	Hence, $y = f + z$,
+	where $\supp f$ is finite and $\|z\| \leq 1$.
+
+	On the other hand,
+	\begin{equation}
+		\label{eq:non_complemented_sum_cardinality}
+		(Qy)_n = \sum_{j \in J}
+		(\operatorname{sign}(Qx_j)_n)
+		\cdot (Qx_j)_n \geq \frac{\# J}{k}
+		.
+	\end{equation}
+	Note, that $f\in c_0$ and we have $Qf = 0$, because $c_0 \subseteq \ker Q$.
+	Thus, $Qy = Q(f+z) = Qf + Qz = Qz$ and
+	\begin{equation}
+		\label{eq:norm_Q_estimate}
+		\frac{\# J}{k} \leq (Qy)_n \leq \|Qy\| = \|Qz\| \leq \|Q\| \cdot \|z\| \leq \|Q\|
+		.
+	\end{equation}
+	Due to~\eqref{eq:norm_Q_estimate}, we obtain $\# J \leq \|Q\| k$ for every $J\subset I_{n,k}$.
+	This contradicts the fact that $I_{n,k}$ is uncountable,
+	and we are done.
 
 \end{proof}
 
