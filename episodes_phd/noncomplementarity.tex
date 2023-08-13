@@ -169,8 +169,9 @@
 	удовлетворяющее условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
 	Пусть $\{S_i\}_{i \in I}$ есть семейство подмножеств $\N$
 	определённое соотношением $S_i = \supp FM\chi_{U_i}$.
-	Obviously, the family of sets $\{S_i\}_{i \in I}$ also
-	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	Очевидно, что семество множеств $\{S_i\}_{i \in I}$ также
+	удовлетворяет условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
+	%satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
 	Более того, для любого $i\in I$ мы имеем $x = FM\chi_{U_i} \in A_0\setminus c_0$.
 
 	Предположим противное:
@@ -178,34 +179,48 @@
 		\forall(\mbox{infinite }S\subset\N)\exists(x \in A_0 : \supp x \subset S)[Qx \neq 0]
 		.
 	\end{equation}
-	In particular,
+	В частности,
+	%In particular,
 	\begin{equation}
 		\forall(i\in I)\exists(x_i \in A_0 : \supp x_i \subset S_i)[Q(x_i) \neq 0]
 		.
 	\end{equation}
 
 	Заметим, что $x_i \notin c_0$, поскольку $c_0\subseteq \ker Q$.
-	Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
+	Не теряя общности, будем полагать $\|x_i\|=1$ для всех $i \in I$.
+	%Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
 
-	Consider $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
-	then $I = \bigcup\limits_{n\in\N} I_n$.
-	Thus, we can find $n$ such that $I_n$ is also uncountable
-	(otherwise $I$ would be countable as a countable union of countable sets,
-	which contradicts to conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
+	Положим $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
+	%Consider $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
+	тогда $I = \bigcup\limits_{n\in\N} I_n$.
+	%then $I = \bigcup\limits_{n\in\N} I_n$.
+	Таким образом, найдётся $n$ такой, что $I_n$ также несчётно
+	%Thus, we can find $n$ such that $I_n$ is also uncountable
+	(иначе $I$ было бы счётным как объединение счётного количества счётных множеств,
+	%(otherwise $I$ would be countable as a countable union of countable sets,
+	что противоречит условиям леммы~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
+	%which contradicts to conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}).
 
-	Сonsider now $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
-	then $I_n = \bigcup\limits_{k\in\N} I_{n,k}$.
-	Applying the same argument as above, one can easily see that the set $I_{n,k}$ is uncountable for some $k$.
-	Let us choose such $I_{n,k}$ and proceed with it.
+	Рассмотрим теперь $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
+	%Сonsider now $I_{n,k} = \{i \in I_n\,:\,|(Qx_i)_n| \geq 1/k\}$,
+	тогда $I_n = \bigcup\limits_{k\in\N} I_{n,k}$.
+	%then $I_n = \bigcup\limits_{k\in\N} I_{n,k}$.
+	Аналогичные рассуждения показывают, что для некоторого $k$ множество $I_{n,k}$ несчётно.
+	%Applying the same argument as above, one can easily see that the set $I_{n,k}$ is uncountable for some $k$.
+	Зафиксируем такое $I_{n,k}$ и в дальнейшем будем работать с ним.
+	%Let us choose such $I_{n,k}$ and proceed with it.
 
-	So, we have an uncountable set $I_{n,k}$ and
+	Итак, у нас есть несчётное множество $I_{n,k}$ и
+	%So, we have an uncountable set $I_{n,k}$ and
 	\begin{equation}
-		\forall(i\in I_{n,k})\exists(x_i \in ac_0 : \supp x_i \subset S_i)\Bigl[\|x_i\|=1 \mbox{~~and~~} |(Qx_i)_n| \geq 1/k\Bigr]
+		\forall(i\in I_{n,k})\exists(x_i \in ac_0 : \supp x_i \subset S_i)\Bigl[\|x_i\|=1 \mbox{~~и~~} |(Qx_i)_n| \geq 1/k\Bigr]
 		.
 	\end{equation}
 
-	Consider a finite set $J \subset I_{n,k}$ with $\#J>1$
-	(here $\#J$ stands for the cardinality of the set $J$).
+	Рассмотрим конечное множество $J \subset I_{n,k}$, $\#J>1$
+	%Consider a finite set $J \subset I_{n,k}$ with $\#J>1$
+	(здесь $\#J$ означает мощность множества $J$).
+	%(here $\#J$ stands for the cardinality of the set $J$).
 	Возьмём
 	\begin{equation}
 		y = \sum_{j \in J} \operatorname{sign}{(Qx_j)_n} \cdot x_j
