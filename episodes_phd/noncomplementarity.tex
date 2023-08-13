@@ -112,21 +112,20 @@
 поскольку $\alpha(F) = 1$.
 
 Поэтому мы проведём доказательство недополняемости полностью,
-во многом опираясь на идеи~\cite{whitley1968projecting} и дискуссию~\cite{mathSE_Phillips}
+во многом опираясь на идеи~\cite{whitley1968projecting} и дискуссию~\cite{mathSE_Phillips}.
+Для этого нам потребуется напомнить некоторые вспомогательные конструкции,
+с которыми читатель уже встречался в этой главе.
 
 
-
-
-In Sections~\ref{sec:A0_in_ell_infty} and~\ref{sec:c0_in_A0}
-we proceed with applying the same approach to the inclusion chain $c_0 \subset A_0 \subset \ell_\infty$,
-where
+Определим линейный оператор  $F:\ell_\infty \to \ell_\infty$ соотношением
 \begin{equation}
-	A_0 = \{x\in\ell_\infty: \alpha(x) = 0\}
+	\label{operator_F}
+	(Fy)_k = y_{i+2}, \mbox{ for } 2^i < k \leq 2^{i+1}
 	,
 \end{equation}
+т.е.
 \begin{equation}
-	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
-	.
+	F(\{x_1,x_2,x_3,x_4,x_5,x_6, ...\}) = \{x_1,x_2,\,x_3,x_3,\,x_4,x_4,x_4,x_4,\,x_5,x_5,x_5,x_5,x_5,x_5,x_5,x_5,\,x_6...\}
 \end{equation}
 
 %TODO:ссылки?..
@@ -138,7 +137,7 @@ where
 \end{equation}
 
 
-Let us also define linear operator $M:\ell_\infty \to \ell_\infty$ as following:
+Определим линейный оператор $M:\ell_\infty \to \ell_\infty$ следующим образом:
 \begin{multline*}
 	M(\omega_1,\omega_2,...)=\left(
 		0, 1\omega_1,
@@ -152,17 +151,17 @@ Let us also define linear operator $M:\ell_\infty \to \ell_\infty$ as following:
 	\right)
 	.
 \end{multline*}
-Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
+Заметим, что в силу~\eqref{eq:alpha_F} мы имеем $FM: \ell_\infty \to A_0$.
 
 
 \begin{lemma}
 	\label{lem:c_0_not_complemented_in_A_0}
-	For each linear operator $Q: A_0 \to A_0$ such that $c_0\subseteq \ker Q$,
-	there exists infinite subset $S \subset \N$ such that
+	Пусть линейный оператор  $Q: A_0 \to A_0$ таков, что $c_0\subseteq \ker Q$.
+	Тогда существует счётное подмножество $S \subset \N$ такое, что
 	\begin{equation}
 		\forall(x \in A_0 : \supp x \subset S)[Qx = 0]
 	\end{equation}
-	and $x\in A_0\setminus c_0$ such that $\supp x \subseteq S$.
+	и $x\in A_0\setminus c_0$ такой, что $\supp x \subseteq S$.
 \end{lemma}
 
 \begin{proof}
@@ -172,9 +171,9 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 	определённое соотношением $S_i = \supp FM\chi_{U_i}$.
 	Obviously, the family of sets $\{S_i\}_{i \in I}$ also
 	satisfies the conditions of Lemma~\ref{lem:uncountable_subsets_of_N_with_finite_intersections}.
-	Moreover, for every $i\in I$ we have $x = FM\chi_{U_i} \in A_0\setminus c_0$.
+	Более того, для любого $i\in I$ мы имеем $x = FM\chi_{U_i} \in A_0\setminus c_0$.
 
-	Suppose to the contrary that
+	Предположим противное:
 	\begin{equation}
 		\forall(\mbox{infinite }S\subset\N)\exists(x \in A_0 : \supp x \subset S)[Qx \neq 0]
 		.
@@ -185,7 +184,7 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 		.
 	\end{equation}
 
-	Note that $x_i \notin c_0$ because $c_0\subseteq \ker Q$.
+	Заметим, что $x_i \notin c_0$, поскольку $c_0\subseteq \ker Q$.
 	Without loss of generality we can assume that $\|x_i\|=1$ for all $i \in I$.
 
 	Consider $I_n = \{i \in I\,:\,(Qx_i)_n \neq 0\}$,
@@ -207,18 +206,18 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 
 	Consider a finite set $J \subset I_{n,k}$ with $\#J>1$
 	(here $\#J$ stands for the cardinality of the set $J$).
-	Take
+	Возьмём
 	\begin{equation}
 		y = \sum_{j \in J} \operatorname{sign}{(Qx_j)_n} \cdot x_j
 		.
 	\end{equation}
-	Since the intersection $S_i \cap S_j$ is finite for any $i \neq j$ and
+	Поскольку пересечение $S_i \cap S_j$ конечно для любых $i \neq j$ и
 	$\supp x_j \subset S_j$,
-	the intersection $\bigcap\limits_{j\in J} \supp x_j$ is also finite.
-	Hence, $y = f + z$,
-	where $\supp f$ is finite and $\|z\| \leq 1$.
+	пересечение $\bigcap\limits_{j\in J} \supp x_j$ также конечно.
+	Таким образом, $y = f + z$,
+	причём $\supp f$ конечен и $\|z\| \leq 1$.
 
-	On the other hand,
+	С другой стороны,
 	\begin{equation}
 		\label{eq:non_complemented_sum_cardinality}
 		(Qy)_n = \sum_{j \in J}
@@ -226,31 +225,32 @@ Note that due to~\eqref{eq:alpha_F} we have $FM: \ell_\infty \to A_0$.
 		\cdot (Qx_j)_n \geq \frac{\# J}{k}
 		.
 	\end{equation}
-	Note, that $f\in c_0$ and we have $Qf = 0$, because $c_0 \subseteq \ker Q$.
-	Thus, $Qy = Q(f+z) = Qf + Qz = Qz$ and
+	Заметив, что $f\in c_0$, мы получаем $Qf = 0$, поскольку $c_0 \subseteq \ker Q$.
+	Значит, $Qy = Q(f+z) = Qf + Qz = Qz$ и
 	\begin{equation}
 		\label{eq:norm_Q_estimate}
 		\frac{\# J}{k} \leq (Qy)_n \leq \|Qy\| = \|Qz\| \leq \|Q\| \cdot \|z\| \leq \|Q\|
 		.
 	\end{equation}
-	Due to~\eqref{eq:norm_Q_estimate}, we obtain $\# J \leq \|Q\| k$ for every $J\subset I_{n,k}$.
-	This contradicts the fact that $I_{n,k}$ is uncountable,
-	and we are done.
-
+	С  учётом~\eqref{eq:norm_Q_estimate} получаем $\# J \leq \|Q\| k$ для любого $J\subset I_{n,k}$.
+	%Due to~\eqref{eq:norm_Q_estimate}, we obtain $\# J \leq \|Q\| k$ for every  $J\subset I_{n,k}$.
+	Таким образом мы получаем противоречие с тем фактом, что $I_{n,k}$ несчётно.
+	%This contradicts the fact that $I_{n,k}$ is uncountable,
+	%and we are done.
 \end{proof}
 
 \begin{theorem}
-	The subspace $c_0$ is not complemented in $A_0$.
+	Пространство $c_0$ недополняемо в $A_0$.
 \end{theorem}
 
 \begin{proof}
-	Suppose to the contrary that
-	there exists a continuous projection $P: A_0 \to c_0$.
-	Applying Lemma~\ref{lem:c_0_not_complemented_in_A_0} to $I-P$
-	we can find infinite subset $S\subset\N$
-	such that $\forall(x\in A_0 : \supp x \subset S)[(I-P)x = 0]$,
-	and $x\in A_0 \setminus c_0$ such that $\supp x \subseteq S$.
-	But then $Px = x\notin c_0$,
-	which contradicts  the fact  that $P$ is a projection onto $c_0$.
+	Предположим противное.
+	Тогда существует непрерывный проектор $P: A_0 \to c_0$.
+	Применим лемму~\ref{lem:c_0_not_complemented_in_A_0} к оператору $I-P$
+	и найдём бесконечное подмножество $S\subset\N$ такое,
+	что $\forall(x\in A_0 : \supp x \subset S)[(I-P)x = 0]$,
+	и $x\in A_0 \setminus c_0$ такой, что $\supp x \subseteq S$.
+	Но тогда  $Px = x\notin c_0$,
+	что противоречит предположению, что $P$ есть проектор на $c_0$.
 \end{proof}
 
