@@ -192,7 +192,11 @@
 
 В главе 2
 %TODO: \ref ???
-изучается $\alpha$--функция, введённая в~\cite{our-vzms-2018}.
+изучается $\alpha$--функция, введённая в~\cite{our-vzms-2018}:
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation}
 %
 %TODO: ссылка на статью Семенова!
 %
@@ -208,9 +212,64 @@
 Затем выявляется связь между $\alpha$--функцией, расстоянием от элемента до пространства $c$
 и почти сходимостью.
 Рассмотрены и другие свойства $\alpha$--функции.
+Приведём основные результаты.
 
+\reflectcorollary{thm:est_alpha_Tn_x_full}
+	Для любых $x\in\ell_\infty$ и $n \in \N$
+	\begin{equation}\label{est_alpha_Tn_x}
+		\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
+		.
+	\end{equation}
 
+\reflecttheorem{thm:alpha_beta_T_seq}
+	Пусть $\beta_k$~--- монотонная невозрастающая последовательность,
+	$\beta_k \to \beta$, $\beta\in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
+	Тогда существует такой $x\in\ell_\infty$, что для любого натурального $n$
+	\begin{equation}
+		\frac{\alpha(T^n x)}{\alpha(x)} = \beta_n.
+	\end{equation}
 
+\reflecttheorem{thm:alpha_sigma_n}
+	Для любого $x\in\ell_\infty$ и для любого натурального $n$ верно равенство
+	\begin{equation}
+		\alpha(\sigma_n x) = \alpha(x)
+		.
+	\end{equation}
+
+\reflecttheorem{thm:alpha_sigma_1_n}
+	Для любого $n\in\N$ и любого $x\in\ell_\infty$ выполнено
+	\begin{equation}
+		\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)
+		.
+	\end{equation}
+
+\reflecttheorem{thm:alpha_Cx_no_gamma}
+	Имеет место равенство
+	\begin{equation}
+		\sup_{x\in\ell_\infty, \alpha(x)\neq 0} \frac{\alpha(Cx)}{\alpha(x)}=1
+		.
+	\end{equation}
+
+\reflecttheorem{thm:alpha_xy}
+	Пусть $(x\cdot y)_k = x_k\cdot y_k$.
+	Тогда
+	$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
+	где
+	\begin{equation}
+		\|x\|_* = \limsup_{k\to\infty} |x_k|
+	\end{equation}
+	есть  фактор-норма по $c_0$ на пространстве $\ell_\infty$.
+
+В параграфе~\ref{sec:space_A0} исследуется пространство $A_0 = \{x: \alpha(x) = 0\}$.
+Это пространство несепарабельно, замкнуто относительно покоординатного умножения,
+операторов левого и правого сдвига, оператора Чезаро,
+операторов растяжения $\sigma_n$ и усредняющего сжатия $\sigma_{1/n}$.
+
+В параграфе~\ref{sec:noncomplementarity} устанавливается, что оба вложения в цепочке
+\begin{equation}
+	c_0 \subset A_0 \subset \ell_\infty
+\end{equation}
+недополняемы.
 
 Как сказано выше, банаховы пределы по определению (как и обычный предел на пространстве $c$) инвариантны относительно оператора сдвига.
 Возникает закономерный вопрос: можно ли потребовать от банахова предела сохранять своё значение
