@@ -47,9 +47,33 @@
 	Полученное противоречие завершает доказательство.
 \end{proof}
 
-\begin{hypothesis}
-	$B_2H\notin \B$.
-\end{hypothesis}
+\begin{remark}
+	Интересно, что $B_2H\notin \B$.
+	Действительно,
+	\begin{equation}
+		\label{eq:amiable_B2}
+		2B_2 H x = B_2 x + B_2((B_3 x)\cdot \one) = B_2 x + B_3 x  =
+		(B_2 + B_3) x  = (B_2+2B_2-B_1)x = (3B_2-B_1)x
+		.
+	\end{equation}
+	Так как равенство~\eqref{eq:amiable_B2} верно для любого $x\in\ell_\infty$,
+	то мы можем сделать вывод, что
+	\begin{equation}
+		2B_2H = 3B_2-B_1
+		,
+	\end{equation}
+	откуда
+	\begin{equation}
+		3B_2 = 2B_2H  + B_1
+		,
+	\end{equation}
+	т.е.
+	\begin{equation}
+		B_2 = \frac23 B_2H  + \frac13 B_1 \notin \ext\B
+		,
+	\end{equation}
+	что противоречит нашему построению.
+\end{remark}
 
 \begin{hypothesis}
 	Существуют такие дружелюбный оператор $H:\ell_\infty\to\ell_\infty$ и банахов предел $B\in \B$,
