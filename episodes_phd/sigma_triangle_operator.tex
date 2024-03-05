@@ -1,0 +1,84 @@
+Рассмотрим теперь оператор,
+в чём-то похожий на операторы растяжения,
+но при этом растяжения <<неравномерного>>.
+Пусть
+\begin{equation}
+	\sigma_\triangle x =
+	(x_1; \; x_1; x_2; \; x_1; x_2; x_3; ... ; \underbrace{x_1; ...; x_n}_{n~\mbox{элементов}}; ...)
+	.
+\end{equation}
+
+\begin{remark}
+	Оператор $\sigma_\triangle x$ естественным образом возник в работах А.С. Усачёва~\cite{usachev2009_phd_vsu},
+	%TODO: другие статьи?
+	где обозначался $\overline{x}$ и
+	использовался для изучения расстояния от произвольной последовательности $x\in\ell_\infty$
+	до пространства $ac$.
+\end{remark}
+
+Нам потребуется один факт об операторах $\sigma_\triangle$,
+доказанный А.С. Усачёвым в~\cite[теорема 19]{usachev2009_phd_vsu}.
+Мы приведём его эквивалентную формулировку, более удобную для нас в дальнейшем.
+
+\begin{theorem}
+	\label{thm:usachev_overline_x_ac_s}
+	Пусть $x\in\ell_\infty$, $s\in\R$.
+	Тогда условия $x\in ac_s$ и $\sigma_\triangle x \in ac_s$ эквивалентны.
+\end{theorem}
+
+Проницательный читатель уже наверняка догадался,
+какой факт об операторе $\sigma_\triangle$ мы сейчас докажем.
+
+\begin{theorem}
+	Оператор $\sigma_\triangle$ является В-регулярным.
+\end{theorem}
+
+\begin{proof}
+	Снова воспользуемся леммой~\ref{lem:suff_B_reg}.
+	Легко заметить, что $\sigma_\triangle \geq 0$ и $\sigma_\triangle \one  = \one$,
+	что обеспечивает выполнение условий (i) и (ii) соответственно.
+
+	Выполнение условия (iii) непосредственно следует из теоремы~\ref{thm:usachev_overline_x_ac_s}.
+
+	Наконец, покажем, что $\sigma_\triangle T - T \sigma_\triangle  : \ell_\infty \to ac_0$.
+	Действительно, для произвольного $x\in\ell_\infty$
+	\begin{multline}
+	(\sigma_\triangle T - T \sigma_\triangle)x =
+	\sigma_\triangle Tx - T \sigma_\triangle x =
+	\\
+	(x_2; \; x_2, x_3; \; x_2, x_3,   x_4; \; x_2, x_3, x_4, x_5; \; ... )-
+	\\
+	(x_1, x_2; \; x_1,    x_2, x_3; \; x_1,   x_2, x_3, x_4; \; x_1, ... )=
+	\\
+	(x_2-x_1; 0; x_3-x_1; 0, 0, x_4-x_1; 0,0,0; x_5-x_1; ...) \in\Iac\subset ac_0
+	.
+	\end{multline}
+
+	Таким образом, все услво
+\end{proof}
+
+\begin{hypothesis}
+	Размашистым (sprawling)
+	%TODO: English term
+	назовём оператор взятия подпоследовательности $H:\ell_\infty \to \ell_\infty$ такой, что
+	\begin{equation}
+		H(x_1,x_2, x_3, ...) =
+		(
+		x_{m_1},x_{m_1+1},...x_{n_1-1},x_{n_1};\;
+		x_{m_2},x_{m_2+1},...x_{n_2-1},x_{n_2};\;
+		...)
+		,
+	\end{equation}
+	где для всех $k\in\N$ выполнено $m_k\leq n_k$,
+	и для всех $k > k_0 \in \N$ выполнено
+	$m_{k+1} \geq m_k$, $n_{k+1} \geq n_k$,
+	при этом
+	\begin{equation}
+		\lim_{k\to\infty} n_k - m_k = \infty
+		.
+	\end{equation}
+	Гипотеза заключатеся в том, что любой размашистый оператор
+	(а) переводит $ac_0$ в $ac_0$ (или, слабее "--- $c_0$ в $ac_0$) и
+	(б) является В-регулярным.
+	Операторы $A$ и $\sigma_\triangle$ из этого параграфа являются размашистыми.
+\end{hypothesis}
