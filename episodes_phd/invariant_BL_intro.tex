@@ -36,8 +36,27 @@
 (это утверждение обобщает~\cite[Theorem 3]{semenov2020invariant_noncommutative}
 и~\cite[Theorem 4.8]{ASSU4}).
 
+Важной вехой в изучении инвариантных банаховых пределов явилась следующая теорема,
+доказанная в~\cite[\S2]{Semenov2010invariant}.
+Мы ещё не раз будем возвращаться к её обсуждению.
 
-%TODO1: условия Семёнова-Сукочева и комментарий к ним!
+\begin{theorem}
+	\label{thm:Semenov_Sukochev_conditions}
+	Пусть линейный оператор $H:\ell_\infty\to\ell_\infty$ таков, что:
+	\\(i)   $H \geqslant 0, H \one=\one$;
+	\\(ii)  $H c_0 \subset c_0$;
+	\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in R$,
+	\\где
+	\begin{equation}
+		R=R(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
+		.
+	\end{equation}
+	Тогда $\B(H) \ne\varnothing$.
+\end{theorem}
+
+В настоящей главе в теореме~\ref{thm:Eberlein_but_not_B-regular_exists}
+строится пример такого оператора $E$, что $\B(E)\ne\varnothing$,
+но $E\one \ne \one$, что показывает существенную избыточность условий теоремы~\ref{thm:Semenov_Sukochev_conditions}.
 
 
 Достаточно <<плохими>> в смысле инвариантности оказываются крайние точки множества банаховых пределов $\ext \B$.
