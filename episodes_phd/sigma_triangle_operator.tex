@@ -59,6 +59,7 @@
 \end{proof}
 
 \begin{hypothesis}
+	\label{hyp:sprawling_ac_B-regular}
 	Размашистым (sprawling)
 	%TODO: English term
 	назовём оператор взятия подпоследовательности $H:\ell_\infty \to \ell_\infty$ такой, что
@@ -75,7 +76,7 @@
 	$m_{k+1} \geq m_k$, $n_{k+1} \geq n_k$,
 	при этом
 	\begin{equation}
-		\lim_{k\to\infty} n_k - m_k = \infty
+		\lim_{k\to\infty} n_k = \infty, \quad \lim_{k\to\infty} n_k - m_k = \infty
 		.
 	\end{equation}
 	Гипотеза заключается в том, что любой размашистый оператор
@@ -83,3 +84,15 @@
 	(б) является В-регулярным.
 	Операторы $A$ и $\sigma_\triangle$ из этого параграфа являются размашистыми.
 \end{hypothesis}
+
+В пользу гипотезы~\ref{hyp:sprawling_ac_B-regular} говорит~\cite[теорема 1]{usachev2008transforms} (приводим её в эквивалентной формулировке и более удобных обозначениях).
+
+\begin{theorem}
+	Определим линейный оператор $H:\ell_\infty\to\ell_\infty$ равенством
+	\begin{equation}
+		H(x_1, x_2, ...) = \left(x_{m_1}, x_{m_1+1}, \ldots, x_{m_1+n_1} ; x_{m_2}, x_{m_2+1}, \ldots, x_{m_2+n_2} ; \ldots\right)
+		,
+	\end{equation}
+	где $m_k, n_k$ "--- последовательности натуральных чисел и $\lim_{n\to\infty} n_k = \infty$.
+	Пусть $x\in ac_s$, $s\in\R$. Тогда $Hx \in ac_s$.
+\end{theorem}
