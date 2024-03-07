@@ -77,6 +77,15 @@
 	\setcounter{subsubsection}{0}%
 }
 
+% Также модифицирована команда \section ниже -
+% теперь счётчик секций снова работает и доступен
+
+% Ничего выше, чем \section (для класса book это \chapter)
+% в примере не используется, поэтому счётчик секций -
+% это счётчик верхнего уровня
+\renewcommand{\thesection}{\arabic{section}}
+
+
 % amsthm - мощный (и основной инструмент) для автоматической нумерации
 % теорем, лемм и т.д.
 \usepackage{amsthm}
@@ -84,8 +93,94 @@
 % Начнём с простого - \begin{proof} ... \end{proof}
 % Последняя уже определена ниже,
 % при желании весь соответствующий блок можно перенести сюда.
-% Это - скопированное определение команды \beginproof
-\def\proof{\smallskip\par\text{$\vartriangleleft$}}
+% Это - скопированное определение команды \beginproof,
+% к которому добавлена команда \ignorespaces
+% Если после треугольничка, начинающего доказательство,
+% пробел нужен всегда, то \ignorespaces следует удалить.
+% Здесь ставилась задача воспроизвести поведение существующих команд
+% с максимально возможной точностью
+\def\proof{\smallskip\par\text{$\vartriangleleft$}\ignorespaces}
+
+% Теперь - стили теорема.
+% С большой буквы - с добавлением вертикального пространства перед,
+% с маленькой - без добавления.
+% Всё как и без amsthm
+
+\newtheoremstyle{Vmjtheorem}
+  {\topsep}   % ABOVESPACE
+  {0pt}       % BELOWSPACE
+  {\sl}       % BODYFONT
+  {\parindent}% INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}
+
+\newtheoremstyle{vmjtheorem}
+  {0.5\topsep}% ABOVESPACE
+  {0pt}       % BELOWSPACE
+  {\sl}       % BODYFONT
+  {\parindent}% INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}
+
+
+\newtheoremstyle{Vmjremark}
+  {\topsep}   % ABOVESPACE
+  {0pt}       % BELOWSPACE
+  {}          % BODYFONT
+  {\parindent}% INDENT (empty value is the same as 0pt)
+  {\sc}       % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}
+
+\newtheoremstyle{vmjremark}
+  {0.5\topsep}% ABOVESPACE
+  {0pt}       % BELOWSPACE
+  {}          % BODYFONT
+  {\parindent}% INDENT (empty value is the same as 0pt)
+  {\sc}       % HEADFONT
+  {.}         % HEADPUNCT
+  {5pt plus 1pt minus 1pt} % HEADSPACE
+  {}
+
+
+\theoremstyle{Vmjtheorem}
+
+\newtheorem {RTheorem}  {Теорема}[section]
+\newtheorem*{RTheorem*} {Теорема} % Не нумеруется
+\newtheorem {ETheorem}  {Theorem}[section]
+\newtheorem*{ETheorem*} {Theorem} % Не нумеруется
+
+\newtheorem {RLemma}  {Лемма}[section]
+\newtheorem*{RLemma*} {Лемма} % Не нумеруется
+\newtheorem {ELemma}  {Lemma}[section]
+\newtheorem*{ELemma*} {Lemma} % Не нумеруется
+
+
+\theoremstyle{Vmjremark}
+
+\newtheorem {RRemark}  {Замечание}[section]
+\newtheorem*{RRemark*} {Замечание} % Не нумеруется
+\newtheorem {ERemark}  {Remark}[section]
+\newtheorem*{ERemark*} {Remark} % Не нумеруется
+
+
+% Альтернативные версии - без вертикального отступа
+\theoremstyle{vmjtheorem}
+
+\newtheorem {Rtheorem} [RTheorem]{Теорема}
+\newtheorem*{Rtheorem*}          {Теорема} % Не нумеруется
+\newtheorem {Etheorem} [ETheorem]{Theorem}
+\newtheorem*{Etheorem*}          {Theorem} % Не нумеруется
+
+\newtheorem {Rlemma} [RLemma]{Лемма}
+\newtheorem*{Rlemma*}        {Лемма} % Не нумеруется
+\newtheorem {Elemma} [ELemma]{Lemma}
+\newtheorem*{Elemma*}        {Lemma} % Не нумеруется
 
 
 
@@ -115,7 +210,9 @@
 \hfill\thepage}\hrule}}} }
 
  \headsep=3mm
- \renewcommand{\section}[1]{\medskip\begin{center}\textbf{#1}\end{center}}
+ % При объявлении новой \section нужно вести учёт их количества
+ % - в строку ниже добавлено
+ \renewcommand{\section}[1]{\medskip\begin{center}\textbf{#1}\end{center}\stepcounter{section}}
  \newcommand{\subsec}[1]{\par\smallskip{\bf #1}}
  \newcommand{\subsubsec}[1]{\qquad\qquad{\bf #1}}
  \def\beginproof{\smallskip\par\text{$\vartriangleleft$}}
