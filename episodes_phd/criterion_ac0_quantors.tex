@@ -13,7 +13,7 @@
 
 	$x\in ac_0$ тогда и только тогда, когда
 	\begin{equation}\label{crit_pos_ac0}
-		\forall(A_0\in\N)
+		\forall(A_2\in\N)
 		\exists(n_0\in\N)
 		\exists(m_0\in\N)
 		\forall(n\geq n_0)
@@ -25,7 +25,7 @@
 			\sum_{k=m+1}^{m+n} x_k
 			\right|
 			<
-			\frac{1}{A_0}
+			\frac{1}{A_2}
 		\right]
 		.
 	\end{equation}
@@ -63,13 +63,13 @@
 	Пусть выполнено \eqref{crit_pos_ac0}.
 	Покажем, что выполнено \eqref{crit_ac0}.
 	Зафиксируем $A_1$.
-	Положим $A_0 = 2A_1$ и отыщем $n_0$ и $m_0$ в соотвествии с \eqref{crit_pos_ac0}.
-	Положим $n_1 = 2A_0(n_0+m_0)\|x\|$.
+	Положим $A_2 = 2A_1$ и отыщем $n_0$ и $m_0$ в соотвествии с \eqref{crit_pos_ac0}.
+	Положим $n_1 = 2A_2(n_0+m_0)\|x\|$.
 	Покажем, что \eqref{crit_ac0} верно для любых $n\geq n_1$, $m\in \N$.
 	Зафиксируем $n$ и рассмотрим $m$.
 
 	Пусть сначала $m\geq m_0$.
-	Тогда в силу того, что $n\geq n_1 = 2A_0(n_0+m_0)\|x\| > n_0$ имеем $n>n_0$.
+	Тогда в силу того, что $n\geq n_1 = 2A_2(n_0+m_0)\|x\| > n_0$ имеем $n>n_0$.
 	Применим \eqref{crit_pos_ac0}:
 	\begin{equation}
 		\left|
@@ -77,7 +77,7 @@
 		\sum_{k=m+1}^{m+n} x_k
 		\right|
 		<
-		\frac{1}{A_0}
+		\frac{1}{A_2}
 		=
 		\frac{1}{2A_1}
 		<
@@ -114,17 +114,17 @@
 		\leq
 		\frac{2 m_0 \|x\|}{n} + \left| \frac{1}{n} \sum_{k=m_0+1}^{m_0+n} x_k \right|
 		\mathop{\leq}^{\mbox{~~в силу \eqref{crit_pos_ac0}~~}}
-		\frac{2 m_0 \|x\|}{n} + \frac{1}{A_0}
+		\frac{2 m_0 \|x\|}{n} + \frac{1}{A_2}
 		\leq
 		\\ \leq
-		\frac{2 m_0 \|x\|}{n_1} + \frac{1}{A_0}
+		\frac{2 m_0 \|x\|}{n_1} + \frac{1}{A_2}
 		\leq
-		\frac{2 m_0 \|x\|}{2A_0(n_0+m_0)\|x\|} + \frac{1}{A_0}
+		\frac{2 m_0 \|x\|}{2A_2(n_0+m_0)\|x\|} + \frac{1}{A_2}
 		=
 		\\=
-		\frac{m_0}{A_0(n_0+m_0)} + \frac{1}{A_0}
+		\frac{m_0}{A_2(n_0+m_0)} + \frac{1}{A_2}
 		<
-		\frac{1}{A_0} + \frac{1}{A_0}
+		\frac{1}{A_2} + \frac{1}{A_2}
 		=
 		\frac{1}{A_1}
 		,
@@ -133,4 +133,4 @@
 \end{proof}
 
 Удобство критерия \eqref{crit_pos_ac0} в том,
-что можно выбирать $m_0$ в зависимости от $A_0$.
+что можно выбирать $m_0$ в зависимости от $A_2$.
