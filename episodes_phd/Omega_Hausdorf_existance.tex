@@ -1,12 +1,56 @@
-Хорошо известны некоторые примеры разделяющих множеств
-[TODO1: много ссылок, в т.ч. на новую статью в МЗ].
-Применяя лемму~\ref{lem:Hausdorf_measure}, можно показать,
-что хаусдорфову размерность 1 имеют множества
-TODO1: список!
+%Хорошо известны некоторые примеры разделяющих множеств
+%[TODO2: много ссылок, в т.ч. на новую статью в МЗ].
+%Применяя лемму~\ref{lem:Hausdorf_measure}, можно показать,
+%что хаусдорфову размерность 1 имеют множества
+%TODO2: список?
 
-В данном пункте строится пример разделяющего множества,
-имеющего малую хаусдорфову размерность.
+Выше в этой главе приведены различные примеры разделяющих множеств.
+В данном параграфе строится пример разделяющего множества,
+имеющего меру нуль и сколь угодно малую хаусдорфову размерность.
 
+\begin{lemma}
+	\label{lem:Omega_Hausdorf_separators_sum}
+	Пусть множество $F \subset \ell_\infty$ "--- разделяющее
+	и пусть множество $F' \subset \ell_\infty$ таково, что для некоторого $n\in\N$
+	\begin{equation}
+		F \subset TF' + T^2F' + ... + T^n F'
+		,
+	\end{equation}
+	то есть для любого $x\in F$ найдутся такие $x_k\in F'$, $j=k,..,n$,
+	что
+	\begin{equation}
+		\label{eq:Omega_Hausdorf_separators_sum}
+		x = \sum_{k=1}^{n} T^k x_k
+		.
+	\end{equation}
+
+	Тогда $F'$ "--- также разделяющее множество.
+\end{lemma}
+
+\begin{proof}
+	Предположим противное, т.е. что $F'$ не является разделяющим.
+
+	Тогда найдутся такие два банаховых предела $B_1\ne B_2$, что для любого
+	$y \in F'$ выполнено $B_1y=B_2y$, т.е. $(B_1-B_2)y = 0$.
+	Тогда для любого $x\in F$, применяя разложение~\eqref{eq:Omega_Hausdorf_separators_sum}, имеем:
+	\begin{multline}
+		(B_1 - B_2)x =
+		(B_1 - B_2)\left(\sum_{k=1}^{n} T^k x_k\right) =
+		\sum_{k=1}^{n}\left( (B_1 - B_2) T^k x_k\right) =
+		\\=
+		\sum_{k=1}^{n}\left( B_1 T^k x_k - B_2 T^k x_k\right) =
+		\sum_{k=1}^{n}\left( B_1 x_k - B_2 x_k\right) =
+		\sum_{k=1}^{n}\left( (B_1 - B_2)x_k\right) =
+		0
+		,
+	\end{multline}
+	т.е. для любого $x\in F$ выполнено $B_1 x = B_2 x$.
+
+	С другой стороны, поскольку множество $F$ является разделяющим,
+	то существует такой $x\in F$, что $B_1 x \ne B_2 x$.
+
+	Полученное противоречие завершает доказательство.
+\end{proof}
 
 \begin{theorem}
 	\label{thm:Hausdorf_measure_1_n}
@@ -18,7 +62,7 @@ TODO1: список!
 \begin{proof}
 	Пусть
 	\begin{equation}
-		Е= \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
+		E= \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
 		,
 	\end{equation}
 	т.е. у последовательности $x \in E$ равны нулю все элементы, кроме, быть может, $x_n$, $x_{2n}$, $x_{3n}$ и т.д.
@@ -45,6 +89,9 @@ TODO1: список!
 	$$ r_1^d+r_2^d=1.$$
 	Т.к. $r_j=2^{-n}$, то
 	$d=1/n.$
+
+	Применяя лемму~\ref{lem:Omega_Hausdorf_separators_sum}
+	для $n$, $F'=E$, $F=\Omega$, получаем, что множество $E$ является разделяющим.
 \end{proof}
 
 \begin{remark}
@@ -55,7 +102,7 @@ TODO1: список!
 	\end{equation}
 	где $E_n$ "--- множество, построенное по теореме~\ref{thm:Hausdorf_measure_1_n}, т.е.
 	\begin{equation}
-		Е_n = \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
+		E_n = \{ x \in \Omega : k \neq mn \Rightarrow x_k = 0\}, m\in \N
 		,
 	\end{equation}
 	в частности о том, является ли оно разделяющим множеством нулевой хаусдорфовой размерности.
@@ -73,5 +120,5 @@ TODO1: список!
 
 \begin{remark}
 	Пусть $n>1$ и множество $E$ построено по теореме~\ref{thm:Hausdorf_measure_1_n}.
-	Тогда $p(E)< 1$ и, [TODO1: ref], мера $E$ равна нулю.
+	Тогда $p(E)< 1$ и по теореме~\ref{thm:Connor_generalized} мера $E$ равна нулю.
 \end{remark}
