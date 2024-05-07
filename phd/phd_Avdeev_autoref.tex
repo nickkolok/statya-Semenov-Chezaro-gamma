@@ -64,24 +64,16 @@
 
 \usepackage[backend=biber,style=gost-footnote,sorting=none,bibstyle=gost-numeric]{biblatex}
 
-% https://tex.stackexchange.com/questions/28509/biblatex-filter-out-publications-from-a-specific-author-in-the-references-dynam
-\newcommand{\lastnamerus}{Авдеев}
-%\newcommand{\lastnameeng}{Avdeev}
-\newcommand{\lastnameeng}{Hall}
-\DeclareBibliographyCategory{byname}
-
-\DeclareIndexNameFormat{byname}{% Test could be refined
-  \ifboolexpr{
-			not test {\ifdefstring{\lastnameeng}{#1}}
-			%test {\ifdefstring{\lastnamerus}{#1}}
-            %or not test {\ifdefstring{\lastnameeng}{#1}}
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=author,
+            match=\detokenize{Авдеев},
+            final]
+      \step[fieldset=keywords, fieldvalue=avdeev]
+    }
   }
-    {\addtocategory{byname}{\thefield{entrykey}}}
-    {}
 }
-
-\AtDataInput{%
-  \indexnames[byname]{author}}
 
 \addbibresource{../bib/Semenov.bib}
 \addbibresource{../bib/my.bib}
@@ -171,6 +163,6 @@
 \renewcommand*{\revsdnamepunct}{\addcomma}}{}
 \makeatother
 
-\printbibliography[category=byname]{}
+\printbibliography[keyword=avdeev]{}
 
 \end{document}
