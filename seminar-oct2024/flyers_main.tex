@@ -1,0 +1,146 @@
+\documentclass[11pt,a4paper,openbib,twocolumn,landscape]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+
+
+% https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
+\hypersetup{pdfpagemode=UseNone}
+
+
+\righthyphenmin=2
+
+%\usepackage[14pt]{extsizes}
+
+\geometry{left=1cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=1cm}% верхнее поле
+\geometry{bottom=1cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\renewcommand{\varlimsup}{\limsup}
+\renewcommand{\varliminf}{\liminf} % ... по самую асимптоту!
+
+
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+\newcommand{\one}{\ensuremath{\mathbbm 1}}
+
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
+\newtheorem{corollary}[lemma]{Следствие}
+
+\newtheorem{hhypothesis}[lemma]{Гипотеза}
+
+
+\newcommand\hypotlist{ }
+\newcounter{hypcount}
+
+\makeatletter
+\usepackage{environ}
+\NewEnviron{hypothesis}{%
+
+	\edef\curlabel{hhypothesis\thehypcount}
+    \begin{hhypothesis}
+		\label{\curlabel}
+		\BODY%
+    \end{hhypothesis}
+	\edef\curref{\noexpand\ref{\curlabel}}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\paragraph{Гипотеза\!\!\!}}
+
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\expandafter\textbf\expandafter{\curref}}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\textbf{.}~~}
+
+	\expandafter\g@addto@macro\expandafter\hypotlist\expandafter
+	{\BODY}
+
+	\addtocounter{hypcount}{1}
+}
+\makeatother
+
+%For the introduction
+\newcommand\reflecttheorem[1]{\paragraph{Теорема \ref{#1}}}
+\newcommand\reflectlemma[1]{\paragraph{Лемма \ref{#1}}}
+\newcommand\reflectcorollary[1]{\paragraph{Следствие \ref{#1}}}
+\newcommand\reflectdefinition[1]{\paragraph{Определение \ref{#1}}}
+
+%For the main text, we do not make the difference between
+%self-citation and external citation
+%(for autoref we do really do!)
+\def\selfcite{\cite}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+% https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
+\usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
+
+\begin{document}
+\clubpenalty=10000
+\widowpenalty=10000
+\pagenumbering{gobble}
+
+\input{flyers_designations.tex}
+
+\end{document}
