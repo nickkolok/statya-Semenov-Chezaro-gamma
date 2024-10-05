@@ -1,0 +1,431 @@
+\documentclass[10pt,pdf,hyperref={unicode},aspectratio=169,color={usenames, dvipsnames}]{beamer}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\usepackage{bbm}
+\usepackage{mathrsfs}
+
+
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+\newcommand{\one}{\ensuremath{\mathbbm 1}}
+
+
+\newcommand{\longcomment}[1]{}
+
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\usepackage{varwidth}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{llemma}{Лемма}
+\newtheorem{ttheorem}[llemma]{Теорема}
+\newtheorem{eexample}[llemma]{Пример}
+\newtheorem{property}[llemma]{Свойство}
+\newtheorem{remark}[llemma]{Замечание}
+\newtheorem{ccorollary}{Следствие}[llemma]
+\newtheorem{hhypothesis}{Гипотеза}[llemma]
+\newtheorem{ddefinition}{Определение}[llemma]
+
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+
+\righthyphenmin=2
+
+%\usetheme{Antibes}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme[onlymath]{serif} % default family is serif
+%\usepackage{fontspec}
+%\setmainfont{Liberation Serif}
+\begin{document}
+
+
+\title{
+	Инвариантные банаховы пределы
+}
+\author{докладчик: асп. Н.Н.~Авдеев\\науч. рук.: д.ф.-м.н., проф. Е.М. Семенов}
+\institute{ Воронежский Государственный Университет \\
+		{Работа выполнена при поддержке Фонда БАЗИС, проект No 22-7-2-27-3.
+	}}
+\date{Москва 2024}
+
+\maketitle
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{\large{}}
+
+
+\begin{frame}\frametitle{Пространство $\ell_\infty$}
+	$\ell_\infty$~--- пространство всех ограниченных последовательностей
+	$x=(x_1, x_2, ..., x_n, ...)$
+	с~нормой
+	$$
+		\|x\|_{\ell_\infty} = \sup_{k\in\mathbb{N}} |x_k|
+	$$
+	{Свойства:}
+
+	\begin{itemize}
+		\item
+			$\ell_\infty$~--- линейное пространство над полем $\mathbb{R}$
+		\item
+			$\ell_\infty$  несепарабельно
+		\item
+			$\ell_1 \subset \ell_2 \subset \dots \subset \ell_\infty$
+		\item
+			$\ell_1^* = \ell_\infty$
+		\item
+			$\ell_\infty^* \neq \ell_1$
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}\frametitle{Обобщения понятия сходимости в $\ell_\infty$}
+	%\hspace{1.468em}
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Верхний и нижний
+		\\
+		пределы:
+		\\
+		$\displaystyle \limsup_{n\to\infty} x_n$
+		,~
+		$\displaystyle \liminf_{n\to\infty} x_n$
+		\\~\\
+		\emph{
+			не характеризуют
+			\\
+			распределение элементов
+		}
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Сходимость в среднем
+		\\
+		(по Чезаро):
+		$\displaystyle \lim_{n\to\infty} (Cx)_n$
+		\\
+		$\displaystyle (Cx)_n = \frac1n\sum_{i=1}^n x_i$
+		\\~\\
+		\emph{слишком универсальна}
+	\end{varwidth}
+	\hfill
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		Банаховы пределы $B\in \mathfrak{B}$:
+		\\
+		т. Хана--Банаха к $\lim: c\to\mathbb R$
+		\\
+			$B \geqslant 0$
+		\\
+			$B\mathbbm{1} = 1$
+		\\
+			$B=BT$
+		\\
+		\emph{почти сходимость}
+	\end{varwidth}
+	\\~\\~\\
+	\begin{varwidth}[t]{\linewidth}
+		\centering
+		\emph{Критерий Лоренца:}
+		$\displaystyle
+			x\in ac_t
+			\Leftrightarrow
+			\forall(B\in\mathfrak{B})[Bx = t]
+			\Leftrightarrow
+			\lim_{n\to\infty}  \sum_{k=m+1}^{m+n} \frac{x_k}n = t
+		$
+		равном. по $m\in\mathbb{N}$.
+	\end{varwidth}
+	\\~\\
+	\vspace{0.8em}
+	\begin{varwidth}[t]{\linewidth}
+		$\displaystyle ac = \mathop{\cup}\limits_{t\in\mathbb R} ac_t$ "--- пространство почти сходящихся последовательностей
+	\end{varwidth}
+\end{frame}
+
+
+\begin{frame}\frametitle{Банаховы пределы}
+	Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+	\begin{enumerate}
+		\item
+			$B \geqslant 0$
+		\item
+			$B\mathbbm{1} = 1$
+		\item
+			$B=BT$
+	\end{enumerate}
+	Здесь $\mathbbm{1}=(1,1,1,1,1,...)$,
+	$T$~--- оператор сдвига: $T(x_1, x_2, x_3, ...) = (x_2, x_3, ...)$.
+
+	Простейшие свойства:
+	\begin{itemize}
+		\item
+			$\|B\|_{\ell_\infty^*} = 1$
+		\item
+			$Bx = \lim_{n\to\infty} x_n$ для любого $x=(x_1, x_2, ...) \in c$,
+			\\
+			где $c$~--- множество сходящихся последовательностей.
+
+			Таким образом,
+			банахов предел~--- естественное обобщение понятия предела сходящейся последовательности
+			на все ограниченные последовательности.
+	\end{itemize}
+\end{frame}
+
+\longcomment{
+\begin{frame}\frametitle{Свойства множества банаховых пределов $\mathfrak{B}$}
+	\begin{enumerate}
+		\item
+			$\mathfrak{B}$~--- замкнутое выпуклое подмножество $ S_{\ell_\infty^*}$~---
+			единичной сферы пространства $\ell_\infty^*$
+		\item
+			$d(\mathfrak{B}) = 2$
+		\item
+			$\mathfrak{B}$ слабо *-компактно
+	\end{enumerate}
+\end{frame}
+}
+
+\begin{frame}\frametitle{Теорема Лоренца~\cite{L}}
+	Для заданного $r\in\mathbb{R}$ равенство $Bx=r$ выполнено для всех $B\in\mathfrak{B}$
+	тогда и только тогда, когда
+	\begin{equation*}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = r
+	\end{equation*}
+	сходится равномерно по всем $m\in\mathbb{N}$.
+
+	Множество всех таких $x \in \ell_\infty$ обозначается $ac$.
+\end{frame}
+
+\begin{frame}\frametitle{Теорема Сачестона~\cite{S}}
+	является уточнением теоремы Лоренца.
+	Пусть
+	\begin{equation*}
+		q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k,
+		~~~~~~~~
+		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k.
+	\end{equation*}
+	Тогда для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+	\begin{equation}\label{Sucheston}
+		q(x) \leqslant Bx \leqslant p(x)
+	\end{equation}
+	Неравенства (\ref{Sucheston}) точны:
+	для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+	$B\in\mathfrak{B}$ такой, что $Bx = r$.
+\end{frame}
+
+\begin{frame}\frametitle{Что такое почти сходимость?}
+	\begin{varwidth}[t]{\linewidth}
+		\hspace{3em}
+		Пример $x\in ac_0$, но $\displaystyle0=\liminf_{n\to\infty}x_n < \limsup_{n\to\infty}x_n=1$:~~
+		$$\displaystyle
+			x_k=\begin{cases}
+				1, & k=2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$$
+		$x=(0,1,0,1,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,1,\;\;0,0,0,0,\;...)$
+	\end{varwidth}
+	\\
+	\vspace{2em}
+	\begin{varwidth}[t]{\linewidth}
+		Пример сходящейся по Чезаро к нулю последовательности $x\notin ac$:~~
+		$$\displaystyle
+			x_k=\begin{cases}
+				1, & 2^j-j < k \leq 2^j,~j\in\mathbb N
+				\\
+				0 & \mbox{для прочих~} k
+			\end{cases}
+		$$
+		$x=(0,1,1,1,\;0,1,1,1,\;\;0,0,0,0,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,1,\;1,1,1,1,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,0,0,\;0,0,0,0,$\\
+		$\phantom{x=(}0,0,0,0,\;0,0,0,0,\;\;0,0,1,1,\;1,1,1,1,...)$
+	\end{varwidth}
+\end{frame}
+
+
+\begin{frame}\frametitle{Инвариантные банаховы пределы }
+	$$H:\ell_\infty \to \ell_\infty$$
+	$$B = BH \quad \Leftrightarrow \quad B\in\B(H)$$
+	\vspace{1em}
+	\begin{ttheorem}[Признак Семенова--Сукочева,~\cite{Semenov2010invariant}]
+		\label{thm:Semenov_Sukochev_conditions}
+		Пусть линейный оператор $H:\ell_\infty\to\ell_\infty$ таков, что:
+		\\(i)   $H \geqslant 0, H \one=\one$;
+		\\(ii)  $H c_0 \subset c_0$;
+		\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in R$,
+		\\где
+		\begin{equation}
+			R=R(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
+			.
+		\end{equation}
+		Тогда $\B(H) \ne\varnothing$.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{B-регулярные операторы}
+	\begin{ddefinition}[\cite{alekhno2018invariant}]
+		\label{def:B-regular_operator}
+		Оператор $H : \ell_\infty \to \ell_\infty$ называется \emph{B-регулярным},
+		если $H^*\B \subseteq \B$.
+		(Или, что то же самое, $BH\in\B$ для любого $B\in\B$.)
+	\end{ddefinition}
+	\begin{ttheorem}[\cite{alekhno2018invariant}]
+		\label{thm:B-regular_is_Eberlein}
+		Любой B-регулярный оператор "--- эберлейнов.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{Введём новые классы операторов}
+	\begin{ddefinition}
+		Будем называть оператор $H:\ell_\infty \to \ell_\infty$ \emph{полуэберлейновым}, если $BH\in\mathfrak B$ для некоторого $B\in\mathfrak B$.
+	\end{ddefinition}
+
+	\begin{ddefinition}
+		Будем называть оператор $H:\ell_\infty \to \ell_\infty$ \emph{существенно эберлейновым}, если $BH\in\mathfrak B$ для любого $B\in\mathfrak B$ и $BH\ne B$ для некоторого $B\in\mathfrak B$.
+	\end{ddefinition}
+\end{frame}
+
+\begin{frame}\frametitle{Классы операторов}
+	$H:\ell_\infty \to \ell_\infty$
+	\begin{itemize}
+		\item
+			полуэберлейновы: такие, что $B_1 H \in\B$ для некоторого $B_1\in \B$;
+		\item
+			эберлейновы: такие, что $B_1 H = B_1$ для некоторого $B_1\in \B$;
+		\item
+			В-регулярные: такие, что $B_1 H \in \B$ для любого   $B_1\in \B$;
+		\item
+			существенно эберлейновы: такие, что $B_1 H \in \B$ для любого $B_1\in \B$ и $B_2 H \ne B_2$ для некоторого $B_2\in \B$.
+	\end{itemize}
+	Каждый следующий из этих классов вложен в предыдущий и не совпадает с ним.
+\end{frame}
+
+
+\begin{frame}\frametitle{Полуэберлейнов оператор, не являющийся эберлейновым}
+	Пусть $B_1, B_2 \in \ext \B$.
+	Положим
+	\begin{equation}
+		\label{eq:am_not_eber_def}
+		B_3 = B_1 + 2(B_2-B_1) = 2B_2-B_1,
+	\end{equation}
+	тогда $B_3 \notin \B$.
+	\begin{equation}
+		2 B_1 H x = B_1 x + B_1 ((B_3 x) \cdot\one) = B_1 x + B_3 x =
+		B_1 x + 2 B_2 x - B_1 x = 2B_2 x
+		,
+	\end{equation}
+	Пусть $B = BH$ для некоторого $B\in\B$.
+	Тогда для всех $x\in\ell_\infty$ имеем
+	\begin{equation}
+		2Bx = B (x + (B_3 x) \cdot \one)
+		\Rightarrow
+		Bx =  B((B_3 x) \cdot \one)
+		\Rightarrow
+		Bx = B_3x
+		.
+	\end{equation}
+\end{frame}
+
+\begin{frame}\frametitle{Эберлейнов оператор, не являющийся В-регулярным}
+	\begin{multline}
+		\label{eq:oper_A_throws_out_2power_blocks}
+		Ax = (x_1, x_2, \not x_3, \not x_4, x_5, x_6, x_7, x_8, \not x_9, ..., \not x_{16}, x_{17}, x_{18}, ..., x_{31}, x_{32}, \not x_{33}, \not x_{34}, ..., \not x_{64},
+		\\
+		x_{65}, x_{66}, ..., x_{128}, \not x_{129}, ...)=
+		\\=
+		(x_1, x_2, \ x_5, x_6, x_7, x_8, \ x_{17}, x_{18}, ..., x_{31}, x_{32}, \ x_{65}, x_{66}, ..., x_{128}, \ x_{257},
+		\\
+		..., \ x_{2^{2n} +1}, x_{2^{2n} +2},  x_{2^{2n+1}}, \ \ x_{2^{2(n+1)} +1},  x_{2^{2(n+1)} +2},  x_{2^{2(n+1)+1}}, ...)
+	\end{multline}
+	Оператор $A$ является В-регулярным.
+	Пусть оператор $E:\ell_\infty\to\ell_\infty$ определён формулой
+	\begin{equation}
+		Ex = x \cdot \chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right] \cup\{1\}}
+		.
+	\end{equation}
+	Тогда, очевидно, $AE=A$.
+	Поскольку $A$ есть В-регулярный оператор, то он эберлейнов,
+	т.е. множество $\B(A)$ непусто.
+	Пусть $B\in\B(A)$. Тогда
+	\begin{equation}
+		B = BA = B(AE) = (BA)E = BE
+		,
+	\end{equation}
+	то есть $B\in\B(E)$.
+	Но оператор $E$ не является В-регулярным.
+	Действительно, $q(E\one) =0$, т.е. $ E\one \notin ac_1$,
+	и не выполнено условие (i) критерия В-регулярности.
+\end{frame}
+
+
+
+
+\setbeamertemplate{bibliography item}{\insertbiblabel\small}
+
+\begin{frame}
+	\printbibliography{}
+\end{frame}
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{frame}
+	{
+		\huge\centering
+		~\\~\\~\\~\\
+		Спасибо за внимание
+	}
+	~\\
+	\vspace{6.28em}
+	nickkolok@mail.ru, avdeev@math.vsu.ru
+	\\
+	github.com/nickkolok
+	\\
+	arxiv.org/a/avdeev\_n\_1.html
+\end{frame}
+
+\end{document}
