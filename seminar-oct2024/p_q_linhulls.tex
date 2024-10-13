@@ -1,1 +1,114 @@
+\begin{frame}\frametitle{Разделяющие множества}
+	Множество $M\subset \ell_\infty$ называется разделяющим,
+	если для любых двух различных банаховых пределов $B_1$ и $B_2$
+	найдётся такой $x\in M$, что $B_1 x \ne B_2 x$.
+	\\~\\
+	Интересны <<маленькие>> разделяющие множества.
+	\\~\\
+	Например, $\Omega$ разделяющее.
+	\\~\\
+	А можно ли ещё меньше?
+\end{frame}
 
+
+\begin{frame}\frametitle{\underline{Разделяющие множества}}
+
+	\begin{ttheorem}
+		Пусть
+		$1 \geq a > b \geq 0$ и
+		$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$.
+		\\
+		Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
+	\end{ttheorem}
+
+	\vfill
+	$\operatorname{Lin}$ ~--- линейная оболочка.
+	\vfill
+	\begin{ttheorem}
+		Множество $\Omega^a_b$ является разделяющим.
+		Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль~\cite{semenov2010characteristic,connor1990almost},
+		то оно является разделяющим множеством нулевой меры.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{Линейные оболочки}}
+
+	Пусть
+	\\
+	$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$,
+	\\
+	$Y^a_b\, = \{x\in A_0 : p(x) = a,~ q(x) = b\}$, где $a>b$.
+	\vfill
+	\begin{ttheorem}
+		Пусть $a\neq -b$.
+		Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0$.
+	\end{ttheorem}
+	\vfill
+	\begin{ttheorem}
+		Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+	\end{ttheorem}
+
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Размерность Хаусдорфа на $\Omega$}
+
+
+	$s$-мерная мера Хаусдорфа непустого подмножества $F\subset \R^n$, $s > 0$ :
+	$$\mathcal H^s(F) := \lim_{\delta\to0} \inf \left\{\sum_{i=1}^\infty \left({\rm diam} \ U_i \right)^s \ : \ F\subset \bigcup_{i=1}^\infty  U_i, \  0\leqslant {\rm diam} \ U_i \leqslant \delta \right\}$$
+
+	\vfill
+
+	Размерность Хаусдорфа множества  $F\subset \R^n$:
+	$${\rm dim}_H F := \inf\{ s > 0 \ : \ \mathcal H^s(F)=0\}.$$
+
+	\vfill
+
+	\begin{ddefinition}
+		Множество $E\subset\Omega$ называется самоподобным, если существуют $m\in\N_2$,
+		$0< r_1, \dots, r_m<1$ и функции $f_j : \Omega \to \Omega$, $j=1,\dots, m$ такие, что
+		$$
+			\rho(f_j(x), f_j(y)) = r_j \rho(x,y), \ \forall \ x,y \in \Omega, \ j=1,\dots, m
+			\mbox{~~и~~} E=\bigcup_{j=1}^m f_j(E).
+		$$
+
+	\end{ddefinition}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}\frametitle{\underline{Размерность Хаусдорфа}}
+
+	\begin{llemma}
+		\label{lem:Hausdorf_measure}
+		Пусть $E\subset\Omega$ и $TE = E$.
+		Тогда размерность Хаусдорфа $E$ равна $1$.
+	\end{llemma}
+
+	\vfill
+
+	Для разделяющего множества
+	\begin{equation}
+		\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}
+		,
+		\quad 0 \leq b < a \leq 1
+		,
+	\end{equation}
+	%являющегося разделяющим согласно следствию~\ref{crl:Lin_Omega_Sucheston},
+	имеем $\mu\Omega^a_b = 0$, но  $\dim_H \Omega^a_b = 1$. А можно ещё <<меньше>>?
+
+	\vfill
+
+
+	\begin{ttheorem}
+		Пусть $n\in\N$.
+		Тогда существует разделяющее множество $E\subset\Omega$ такое,
+		что $\dim_H E = 1/n$.
+	\end{ttheorem}
+\end{frame}
