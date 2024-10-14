@@ -104,7 +104,7 @@ avdeev2022measure,
     \usebeamercolor[fg]{darkblue}%
     \hspace{1em}%
     \huge\bf
-    \insertframenumber/\inserttotalframenumber
+    \insertframenumber/\pageref{slide:final}\!\!
 }
 \input{intro.tex}
 
@@ -163,6 +163,20 @@ avdeev2022measure,
 	github.com/nickkolok
 	\\
 	arxiv.org/a/avdeev\_n\_1.html
+	\label{slide:final}
 \end{frame}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{darkblue}%
+    \hspace{1em}%
+    \huge\bf
+    \insertframenumber/\pageref{slide:final}\!\!
+}
+
+
+\input{traces.tex}
+
 
 \end{document}
