@@ -1,11 +1,20 @@
 \begin{frame}\frametitle{$\alpha$--функция}
 	\begin{equation}
-		\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+		\alpha(x) = \limsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
 		.
 	\end{equation}
-	$\alpha(c)=0$,
-	\\~\\
+	\vfill
+	\begin{equation}
+		\alpha(c)=0,
+		\qquad
+		\alpha(x+y) \leq \alpha(x) + \alpha(y),
+		\qquad
+		|\alpha(x) - \alpha(y)| \leq 2 \|x-y\|
+		.
+	\end{equation}
+	\vfill
 	$\alpha$--функция --- <<мера несходимости>> последовательности;
+	\\
 	равенство $\alpha(x) = 0$, однако, не гарантирует сходимость.
 
 \end{frame}
