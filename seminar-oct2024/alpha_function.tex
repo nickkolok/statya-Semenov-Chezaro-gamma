@@ -1,1 +1,97 @@
+\begin{frame}\frametitle{$\alpha$--функция}
+	\begin{equation}
+		\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+		.
+	\end{equation}
+	$\alpha(c)=0$,
+	\\~\\
+	$\alpha$--функция --- <<мера несходимости>> последовательности;
+	равенство $\alpha(x) = 0$, однако, не гарантирует сходимость.
 
+\end{frame}
+
+\begin{frame}\frametitle{\underline{$\alpha$--функция и оператор сдвига}}
+
+	$\alpha$--функция не инвариантна относительно оператора сдвига $T$
+	\\
+	(в отличие от банаховых пределов).
+
+	\begin{ttheorem}
+		Для любых $x\in\ell_\infty$ и $n \in \N$
+		\begin{equation}\label{est_alpha_Tn_x}
+			\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
+			.
+		\end{equation}
+	\end{ttheorem}
+
+	\begin{ttheorem}
+		Пусть $\beta_k$~--- монотонная невозрастающая последовательность,
+		$\beta_k \to \beta$, $\beta\in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
+		Тогда существует такой $x\in\ell_\infty$, что для любого натурального $n$
+		\begin{equation}
+			\frac{\alpha(T^n x)}{\alpha(x)} = \beta_n.
+		\end{equation}
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{$\alpha$--функция и другие классические операторы}}
+	\begin{ttheorem}
+		Для любого $n\in\N$ и любого $x\in\ell_\infty$ выполнено
+		\begin{equation}
+			\alpha(\sigma_n x) = \alpha(x)
+			\qquad\mbox{и}\qquad
+			\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)
+			.
+		\end{equation}
+	\end{ttheorem}
+
+	\begin{ttheorem}
+		Имеет место равенство
+		\begin{equation}
+			\sup_{x\in\ell_\infty, \alpha(x)\neq 0} \frac{\alpha(Cx)}{\alpha(x)}=1
+			.
+		\end{equation}
+	\end{ttheorem}
+
+	\begin{ttheorem}
+		Пусть $(x\cdot y)_k = x_k\cdot y_k$.
+		Тогда
+		$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
+		где
+		\begin{equation}
+			\|x\|_* = \limsup_{k\to\infty} |x_k|
+		\end{equation}
+		есть  фактор-норма по $c_0$ на пространстве $\ell_\infty$.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{Пространство $A_0$}}
+
+	Пространство $A_0 = \{x: \alpha(x) = 0\}$
+	несепарабельно, замкнуто относительно покоординатного умножения,
+	операторов левого и правого сдвигов $T$ и $U$,
+	оператора Чезаро $C$,
+	операторов растяжения $\sigma_n$ и усредняющего сжатия $\sigma_{1/n}$.
+
+	\begin{equation}
+		A_0 \cap ac_0 = c_0,
+		\qquad
+		A_0 \cap ac\, = c,
+	\end{equation}
+
+	\vfill
+
+	Оба вложения
+	\qquad$
+		c_0 \subset A_0 \subset \ell_\infty
+	$\qquad
+	недополняемы.
+
+	\vfill
+
+	Более того, недополняемо вложение $c_0 \subset ac_0$
+	\\
+	(недополняемость вложения $ac_0 \subset \ell_\infty$ доказана Е.А. Алехно~\cite[{Theorem 8}]{alekhno2006propertiesII})
+\end{frame}
