@@ -1,0 +1,136 @@
+\begin{frame}\frametitle{Пустой слайд}
+
+	Здесь ничего нет!
+\end{frame}
+
+\begin{frame}\frametitle{Пустой слайд}
+
+	...только следы...
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Следы}
+	Пусть $(F, +, \cdot)$~--- некоторое кольцо.
+	\begin{ddefinition}
+		Следом называется такой функционал $\tau : F \to \R$,
+		что для любых $A,B\in F$
+		\begin{equation}
+			\tau (A\cdot B) = \tau (B\cdot A)
+			.
+		\end{equation}
+	\end{ddefinition}
+	\vfill
+	Пример: классический след на кольце квадратных матриц
+	\\
+	(сумма диагональных элементов).
+
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Следы на операторах}
+	Пусть $H$~--- сепарабельное гильбертово пространство,
+	$B(H)$~--- алгебра всех ограниченных линейных операторов на $H$.
+
+	\bigskip
+
+	Классический след:
+	$${\rm Tr} (A)= \sum_{k=0}^\infty \lambda(k,A),$$
+	где $\{\lambda(k,A)\}_{k=0}^\infty$ --- последовательность собственных значений компактного оператора $A$.
+
+	\bigskip
+
+	След называется нормальным, если
+	\\
+	для любой монотонно сходящейся $A_k\to A$ верно $\operatorname{Tr} A_k \to\operatorname{Tr} A$.
+
+	\vfill
+	Классический след является единственным нормальным (с точностью до константы).
+
+	А есть ли другие, анормальные?
+
+
+\end{frame}
+
+
+
+ \begin{frame}\frametitle{Конструкция Диксмье (1966)}
+
+	Сингулярные значения $\mu(k,A)=\lambda(k,|A|)$ (в убывающем порядке),
+	где $|A|=\sqrt{A*A}$.
+
+	Пространство Лоренца:
+	$$\mathcal M_{1,\infty} := \left\{ A \ \text{компактен} \ : \ \sup_{n> 0}  \frac{1}{\log(1+n)} \sum_{k=0}^{n-1} \mu(k,A) < \infty \right \}.$$
+
+	Положим
+	$${\rm Tr}_\omega (A):= \omega \left( \frac{1}{\log(1+n)} \sum_{k=0}^{n-1} \lambda(k,A) \right), \quad 0\le A \in \mathcal M_{1,\infty},$$
+	где $\omega\in \ell_\infty^*$ такое, что
+	$$\omega(x_0, x_1, \dots)=\omega(x_0, x_0, x_1, x_1, \dots).$$
+
+
+	\bigskip
+	1. ${\rm Tr}_\omega$ --- след;
+
+	2. ${\rm Tr}_\omega$ нетривиален: ${\rm Tr}_\omega ({\rm diag} \left\{ \frac1{n+1} \right\})=1$;
+
+	3. ${\rm Tr}_\omega(A)=0$, если $A$ любой оператор конечного ранга.
+	\bigskip
+
+	\begin{center}
+	Т.е. ${\rm Tr}_\omega$ --- нетривиальный, анормальный след.
+	\end{center}
+\end{frame}
+
+
+
+
+
+\begin{frame}\frametitle{Следы и банаховы пределы}
+	 Для любого банахова предела $B$ функционал
+	 $$A \mapsto B \left( \frac{1}{1+n} \sum_{k=0}^{2^n-1} \lambda(k,A) \right), \quad 0\le A \in \mathcal M_{1,\infty}$$
+	продолжается по линейности на все пространство $\mathcal M_{1,\infty}$ до некоторого следа Диксмье\footnote{П. Г. Доддс, Б. де Пагтер, А. А. Седаев, Е. М. Семенов, Ф. А. Сукочев, Изв. РАН. Сер. матем., 67:6 (2003),  111–136.}.
+
+	\vfill
+
+		Отображение $\omega \mapsto {\rm Tr}_\omega$ из множества $\sigma_2$-инвариантных обобщённых пределов на $\ell_\infty$ во множество сингулярных следов на $\mathcal M_{1,\infty}$ не является ни инъективным,\footnote{Sukochev, F., Usachev, A., and Zanin, D., Adv. Math. 239 (2013), 164--189.
+	} ни сюръективным\footnote{Kalton, N., and Sukochev, F., Canad. Math. Bull. 51, 1 (2008), 67--80.}.
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Альтернативная конструкция сингулярных следов (А.С. Усачёв и др.)}
+
+	Обозначим через $\mathcal L_{1,\infty}$ линейное пространство всех компактных операторов на фиксированном гильбертовом прострастве $H$, для которых квази-норма
+	$$\|A\|_{\mathcal L_{1,\infty}} = \sup_{n \ge 0} (n+1) \mu(n,A)$$
+	конечна. Легко видеть, что $\mathcal L_{1,\infty} \subsetneq \mathcal M_{1,\infty}$.
+
+	\vfill
+
+	Зафиксируем некий базис $\{e_n\}$ в гильбертовом пространстве $H$ и обозначим через ${\rm diag}$ диагональный оператор в $B(H)$, соответствующий этому базису.
+
+\end{frame}
+
+\begin{frame}\frametitle{Альтернативная конструкция сингулярных следов (А.С. Усачёв и др.)}
+
+	Определим оператор $D: \ell_\infty \to \mathcal L_{1,\infty}$ следующим образом
+	\begin{align*}
+	D(x_0, x_1, \dots) := \log 2 \cdot {\rm diag} \sum_{n=0}^\infty \frac{x_n}{2^n} \chi_{[2^n-1,2^{n+1}-2]}.
+	\end{align*}
+
+	\begin{ttheorem}
+		(i) Для любого инвариантного относительно сдвига функционала $\theta$ на $\ell_\infty$ функционал
+	\begin{equation}\label{ssec:Gen:formula1}
+	\tau(A) = \theta\left(\sum_{i=2^n-1}^{2^{n+1}-2} \lambda(i,A) \right) , \quad A\ge0,
+	\end{equation}
+	продляется по линейности до сингулярного следа $\tau$ на $\mathcal L_{1,\infty}$.
+
+	(ii) Для любого сингулярного следа $\tau$ на $\mathcal L_{1,\infty}$ и инвариантного относительно сдвига функционала $\theta=\tau\circ D$ на $\ell_\infty$ справедлива формула ~\eqref{ssec:Gen:formula1}.
+	\end{ttheorem}
+
+\end{frame}
+
+
+
