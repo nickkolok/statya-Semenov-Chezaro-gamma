@@ -20,27 +20,48 @@
 \end{frame}
 
 \begin{frame}\frametitle{\underline{$\alpha$--функция и оператор сдвига}}
-
+	\vfill
 	$\alpha$--функция не инвариантна относительно оператора сдвига $T$
 	\\
 	(в отличие от банаховых пределов).
 
 	\begin{ttheorem}
 		Для любых $x\in\ell_\infty$ и $n \in \N$
-		\begin{equation}\label{est_alpha_Tn_x}
-			\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
+		выполнено
+		$\displaystyle\qquad
+			\frac{1}{2}\alpha(x) \leq \lim_{m\to\infty} \alpha(T^m x)\leq\alpha(T^n x) \leq \alpha(x)
 			.
-		\end{equation}
+		$
 	\end{ttheorem}
+
+	\vfill
 
 	\begin{ttheorem}
 		Пусть $\beta_k$~--- монотонная невозрастающая последовательность,
-		$\beta_k \to \beta$, $\beta\in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
+		$\beta_k \to \beta \in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
 		Тогда существует такой $x\in\ell_\infty$, что для любого натурального $n$
 		\begin{equation}
 			\frac{\alpha(T^n x)}{\alpha(x)} = \beta_n.
 		\end{equation}
 	\end{ttheorem}
+	%\vfill
+	%
+	\vspace{-1.46em}
+	\begin{ttheorem}
+		\label{thm:rho_x_c_leq_alpha_t_s_x}
+		Для любого $x\in ac$ и $n \in \N$
+		выполнено
+		$\displaystyle
+			\frac{1}{2}\alpha(x) \leq \rho(x,c) \leq
+			\lim_{m\to\infty} \alpha(T^m x)\leq \alpha(T^n x)
+			\leq
+			\alpha(x)
+			.
+		$
+	\end{ttheorem}
+	Аналогично для $ac_0$ и $c_0$. Условие почти сходимости существенно.
+
+	\vfill
 \end{frame}
 
 
