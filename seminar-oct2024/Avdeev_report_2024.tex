@@ -95,12 +95,17 @@ our-ped-2018-inf-dim-ker,
 our-ped-2018-alpha-Tx,
 avdeev2022measure,
 %TODO: если будут ещё работы
-}.
+}
 
 
-\setbeamertemplate{footline}[frame number]
-\setbeamertemplate{navigation symbols}{\large{}}
-
+%\setbeamertemplate{footline}[frame number]
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{darkblue}%
+    \hspace{1em}%
+    \huge\bf
+    \insertframenumber/\inserttotalframenumber
+}
 \input{intro.tex}
 
 
