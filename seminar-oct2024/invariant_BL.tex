@@ -249,3 +249,31 @@
 
 \end{frame}
 
+
+\begin{frame}\frametitle{\underline{Мультипорождённые операторы и инвариантность}}
+	\begin{multline}
+		Ax = (x_1, x_2, \not x_3, \not x_4, x_5, x_6, x_7, x_8, \not x_9, ..., \not x_{16}, x_{17}, x_{18}, ..., x_{31}, x_{32}, \not x_{33}, \not x_{34}, ..., \not x_{64},
+		\\
+		x_{65}, x_{66}, ..., x_{128}, \not x_{129}, ...)=
+		\\=
+		(x_1, x_2, \ x_5, x_6, x_7, x_8, \ x_{17}, x_{18}, ..., x_{31}, x_{32}, \ x_{65}, x_{66}, ..., x_{128}, \ x_{257},
+		\\
+		..., \ x_{2^{2n} +1}, x_{2^{2n} +2},  x_{2^{2n+1}}, \ \ x_{2^{2(n+1)} +1},  x_{2^{2(n+1)} +2},  x_{2^{2(n+1)+1}}, ...)
+	\end{multline}
+	Операторы $A$ и $A\sigma_2$ В-регулярны; $\B(A) \ne\varnothing$, $\B(A\sigma_2) \ne\varnothing$,
+	$\B(A) \cap \B(A\sigma_2) =\varnothing$.
+
+	\vfill
+
+	Выберем $B_1 \in \B (A)$ и $B_2 \in \B(A\sigma_2)$ и определим оператор $H$ соотношением
+	\begin{equation}
+		Hx = (B_1 x, B_1 x, \ B_2 x, B_2 x, \ B_1 x, B_1 x, B_1 x, B_1 x, \ \underbrace{B_2 x, ..., B_2 x}_{8~\mbox{раз}}, ...)
+		.
+	\end{equation}
+
+	Тогда $[B_1; B_2]\subset \B(H)$.
+	Оператор $(\sigma_2 H)^*$ переводит отрезок $[B_1; B_2]$ в $[B_2; B_1]$,
+	т.е. <<меняет местами>> два банаховых предела,
+	и $\dfrac{B_1 + B_2}2 \in \B(\sigma_2 H)$.
+\end{frame}
+
