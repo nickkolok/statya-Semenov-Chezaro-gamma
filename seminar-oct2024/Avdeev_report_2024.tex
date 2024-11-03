@@ -46,6 +46,7 @@
 
 
 \usepackage{varwidth}
+\usepackage{substr}
 
 \usepackage{amsthm}
 \theoremstyle{definition}
@@ -95,6 +96,12 @@ our-ped-2018-inf-dim-ker,
 our-ped-2018-alpha-Tx,
 avdeev2022measure,
 %TODO: если будут ещё работы
+}
+
+
+\IfSubStringInString{\detokenize{_withmeta}}{\jobname}{
+	\input{metadata.tex}
+}{
 }
 
 
