@@ -2,12 +2,12 @@
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[croatian,german,french,english,russian]{babel}
-\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,amsthm} %подключаем нужные пакеты расширений
 \usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
 %\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage{indentfirst} % включить отступ у первого абзаца
-\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
-\graphicspath{{illustr/}}%путь к рисункам
+%\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+%\graphicspath{{illustr/}}%путь к рисункам
 
 \makeatletter
 \renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
@@ -103,14 +103,17 @@
 \title{
 	Classes of linear operators defined via Banach limits
 	\footnote{
-		TODO
+		TODO - grant
 	}
 }
 
 \author{
-	Н.Н. Авдеев
+	A.S. Usachev
+	\footnote{TODO},
+	R.E. Zvolinsky
+	\footnote{TODO},
+	N.N. Avdeev
 	\footnote{nickkolok@mail.ru, avdeev@math.vsu.ru}
-	+TODO
 }
 
 \maketitle
@@ -124,30 +127,89 @@ TODO
 \paragraph{Keywords}
 	space of bounded sequences,
 	Banach limits,
-	separating set,
 	Sucheston functional,
-	measure of a set
+
 
 
 
 \section{Введение}
 
-TODO: определение банахова предела
+Рассмотрим пространство ограниченных последовательностей $\ell_\infty$ с обычной нормой
+\begin{equation*}
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	.
+\end{equation*}
+и обычной полуупорядоченностью, где $\mathbb{N}$ "--- множество натуральных чисел.
+Через $c$ будем обозначать пространство сходящихся последовательностей,
+через $c_0$ "--- пространство последовательностей, сходящихся к нулю.
 
 
-По определению, каждый банахов предел инвариантен относительно оператора сдвига: $B=BT$.
+\begin{definition}
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbbm{1}=1$, где $\mathbbm{1} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+\end{definition}
+Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}.
+
+
+
+	Сачестон~\cite{sucheston1967banach} установил, что
+	для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+	\begin{equation}\label{Sucheston}
+		q(x) \leqslant Bx \leqslant p(x)
+		,
+	\end{equation}
+	где
+	\begin{equation*}
+		q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+		~~~~\mbox{и}~~~~
+		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+		.
+	\end{equation*}
+	называют нижним и верхним функционалом Сачестона соотвественно.
+	Заметим, что $p(x) = -q(-x)$.
+	Неравенства \eqref{Sucheston} точны:
+	для данного $x$ для любого $r\in[q(x); p(x)]$ найдётся банахов предел
+	$B\in\mathfrak{B}$ такой, что $Bx = r$.
+
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует подпространство почти сходящихся последовательностей $ac$~~\cite{lorentz1948contribution}.
+На почти сходящейся последовательности все банаховы пределы принимают одинаковые значения.
+
+Через $ac_\lambda$ будем обозначать множество последовательностей, почти сходящихся к $\lambda$,
+т.е. таких $x\in\ell_\infty$, что $p(x)=q(x)=\lambda$.
+
+	Е.~А. Алехно  доказал \cite{alekhno2012superposition}, что в пространстве $ac_0$
+	существует максимальный (по включению) идеал~-- идеальный
+	стабилизатор пространства почти сходящихся к нулю последовательностей,
+	обозначаемый $\mathcal I(ac_0)$.
+
+
+Итак, каждый банахов предел по определению инвариантн относительно оператора сдвига.
 Возникает закономерный вопрос: относительно каких ещё операторов инвариантны банаховы пределы?
 
-Мы не будем рассматривать здесь операторы обобщённого сдвига~\cite{marchenko2006generalized,lewitan1945normed};
-%TODO2: при критической необходимости ссылок можно набрать тут:
-%https://encyclopediaofmath.org/index.php?title=Generalized_displacement_operators#References
-достаточно естественным обобщением обычного сдвига являются <<движения>> "--- инъективные отображения $\N$ в себя без периодических точек; за их обсуждением в свете банаховых пределов отсылаем читателя к работе Р.\,Нильсена~\cite{Nillsen}.
 
 Уже для совершенно естественного "--- если бы мы говорили об обычной сходимости последовательностей "---
-оператора растяжения $\sigma_k$
-(напомним, что этот оператор просто повторяет каждый элемент последовательности $k$ раз)
-выясняется, что относительно этого оператора инварианты не все банаховы пределы!
-Более того, инвариантность конкретного банахова предела зависит от выбора $k\in\N_2$.
+оператора растяжения $\sigma_k$, который
+просто повторяет каждый элемент последовательности $k\geq 2$ раз:
+\begin{equation}
+	\sigma_n (x_1, x_2, x_3, ...) = (
+		\underbrace{x_1,...,x_1}_{n~\text{раз}},
+		\underbrace{x_2,...,x_2}_{n~\text{раз}},
+		\underbrace{x_3,...,x_3}_{n~\text{раз}},
+		...)
+\end{equation}
+выясняется, что относительно этого оператора инварианты не все банаховы пределы~\cite{TODO}!
+Более того, инвариантность конкретного банахова предела зависит от выбора $k\in\N$.
 
 Для оператора Чезаро
 \begin{equation}
@@ -162,7 +224,7 @@ TODO: определение банахова предела
 	.
 \end{equation}
 ситуация с инвариантностью банаховых пределов обстоит ещё <<хуже>>.
-Напомним, что через $\B(H)$ мы обозначаем множество банаховых пределов,
+Через $\B(H)$ мы обозначаем множество банаховых пределов,
 инвариантных относительно оператора $H$,
 т.е. таких $B\in \B$, что $B=BH$.
 Так, в~\cite[\S2, Theorem 4]{semenov2020dilation} показано, что
@@ -176,23 +238,22 @@ TODO: определение банахова предела
 
 Важной вехой в изучении инвариантных банаховых пределов явилась следующая теорема,
 доказанная в~\cite[\S2]{Semenov2010invariant}.
-Мы ещё не раз будем возвращаться к её обсуждению.
 
 \begin{theorem}
 	\label{thm:Semenov_Sukochev_conditions}
 	Пусть линейный оператор $H:\ell_\infty\to\ell_\infty$ таков, что:
 	\\(i)   $H \geqslant 0, H \one=\one$;
 	\\(ii)  $H c_0 \subset c_0$;
-	\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in R$,
+	\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in G$,
 	\\где
 	\begin{equation}
-		R=R(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
+		G=G(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
 		.
 	\end{equation}
 	Тогда $\B(H) \ne\varnothing$.
 \end{theorem}
 
-В настоящей главе в теореме~\ref{thm:Eberlein_but_not_B-regular_exists}
+In the present paper in Theorem~\ref{thm:Eberlein_but_not_B-regular_exists}
 строится пример такого оператора $E$, что $\B(E)\ne\varnothing$,
 но $E\one \ne \one$, что показывает существенную избыточность условий теоремы~\ref{thm:Semenov_Sukochev_conditions}.
 
@@ -205,19 +266,13 @@ TODO: определение банахова предела
 $n\in\N_2$, $B_1 \in \B(\sigma_n)$, $B_2 \in \ext\B$ выполнено равенство
 $\rho(B_1,B_2) = 2$, т.е. расстояние является максимально возможным.
 
+TODO: reverse invariance (со ссылкой)
 
 %TODO2: тут можно сказать больше про расстояние от $\ext \B$ до $\B(C)$ и прочих там всяких $\B(\sigma_n)$ (а также их объединения?).
 
 Тем не менее, в настоящей главе удалось использовать элементы $\ext\B$ для исследования инвариантных банаховых пределов
 "--- в теореме~\ref{thm:amiable_but_not_Eberlein_exists}.
 
-При взгляде на включение~\eqref{eq:B_C_subsetneq_B_sigma_n} возникает закономерный вопрос:
-а можно ли найти такой <<самый лучший>> банахов предел (или класс банаховых пределов),
-который был бы инвариантен относительно всех линейных операторов,
-относительно которых инвариантен хотя бы один банахов предел?
-Отрицательный ответ на этот вопрос даёт теорема~\ref{thm:generated_operator_G_B}, в которой
-для произвольного $B\in \B$ строится такой оператор $G_B:\ell_\infty \to \ell_\infty$,
-что $\B(G_B) = \{B\}$.
 
 Инвариантные банаховы пределы находят приложения в некоммутативной геометрии
 и теории сингулярных следов, где используются в качестве элемента конструкции
@@ -252,6 +307,10 @@ $\rho(B_1,B_2) = 2$, т.е. расстояние является максима
 	\label{thm:B-regular_is_Eberlein}
 	Любой B-регулярный оператор "--- эберлейнов.
 \end{theorem}
+
+%TODO: strong B-regularity; is sprawling  operator strong-B-regular?
+%Является, но лучше не надо.
+
 Там же приводится следующее необходимое и достаточное условие В-регулярности.
 
 \begin{theorem}
@@ -327,6 +386,8 @@ $\sigma_k$, $C$
 	by the definition of B-regular operator $H_1$,
 	that is exactly the definition of semi-Eberlein operator for $H_2 \circ H_1$.
 \end{proof}
+
+
 
 \section{Sprawling operators}
 
@@ -613,6 +674,7 @@ $\sigma_k$, $C$
 \section{An Eberlein operator that is not B-regular}
 
 \begin{lemma}
+	\label{lem:R_is_sprawling}
 	Let $R$ be a subsequence operator defined as
 	\begin{multline}
 		\label{eq:sprawling_R}
@@ -637,7 +699,7 @@ $\sigma_k$, $C$
 	Пусть оператор $R$ определён формулой~\eqref{eq:sprawling_R}.
 	Пусть оператор $E:\ell_\infty\to\ell_\infty$ определён формулой
 	\begin{equation}
-		Ex = x \cdot \chi_{\cup_{k=1}^{\infty}\left[2^{k}, 2^k + 2^{k-1} - 1\right]
+		Ex = x \cdot \chi\cup_{k=1}^{\infty}\left[2^{k}, 2^k + 2^{k-1} - 1\right]
 		.
 	\end{equation}
 	Тогда, очевидно, $RE=R$.
@@ -659,14 +721,14 @@ $\sigma_k$, $C$
 \begin{hypothesis}
 	Выполнено равенство
 	\begin{equation}
-		\B(E) = \B(A)
+		\B(E) = \B(R)
 		.
 	\end{equation}
 \end{hypothesis}
 
 \begin{remark}
 	В конструкции оператора $E$ вместо блоков из нулей можно вставлять любые другие блоки "---
-	они всё равно будут поглощены оператором $A$.
+	они всё равно будут поглощены оператором $R$.
 	Эти блоки могут иметь различный знак, например, содержать значительное количество
 	элементов вида $-kx_1$, $kx_2$ и т.д.
 	Таким образом, можно сконструировать эберлейновы операторы, очень и очень далёкие
@@ -683,17 +745,36 @@ $\sigma_k$, $C$
 
 In~\cite{TODO}, the following functional characteristic of a Banach limit was introduced:
 
-TODO: def
+ Обозначим через $\Gamma$ множество всех неубывающих на $[0, 1]$ функций $f$ таких,
+    что $f(0) = 0$ и $f(1) = 1$. Каждому $B \in \mathfrak B$
+    ставится в соответствие следующая функция, определенная на $[0, 1]$:
+    $$
+		\gamma(B, t) = B \chi\Bigg(\bigcup^\infty_{n = 1} [2^n, 2^{n + t})\Bigg)
+		.
+    $$
+    Функция $\gamma(B,t)$ была введена в статье \cite{semenov2019main}.
 
-TODO: basic features
+    Легко увидеть, что $\gamma (B, t) \in \Gamma$ для всех $B \in \mathfrak B$.
+    Справедливо и обратное. Для любой $f \in \Gamma$ существует такой
+	$B \in \mathfrak B$, что $\gamma(B, t) = f(t)$ для всех
+	$t \in [0, 1]$~\cite[Предложение 2]{semenov2019main}.
+    For the sake of brevity, we will can $\gamma(B,t)$ the \emph{signature}
+    of Banach limit $B$.
 
-TODO: for Cesaro-invariant BL, the signature...
+	Другая функциональная характеристика -- аналог функции распределения -- была введена в работе Е.~А.~Алехно~\cite{Alekhno2}.
+
+	В силу монотонности сигнатура имеет не более чем счётное количество точек разрыва.
+	In~\cite[Теорема 23]{semenov2019main}, it is proved that
+	для любых $B \in \mathfrak B(C)$, $t \in [0, 1]$ верно равенство $\gamma (B, t) = t$.
+
+
+
 
 In this section, we provide the examples of Banach limits for that the signature is almost constant.
 
 \begin{lemma}
 	Let R be the subsequence operator
-	defined by~\eqref{TODO}.
+	defined by~\eqref{eq:sprawling_r}.
 	Then $\B(R) \ne\varnothing$ and for every $B\in \B(R)$ we have
 	\begin{equation}
 		\gamma(B, t) = \chi(0;1]
@@ -702,19 +783,17 @@ In this section, we provide the examples of Banach limits for that the signature
 \end{lemma}
 
 \begin{proof}
-	First, let us prove that $R$ is sprawling.
+	Due to Lemma~\ref{lem:R_is_sprawling}, $R$ is sprawling.
+	Thus, $R$ is B-regular by Theorem~\ref{TODO} and thus Eberlein due to Theorem~\ref{TODO},
+	so $\B(R)\ne \varnothing$.
 
-	TODO
-
-
-
-	Пусть $B \in \mathfrak{B}(R)\ne\varnothing$ и
+	Take any $B \in \mathfrak{B}(R)$ and
 	\begin{equation}
 		y = \chi \cup_{n=1}^\infty \left[ 2^n; 2^{n-1+\log_2 3}\right) =
 		\chi \{ 2; \; 4;5; \; 8;9;10;11; \; 16;17;... \}\quad]
 		,
 	\end{equation}
-	тогда $Ry=\one$.
+	then $Ry=\one$.
 
 	Следовательно, по определению сигнатуры, $\gamma(B,t) = 1$ для всех $t \geq \log_2 3 - 1 = \log_2 \frac32$.
 
@@ -760,7 +839,9 @@ In this section, we provide the examples of Banach limits for that the signature
 	.
 \end{remark}
 
+TODO: а можно ли скачок в произвольной точке?
 
+TODO: про диадический фрактал
 
 \printbibliography{}
 
