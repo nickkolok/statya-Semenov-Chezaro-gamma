@@ -1,0 +1,767 @@
+\documentclass[a4paper,14pt]{article} %размер бумаги устанавливаем А4, шрифт 12пунктов
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[croatian,german,french,english,russian]{babel}
+\usepackage{amssymb,amsfonts,amsmath,mathtext,enumerate,float,amsthm} %подключаем нужные пакеты расширений
+\usepackage[unicode,colorlinks=true,citecolor=black,linkcolor=black]{hyperref}
+%\usepackage[pdftex,unicode,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{indentfirst} % включить отступ у первого абзаца
+\usepackage[dvips]{graphicx} %хотим вставлять рисунки?
+\graphicspath{{illustr/}}%путь к рисункам
+
+\makeatletter
+\renewcommand{\@biblabel}[1]{#1.} % Заменяем библиографию с квадратных скобок на точку:
+\makeatother %Смысл этих трёх строчек мне непонятен, но поверим "Запискам дебианщика"
+
+\usepackage{geometry} % Меняем поля страницы.
+\geometry{left=2cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\theenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+\sloppy
+
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+\newcommand{\one}{\ensuremath{\mathbbm 1}}
+
+
+
+
+\renewcommand\normalsize{\fontsize{14}{25.2pt}\selectfont}
+
+%\usepackage{cite}
+
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{corollary}{Следствие}[lemma]
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
+\newtheorem{hypothesis}[lemma]{Гипотеза}
+
+\usepackage{bbm}
+
+
+%Only referenced equations are numbered
+\let\etoolboxforlistloop\forlistloop % save the good meaning of \forlistloop
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+\let\forlistloop\etoolboxforlistloop % restore the good meaning of \forlistloop
+
+% https://tex.stackexchange.com/questions/220268/biblatex-and-autonum-dont-work-together
+
+%\mathtoolsset{showonlyrefs=false}
+% (write an equation/multline to be force-numbered here)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+
+
+\begin{document}
+
+%\renewcommand{\bibname}{Список цитированной литературы}
+%\renewcommand\refname{\bibname}
+% !!!
+% The text starts here
+
+\title{
+	Classes of linear operators defined via Banach limits
+	\footnote{
+		TODO
+	}
+}
+
+\author{
+	Н.Н. Авдеев
+	\footnote{nickkolok@mail.ru, avdeev@math.vsu.ru}
+	+TODO
+}
+
+\maketitle
+
+УДК 517.982.276 % Пространства последовательностей и матриц
+
+\paragraph{Abstract}
+TODO
+
+
+\paragraph{Keywords}
+	space of bounded sequences,
+	Banach limits,
+	separating set,
+	Sucheston functional,
+	measure of a set
+
+
+
+\section{Введение}
+
+TODO: определение банахова предела
+
+
+По определению, каждый банахов предел инвариантен относительно оператора сдвига: $B=BT$.
+Возникает закономерный вопрос: относительно каких ещё операторов инвариантны банаховы пределы?
+
+Мы не будем рассматривать здесь операторы обобщённого сдвига~\cite{marchenko2006generalized,lewitan1945normed};
+%TODO2: при критической необходимости ссылок можно набрать тут:
+%https://encyclopediaofmath.org/index.php?title=Generalized_displacement_operators#References
+достаточно естественным обобщением обычного сдвига являются <<движения>> "--- инъективные отображения $\N$ в себя без периодических точек; за их обсуждением в свете банаховых пределов отсылаем читателя к работе Р.\,Нильсена~\cite{Nillsen}.
+
+Уже для совершенно естественного "--- если бы мы говорили об обычной сходимости последовательностей "---
+оператора растяжения $\sigma_k$
+(напомним, что этот оператор просто повторяет каждый элемент последовательности $k$ раз)
+выясняется, что относительно этого оператора инварианты не все банаховы пределы!
+Более того, инвариантность конкретного банахова предела зависит от выбора $k\in\N_2$.
+
+Для оператора Чезаро
+\begin{equation}
+	C (x_1, x_2, x_3, ...) = \left(
+	x_1,
+	\dfrac{x_1+x_2}2,
+	\dfrac{x_1+x_2 + x_3}3,
+	\dfrac{x_1+x_2+x_3+x_4}4,
+	...,
+	\dfrac{x_1+...+x_n}n,
+	...\right)
+	.
+\end{equation}
+ситуация с инвариантностью банаховых пределов обстоит ещё <<хуже>>.
+Напомним, что через $\B(H)$ мы обозначаем множество банаховых пределов,
+инвариантных относительно оператора $H$,
+т.е. таких $B\in \B$, что $B=BH$.
+Так, в~\cite[\S2, Theorem 4]{semenov2020dilation} показано, что
+\begin{equation}
+	\label{eq:B_C_subsetneq_B_sigma_n}
+	\B(C) \subsetneq \bigcap_{n\in \N}\B(\sigma_n)
+	.
+\end{equation}
+(это утверждение обобщает~\cite[Theorem 3]{semenov2020invariant_noncommutative}
+и~\cite[Theorem 4.8]{ASSU4}).
+
+Важной вехой в изучении инвариантных банаховых пределов явилась следующая теорема,
+доказанная в~\cite[\S2]{Semenov2010invariant}.
+Мы ещё не раз будем возвращаться к её обсуждению.
+
+\begin{theorem}
+	\label{thm:Semenov_Sukochev_conditions}
+	Пусть линейный оператор $H:\ell_\infty\to\ell_\infty$ таков, что:
+	\\(i)   $H \geqslant 0, H \one=\one$;
+	\\(ii)  $H c_0 \subset c_0$;
+	\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in R$,
+	\\где
+	\begin{equation}
+		R=R(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
+		.
+	\end{equation}
+	Тогда $\B(H) \ne\varnothing$.
+\end{theorem}
+
+В настоящей главе в теореме~\ref{thm:Eberlein_but_not_B-regular_exists}
+строится пример такого оператора $E$, что $\B(E)\ne\varnothing$,
+но $E\one \ne \one$, что показывает существенную избыточность условий теоремы~\ref{thm:Semenov_Sukochev_conditions}.
+
+
+Достаточно <<плохими>> в смысле инвариантности оказываются крайние точки множества банаховых пределов $\ext \B$.
+Это множество не является слабо$^*$ замкнутым~\cite{Nillsen,Talagrand},
+и его мощность совпадает~\cite{Chou} с мощностью всего пространства $\ell_\infty^*$
+и составляет $2^{\mathfrak c}$.
+Из~\cite[Corollary 6]{semenov2020dilation} непосредственно следует, что для любых
+$n\in\N_2$, $B_1 \in \B(\sigma_n)$, $B_2 \in \ext\B$ выполнено равенство
+$\rho(B_1,B_2) = 2$, т.е. расстояние является максимально возможным.
+
+
+%TODO2: тут можно сказать больше про расстояние от $\ext \B$ до $\B(C)$ и прочих там всяких $\B(\sigma_n)$ (а также их объединения?).
+
+Тем не менее, в настоящей главе удалось использовать элементы $\ext\B$ для исследования инвариантных банаховых пределов
+"--- в теореме~\ref{thm:amiable_but_not_Eberlein_exists}.
+
+При взгляде на включение~\eqref{eq:B_C_subsetneq_B_sigma_n} возникает закономерный вопрос:
+а можно ли найти такой <<самый лучший>> банахов предел (или класс банаховых пределов),
+который был бы инвариантен относительно всех линейных операторов,
+относительно которых инвариантен хотя бы один банахов предел?
+Отрицательный ответ на этот вопрос даёт теорема~\ref{thm:generated_operator_G_B}, в которой
+для произвольного $B\in \B$ строится такой оператор $G_B:\ell_\infty \to \ell_\infty$,
+что $\B(G_B) = \{B\}$.
+
+Инвариантные банаховы пределы находят приложения в некоммутативной геометрии
+и теории сингулярных следов, где используются в качестве элемента конструкции
+различных подклассов следов Диксмье
+~\cite{carey2003spectral,lord2012singular,sukochev2015characterization,sukochev2016dixmier}.
+
+
+При изучении инвариантности банаховых пределов относительно различных непрерывных линейных операторов
+возникает закономерный вопрос о выделении некоторых классов этих операторов.
+
+\begin{definition}
+	Будем говорить, что оператор $H : \ell_\infty \to \ell_\infty$ \emph{эберлейнов},
+	если $\B (H) \ne \varnothing$.
+\end{definition}
+
+Выбор именования этого класса операторов обусловлен тем, что именно Эберлейн в работе~\cite{Eberlein}
+впервые сколь-либо системно изучил инвариантные банаховы пределы
+(хотя отдельные шаги в этом направлении были сделаны ещё Эгнью и Морсом~\cite{agnew1938linear,agnew1938extensions}).
+
+В работе~\cite{alekhno2018invariant} вводится следующее
+
+\begin{definition}
+	\label{def:B-regular_operator}
+	Оператор $H : \ell_\infty \to \ell_\infty$ называется \emph{B-регулярным},
+	если $H^*\B \subseteq \B$.
+	(Или, что то же самое, $BH\in\B$ для любого $B\in\B$.)
+\end{definition}
+
+В той же работе с помощью теоремы Брауэра--Шаудера--Тихонова о неподвижной точке~\cite[Corollary  17.56]{aliprantis2006infinite}
+доказывается следующая
+\begin{theorem}
+	\label{thm:B-regular_is_Eberlein}
+	Любой B-регулярный оператор "--- эберлейнов.
+\end{theorem}
+Там же приводится следующее необходимое и достаточное условие В-регулярности.
+
+\begin{theorem}
+	\label{thm:crit_B_regularity}
+	Оператор $H:\ell_\infty \to \ell_\infty$ является B-регулярным тогда и только тогда, когда:
+	\\(i) $H\one \in ac_1$;
+	\\(ii) $q(Hx)\geq 0$ для любого $x\geq 0$;
+	\\(iii) $H ac_0 \subseteq ac_0$.
+\end{theorem}
+Легко заметить, что эти условия являются в целом более слабыми, чем достаточные условия эберлейновости
+(теорема~\ref{thm:Semenov_Sukochev_conditions}).
+
+\begin{corollary}
+	Пусть $x\in ac_\lambda$ и оператор $H$ является В-регулярным.
+	Тогда $Hx \in ac_\lambda$.
+\end{corollary}
+
+Кроме того, в той же работе~\cite{alekhno2018invariant}
+с помощью теоремы Крейна--Мильмана~\cite[Theorem  9.14]{aliprantis2006positive}
+доказывается следующая
+\begin{lemma}
+	Пусть оператор $H:\ell_\infty\to\ell_\infty$ является B-регулярным.
+	Тогда множество $\ext\B(H)$ непусто.
+\end{lemma}
+
+Возникает закономерный вопрос: существует ли эберлейнов оператор, не являющийся B-регулярным?
+Интуитивно кажется, что существует, однако в вопросах, связанных с банаховыми пределами,
+многие факты оказываются контринтуитивными.
+Пример эберлейнова не В-регулярного оператора строится ниже
+в теореме~\ref{thm:Eberlein_but_not_B-regular_exists}.
+
+Подобные рассуждения можно продолжить в обе стороны, а именно "--- следующими двумя определениями:
+
+\begin{definition}
+	Будем называть оператор $A:\ell_\infty \to \ell_\infty$ \emph{полуэберлейновым}, если $BA\in\mathfrak B$ для некоторого $B\in\mathfrak B$.
+\end{definition}
+
+\begin{definition}
+	Будем называть оператор $A:\ell_\infty \to \ell_\infty$ \emph{существенно эберлейновым}, если $BA\in\mathfrak B$ для любого $B\in\mathfrak B$ и $BA\ne B$ для некоторого $B\in\mathfrak B$.
+\end{definition}
+
+Эти четыре класса операторов (существенно эберлейновы, В-регулярные, эберлейновы, полуэберлейновы "--- в порядке включения)
+получены последовательным ослаблением условий, естественных для <<достаточно хороших>> операторов:
+$\sigma_k$, $C$
+и образуют иерархию по включению.
+Возникает закономерный вопрос о совпадении классов.
+Ясно, что оператор сдвига $T$ является В-регулярным, но не является существенно эберлейновым, поскольку относительно него любой банахов предел инвариантен по определению.
+Более того, ясно, что операторы растяжения $\sigma_k$, $k\in\N_2$, и оператор Чезаро $C$ являются существенно эберлейновыми,
+поскольку для каждого из них существуют как инвариантные, так и неинвариантные банаховы пределы.
+
+Существует ли полуэберлейнов оператор, не являющийся эберлейновым?
+Положительный (и конструктивный) ответ на этот вопрос даёт теорема~\ref{thm:amiable_but_not_Eberlein_exists} ниже.
+
+
+
+Из определения В-регулярности незамедлительно следует
+
+\begin{lemma}
+	\label{lem:B-regular_superposition_and_addition}
+	Множество В-регулярных операторов замкнуто относительно суперпозиции и выпуклой комбинации.
+\end{lemma}
+
+\begin{lemma}
+	Let $H_1$ be a B-regular operator and $H_2$ be a semi-Eberlein operator.
+	Then $H_2 \circ H_1$ is a semi-Eberlein operator.
+\end{lemma}
+\begin{proof}
+	Since $H_2$ is Eberlein, $B_1H_2 = B_2$ for some $B_1,B_2\in\B$.
+	Then
+	\begin{equation}
+		B_1 H_2 \circ H_1 = B_2 \circ H_1 = B_3
+	\end{equation}
+	by the definition of B-regular operator $H_1$,
+	that is exactly the definition of semi-Eberlein operator for $H_2 \circ H_1$.
+\end{proof}
+
+\section{Sprawling operators}
+
+
+
+	Докажем следующую вспомогательную лемму.
+
+	\begin{lemma}
+		\label{lem:suff_B_reg}
+		Пусть оператор $H$ удовлетворяет следующим условиям:
+		\\i)   $H \geq 0$;
+		\\ii)  $H\one\in ac_1$;
+		\\iii) $H c_0 \subset ac_0$;
+		\\iv)  $HT-TH : \ell_\infty \to ac_0$.% для некоторых $k,m \in \N_0$.
+
+		Тогда оператор $H$ является В-регулярным.
+	\end{lemma}
+
+	\begin{proof}
+		Доказательство проведём непосредственной проверкой определения банахова предела
+		(определение~\ref{def:Banach_limit})
+		для суперпозиции $B = B_1 H$,
+		где $B_1 \in \B$ "--- произвольный банахов предел.
+
+		Действительно, если $H\geq 0$, то $B = B_1 H \geq 0$,
+		поскольку $B_1 \geq 0$ по определению банахова предела $B_1$.
+		Далее, $B\one = B_1 H \one = 1$, поскольку $H\one \in ac_1$,
+		а $B_1(ac_1) = 1$ по определению банахова предела $B_1$.
+		Заметим теперь, что
+		\begin{equation}
+			Bc_0 = B_1 H c_0 = B_1 ac_0 = 0
+		\end{equation}
+		снова в силу того, что $B_1\in\B$.
+		Наконец, для любого $x\in\ell_\infty$ выполнено
+		\begin{equation}
+			(BT-B)x = BTx - Bx = B_1 HTx - B_1 H x = B_1 HTx - B_1 T H x = B_1 (HT -  T H) x = 0
+			.
+		\end{equation}
+		В силу произвольности выбора $x\in \ell_\infty$ последнее равенство и означает, что $BT=B$.
+
+		Значит, для любого банахова предела $B_1$ функционал $B=B_1 H$ снова есть банахов предел,
+		что по определению~\ref{def:B-regular_operator}
+		и означает В-регулярность оператора $H$.
+	\end{proof}
+
+	\begin{remark}
+		Условия леммы~\ref{lem:suff_B_reg} не являются необходимыми;
+		так, контрпример к условию (i) очевиден:
+		\begin{equation}
+			H_1(x_1,x_2,x_3,x_4...) = (-x_1, x_2, x_3, x_4, ...)
+			.
+		\end{equation}
+		Оператор $H_1$ является В-регулярным и, более того, $\B(H_1) = \B$.
+	\end{remark}
+
+
+	Before we introduce the next notion, let us remind the following result~\cite[теорема 1]{usachev2008transforms} (приводим её в эквивалентной формулировке и более удобных обозначениях).
+
+
+	\begin{theorem}
+		Определим линейный оператор $H:\ell_\infty\to\ell_\infty$ равенством
+		\begin{equation}
+			H(x_1, x_2, ...) = \left(x_{m_1}, x_{m_1+1}, \ldots, x_{m_1+n_1} ; x_{m_2}, x_{m_2+1}, \ldots, x_{m_2+n_2} ; \ldots\right)
+			,
+		\end{equation}
+		где $m_k, n_k$ "--- последовательности натуральных чисел и $\lim_{n\to\infty} n_k = \infty$.
+		Пусть $x\in ac_s$, $s\in\R$. Тогда $Hx \in ac_s$.
+	\end{theorem}
+
+
+	\begin{definition}
+		Разреженным (sprawling) назовем оператор $H: \ell_\infty \to \ell_\infty$,
+		определяемый следующим образом
+		$$
+		H(x_1, x_2, x_3, \ldots) = (x_{m_1}, x_{m_1 + 1}, \ldots, x_{n_1 - 1}, x_{n_1};
+		x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; \ldots),
+		$$
+		где для всех
+		$k \geqslant k_0 \in \mathbb N$
+		выполнено
+		\begin{equation}
+			\label{eq:sprawling_mk_nk}
+			m_k \leqslant n_k < m_{k+1}\leqslant n_{k+1},
+		\end{equation}
+		при этом
+		$$
+			\lim\limits_{k \to \infty} (n_k - m_k) = \infty.
+		$$
+	\end{definition}
+
+
+
+	\begin{theorem}
+		Оператор $H$ является $B$-регулярным.
+	\end{theorem}
+
+	\begin{proof}
+		Непосредственно проверим условия леммы 3.10.3.
+		\begin{enumerate}
+			\item[i)] From the definition, one can easily see that $H\geq 0$.
+			\item[ii)] $H \one = \one \in ac_1$.
+			\item[iii)] The inclusion $Hc_0 \subset c_0 \subset ac_0$ holds due to the inequality~\eqref{eq:sprawling_mk_nk}.
+			\item[iv)] Наконец, покажем, что $HT - TH : \ell_\infty \to ac_0$. Имеем
+			\begin{align*}
+				THx &= T(x_{m_1}, x_{m_1 + 1}, \ldots, x_{n_1 - 1}, x_{n_1};
+				x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; \ldots) = \\
+				&= (x_{m_1 + 1}, x_{m_1 + 2}, \ldots, x_{n_1 - 1}, x_{n_1};
+				x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; x_{m_3}, x_{m_3 + 1}\ldots), \\
+				HTx &= ((Tx)_{m_1}, (Tx)_{m_1 + 1}, \ldots, (Tx)_{n_1 - 1}, (Tx)_{n_1}; \\
+				&(Tx)_{m_2}, (Tx)_{m_2 + 1}, \ldots, (Tx)_{n_2 - 1}, (Tx)_{n_2}; \ldots) = \\
+				&= (x_{m_1 + 1}, x_{m_1 + 2}, \ldots, x_{n_1 - 1}, x_{n_1}, x_{n_1 + 1}; x_{m_2 + 1},
+				\ldots, x_{n_2 - 1}, x_{n_2}, x_{n_2 + 1}; x_{m_3 + 1} \ldots),
+			\end{align*}
+			где $x \in \ell_\infty$. Отсюда
+			\begin{align*}
+				&(HT - TH)x = HTx - THx = \\
+				&= (\underbrace{0, 0, \ldots, 0, 0}_{n_1 - m_1}, x_{n_1 + 1} - x_{m_2}, \underbrace{0, \ldots,
+					0, 0}_{m_2 - n_2}, x_{n_2 + 1} - x_{m_3}, 0, \ldots) \in \mathcal I(ac_0) \subset ac_0,
+			\end{align*}
+			т. к. $\lim_{k \to \infty} (n_k - m_k) = \infty$.
+		\end{enumerate}
+
+		Таким образом, все условия леммы 3.10.3 выполнены, и оператор $H$ действительно является $B$-регулярным.
+	\end{proof}
+
+
+	{\bf Следствие 3.8.4.1.} Пусть $x \in ac_\lambda$ и оператор $H$ является $B$-регулярным. Тогда $Hx \in ac_\lambda$.
+
+	\begin{corollary}
+		Оператор $H$ переводит $ac_\lambda$ в $ac_\lambda$, $\lambda \in \mathbb R$.
+	\end{corollary}
+
+	\begin{proof}
+		Вытекает непосредственно из следствия 3.8.4.1 в силу $B$-регулярности оператора $H$.
+	\end{proof}
+
+	We finish the section with a brief discussion on a non-sprawling operator
+	that nevertheless turns to be B-regular due to Lemma~\ref{TODO}.
+
+	Рассмотрим теперь оператор,
+	в чём-то похожий на операторы растяжения,
+	но при этом растяжения <<неравномерного>>.
+	Пусть
+	\begin{equation}
+		\sigma_\triangle x =
+		(x_1; \; x_1; x_2; \; x_1; x_2; x_3; ... ; \underbrace{x_1; ...; x_n}_{n~\mbox{элементов}}; ...)
+		.
+	\end{equation}
+
+	\begin{remark}
+		Оператор $\sigma_\triangle x$ естественным образом возник в работах А.С. Усачёва~\cite{usachev2009_phd_vsu},
+		где обозначался $\overline{x}$ и
+		использовался для изучения коэффициентов Фурье--Хаара
+		и расстояния от произвольной последовательности $x\in\ell_\infty$
+		до пространства $ac$.
+	\end{remark}
+
+	Нам потребуется один факт об операторе $\sigma_\triangle$,
+	доказанный А.С. Усачёвым в~\cite[теорема 19]{usachev2009_phd_vsu}.
+	Мы приведём его эквивалентную формулировку, более удобную для нас в дальнейшем.
+
+	\begin{theorem}
+		\label{thm:usachev_overline_x_ac_s}
+		Пусть $x\in\ell_\infty$, $s\in\R$.
+		Тогда условия $x\in ac_s$ и $\sigma_\triangle x \in ac_s$ эквивалентны.
+	\end{theorem}
+
+	\begin{theorem}
+		Оператор $\sigma_\triangle$ является В-регулярным.
+	\end{theorem}
+
+	\begin{proof}
+		Снова воспользуемся леммой~\ref{lem:suff_B_reg}.
+		Легко заметить, что $\sigma_\triangle \geq 0$ и $\sigma_\triangle \one  = \one$,
+		что обеспечивает выполнение условий (i) и (ii) соответственно.
+
+		Выполнение условия (iii) непосредственно следует из теоремы~\ref{thm:usachev_overline_x_ac_s}.
+
+		Наконец, покажем, что $\sigma_\triangle T - T \sigma_\triangle  : \ell_\infty \to ac_0$.
+		Действительно, для произвольного $x\in\ell_\infty$
+		\begin{multline}
+		(\sigma_\triangle T - T \sigma_\triangle)x =
+		\sigma_\triangle Tx - T \sigma_\triangle x =
+		\\
+		(x_2; \; x_2, x_3; \; x_2, x_3,   x_4; \; x_2, x_3, x_4, x_5; \; ... )-
+		\\
+		(x_1, x_2; \; x_1,    x_2, x_3; \; x_1,   x_2, x_3, x_4; \; x_1, ... )=
+		\\
+		(x_2-x_1; 0; x_3-x_1; 0, 0, x_4-x_1; 0,0,0; x_5-x_1; ...) \in\Iac\subset ac_0
+		.
+		\end{multline}
+
+		Таким образом, все условия леммы~\ref{lem:suff_B_reg} выполнены,
+		и оператор $\sigma_\triangle$ действительно является В-регулярным.
+	\end{proof}
+
+
+
+\section{A semi-Eberlein operator that is not Eberlein}
+	\begin{theorem}
+		\label{thm:amiable_but_not_Eberlein_exists}
+		Существует полуэберлейнов оператор, не являющийся эберлейновым.
+	\end{theorem}
+
+	\begin{proof}
+		Пусть $B_1, B_2 \in \ext \B$, $B_1 \ne B_2$.
+		Положим
+		\begin{equation}
+			\label{eq:am_not_eber_def}
+			B_3 = B_1 + 2(B_2-B_1) = 2B_2-B_1,
+		\end{equation}
+		тогда $B_3 \notin \B$.
+		Действительно, если $B_3 \in \B$, то из~\eqref{eq:am_not_eber_def} следует, что
+		\begin{equation}
+			B_2 = \frac{B_1 + B_3}2 \in \B \setminus \ext \B
+			.
+		\end{equation}
+		Введём в рассмотрение оператор $H:\ell_\infty\to\ell_\infty$, определённый равенством
+		\begin{equation}
+			2Hx = (x_1 + B_3x, x_2 + B_3x, ...) = x + (B_3 x) \cdot \one
+			.
+		\end{equation}
+		Убедимся, что оператор $H$ дружелюбен.
+		Действительно, для произвольного $x\in\ell_\infty$ имеем
+		\begin{equation}
+			2 B_1 H x = B_1 x + B_1 ((B_3 x) \cdot\one) = B_1 x + B_3 x =
+			B_1 x + 2 B_2 x - B_1 x = 2B_2 x
+			,
+		\end{equation}
+		откуда $B_1 H = B_2$.
+
+		Убедимся теперь, что оператор $H$ не эберлейнов.
+		Пусть $B = BH$ для некоторого $B\in\B$.
+		Тогда для всех $x\in\ell_\infty$ имеем
+		\begin{equation}
+			2Bx = B (x + (B_3 x) \cdot \one)
+			,
+		\end{equation}
+		т.е.
+		\begin{equation}
+			Bx =  B((B_3 x) \cdot \one)
+			,
+		\end{equation}
+		откуда незамедлительно следует, что $Bx = B_3x$ и в силу произвольности выбора $x$ имеем $B=B_3$.
+		Но ранее мы уже показали, что $B_3\notin \B$.
+		Полученное противоречие завершает доказательство.
+	\end{proof}
+
+	\begin{remark}
+		Интересно, что $B_2H\notin \B$.
+		Действительно,
+		\begin{equation}
+			\label{eq:amiable_B2}
+			2B_2 H x = B_2 x + B_2((B_3 x)\cdot \one) = B_2 x + B_3 x  =
+			(B_2 + B_3) x  = (B_2+2B_2-B_1)x = (3B_2-B_1)x
+			.
+		\end{equation}
+		Так как равенство~\eqref{eq:amiable_B2} верно для любого $x\in\ell_\infty$,
+		то мы можем сделать вывод, что
+		\begin{equation}
+			2B_2H = 3B_2-B_1
+			,
+		\end{equation}
+		откуда
+		\begin{equation}
+			3B_2 = 2B_2H  + B_1
+			,
+		\end{equation}
+		т.е. если $B_2H\in\B$, то
+		\begin{equation}
+			B_2 = \frac23 B_2H  + \frac13 B_1 \notin \ext\B
+			,
+		\end{equation}
+		что противоречит нашему построению.
+	\end{remark}
+
+	\begin{hypothesis}
+		Существуют такие полуэберлейнов оператор $H:\ell_\infty\to\ell_\infty$ и банахов предел $B\in \B$,
+		что $BH \in \B$, но $B_1 H \notin \B$ для любого $B_1\in \B\setminus\{B\}$.
+		Также интересно наложение дополнительных свойств на $B$ и $BH$, например, принадлежности к $\ext\B$, $\B(C)$ и т.д.
+	\end{hypothesis}
+
+
+\section{An Eberlein operator that is not B-regular}
+
+\begin{lemma}
+	Let $R$ be a subsequence operator defined as
+	\begin{multline}
+		\label{eq:sprawling_R}
+		Rx = (x_2; \; x_4; x_5; \; x_{2^k}; x_{2^k + 1}; ... ; x_{2^k + 2^{k-1} - 1}; \; x_{2^{k+1}}; x_{2^{k+1} + 1};...)
+		=\\
+		(x_2; \; x_4; x_5; \; x_8; x_9; x_{10}; x_{11}; \; x_{16}; x_{17}; ...)
+		.
+	\end{multline}
+	Operator $R$ is sprawling.
+\end{lemma}
+
+\begin{proof}
+	In the definition of the sprawling operator, we take $m_k = 2^k$ and $n_k = 2^k + 2^{k-1} - 1$.
+\end{proof}
+
+\begin{theorem}
+	\label{thm:Eberlein_but_not_B-regular_exists}
+	Существует эберлейнов оператор, не являющийся В-регулярным.
+\end{theorem}
+
+\begin{proof}
+	Пусть оператор $R$ определён формулой~\eqref{eq:sprawling_R}.
+	Пусть оператор $E:\ell_\infty\to\ell_\infty$ определён формулой
+	\begin{equation}
+		Ex = x \cdot \chi_{\cup_{k=1}^{\infty}\left[2^{k}, 2^k + 2^{k-1} - 1\right]
+		.
+	\end{equation}
+	Тогда, очевидно, $RE=R$.
+	Поскольку $R$ есть В-регулярный оператор, то он эберлейнов,
+	т.е. множество $\B(R)$ непусто.
+
+	Пусть $B\in\B(R)$. Тогда
+	\begin{equation}
+		B = BR = B(RE) = (BR)E = BE
+		,
+	\end{equation}
+	то есть $B\in\B(E)$.
+
+	Покажем теперь, что оператор $E$ не является В-регулярным.
+	Действительно, $q(E\one) =0$, т.е. $ E\one \notin ac_1$,
+	и не выполнено условие (i) критерия В-регулярности (теорема~\ref{thm:crit_B_regularity}).
+\end{proof}
+
+\begin{hypothesis}
+	Выполнено равенство
+	\begin{equation}
+		\B(E) = \B(A)
+		.
+	\end{equation}
+\end{hypothesis}
+
+\begin{remark}
+	В конструкции оператора $E$ вместо блоков из нулей можно вставлять любые другие блоки "---
+	они всё равно будут поглощены оператором $A$.
+	Эти блоки могут иметь различный знак, например, содержать значительное количество
+	элементов вида $-kx_1$, $kx_2$ и т.д.
+	Таким образом, можно сконструировать эберлейновы операторы, очень и очень далёкие
+	от достаточных условий эберлейновости (теорема~\ref{thm:Semenov_Sukochev_conditions}),
+	что показывает значительную избыточность этих условий.
+\end{remark}
+
+
+
+
+\section{The signature of a Banach limit}
+
+{Профиль банахова предела. Построение оператора, инвариантные БП для которого имеют профиль почти-ноль или почти-единицу (вроде есть в черновиках, надо набрать).}
+
+In~\cite{TODO}, the following functional characteristic of a Banach limit was introduced:
+
+TODO: def
+
+TODO: basic features
+
+TODO: for Cesaro-invariant BL, the signature...
+
+In this section, we provide the examples of Banach limits for that the signature is almost constant.
+
+\begin{lemma}
+	Let R be the subsequence operator
+	defined by~\eqref{TODO}.
+	Then $\B(R) \ne\varnothing$ and for every $B\in \B(R)$ we have
+	\begin{equation}
+		\gamma(B, t) = \chi(0;1]
+		.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	First, let us prove that $R$ is sprawling.
+
+	TODO
+
+
+
+	Пусть $B \in \mathfrak{B}(R)\ne\varnothing$ и
+	\begin{equation}
+		y = \chi \cup_{n=1}^\infty \left[ 2^n; 2^{n-1+\log_2 3}\right) =
+		\chi \{ 2; \; 4;5; \; 8;9;10;11; \; 16;17;... \}\quad]
+		,
+	\end{equation}
+	тогда $Ry=\one$.
+
+	Следовательно, по определению сигнатуры, $\gamma(B,t) = 1$ для всех $t \geq \log_2 3 - 1 = \log_2 \frac32$.
+
+	Далее, $R^2 x = (x_4; \; x_8; x_9;\; x_{16}; x_{17}; x_{18}; x_{19}; \; x_{32}; x_{33};...)$.
+	В силу вложения $\mathfrak{B}(R)\subset\mathfrak{B}(R^2)$
+
+	TODO: всегда ли оно строгое?
+
+	имеем $B\in\mathfrak{B}(R^2)$.
+	Легко убедиться, что $\gamma(B,t) = 1$ для всех $t \geq \log_2 \frac54$.
+
+	TODO: Дальше через всякие там пределы доказывается, что
+
+	\begin{equation}
+		\label{eq:gamma_chi_0_1}
+		\gamma(B,t) = \chi{[}0;1)
+	\end{equation}
+
+
+	%Ясно, что $B\in\mathfrak{B}(R)$ ~--- достаточное условие для~\eqref{eq:gamma_chi_0_1}.
+	%TODO: является ли оно необходимым?
+
+
+
+\end{proof}
+
+%\begin{theorem}
+%НЕВЕРНО!!!
+%	Вложение $ac(R) \subset \ell_\infty$ является собственным.
+%\end{theorem}
+
+%\begin{proof}
+	Определим последовательность $e\in\ell_\infty$ соотношением
+	\begin{equation}
+		e_k = (-1)^n, \quad 2^n \leq k < 2^{n+1}
+		.
+	\end{equation}
+	Тогда $R^n e = (-1)^n e \notin ac$.
+%\end{proof}
+
+\begin{remark}
+	\B(R)(e) =\{0\}
+	.
+\end{remark}
+
+
+
+\printbibliography{}
+
+\end{document}
