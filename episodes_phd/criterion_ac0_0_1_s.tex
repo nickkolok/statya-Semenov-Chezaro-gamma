@@ -47,17 +47,17 @@
 то выполнено \eqref{lim_M(j)/j}.
 Предположим противное:
 \begin{equation}
-	\liminf_{j \to \infty} \frac{M(j)}{j} = с < +\infty
+	\liminf_{j \to \infty} \frac{M(j)}{j} = s < +\infty
 	.
 \end{equation}
-Очевидно, что в таком случае $c>0$.
+Очевидно, что в таком случае $s>0$.
 
 По определению нижнего предела найдётся счётное множество
 $J\subset\N$ такое, что
 \begin{equation}
-	\forall(j\in J)\left[c \leq \frac{M(j)}{j} \leq c+1 \right],
+	\forall(j\in J)\left[s \leq \frac{M(j)}{j} \leq s+1 \right],
 \end{equation}
-т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j\cdot(c+1)$,
+т.е. для любого $j\in J$ существует бесконечно много отрезков длины $j\cdot(s+1)$,
 на каждом из которых не менее $j$ единиц.
 
 Т.к. $x\in ac_0$, то
@@ -72,21 +72,21 @@ $J\subset\N$ такое, что
 	.
 \end{equation}
 
-Положим $\varepsilon = 1/(c+2)$ и отыщем $n_0$.
+Положим $\varepsilon = 1/(s+2)$ и отыщем $n_0$.
 Положим $n\in J$, $n\geq n_0$.
 (Такое $n$ всегда найдётся, т.к. $J$ счётно и $J\subset\N$.)
-Выберем $m$ так, чтобы отрезок длины $n\cdot(c+1)$,
+Выберем $m$ так, чтобы отрезок длины $n\cdot(s+1)$,
 содержащий не менее $n$ единиц,
 начинался с $m+1$.
 Тогда
 \begin{equation}
-	\frac{1}{n\cdot(c+1)}\sum_{k=m+1}^{m+n\cdot(c+1)}x_k
+	\frac{1}{n\cdot(c+1)}\sum_{k=m+1}^{m+n\cdot(s+1)}x_k
 	\geq
-	\frac{1}{n\cdot(c+1)} \cdot n
+	\frac{1}{n\cdot(s+1)} \cdot n
 	=
-	\frac{1}{c+1}
+	\frac{1}{s+1}
 	>
-	\frac{1}{c+2}
+	\frac{1}{s+2}
 	=
 	\varepsilon,
 \end{equation}
@@ -107,19 +107,19 @@ $J\subset\N$ такое, что
 
 \begin{proof}
 	По определению предела \eqref{lim_M(j)/j_dost} означает, что
-	\begin{equation}\label{lim_M(j)/j_ifty_def}
-		\forall(C  \in\N)
+	\begin{equation}\label{lim_M(j)/j_infty_def}
+		\forall(S  \in\N)
 		\exists(j_0\in\N)
 		\forall(j \geq j_0)
 		\left[
-			\frac{M(j)}{j}>C
+			\frac{M(j)}{j}>S
 		\right]
 		.
 	\end{equation}
 	Покажем, что выполнен модифицированный критерий Лоренца почти сходимости последовательности к нулю
 	\eqref{crit_pos_ac0}, т.е.
 	\begin{equation}
-		\forall(B  \in\N)
+		\forall(b  \in\N)
 		\exists(n_0\in\N)
 		\exists(m_0\in\N)
 		\forall(n\geq n_0)
@@ -129,14 +129,14 @@ $J\subset\N$ такое, что
 			\frac{1}{n}
 			\sum_{k=m+1}^{m+n} x_k
 			<
-			\frac{1}{B}
+			\frac{1}{b}
 		\right]
 		.
-	\end{equation} Действительно, зафиксируем $B$.
-	Используя \eqref{lim_M(j)/j_ifty_def} и положив $C=2B$,
+	\end{equation} Действительно, зафиксируем $b$.
+	Используя \eqref{lim_M(j)/j_infty_def} и положив $S=2b$,
 	отыщем $j_0$ такое, что для любого $j\geq j_0$ выполнено
-	$M(j)>2Bj$.
-	Положим $n_0 = 2Bj_0$.
+	$M(j)>2bj$.
+	Положим $n_0 = 2bj_0$.
 	Выберем
 	$$
 		m_0 = 2+\max_{1\leq j \leq j_0} E_j
@@ -151,14 +151,14 @@ $J\subset\N$ такое, что
 		=
 		\frac{j_0}{M(j_0)} + \frac{j_0}{n}
 		\leq
-		\frac{1}{2B} + \frac{j_0}{n}
+		\frac{1}{2b} + \frac{j_0}{n}
 		\leq
 		%\\ \leq
-		\frac{1}{2B} + \frac{j_0}{n_0}
+		\frac{1}{2b} + \frac{j_0}{n_0}
 		=
-		\frac{1}{2B} + \frac{1}{2B}
+		\frac{1}{2b} + \frac{1}{2b}
 		=
-		\frac{1}{B}
+		\frac{1}{b}
 		,
 	\end{equation}
 	т.е. условие критерия выполнено
