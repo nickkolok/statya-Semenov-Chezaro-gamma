@@ -167,8 +167,21 @@
 	что оператор $A$ является существенно эберлейновым.
 \end{remark}
 
-\begin{remark}
-	Оператор $A$ переводит банаховы пределы <<достаточно далеко>>. Действительно, пусть
+\begin{theorem}
+	Для любого $B\in\B$ выполнено
+	\begin{equation}
+		\|BA-BA\sigma_2\| = 2
+		.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	Заметим, что $BA\in\B$ и $BA\sigma_2\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}, и потому
+	\begin{equation}
+		\|BA-BA\sigma_2\| \leq \|BA\|+\|BA\sigma_2\| = 1+1 = 2
+		.
+	\end{equation}
+	Пусть теперь
 	\begin{equation}
 		y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
 		,
@@ -176,10 +189,8 @@
 	тогда
 	\begin{equation}
 		\sigma_2 y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one
-		.
 	\end{equation}
-	Пусть $B\in\B$, тогда $BA\in\B$ и $BA\sigma_2\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}.
-	Но
+	и
 	\begin{multline}
 		\|BA-BA\sigma_2\| \geq \dfrac{\| BAy-BA\sigma_2y \|}{\|y\|} = \| BAy-BA\sigma_2y \| =
 		\\=
@@ -196,11 +207,11 @@
 		2\cdot| 1- 0  |= 2 = \diam \B
 		.
 		\end{multline}
-\end{remark}
+\end{proof}
 
 \begin{remark}
 	Оператор $A$ переводит банаховы пределы <<достаточно далеко>> от $\B(\sigma_{2^{2n-1}})$.
-	%TODO2: \sigma_{2^{2n+1}}
+	%TODO2: \sigma_{2^{2n}}
 	Пусть снова
 	\begin{equation}
 		y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
