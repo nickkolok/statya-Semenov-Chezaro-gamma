@@ -34,6 +34,7 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\dist}{dist}
 
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
@@ -145,6 +146,7 @@ TODO
 
 
 \begin{definition}
+	\label{def:Banach_limit}
 	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
 	если
 	\begin{enumerate}
@@ -157,6 +159,9 @@ TODO
 		оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
 	\end{enumerate}
 \end{definition}
+Из определения следует~\cite{semenov2020geomBL},
+что на любой сходящейся последовательности значаение любого банахова предела
+совпадает со значением классического предела $\lim$.
 Множество всех банаховых пределов обозначим через $\mathfrak{B}$.
 Существование банаховых пределов было анонсировано С. Мазуром \cite{Mazur} и позднее доказано в книге С.~Банаха~\cite{B}.
 
@@ -173,7 +178,6 @@ TODO
 		q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 		~~~~\mbox{и}~~~~
 		p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
-		.
 	\end{equation*}
 	называют нижним и верхним функционалом Сачестона соотвественно.
 	Заметим, что $p(x) = -q(-x)$.
@@ -191,16 +195,19 @@ TODO
 	Е.~А. Алехно  доказал \cite{alekhno2012superposition}, что в пространстве $ac_0$
 	существует максимальный (по включению) идеал~-- идеальный
 	стабилизатор пространства почти сходящихся к нулю последовательностей,
-	обозначаемый $\mathcal I(ac_0)$.
+	обозначаемый $\Iac$,
+	при этом для любого $x\in\ell_\infty$ условие $x\in\Iac$
+	эквиваленто выполнению условия $\{x^+, x^-\} \subset ac_0$,
+	где $x=x^+ + x^-$, $x^+\geq 0$, $x^-\leq 0$.
 
 
-Итак, каждый банахов предел по определению инвариантн относительно оператора сдвига.
+Итак, каждый банахов предел по определению инвариантен относительно оператора сдвига.
 Возникает закономерный вопрос: относительно каких ещё операторов инвариантны банаховы пределы?
 
 
 Уже для совершенно естественного "--- если бы мы говорили об обычной сходимости последовательностей "---
-оператора растяжения $\sigma_k$, который
-просто повторяет каждый элемент последовательности $k\geq 2$ раз:
+оператора растяжения $\sigma_n$, который
+просто повторяет каждый элемент последовательности $n\geq 2$ раз:
 \begin{equation}
 	\sigma_n (x_1, x_2, x_3, ...) = (
 		\underbrace{x_1,...,x_1}_{n~\text{раз}},
@@ -209,7 +216,7 @@ TODO
 		...)
 \end{equation}
 выясняется, что относительно этого оператора инварианты не все банаховы пределы~\cite{TODO}!
-Более того, инвариантность конкретного банахова предела зависит от выбора $k\in\N$.
+Более того, инвариантность конкретного банахова предела зависит от выбора $n\in\N$.
 
 Для оператора Чезаро
 \begin{equation}
@@ -221,7 +228,6 @@ TODO
 	...,
 	\dfrac{x_1+...+x_n}n,
 	...\right)
-	.
 \end{equation}
 ситуация с инвариантностью банаховых пределов обстоит ещё <<хуже>>.
 Через $\B(H)$ мы обозначаем множество банаховых пределов,
@@ -263,12 +269,48 @@ In the present paper in Theorem~\ref{thm:Eberlein_but_not_B-regular_exists}
 и его мощность совпадает~\cite{Chou} с мощностью всего пространства $\ell_\infty^*$
 и составляет $2^{\mathfrak c}$.
 Из~\cite[Corollary 6]{semenov2020dilation} непосредственно следует, что для любых
-$n\in\N_2$, $B_1 \in \B(\sigma_n)$, $B_2 \in \ext\B$ выполнено равенство
-$\rho(B_1,B_2) = 2$, т.е. расстояние является максимально возможным.
+$n\in\N$, $n\geq 2$, $B_1 \in \B(\sigma_n)$, $B_2 \in \ext\B$ выполнено равенство
+$\dist(B_1,B_2) = 2$, т.е. расстояние является максимально возможным.
 
-TODO: reverse invariance (со ссылкой)
 
-%TODO2: тут можно сказать больше про расстояние от $\ext \B$ до $\B(C)$ и прочих там всяких $\B(\sigma_n)$ (а также их объединения?).
+
+Задачу, рассмотренную выше, можно назвать прямой задачей об инвариантности:
+дан некоторый достаточно хороший оператор $H$, и требуется выяснить, непусто ли множество $\B(H)$
+банаховых пределов, инвариантных относительно этого оператора.
+(И~если это множество непусто, то исследовать его.)
+
+Будем называть оператор $H$ тривиально эберлейновым, если $\B(H)=\B$.
+Возникает закономерный вопрос: для любого ли банахова предела существует нетривиально эберлейнов оператор,
+относительно которого этот банахов предел инвариантен?
+Или же такие операторы существуют только для <<достаточно хороших>>
+банаховых пределов "--- например, для банаховых пределов, инвариантных относительно какого-нибудь из операторов растяжения?
+Подобные вопросы приводят к обратной задаче об инвариантности,
+которая в простейшей постановке имеет неожиданно короткое решение,
+впервые данное в~\cite[\S 3]{avdeev2024decomposition}.
+
+\begin{theorem}
+	\label{thm:generated_operator_G_B}
+	Пусть $B\in \B$
+	и пусть для любого $x\in\ell_\infty$
+	\begin{equation}
+		G_B x = (Bx, Bx, Bx, ...) = (Bx)\cdot\one
+		.
+	\end{equation}
+	Тогда $\B(G_B) = \{B\}$.
+\end{theorem}
+
+Вообще говоря, свойства инвариантности крайних точек множества банаховых пределов
+изучены существенно меньше, чем свойства банаховых пределов, инвариантных относительно классических операторов.
+(Теорема~\ref{thm:generated_operator_G_B}
+является первым содержательным результатом о свойствах инвариантости крайних точек.)
+В частности, в~\cite[теорема 11]{SS1} и~\cite[теорема 14]{ASSU2} доказано, что
+\begin{equation}
+	\dist(\ext \B, \B(C)) = \dist(\ext \B, \B(\sigma_n)) = 2 = \diam \B
+\end{equation}
+для любого $n\in N$, $n\geq2$, где $\dist$ обозначает расстояние.
+
+
+
 
 Тем не менее, в настоящей главе удалось использовать элементы $\ext\B$ для исследования инвариантных банаховых пределов
 "--- в теореме~\ref{thm:amiable_but_not_Eberlein_exists}.
@@ -316,8 +358,8 @@ TODO: reverse invariance (со ссылкой)
 \begin{theorem}
 	\label{thm:crit_B_regularity}
 	Оператор $H:\ell_\infty \to \ell_\infty$ является B-регулярным тогда и только тогда, когда:
-	\\(i) $H\one \in ac_1$;
-	\\(ii) $q(Hx)\geq 0$ для любого $x\geq 0$;
+	\\(i) $q(Hx)\geq 0$ для любого $x\geq 0$;
+	\\(ii) $H\one \in ac_1$;
 	\\(iii) $H ac_0 \subseteq ac_0$.
 \end{theorem}
 Легко заметить, что эти условия являются в целом более слабыми, чем достаточные условия эберлейновости
@@ -358,7 +400,7 @@ $\sigma_k$, $C$
 и образуют иерархию по включению.
 Возникает закономерный вопрос о совпадении классов.
 Ясно, что оператор сдвига $T$ является В-регулярным, но не является существенно эберлейновым, поскольку относительно него любой банахов предел инвариантен по определению.
-Более того, ясно, что операторы растяжения $\sigma_k$, $k\in\N_2$, и оператор Чезаро $C$ являются существенно эберлейновыми,
+Более того, ясно, что операторы растяжения $\sigma_k$, $k\in\N$, $n\geq2$, и оператор Чезаро $C$ являются существенно эберлейновыми,
 поскольку для каждого из них существуют как инвариантные, так и неинвариантные банаховы пределы.
 
 Существует ли полуэберлейнов оператор, не являющийся эберлейновым?
@@ -382,6 +424,7 @@ $\sigma_k$, $C$
 	Then
 	\begin{equation}
 		B_1 H_2 \circ H_1 = B_2 \circ H_1 = B_3
+		\in \B
 	\end{equation}
 	by the definition of B-regular operator $H_1$,
 	that is exactly the definition of semi-Eberlein operator for $H_2 \circ H_1$.
@@ -393,12 +436,14 @@ $\sigma_k$, $C$
 
 
 
+
+
 	Докажем следующую вспомогательную лемму.
 
 	\begin{lemma}
 		\label{lem:suff_B_reg}
 		Пусть оператор $H$ удовлетворяет следующим условиям:
-		\\i)   $H \geq 0$;
+		\\i)   $(Hx)^- \in ac_0$ для любого $x\geq 0$;
 		\\ii)  $H\one\in ac_1$;
 		\\iii) $H c_0 \subset ac_0$;
 		\\iv)  $HT-TH : \ell_\infty \to ac_0$.% для некоторых $k,m \in \N_0$.
@@ -406,13 +451,28 @@ $\sigma_k$, $C$
 		Тогда оператор $H$ является В-регулярным.
 	\end{lemma}
 
+
+
+
+%TODO: можно ли сделать НиД? являются ли необходимыми?
+%\\(ii) $q(Hx)\geq 0$ для любого $x\geq 0$;
+%$0 \leq q(Hx) = q((Hx)^+ + (Hx)^-) \leq $
+
 	\begin{proof}
 		Доказательство проведём непосредственной проверкой определения банахова предела
 		(определение~\ref{def:Banach_limit})
 		для суперпозиции $B = B_1 H$,
 		где $B_1 \in \B$ "--- произвольный банахов предел.
 
-		Действительно, если $H\geq 0$, то $B = B_1 H \geq 0$,
+		Действительно, если выполнено (i), то
+		\begin{equation}
+			Bx = B_1 Hx =
+			B_1((Hx)^+ + (Hx)^-) =
+			B_1(Hx)^+ + B_1(Hx)^- =
+			B_1(Hx)^+
+			\geq 0
+			,
+		\end{equation}
 		поскольку $B_1 \geq 0$ по определению банахова предела $B_1$.
 		Далее, $B\one = B_1 H \one = 1$, поскольку $H\one \in ac_1$,
 		а $B_1(ac_1) = 1$ по определению банахова предела $B_1$.
@@ -434,13 +494,11 @@ $\sigma_k$, $C$
 	\end{proof}
 
 	\begin{remark}
-		Условия леммы~\ref{lem:suff_B_reg} не являются необходимыми;
-		так, контрпример к условию (i) очевиден:
-		\begin{equation}
-			H_1(x_1,x_2,x_3,x_4...) = (-x_1, x_2, x_3, x_4, ...)
-			.
-		\end{equation}
-		Оператор $H_1$ является В-регулярным и, более того, $\B(H_1) = \B$.
+		Сравнивая условия леммы~\ref{lem:suff_B_reg} с теоремой~\ref{thm:crit_B_regularity},
+		можно заметить, что условие (i) в лемме~\ref{lem:suff_B_reg} является более сильным,
+		но условие (iii) является более слабым.
+		Условия леммы~\ref{lem:suff_B_reg} существенно проще проверять для операторов,
+		В-регулярность которых мы намерены установить, в частности, операторов взятия подпоследовательности.
 	\end{remark}
 
 
@@ -453,7 +511,7 @@ $\sigma_k$, $C$
 			H(x_1, x_2, ...) = \left(x_{m_1}, x_{m_1+1}, \ldots, x_{m_1+n_1} ; x_{m_2}, x_{m_2+1}, \ldots, x_{m_2+n_2} ; \ldots\right)
 			,
 		\end{equation}
-		где $m_k, n_k$ "--- последовательности натуральных чисел и $\lim_{n\to\infty} n_k = \infty$.
+		где $m_k, n_k$ "--- последовательности натуральных чисел и $\lim_{k\to\infty} n_k = \infty$.
 		Пусть $x\in ac_s$, $s\in\R$. Тогда $Hx \in ac_s$.
 	\end{theorem}
 
@@ -474,20 +532,23 @@ $\sigma_k$, $C$
 		\end{equation}
 		при этом
 		$$
-			\lim\limits_{k \to \infty} (n_k - m_k) = \infty.
+			\lim\limits_{k \to \infty} (n_k - m_k) = \infty
+			.
 		$$
 	\end{definition}
 
 
 
 	\begin{theorem}
-		Оператор $H$ является $B$-регулярным.
+		\label{thm:sprawling_is_B-regular}
+		Любой разреженный оператор $H$ является $B$-регулярным.
 	\end{theorem}
 
 	\begin{proof}
 		Непосредственно проверим условия леммы 3.10.3.
 		\begin{enumerate}
-			\item[i)] From the definition, one can easily see that $H\geq 0$.
+			\item[i)] From the definition, one can easily see that $H\geq 0$
+			and thus $(Hx)^- = (0,0,0...)\in ac_0$ for any $x\geq 0$.
 			\item[ii)] $H \one = \one \in ac_1$.
 			\item[iii)] The inclusion $Hc_0 \subset c_0 \subset ac_0$ holds due to the inequality~\eqref{eq:sprawling_mk_nk}.
 			\item[iv)] Наконец, покажем, что $HT - TH : \ell_\infty \to ac_0$. Имеем
@@ -514,18 +575,18 @@ $\sigma_k$, $C$
 	\end{proof}
 
 
-	{\bf Следствие 3.8.4.1.} Пусть $x \in ac_\lambda$ и оператор $H$ является $B$-регулярным. Тогда $Hx \in ac_\lambda$.
+	%{\bf Следствие 3.8.4.1.} Пусть $x \in ac_\lambda$ и оператор $H$ является $B$-регулярным. Тогда $Hx \in ac_\lambda$.
 
 	\begin{corollary}
 		Оператор $H$ переводит $ac_\lambda$ в $ac_\lambda$, $\lambda \in \mathbb R$.
 	\end{corollary}
 
-	\begin{proof}
-		Вытекает непосредственно из следствия 3.8.4.1 в силу $B$-регулярности оператора $H$.
-	\end{proof}
+	%\begin{proof}
+	%	Вытекает непосредственно из следствия 3.8.4.1 в силу $B$-регулярности оператора $H$.
+	%\end{proof}
 
 	We finish the section with a brief discussion on a non-sprawling operator
-	that nevertheless turns to be B-regular due to Lemma~\ref{TODO}.
+	that nevertheless turns to be B-regular due to Lemma~\ref{lem:suff_B_reg}.
 
 	Рассмотрим теперь оператор,
 	в чём-то похожий на операторы растяжения,
@@ -610,7 +671,7 @@ $\sigma_k$, $C$
 			2Hx = (x_1 + B_3x, x_2 + B_3x, ...) = x + (B_3 x) \cdot \one
 			.
 		\end{equation}
-		Убедимся, что оператор $H$ дружелюбен.
+		Убедимся, что оператор $H$ полуэберлейнов.
 		Действительно, для произвольного $x\in\ell_\infty$ имеем
 		\begin{equation}
 			2 B_1 H x = B_1 x + B_1 ((B_3 x) \cdot\one) = B_1 x + B_3 x =
@@ -639,12 +700,13 @@ $\sigma_k$, $C$
 	\begin{remark}
 		Интересно, что $B_2H\notin \B$.
 		Действительно,
-		\begin{equation}
+		\begin{multline}
 			\label{eq:amiable_B2}
 			2B_2 H x = B_2 x + B_2((B_3 x)\cdot \one) = B_2 x + B_3 x  =
+			\\=
 			(B_2 + B_3) x  = (B_2+2B_2-B_1)x = (3B_2-B_1)x
 			.
-		\end{equation}
+		\end{multline}
 		Так как равенство~\eqref{eq:amiable_B2} верно для любого $x\in\ell_\infty$,
 		то мы можем сделать вывод, что
 		\begin{equation}
@@ -741,9 +803,7 @@ $\sigma_k$, $C$
 
 \section{The signature of a Banach limit}
 
-{Профиль банахова предела. Построение оператора, инвариантные БП для которого имеют профиль почти-ноль или почти-единицу (вроде есть в черновиках, надо набрать).}
-
-In~\cite{TODO}, the following functional characteristic of a Banach limit was introduced:
+In~\cite{semenov2019mainclasses_rus}, the following functional characteristic of a Banach limit was introduced.
 
  Обозначим через $\Gamma$ множество всех неубывающих на $[0, 1]$ функций $f$ таких,
     что $f(0) = 0$ и $f(1) = 1$. Каждому $B \in \mathfrak B$
@@ -752,19 +812,19 @@ In~\cite{TODO}, the following functional characteristic of a Banach limit was in
 		\gamma(B, t) = B \chi\Bigg(\bigcup^\infty_{n = 1} [2^n, 2^{n + t})\Bigg)
 		.
     $$
-    Функция $\gamma(B,t)$ была введена в статье \cite{semenov2019main}.
+    Функция $\gamma(B,t)$ была введена в статье \cite{semenov2019mainclasses_rus}.
 
     Легко увидеть, что $\gamma (B, t) \in \Gamma$ для всех $B \in \mathfrak B$.
     Справедливо и обратное. Для любой $f \in \Gamma$ существует такой
 	$B \in \mathfrak B$, что $\gamma(B, t) = f(t)$ для всех
-	$t \in [0, 1]$~\cite[Предложение 2]{semenov2019main}.
+	$t \in [0, 1]$~\cite[Предложение 2]{semenov2019mainclasses_rus}.
     For the sake of brevity, we will can $\gamma(B,t)$ the \emph{signature}
     of Banach limit $B$.
 
-	Другая функциональная характеристика -- аналог функции распределения -- была введена в работе Е.~А.~Алехно~\cite{Alekhno2}.
+	Другая функциональная характеристика -- аналог функции распределения -- была введена в работе Е.~А.~Алехно~\cite{Alekhno2:TODO}.
 
 	В силу монотонности сигнатура имеет не более чем счётное количество точек разрыва.
-	In~\cite[Теорема 23]{semenov2019main}, it is proved that
+	In~\cite[Теорема 23]{semenov2019mainclasses_rus}, it is proved that
 	для любых $B \in \mathfrak B(C)$, $t \in [0, 1]$ верно равенство $\gamma (B, t) = t$.
 
 
@@ -784,7 +844,7 @@ In this section, we provide the examples of Banach limits for that the signature
 
 \begin{proof}
 	Due to Lemma~\ref{lem:R_is_sprawling}, $R$ is sprawling.
-	Thus, $R$ is B-regular by Theorem~\ref{TODO} and thus Eberlein due to Theorem~\ref{TODO},
+	Thus, $R$ is B-regular by Theorem~\ref{thm:sprawling_is_B-regular} and thus Eberlein due to Theorem~\ref{thm:B-regular_is_Eberlein},
 	so $\B(R)\ne \varnothing$.
 
 	Take any $B \in \mathfrak{B}(R)$ and
@@ -839,7 +899,93 @@ In this section, we provide the examples of Banach limits for that the signature
 	.
 \end{remark}
 
-TODO: а можно ли скачок в произвольной точке?
+
+Рассмотрим оператор взятия подпоследовательности
+\begin{align*}
+	Qx &= (x_3; \; x_6; x_7; \; \ldots; \;
+	x_{2^n + 2^{n - 1}}; \ldots; x_{2^{n + 1} - 1}; \;
+	x_{2^{n + 1} + 2^n}; x_{2^{n + 1} + 2^n + 1}; \ldots) = \\
+	&= (x_3; \; x_6; x_7; \; x_{12}; x_{13}; x_{14}; x_{15}; \;
+	x_{24}; x_{25}; x_{26}; x_{27}; x_{28}; x_{29}; x_{30}; x_{31}; \;
+	x_{48}; x_{49}; \ldots).
+\end{align*}
+Оператор $Q$ является разреженным по определению, следовательно,
+$\mathfrak B(Q) \neq \varnothing$.
+
+Пусть $B \in \mathfrak B(Q)$ и
+$$
+	y = \chi \cup^\infty_{n = 1}
+	[2^n; 2^{n - 1 + \log_2 3}) =
+	\chi\{2; \; 4; 5; \; 8; 9; 10; 11; \;
+	16; 17; \ldots\},
+$$
+тогда $Qy = (0; 0; \ldots)$.
+
+Следовательно, по определению сигнатуры,
+$\gamma(B, t) = 0$ для всех $t \leqslant
+\log_2 \frac 32$.
+
+Далее,
+\begin{align*}
+	Q^2 x &= (x_7; \; x_{14}; x_{15}; \; \ldots; \;
+	x_{2^{n + 1} + 2^n + 2^{n - 1}}; \ldots; x_{2^{n + 2} - 1}; \;
+	x_{2^{n + 2} + 2^{n + 1} + 2^n}; x_{2^{n + 2} + 2^{n + 1} + 2^n + 1}; \ldots) = \\
+	&= (x_7; \; x_{14}; x_{15}; \; x_{28}; x_{29}; x_{30}; x_{31}; \;
+	x_{56}; x_{57}; x_{58}; x_{59}; x_{60}; x_{61}; x_{62}; x_{63}; \;
+	x_{112}; x_{113}; \ldots).
+\end{align*}
+В силу вложения $\mathfrak B(Q) \subset \mathfrak B(Q^2)$ имеем
+$B \in \mathfrak B(Q^2)$. Пусть
+\begin{align*}
+	z &= \chi \cup^\infty_{n = 1} [2^n; 2^{n - 2 + \log_2 7}) = \\
+	&= \chi\{2; 3; \; 4; 5; 6; \; 8; 9; 10; 11; 12; 13; \;
+	16; 17; 18; 19; 20; 21; 22; 23; 24; 25; 26; 27; \;
+	32; 33; \ldots\},
+\end{align*}
+тогда $Q^2 z = (0; 0; \ldots)$.
+
+Следовательно, по определению сигнатуры, $\gamma(B, t) = 0$ для всех
+$t \leqslant \log_2 \frac 74$.
+
+Далее,
+\begin{align*}
+	Q^3 x &= (x_{15}; \; x_{30}; x_{31}; \; \ldots; \;
+	x_{2^{n + 2} + 2^{n + 1} + 2^n + 2^{n - 1}}; \ldots; x_{2^{n + 3} - 1}; \;
+	x_{2^{n + 3} + 2^{n + 2} + 2^{n + 1} + 2^n}; \ldots) = \\
+	&= (x_{15}; \; x_{30}; x_{31}; \; \ldots; \;
+	x_{15 \cdot 2^{n - 1}}; \ldots; x_{2^{n + 3} - 1}; \;
+	x_{15 \cdot 2^n}; x_{15 \cdot 2^n + 1}; \ldots) = \\
+	&= (x_{15}; \; x_{30}; x_{31}; \; x_{60}; x_{61}; x_{62}; x_{63}; \;
+	x_{120}; x_{121}; x_{122}; x_{123}; x_{124}; x_{125}; x_{126}; x_{127}; \;
+	x_{240}; x_{241}; \ldots).
+\end{align*}
+В силу вложения $\mathfrak B(Q) \subset \mathfrak B(Q^3)$ имеем
+$B \in \mathfrak B(Q^3)$. Пусть
+\begin{align*}
+	v &= \chi \cup^\infty_{n = 1} [2^n; 2^{n - 3 + \log_2 15}) = \\
+	&= \chi\{2; 3; \; 4; 5; 6; 7; \; 8; 9; \ldots; 13; 14; \;
+	16; 17; \ldots; 28; 29; \; 32; 33; \ldots; 58; 59; \; 64; 65; \ldots\},
+\end{align*}
+тогда $Q^3 v = (0; 0; \ldots)$.
+
+Следовательно, по определению сигнатуры, $\gamma(B, t) = 0$ для всех
+$t \leqslant \log_2 \frac{15}8$.
+
+Пусть $m \in \mathbb N$. В силу вложения $\mathfrak B(Q) \subseteq \mathfrak B(Q^m)$
+имеем $B \in \mathfrak B(Q^m)$. Несложно увидеть, что
+$$
+	Q^m \chi \bigcup^\infty_{n = 1} \Big{[}2^n; 2^{n - m + \log_2 (2^{m + 1} - 1)}\Big) =
+	(0; 0; \ldots).
+$$
+Следовательно, по определению сигнатуры, $\gamma(B, t) = 0$ для всех
+$t \leqslant \log_2 \frac{2^{m + 1} - 1}{2^m}$. Поскольку
+$\lim\limits_{m \to \infty} \log_2 \frac{2^{m + 1} - 1}{2^m} = 1$,
+то $\gamma(B, t) = 0$ для всех $t \in {[}0; 1)$.
+
+
+
+
+TODO: скачок в произвольной точке бывает! Ссылка на issue 30
 
 TODO: про диадический фрактал
 
