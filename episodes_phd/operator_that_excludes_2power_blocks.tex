@@ -168,31 +168,31 @@
 \end{remark}
 
 \begin{theorem}
-	Для любого $B\in\B$ выполнено
+	Для любых $n\in\N$, $k=2^{2n-1}$, $B\in\B$ верна оценка
 	\begin{equation}
-		\|BA-BA\sigma_2\| = 2
+		\|BA-BA\sigma_k\| = 2
 		.
 	\end{equation}
 \end{theorem}
 
 \begin{proof}
-	Заметим, что $BA\in\B$ и $BA\sigma_2\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}, и потому
+	Заметим, что $BA\in\B$ и $BA\sigma_k\in\B$ в силу теоремы~\ref{thm:A_block_thrower_is_B-regular}, и потому
 	\begin{equation}
-		\|BA-BA\sigma_2\| \leq \|BA\|+\|BA\sigma_2\| = 1+1 = 2
+		\|BA-BA\sigma_k\| \leq \|BA\|+\|BA\sigma_k\| = 1+1 = 2
 		.
 	\end{equation}
 	Пусть теперь
 	\begin{equation}
-		y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
+		y = 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
 		,
 	\end{equation}
 	тогда
 	\begin{equation}
-		\sigma_2 y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one
+		\sigma_k y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one
 	\end{equation}
 	и
 	\begin{multline}
-		\|BA-BA\sigma_2\| \geq \dfrac{\| BAy-BA\sigma_2y \|}{\|y\|} = \| BAy-BA\sigma_2y \| =
+		\|BA-BA\sigma_k\| \geq \dfrac{\| BAy-BA\sigma_ky \|}{\|y\|} = \| BAy-BA\sigma_ky \| =
 		\\=
 		\left\| BA\left(2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one\right)-
 		BA\left(2\chi {\cup_{m=0}^{\infty}\left[2^{2 m+1}+1, 2^{2 m+2}\right]} - \one\right) \right\|=
