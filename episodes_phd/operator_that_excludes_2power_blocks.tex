@@ -209,12 +209,23 @@
 		\end{multline}
 \end{proof}
 
-\begin{remark}
-	Оператор $A$ переводит банаховы пределы <<достаточно далеко>> от $\B(\sigma_{2^{2n-1}})$.
+
+Оператор $A$ переводит банаховы пределы <<достаточно далеко>> от $\B(\sigma_{2^{2n-1}})$.
+Говоря строже, выполнена
+\begin{lemma}
+	Для любых $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$ и $B_2 \in \B$
+	выполнено
+	\begin{equation}
+		\|B_1 - B_2 A\| \geq 1
+		.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
 	%TODO2: \sigma_{2^{2n}}
 	Пусть снова
 	\begin{equation}
-		y \approx 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
+		y = 2\chi {\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right]} - \one
 		.
 	\end{equation}
 	Рассмотрим $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$.
@@ -226,7 +237,12 @@
 		\|B_1 - B_2 A\| \geq \dfrac{\|B_1y - B_2 Ay\|}{\|y\|} = \|B_1y - B_2 Ay\| = 1
 		.
 	\end{equation}
-\end{remark}
+\end{proof}
+
+\begin{corollary}
+	Для любого $n\in\N$ выполнено
+	$\rho(\B(A),\B(\sigma_{2^{2n-1}}))\geq 1$.
+\end{corollary}
 
 \begin{hypothesis}
 	Пусть $B_1 \in \B(\sigma_{2^{2n-1}})$, $n\in\N$, и $B_2\in \B$.
