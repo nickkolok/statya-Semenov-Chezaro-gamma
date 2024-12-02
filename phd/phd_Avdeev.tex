@@ -131,6 +131,17 @@
 % https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
 \usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
 
+
+% Центрируем заголовки, как того требует ГОСТ
+\makeatletter
+\patchcmd {\@makechapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+\patchcmd {\@makechapterhead}{\huge \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\@makeschapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+
+\patchcmd{\section}         {\Large \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\subsection}      {\large \bfseries}{       \bfseries \centering }{}{\ddy}
+\makeatother
+
 \begin{document}
 \clubpenalty=10000
 \widowpenalty=10000
