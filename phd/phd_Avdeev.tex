@@ -14,6 +14,7 @@
 \usepackage{bbm}
 \usepackage{enumitem}
 \usepackage{mathrsfs}
+\usepackage{fancyhdr}
 
 
 % https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
@@ -146,6 +147,26 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \includepdf{title.pdf}
+
+
+
+% Page numbering on the top
+% redefine the plain pagestyle
+\fancypagestyle{plain}{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyhead[C]{\thepage} % except the center
+	\renewcommand{\headrulewidth}{0pt}
+}
+\fancypagestyle{default}{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyhead[C]{\thepage} % except the center
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\pagestyle{plain}
+
+
+
 \setcounter{page}{2}
 \tableofcontents
 
