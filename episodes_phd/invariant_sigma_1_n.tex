@@ -10,10 +10,108 @@
 	\right).
 \end{equation}
 
-Из критерия Лоренца немедленно следует
 \begin{lemma}
-	$\sigma_n \sigma_{1/n} - I : \ell_\infty \to ac_0$.
+	Для любого $k\in\N_2$ выполнено
+	\begin{equation}
+		\sigma_k \sigma_{1/k} - I : \ell_\infty \to ac_0
+		.
+	\end{equation}
 \end{lemma}
+
+\begin{proof}
+	Покажем, что для любого $x\in\ell_\infty$ выполнен критерий Лоренца~\eqref{eq:crit_Lorentz},
+	т.е.
+	\begin{equation}
+		\label{eq:Lorentz_sigma_1_k_I}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{i=m+1}^{m+n} ((\sigma_k \sigma_{1/k} - I)x)_i = 0
+	\end{equation}
+	равномерно по $m\in\N$.
+
+	Зафиксируем сначала $m$ и выберем $a,b\in\N$
+	таким образом, что
+	\begin{equation}
+		k(a-1) <    m+1 \leq ka
+		,
+		\quad
+		kb     \leq m+n <    k(b+1)
+		.
+	\end{equation}
+	Тогда
+	\begin{multline}
+		0 \leq \left|
+		\sum_{i=m     +1}^{m+n} \left( (\sigma_k \sigma_{1/k} - I)x \right)_i
+		\right|
+		\leq
+		\\\leq
+		\left|\sum_{i=m     +1}^{ka    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right| +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right| +
+		\left|\sum_{i=kb    +1}^{m+n   } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right|
+		\leq
+		\\\leq
+		\left|\sum_{i=m     +1}^{ka    } \left\| (\sigma_k \sigma_{1/k} - I)x \right\|\right| +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right| +
+		\left|\sum_{i=kb    +1}^{m+n   } \left\| (\sigma_k \sigma_{1/k} - I)x \right\|\right|
+		\leq
+		\\\leq
+		      \sum_{i=k(a-1)+1}^{ka    } \left\| (\sigma_k \sigma_{1/k} - I)x \right\| +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right| +
+		      \sum_{i=kb    +1}^{k(b+1)} \left\| (\sigma_k \sigma_{1/k} - I)x \right\|
+		=
+		\\=
+		2k \left\| (\sigma_k \sigma_{1/k} - I)x \right\| +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right|
+		\leq
+		\\\leq
+		2k \left(\left\| (\sigma_k \sigma_{1/k} - I)\| \cdot \|x \right\|\right) +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right|
+		\leq
+		\\\leq
+		2k \left( (\left\|\sigma_k\| \cdot \| \sigma_{1/k}\| + \|I\|) \cdot \|x \right\|\right) +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right|
+		\leq
+		\\\leq
+		4k  \|x \| +
+		\left|\sum_{i=ka    +1}^{kb    } \left( (\sigma_k \sigma_{1/k} - I)x \right)_i\right|
+		=
+		4k  \|x \| +
+		\left|\sum_{i=ka    +1}^{kb    } (\sigma_k \sigma_{1/k}x)_i - \sum_{i=ka    +1}^{kb    } x_i\right|
+		=
+		\\=
+		4k  \|x \| +
+		\left|
+			\underbrace{\frac{x_{ka+1} + x_{ka+2} + ... + x_{ka+k}}{k} + ... + \frac{x_{ka+1} + x_{ka+2} + ... + x_{ka+k}}{k}}_{k~\text{~раз}}
+			+
+			...+
+		\right.
+		\\
+		\left.
+			+
+			\underbrace{\frac{x_{k(b-1)+1}  + ... + x_{k(b-1)+k}}{k} + ... + \frac{x_{k(b-1)+1} + ... + x_{k(b-1)+k}}{k}}_{k~\text{~раз}}
+			-\sum_{i=ka    +1}^{kb    } x_i
+		\right|
+		=
+		4k\|x\|
+		.
+	\end{multline}
+
+	Заметим, что полученное выражение не зависит от $m$.
+	Следовательно,
+	\begin{equation}
+		\left|\lim_{n\to\infty} \frac{1}{n} \sum_{i=m+1}^{m+n} ((\sigma_k \sigma_{1/k} - I)x)_i\right|
+		=
+		%\\=
+		\lim_{n\to\infty} \frac{1}{n} \left|\sum_{i=m+1}^{m+n} ((\sigma_k \sigma_{1/k} - I)x)_i\right|
+		\leq
+		\lim_{n\to\infty} \left( \frac{1}{n} \cdot 4k \|x\|\right)
+		= 0
+	\end{equation}
+	равномерно по $m$,
+	откуда и вытекает~\eqref{eq:Lorentz_sigma_1_k_I}.
+
+	%Осталось заметить, что для знакопеременной последовательности $x = x^+ + x^-$, $x^+ \geq 0$, $x^- \leq 0$
+	%мы имеем $(\sigma_k \sigma_{1/k} - I)x^+ \in ac_0$ и $(\sigma_k \sigma_{1/k} - I)(-x^-) \in ac_0$,
+	%а потому $(\sigma_k \sigma_{1/k} - I)x \in ac_0$.
+\end{proof}
 
 \begin{theorem}
 	\label{thm:B_sigma_n_eq_B_sigma_1_n}
