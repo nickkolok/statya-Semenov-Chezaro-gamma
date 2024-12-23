@@ -1,4 +1,13 @@
 Итак, $\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}$, где $1\geq a>b\geq 0$.
+Вы этом параграфе мы покажем, что аналогичным свойством обладают само пространство $\ell_\infty$
+и его подпространство
+$A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
+где, напомним,
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	,
+\end{equation*}
+уже знакомое нам, например, по теореме~\ref{thm:A0_is_space}.
 
 
 Пусть $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
@@ -13,18 +22,17 @@
 \begin{proof}
 	Не теряя общности, будем полагать, что $a>0$.
 
-	Определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
+	Снова определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
 	\begin{equation}\label{operator_S}
 		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
 		.
 	\end{equation}
-	\begin{lemma}[{\cite{our-vzms-2018}}]
-		Для любого $x\in \ell_\infty$ выполнено равенство
-		\begin{equation}\label{alpha_S}
-			\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
-			.
-		\end{equation}
-	\end{lemma}
+	Согласно лемме~\ref{thm:alpha_S},
+	для любого $x\in \ell_\infty$ выполнено равенство
+	\begin{equation}\label{alpha_S}
+		\alpha(Sx) = \varlimsup_{k\to\infty} |x_{k+1} - x_{k}|
+		.
+	\end{equation}
 	Положим
 	\begin{equation}
 		\label{eq:y_for_s_alpha}
