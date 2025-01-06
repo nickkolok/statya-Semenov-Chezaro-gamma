@@ -54,20 +54,28 @@
 
 Лоренц \cite{lorentz1948contribution} установил, что существует подпространство $\ell_\infty$,
 на котором все банаховы пределы принимают одинаковое значение.
-Это пространство названо пространством почти сходящихся последовательностей и обычно обозначается $ac$
+Это пространство названо пространством почти сходящихся последовательностей и обычно обозначается через $ac$
 (от англ. <<almost convergent>>).
 Включение $c \subset ac$ собственное, т.е. $ac \setminus c \neq \varnothing$.
+Более того, Лоренц доказал, что для заданных $t\in\R$ и $x\in\ell_\infty$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
+тогда и только тогда, когда
+\begin{equation}
+	\label{eq:crit_Lorentz}
+	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
+\end{equation}
+равномерно по $m\in\N$.
+Это утверждение называют критерием Лоренца.
 
 
 Обобщая критерий Лоренца, Сачестон \cite{sucheston1967banach} доказал, что для любого $x\in\ell_\infty$
 и любого $B\in\mathfrak{B}$
 \begin{equation*}
 	q(x) =
-	\lim_{n\to\infty} \sup_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
+	\lim_{n\to\infty} \sup_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	\leq
 	Bx
 	\leq
-	\lim_{n\to\infty} \inf_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{k=m+n} x_k
+	\lim_{n\to\infty} \inf_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	= p(x)
 \end{equation*}
 и, более того,
