@@ -68,12 +68,21 @@
   \maps[datatype=bibtex]{
     \map{
       \step[fieldsource=author,
+            match=\detokenize{Avdeev},
+            final]
+      \step[fieldset=keywords, fieldvalue=avdeev]
+    }
+    \map{
+      \step[fieldsource=author,
             match=\detokenize{Авдеев},
             final]
       \step[fieldset=keywords, fieldvalue=avdeev]
     }
   }
 }
+
+
+
 
 \addbibresource{../bib/Semenov.bib}
 \addbibresource{../bib/my.bib}
