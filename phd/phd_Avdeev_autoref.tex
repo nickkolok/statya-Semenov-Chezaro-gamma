@@ -85,10 +85,9 @@
 
 \input{../bib/ext.hyphens.bib}
 
-\def\selfcite{\cite}
-\renewcommand\cite[2][]{\footcite[#1]{#2}}
 
-
+\def\selfcite{\parencite}
+\renewcommand\cite[2][]{\footfullcite[#1]{#2}}
 
 
 \usepackage{amsthm}
@@ -163,6 +162,20 @@
 \renewcommand*{\revsdnamepunct}{\addcomma}}{}
 \makeatother
 
-\printbibliography[keyword=avdeev]{}
+\printbibliography[keyword=avdeev,title={Публикации по теме диссертации}]{}
+
+Работы~\selfcite{
+%Солидные статьи
+our-mz2019ac0,
+our-mz2019measure,
+our-mz2021linearhulls,
+avdeed2021AandA,
+avdeev2021vestnik,
+avdeev2024decomposition,
+avdeev2021vmzprimes}
+из списка опубликованы в изданиях, входящих в перечень
+ВАК и/или индексируемых базами данных Web of Science и/или Scopus.
+
+%\printbibliography[notkeyword=avdeev,title={Список использованных источников}]{}
 
 \end{document}

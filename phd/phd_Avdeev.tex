@@ -122,6 +122,11 @@
 \newcommand\reflectcorollary[1]{\paragraph{Следствие \ref{#1}}}
 \newcommand\reflectdefinition[1]{\paragraph{Определение \ref{#1}}}
 
+%For the main text, we do not make the difference between
+%self-citation and external citation
+%(for autoref we do really do!)
+\def\selfcite{\cite}
+
 %Only referenced equations are numbered
 \usepackage{mathtools}
 \mathtoolsset{showonlyrefs}
