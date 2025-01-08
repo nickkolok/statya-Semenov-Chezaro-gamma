@@ -98,7 +98,9 @@
 
 
 \def\selfcite{\parencite}
-\renewcommand\cite[2][]{\footfullcite[#1]{#2}}
+%\renewcommand\cite[2][]{\footfullcite{#2}}
+\renewcommand\cite[2][]{\splitfootfullcite{#2}}
+%\renewcommand\cite[2][]{\splitfootfullcite{\detokenize{#2}}}
 
 
 \DeclareBibliographyCategory{vakpapers}
@@ -112,6 +114,27 @@ avdeev2021vestnik,
 avdeev2024decomposition,
 avdeev2021vmzprimes}
 \addtocategory{vakpapers}{\vakpaperskeys}
+
+
+%Splitting the footnoterefs
+\usepackage{etoolbox}
+
+\newcounter{citefootnote}
+\makeatletter
+\newcommand\splitfootfullcite[1]{%
+    \begingroup
+    \setcounter{citefootnote}{0} % reset footnote counter
+    \forcsvlist{\makeenumerate@item}{#1}%
+    \endgroup
+}
+\newcommand\makeenumerate@item[1]{%
+    \ifnum\c@citefootnote>0{\textsuperscript{,}}\fi % Adjust this line to change the separator
+    \footfullcite{#1}%
+    \addtocounter{citefootnote}{1}%
+}
+\makeatother
+
+
 
 
 
