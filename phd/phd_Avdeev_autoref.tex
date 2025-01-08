@@ -62,7 +62,9 @@
 
 \newcommand{\longcomment}[1]{}
 
-\usepackage[backend=biber,style=gost-footnote,sorting=none,bibstyle=gost-numeric]{biblatex}
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+%\usepackage[backend=biber,style=gost-footnote,sorting=none,bibstyle=gost-numeric]{biblatex}
+
 
 \DeclareSourcemap{
   \maps[datatype=bibtex]{
@@ -97,6 +99,20 @@
 
 \def\selfcite{\parencite}
 \renewcommand\cite[2][]{\footfullcite[#1]{#2}}
+
+
+\DeclareBibliographyCategory{vakpapers}
+\def\vakpaperskeys{
+%Солидные статьи
+our-mz2019ac0,
+our-mz2019measure,
+our-mz2021linearhulls,
+avdeed2021AandA,
+avdeev2021vestnik,
+avdeev2024decomposition,
+avdeev2021vmzprimes}
+\addtocategory{vakpapers}{\vakpaperskeys}
+
 
 
 \usepackage{amsthm}
@@ -135,12 +151,27 @@
 % https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
 \usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
 
+
+
+% Центрируем заголовки, как того требует ГОСТ
+\makeatletter
+\patchcmd {\@makechapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+\patchcmd {\@makechapterhead}{\huge \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\@makeschapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+
+\patchcmd{\section}         {\Large \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\subsection}      {\large \bfseries}{       \bfseries \centering }{}{\ddy}
+\makeatother
+
+
+
 \begin{document}
+
 \clubpenalty=10000
 \widowpenalty=10000
 \includepdf{autoref_title.pdf}
 \setcounter{page}{3}
-\tableofcontents
+
 
 \chapter*{Введение}
 \addcontentsline{toc}{chapter}{Введение}
@@ -171,19 +202,23 @@
 \renewcommand*{\revsdnamepunct}{\addcomma}}{}
 \makeatother
 
-\printbibliography[keyword=avdeev,title={Публикации по теме диссертации}]{}
 
-Работы~\selfcite{
-%Солидные статьи
-our-mz2019ac0,
-our-mz2019measure,
-our-mz2021linearhulls,
-avdeed2021AandA,
-avdeev2021vestnik,
-avdeev2024decomposition,
-avdeev2021vmzprimes}
+
+
+\section*{Работы автора по теме диссертации}
+\paragraph{Статьи в научных журналах}
+
+\printbibliography[keyword=avdeev,category=vakpapers,heading=none,title={~}]{}
+
+Работы~\selfcite{\vakpaperskeys}
 из списка опубликованы в изданиях, входящих в перечень
 ВАК и/или индексируемых базами данных Web of Science и/или Scopus.
+
+\paragraph{Тезисы конференций}
+
+
+\printbibliography[keyword=avdeev,notcategory=vakpapers,heading=none,title={~}]{}
+
 
 %\printbibliography[notkeyword=avdeev,title={Список использованных источников}]{}
 
