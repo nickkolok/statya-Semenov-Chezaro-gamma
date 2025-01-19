@@ -1,0 +1,224 @@
+\documentclass[a4paper,14pt]{article}
+\usepackage[cp1251]{inputenc}
+%\usepackage{floatflt}
+\usepackage{float}
+\usepackage{cite}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage[dvips]{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\textheight=220mm
+\textwidth=160mm
+\oddsidemargin=0.1in
+\evensidemargin=0.1in
+
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\footnotesize{Современные проблемы математики и ее приложений}}
+\fancyhead[R]{\footnotesize{Тезисы конференции}}
+\fancyfoot{}
+\fancyfoot[L]{\footnotesize{Екатеринбург, Россия}}
+\fancyfoot[R]{\footnotesize{31 января -- 4 февраля, 2022}}
+\renewcommand{\footrulewidth}{0.1 mm}
+
+\begin{center}
+\textbf{О мере множеств, разделяющих банаховы пределы}%
+\footnote{Исследование выполнено за счет гранта Российского научного фонда (проект № 19-11-00197).}\\
+\vspace{\baselineskip}
+Авдеев Н.Н.\\
+\emph{Воронежский госуниверситет, Воронеж, Россия}\\nickkolok@mail.ru, avdeev@math.vsu.ru
+\vspace{\baselineskip}\\
+\end{center}
+\vspace{\baselineskip}
+
+
+Обозначим через $\ell_\infty$ пространство ограниченных последовательностей с обычной нормой
+$
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	,
+$
+где $\mathbb{N}$ "--- множество натуральных чисел, и обычной полуупорядоченностью.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на $\ell_\infty$
+является понятие банахова предела.
+
+\textbf{Определение.}
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+			оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+
+Кратко пишем: $B \in \mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром в~1929~г. и доказано С.~Банахом~\cite{banach1993theorie}.
+Сачестон установил~\cite{sucheston1967banach}, что
+для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+\begin{equation*}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+	\quad\mbox{~~где~~}\quad
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+\end{equation*}
+суть нижний и верхний функционалы Сачестона соотв.
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует~\cite{lorentz1948contribution} пространство почти сходящихся последовательностей $ac$.
+На каждом $x\in ac$ все $B\in \mathfrak{B}$ принимают одинаковые значения.
+
+
+Представляет интерес вопрос об объекте, в некотором смысле двойственном пространству $ac$:
+насколько малым можно взять подмножество пространства $\ell_\infty$,
+чтобы для любых двух несовпадающих банаховых пределов в этом подмножестве всё ещё находился элемент,
+на котором эти банаховы пределы будут различаться?
+Так возникает понятие разделяющего множества~\cite[\S 3]{Semenov2014geomprops}.
+
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является~\cite{semenov2010characteristic} множество всех последовательностей из 0 и 1,
+которое в дальнейшем мы будем обозначать через $\Omega$.
+Множество $\Omega$, вообще говоря, интуитивно воспринимается малым по сравнению со всем пространством $\ell_\infty$.
+Однако можно ли найти ещё меньшее подмножество? Критерием малости теперь можно взять классическую меру.
+Каждой последовательности $(x_1, x_2, \dots)\in \Omega$ поставим в соответствие число
+\begin{equation}\label{eq:bijection_omega_0_1}
+	\sum_{k=1}^\infty 2^{-k} x_k \in [0,1]
+	.
+\end{equation}
+С точностью до счётного множества это соответствие взаимно однозначно и определяет на множестве $\Omega$ меру,
+которую мы будем отождествлять с мерой Лебега на $[0,1]$.
+Оказывается, что из $\Omega$ можно выделить некоторые подмножества, которые также будут разделяющими,
+например \cite[\S 3, Теорема 11]{Semenov2014geomprops},
+$
+	U = \{ x\in\Omega: q(x) = 0, p(x) = 1 \}
+	.
+$
+Однако множество $U$ имеет меру 1~\cite{semenov2010characteristic}.
+
+
+В статье~\cite{avdeev2021vestnik} пример разделяющего множества,
+являющегося подмножеством $\Omega$ и имеющего меру нуль,
+а именно
+\begin{equation}
+	\{x\in\ell_\infty : p(x) = a,~ q(x) = b\},\quad 0 < b < a < 1
+	.
+\end{equation}
+Для построения такого множества используется следующий факт.
+
+\textbf{Лемма}{\cite[\S 3, замечание 6]{Semenov2014geomprops}}{\sl
+	Пусть $X$~--- разделяющее множество и $X \subset \operatorname{Lin} Y$,
+	где $\operatorname{Lin} Y$ обозначает линейную оболочку $Y$.
+	Тогда $Y$ также является разделяющим множеством.
+}
+
+Наряду с использованным при построении разделяющего множества меры нуль включением
+\begin{equation}
+	\Omega \subset \operatorname{Lin}\{x\in\Omega : p(x) = a,~ q(x) = b\}
+\end{equation}
+для любых $0\leq b < a \leq 1$,
+имеет место равенство
+\begin{equation}
+	\ell_\infty = \operatorname{Lin}\{x\in\ell_\infty : p(x) = a,~ q(x) = b\}
+\end{equation}
+для любых $a>b$.
+Возникает закономерный вопрос: для каких ещё подмножеств пространства $\ell_\infty$
+верны аналогичные соотношения?
+Оказывается, что этим свойством обладает и ещё одно подмножество пространства $\ell_\infty$: подпространство
+$A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
+где~\cite{our-vzms-2018}
+\begin{equation*}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation*}
+
+Пространство $A_0$ обладает и другими интересными свойствами.
+
+
+\textbf{Теорема.}{\cite[следствие 2]{our-mz2019ac0}}{\sl
+	\label{thm:alpha_c_ac_c}
+	Пусть $x\in ac$, т.е. $p(x) = q(x)$.
+	Тогда $x\in c$ если и только если $\alpha(x) = 0$.
+}
+Таким образом, $c = ac \cap A_0$.
+Включение $c\subset A_0$ собственное.
+
+В~\cite{our-ped-2018-alpha-Tx} показано, что, хотя сама функция $\alpha(x)$ не инвариантна относительно оператора сдвига $T$,
+подпространство $A_0$ такой инвариантностью обладает;
+из доказанного в~\cite{SSUZ2} соотношения
+$
+	\alpha(Cx) \leq \alpha(x)
+	,
+$
+где $Cx$ есть оператор Чезаро
+$
+	(Cx)_n = \frac{1}{n} \sum_{k=1}^n x_k
+	,
+$
+следует инвариантность пространства $A_0$ относительно оператора Чезаро.
+В статье~\cite{avdeev2021vestnik} доказывается,
+что пространство $A_0$ инвариантно относительно операторов растяжения $\sigma_n$
+и усредняющего сжатия $\sigma_{1/n}$.
+
+
+
+
+\begin{thebibliography}{99}\small{
+{}
+\bibitem{banach1993theorie}
+S. Banach, Th\'eorie des op\'erations lin\'eaires, Reprint of the 1932 original, Sceaux: \'Editions Jacques Gabay,
+1993, iv+128, \textsc{isbn}: 2-87647-148-5.
+{}
+\bibitem{sucheston1967banach}
+L. Sucheston, Banach limits, \emph{Amer. Math. Monthly} 74 (1967), 308--311, \textsc{issn}: 0002-9890,
+\textsc{doi}: {10.2307/2316038}.
+{}
+\bibitem{lorentz1948contribution}
+G. G. Lorentz, A contribution to the theory of divergent sequences, \emph{Acta Math.} 80.\textbf{1}
+(1948), 167--190, \textsc{issn}: 0001-5962, \textsc{doi} {10.1007/BF02393648}.
+{}
+\bibitem{Semenov2014geomprops}
+Е. М. Семёнов, Ф. А. Сукочев и А. С. Усачев, Геометрические свойства множества банаховых пределов,
+\emph{Известия Российской академии наук. Серия математическая} 78.\textbf{3} (2014), 177--204.
+{}
+\bibitem{semenov2010characteristic}
+Е. М. Семенов и Ф. А. Сукочев, Характеристические функции банаховых пределов, \emph{Сибирский
+математический журнал} 51.\textbf{4} (2010), 904--910.
+{}
+\bibitem{avdeev2021vestnik}
+Н. Н. Авдеев, О разделяющих множествах меры нуль и функционалах Сачестона, \emph{Вестн. ВГУ. Серия:
+Физика. Математика} 4 (2021), 38--50.
+{}
+\bibitem{our-vzms-2018}
+Н. Н. Авдеев и Е. М. Семенов, Об асимптотических свойствах оператора Чезаро, \emph{Воронежская
+Зимняя Математическая школа С.Г. Крейна --- 2018. Материалы Международной конференции. Под ред. В.А.
+Костина.} (2018), 107--109.{}
+\bibitem{our-mz2019ac0}
+Н. Н. Авдеев, О пространстве почти сходящихся последовательностей, \emph{Математические заметки}
+105.\textbf{3} (2019), 462--466, \textsc{doi}: {10.4213/mzm12298}.
+{}
+\bibitem{our-ped-2018-alpha-Tx}
+Н. Н. Авдеев, О суперпозиции оператора сдвига и одной функции на пространстве ограниченных
+последовательностей, \emph{Некоторые вопросы анализа, алгебры, геометрии и математического
+образования.} (2018), 20--21.
+{}
+\bibitem{SSUZ2}
+E. Semenov и др., Invariant Banach limits and applications to noncommutative geometry, \emph{Pacific J. Math.}
+306.\textbf{1} (2020), 357--373.
+}\end{thebibliography}
+
+
+\end{document}
+

@@ -1,0 +1,257 @@
+\documentclass[a4paper,14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{float}
+\usepackage{cite}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage[dvips]{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\textheight=220mm
+\textwidth=160mm
+\oddsidemargin=0.1in
+\evensidemargin=0.1in
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\footnotesize{Современные проблемы математики и ее приложений}}
+\fancyhead[R]{\footnotesize{Тезисы конференции}}
+\fancyfoot{}
+\fancyfoot[L]{\footnotesize{Екатеринбург, Россия}}
+\fancyfoot[R]{\footnotesize{}}
+\renewcommand{\footrulewidth}{0.1 mm}
+
+\begin{center}
+\textbf{Банаховы пределы и некоторые классы линейных операторов}%
+%TODO:
+\footnote{Исследование выполнено за счет гранта Российского научного фонда (проект № 19-11-00197).}\\
+\vspace{\baselineskip}
+Авдеев Н.Н.\\
+\emph{Воронежский госуниверситет, Воронеж, Россия}\\nickkolok@mail.ru, avdeev@math.vsu.ru
+\vspace{\baselineskip}\\
+Зволинский Р.Е.\\
+\emph{Воронежский госуниверситет, Воронеж, Россия}\\roman.zvolinskiy@gmail.com, roman-zvolinskiy@mail.ru
+\vspace{\baselineskip}\\
+Усачев А.С.\\
+\emph{TODO}\\alex.usachev.ru@gmail.com, usa-alexandr@yandex.ru
+\vspace{\baselineskip}\\
+\end{center}
+\vspace{\baselineskip}
+
+%На коллег надейся, а сам не плошай!
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
+Обозначим через $\ell_\infty$ пространство ограниченных последовательностей с обычной нормой
+$
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	,
+$
+где $\mathbb{N}$ "--- множество натуральных чисел, и обычной полуупорядоченностью.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на $\ell_\infty$
+является понятие банахова предела.
+
+\textbf{Определение.}
+	Линейный функционал $B\in \ell_\infty^*$ называется банаховым пределом,
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+			оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+
+Кратко пишем: $B \in \mathfrak{B}$.
+Существование банаховых пределов было анонсировано С. Мазуром~\cite{Mazur} и доказано С.~Банахом~\cite{banach1993theorie}.
+Сачестон установил~\cite{sucheston1967banach}, что
+для любых $x\in \ell_\infty$ и $B\in\mathfrak{B}$
+\begin{equation*}\label{Sucheston}
+	q(x) \leqslant Bx \leqslant p(x)
+	,
+	\quad\mbox{~~где~~}\quad
+	q(x) = \lim_{n\to\infty} \inf_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{и}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\mathbb{N}}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+\end{equation*}
+суть нижний и верхний функционалы Сачестона соотв.
+Множество таких $x\in\ell_\infty$, что $p(x)=q(x)$,
+образует~\cite{lorentz1948contribution} пространство почти сходящихся последовательностей $ac$.
+На каждом $x\in ac$ все $B\in \mathfrak{B}$ принимают одинаковые значения.
+
+Все банаховы пределы инвариантны относительно сдвига по определению.
+Однако уже для совершенно естественного "--- если бы мы говорили об обычной сходимости последовательностей "---
+оператора растяжения $\sigma_k$, $k\in \mathbb N$, $k\ge2$, который просто повторяет каждый элемент последовательности $k$ раз,
+выясняется, что относительно этого оператора инварианты не все банаховы пределы и,
+более того, инвариантность конкретного банахова предела зависит от выбора $k$.
+
+В настоящей работе мы строим классы линейных операторов,
+основываясь на их свойствах инвариантности относительно банаховых пределов и функционалов Сачестона,
+начиная с самых широких.
+
+\textbf{Определение.}
+Полуэберлейновым назовём такой оператор $A:\ell_\infty \to \ell_\infty$,
+что $BA\in\mathfrak B$ для некоторого $B\in\mathfrak B$.
+
+Класс полуэберлейновых операторов впервые введён авторами.
+
+\textbf{Определение.}
+Эберлейновым назовём такой оператор $A:\ell_\infty \to \ell_\infty$,
+что $BA=B$ для некоторого $B\in\mathfrak B$.
+
+Этот класс операторов изучался в работах многих авторов
+TODO:cite,
+в т.ч. Эберлейна
+TODO:cite,
+в силу чего авторы и считают возможным дать ему такое название.
+%
+Всякий эберлейнов оператор является полуэберлейновым по определению.
+Обратное неверно.
+	Пусть $B_1, B_2$ есть различные крайние точки $ \mathfrak B$
+	и $Hx = ((2B_2-B_1) x) \cdot\mathbb I$.
+	Тогда оператор $H$ полуэберлейнов,
+	но не эберлейнов.
+
+\textbf{Определение.}
+В-регулярным назовём такой оператор $H:\ell_\infty \to \ell_\infty$,
+что $B H \in \mathfrak B$ для любого $B\in \mathfrak B$.
+
+Этот класс введён Е.А.Алехно в
+TODO:cite.
+Там же доказано, что всякий В-регулярный является эберлейновым.
+Можно доказать, что обратное неверно.
+Например, эберлейновым, но не В-регулярным является оператор
+$
+	Ex = x \cdot \chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right] \cup\{1\}}
+$.
+
+Заметим, что для любого В-регулярного оператора $H$ и любого $x\in \ell_\infty$ выполнено
+$p(x) \geq p(Hx) \geq q(Hx) \geq q(x)$.
+Это приводит нас к следующему классу операторов.
+
+\textbf{Определение.} Q-регулярным называется такой оператор $H:\ell_\infty\to \ell_\infty$,
+что для любого $x\in\ell_\infty$ выполнено равенство $q(Hx) = q(x)$.
+
+
+Этот класс в данной работе вводится впервые.
+Всякий Q-регулярный оператор является В-регулярным;
+обратное неверно.
+Например, В-регулярным, но не Q-регулярным является оператор Чезаро (Харди):
+$
+	C (x_1, x_2, x_3, ...) = \left(
+	x_1,
+	\dfrac{x_1+x_2}2,
+	\dfrac{x_1+x_2 + x_3}3,
+	%\dfrac{x_1+x_2+x_3+x_4}4,
+	...,
+	\dfrac{x_1+...+x_n}n,
+	...\right)
+	.
+$
+
+
+Примерами Q-регулярных операторов являются операторы $\sigma_k$, $k\ge 2$.
+Но даже для таких операторов не все банаховы пределы инвариантны.
+
+\textbf{Определение.}
+Разреженным назовём оператор $H: \ell_\infty \to \ell_\infty$,
+определяемый следующим образом
+$$
+H(x_1, x_2, x_3, \ldots) = (x_{m_1}, x_{m_1 + 1}, \ldots, x_{n_1 - 1}, x_{n_1};
+x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; \ldots),
+$$
+где для всех
+$k \geqslant k_0 \in \mathbb N$
+выполнено
+$
+	m_k \leqslant n_k < m_{k+1}\leqslant n_{k+1}
+$,
+при этом
+$$
+	\lim\limits_{k \to \infty} (n_k - m_k) = \infty
+	.
+$$
+
+Этот класс в данной работе также вводится впервые.
+Всякий разреженный оператор является В-регулярным.
+Обратное, очевидно, неверно.
+Существует разреженный оператор, не являющийся Q-регулярным.
+
+
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
+\small
+\begin{thebibliography}{99}
+	{}
+	\bibitem{Mazur}
+	S. Mazur, O metodach sumowalno\'sci,
+	\emph{Ann. Soc. Polon. Math. (Supplement)}, 1929, 102--107.
+	{}
+	\bibitem{banach1993theorie}
+	S. Banach, Th\'eorie des op\'erations lin\'eaires, Reprint of the 1932 original, Sceaux: \'Editions Jacques Gabay,
+	1993, iv+128, \textsc{isbn}: 2-87647-148-5.
+	{}
+	\bibitem{sucheston1967banach}
+	L. Sucheston, Banach limits, \emph{Amer. Math. Monthly} 74 (1967), 308--311, \textsc{issn}: 0002-9890,
+	\textsc{doi}: {10.2307/2316038}.
+	{}
+	\bibitem{lorentz1948contribution}
+	G. G. Lorentz, A contribution to the theory of divergent sequences, \emph{Acta Math.} \textbf{80}:~{1}
+	(1948), 167--190, \textsc{issn}: 0001-5962, \textsc{doi}: {10.1007/BF02393648}.
+	{}
+	\bibitem{Semenov2014geomprops}
+	Е. М. Семёнов, Ф. А. Сукочев, А. С. Усачев, Геометрические свойства множества банаховых пределов,
+	\emph{Известия Российской академии наук. Серия математическая} \textbf{78}:~{3} (2014), 177--204.
+	{}
+	\bibitem{semenov2010characteristic}
+	Е. М. Семенов, Ф. А. Сукочев, Характеристические функции банаховых пределов, \emph{Сибирский
+	математический журнал} \textbf{51}:~4 (2010), 904--910.
+	{}
+	\bibitem{our-mz2019ac0}
+	Н. Н. Авдеев, О пространстве почти сходящихся последовательностей, \emph{Математические заметки}
+	105.\textbf{3} (2019), 462--466, \textsc{doi}: {10.4213/mzm12298}.
+	{}
+	\bibitem{avdeev2021vestnik}
+	Н. Н. Авдеев, О разделяющих множествах меры нуль и функционалах Сачестона,
+	\emph{Вестн. ВГУ. Серия: Физика. Математика} 4 (2021), 38--50.
+	{}
+	\bibitem{avdeev2021vmzprimes}
+	Н. Н. Авдеев, Почти сходящиеся последовательности из 0 и 1 и
+	простые числа, \emph{Владикавказский математический журнал} {\bf 23}:~4 (2021), 5--14,
+	\textsc{doi}: {10.46698/p9825-1385-3019-c}.
+\end{thebibliography}
+\normalsize
+\end{document}
+
+
+
+
+\bibitem{Pi1}
+M.~Hagie. The prime graph of a sporadic simple group. {\it Comm. Algebra}, {\bf 31}:~9 (2003), 4405--4424.
+
+\bibitem{Pi2}
+V.~D.~Mazurov, W.~J.~Shi. A note to the characterization of sporadic simple groups. {\it Algebra Colloq.},
+{\bf 5}:~3 (1998), 285--288.
+
+\bibitem{Pi3}
+P.~Poto\v{c}nik, P.~Spiga, G.~Verret. Cubic vertex--transitive graphs on up to 1280 vertices. arXiv:1201.5317v1 [math.CO].
+
+\bibitem{Pi4}
+J.~H.~Conway, R.~T.~Curtis, S.~P.~Norton, R.~A.~Parker, R.~A.~Wilson. Atlas of finite groups.
+Oxford: Clarendon Press, 1985.
+
+\bibitem{Pi5}
+А.~С.~Кондратьев, Н.~А.~Минигулов. О конечных неразрешимых $4$-примарных $3'$-группах. {\it Тезисы международной конференции "Алгебра, теория чисел и математическое моделирование динамических систем"\,, посвященной 70-летию А.Х. Журтова.} Нальчик: издательство КБГУ, 2019, 56--57.
+\end{thebibliography}
+\normalsize
+\end{document}

@@ -1,0 +1,242 @@
+\documentclass[a4paper,14pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{float}
+\usepackage{cite}
+\usepackage[english,russian]{babel}
+\usepackage{amssymb,amsmath,amsfonts}
+\usepackage{color}
+\usepackage{enumerate}
+\usepackage[dvips]{graphicx}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+
+\textheight=220mm
+\textwidth=160mm
+\oddsidemargin=0.1in
+\evensidemargin=0.1in
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\footnotesize{Современные проблемы математики и ее приложений}}
+\fancyhead[R]{\footnotesize{Тезисы конференции}}
+\fancyfoot{}
+\fancyfoot[L]{\footnotesize{Екатеринбург, Россия}}
+\fancyfoot[R]{\footnotesize{}}
+\renewcommand{\footrulewidth}{0.1 mm}
+
+\begin{center}
+\textbf{О разложении ограниченной последовательности в сумму почти сходящейся к нулю и диадической}%
+%TODO:
+\footnote{Исследование выполнено за счет гранта Российского научного фонда (проект № 19-11-00197).}\\
+\vspace{\baselineskip}
+Авдеев Н.Н.\\
+\emph{Воронежский госуниверситет, Воронеж, Россия}\\nickkolok@mail.ru, avdeev@math.vsu.ru
+\vspace{\baselineskip}\\
+\end{center}
+\vspace{\baselineskip}
+
+%На коллег надейся, а сам не плошай!
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
+
+Через $\ell_\infty$ обозначим пространство ограниченных последовательностей с обычной нормой
+$
+	\|x\| = \sup_{k\in\mathbb{N}} |x_k|
+	,
+$
+где $\mathbb{N}$ "--- множество натуральных чисел, и обычной полуупорядоченностью.
+Естественным обобщением предела с пространства сходящихся последовательностей $c$ на $\ell_\infty$
+является понятие банахова предела.
+
+\textbf{Определение.}
+	Линейный функционал $B\in \ell_\infty^*$ есть банахов предел (пишем: $B \in \mathfrak{B}$),
+	если
+	\begin{enumerate}
+		\item
+			$B\geq0$, т.~е. $Bx \geq 0$ для $x \geq 0$,
+		\item
+			$B\mathbb{I}=1$, где $\mathbb{I} =(1,1,\ldots)$,
+		\item
+			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
+			оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
+	\end{enumerate}
+
+Существование банаховых пределов было анонсировано С. Мазуром~\cite{Mazur} и доказано С.~Банахом~\cite{banach1993theorie}.
+
+\textbf{Критерий Лоренца.}~\cite{lorentz1948contribution}
+{\sl
+	Для заданных $t\in\mathbb R$ и $x\in\ell_\infty$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
+	(для краткости пишут: $x\in ac$ и при необходимости уточняют: $x\in ac_t$)
+	тогда и только тогда, когда
+	\begin{equation*}
+		\label{eq:crit_Lorentz}
+		\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
+		\qquad\qquad\mbox{равномерно по $m\in\mathbb N$.}
+	\end{equation*}
+}
+
+Представляет интерес вопрос об объектах, в некотором смысле двойственных пространству $ac$.
+Разделяющим множеством~\cite[\S 3]{Semenov2014geomprops}
+называется такое
+подмножество $Q \subset \ell_\infty$,
+что для любых двух несовпадающих банаховых пределов в этом подмножестве всё ещё находился элемент,
+на котором эти банаховы пределы будут различаться?
+Так возникает понятие разделяющего множества.
+
+Множество $Q\in\ell_\infty$ называют разделяющим, если
+для любых неравных $B_1, B_2\in\mathfrak{B}$ существует такая последовательность $x\in Q$,
+что $B_1 x \neq B_2 x$.
+В частности, разделяющим является~\cite{semenov2010characteristic} множество всех последовательностей из 0 и 1.
+
+Очень часто при изучении банаховых пределов и смежных вопросов
+рассматриваются последовательности, например, состоящие только из 0 и 1
+(см., например,~\cite{connor1990almost,our-mz2019ac0,avdeev2021vestnik,avdeev2021vmzprimes}).
+
+
+Ниже мы конструктивно докажем результат,
+в некотором смысле обосновывающий такой подход.
+
+
+\medskip
+
+\textbf{Лемма 1.}
+{\sl
+	Пусть $x\in\ell_\infty$, $\|x\|\leq 1$.
+	Тогда существует такая $h\in ac_0$, что $(x+h)_n = \pm 1$ для всех $n\in\mathbb N$.
+}
+
+\textbf{Доказательство.}
+Построим последовательность $h$ согласно следующим соотношениям.
+Положим $h_1 = 1-x_1$.
+Обозначим $s_n = \sum_{k=1}^n h_k$. Будем полагать
+
+$$
+	h_k = \begin{cases}
+		1-x_k, \quad\mbox{если}~~ s_{k-1} < 0,
+		\\
+		-1 - x_k,\quad\mbox{если}~~ s_{k-1} \geq 0
+		.
+	\end{cases}
+$$
+
+Тогда $|h_k| \leq 2$ и, более того, по индукции следует, что $|s_k| \leq 2$. Осталось применить критерий Лоренца к последовательности $h_k$:
+
+\begin{multline*}
+	\left|\lim_{m,n\to \infty} \frac{1}{n} \sum_{k=m+1}^{m+n} h_k\right| \leq
+	\lim_{m,n\to \infty} \frac{1}{n} \left|\sum_{k=m+1}^{m+n} h_k\right| \leq
+	\lim_{m,n\to \infty} \frac{1}{n} \left|\sum_{k=1}^{m+n} h_k - \sum_{k=1}^{m} h_k  \right| =
+	\\=
+	\lim_{m,n\to \infty} \frac{1}{n} \left|s_{m+n} - s_{m}  \right| \leq
+	\lim_{m,n\to \infty} \frac{1}{n} (|s_{m+n}| + |s_{m} |) \leq
+	\lim_{m,n\to \infty} \frac{1}{n} (2 + 2) =0
+\end{multline*}
+
+\medskip
+
+\textbf{Следствие 1.} {\sl
+	Пусть $x\in\ell_\infty$.
+	Тогда существует такая $h\in ac_0$, что для всех $n\in\mathbb N$
+	\begin{equation*}
+		(x+h)_n \in \{\inf_{n\in\mathbb N} x_n,\sup_{n\in\mathbb N} x_n\}
+		.
+	\end{equation*}
+}
+
+\medskip
+
+\textbf{Следствие 2.} {\sl
+	Пусть $x\in\ell_\infty$.
+	Тогда существует такая $h\in ac_0$, что $(x+h)_n =\pm \|x\|$ для всех $n\in\mathbb N$.
+}
+
+\medskip
+
+Полученный результат интересен в первую очередь тем, что для банаховых пределов и связанных с ними понятий
+очень редки теоремы о приближении или о декомпозиции.
+Более того, из полученного результата непосредственно следует, например,
+доказанное в~\cite{semenov2010characteristic} утверждение о том, что множество всех последовательностей из 0 и 1 является разделяющим.
+
+Предложенная выше процедура, однако, в общем случае не сохраняет последовательность из $ac_0$,
+а превращает её в сумму двух последовательностей совсем другой структуры.
+%Этот эффект, по всей видимости, связан с тем, что пространство $ac_0$ недополняемо в $\ell_\infty$.
+
+
+
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+
+\small
+\begin{thebibliography}{99}
+	{}
+	\bibitem{Mazur}
+	S. Mazur, O metodach sumowalno\'sci,
+	\emph{Ann. Soc. Polon. Math. (Supplement)}, 1929, 102--107.
+	{}
+	\bibitem{banach1993theorie}
+	S. Banach, Th\'eorie des op\'erations lin\'eaires, Reprint of the 1932 original, Sceaux: \'Editions Jacques Gabay,
+	1993, iv+128, \textsc{isbn}: 2-87647-148-5.
+	{}
+	%\bibitem{sucheston1967banach}
+	%L. Sucheston, Banach limits, \emph{Amer. Math. Monthly} 74 (1967), 308--311, \textsc{issn}: 0002-9890,
+	%\textsc{doi}: {10.2307/2316038}.
+	%{}
+	\bibitem{lorentz1948contribution}
+	G. G. Lorentz, A contribution to the theory of divergent sequences, \emph{Acta Math.} \textbf{80}:~{1}
+	(1948), 167--190, \textsc{issn}: 0001-5962, \textsc{doi}: {10.1007/BF02393648}.
+	{}
+	\bibitem{Semenov2014geomprops}
+	Е. М. Семёнов, Ф. А. Сукочев, А. С. Усачев, Геометрические свойства множества банаховых пределов,
+	\emph{Известия Российской академии наук. Серия математическая} \textbf{78}:~{3} (2014), 177--204.
+	{}
+	\bibitem{semenov2010characteristic}
+	Е. М. Семенов, Ф. А. Сукочев, Характеристические функции банаховых пределов, \emph{Сибирский
+	математический журнал} \textbf{51}:~4 (2010), 904--910.
+	{}
+	\bibitem{connor1990almost}
+	J. Connor, Almost none of the sequences of 0’s and 1’s are almost
+	convergent.
+	\emph{International Journal of Mathematics and Mathematical Sciences}, \textbf{13}:~4 (1990), 775--777.
+	{}
+	\bibitem{our-mz2019ac0}
+	Н. Н. Авдеев, О пространстве почти сходящихся последовательностей, \emph{Математические заметки}
+	105.\textbf{3} (2019), 462--466, \textsc{doi}: {10.4213/mzm12298}.
+	{}
+	\bibitem{avdeev2021vestnik}
+	Н. Н. Авдеев, О разделяющих множествах меры нуль и функционалах Сачестона,
+	\emph{Вестн. ВГУ. Серия: Физика. Математика} 4 (2021), 38--50.
+	{}
+	\bibitem{avdeev2021vmzprimes}
+	Н. Н. Авдеев, Почти сходящиеся последовательности из 0 и 1 и
+	простые числа, \emph{Владикавказский математический журнал} {\bf 23}:~4 (2021), 5--14,
+	\textsc{doi}: {10.46698/p9825-1385-3019-c}.
+\end{thebibliography}
+\normalsize
+\end{document}
+
+
+
+
+\bibitem{Pi1}
+M.~Hagie. The prime graph of a sporadic simple group. {\it Comm. Algebra}, {\bf 31}:~9 (2003), 4405--4424.
+
+\bibitem{Pi2}
+V.~D.~Mazurov, W.~J.~Shi. A note to the characterization of sporadic simple groups. {\it Algebra Colloq.},
+{\bf 5}:~3 (1998), 285--288.
+
+\bibitem{Pi3}
+P.~Poto\v{c}nik, P.~Spiga, G.~Verret. Cubic vertex--transitive graphs on up to 1280 vertices. arXiv:1201.5317v1 [math.CO].
+
+\bibitem{Pi4}
+J.~H.~Conway, R.~T.~Curtis, S.~P.~Norton, R.~A.~Parker, R.~A.~Wilson. Atlas of finite groups.
+Oxford: Clarendon Press, 1985.
+
+\bibitem{Pi5}
+А.~С.~Кондратьев, Н.~А.~Минигулов. О конечных неразрешимых $4$-примарных $3'$-группах. {\it Тезисы международной конференции "Алгебра, теория чисел и математическое моделирование динамических систем"\,, посвященной 70-летию А.Х. Журтова.} Нальчик: издательство КБГУ, 2019, 56--57.
+\end{thebibliography}
+\normalsize
+\end{document}
