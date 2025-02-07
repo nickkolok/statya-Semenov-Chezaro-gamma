@@ -1,0 +1,174 @@
+\documentclass[10pt,pdf,hyperref={unicode},aspectratio=169,color={usenames, dvipsnames}]{beamer}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amssymb}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+
+\usepackage{bbm}
+\usepackage{mathrsfs}
+
+
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+\newcommand{\one}{\ensuremath{\mathbbm 1}}
+
+
+\newcommand{\longcomment}[1]{}
+
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+
+\usepackage{varwidth}
+\usepackage{substr}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{llemma}{Лемма}
+\newtheorem{ttheorem}[llemma]{Теорема}
+\newtheorem{eexample}[llemma]{Пример}
+\newtheorem{property}[llemma]{Свойство}
+\newtheorem{remark}[llemma]{Замечание}
+\newtheorem{ccorollary}{Следствие}[llemma]
+\newtheorem{hhypothesis}{Гипотеза}[llemma]
+\newtheorem{ddefinition}{Определение}[llemma]
+
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none]{biblatex}
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+
+%\usepackage{../../../biblatex2bibitem/biblatex2bibitem}
+
+
+\righthyphenmin=2
+
+%\usetheme{Antibes}
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme[onlymath]{serif} % default family is serif
+%\usepackage{fontspec}
+%\setmainfont{Liberation Serif}
+\begin{document}
+
+\input{report_title.tex}
+
+\nocite{
+%Солидные статьи
+our-mz2019ac0,
+our-mz2019measure,
+our-mz2021linearhulls,
+avdeed2021AandA,
+avdeev2021vmzprimes,
+avdeev2024decomposition,
+avdeev2024set_DAN_eng,
+avdeev2021vestnik,
+%Тезисы
+our-vvmsh-2018,
+our-vzms-2018,
+our-ped-2018-inf-dim-ker,
+our-ped-2018-alpha-Tx,
+avdeev2022measure,
+%TODO: если будут ещё работы
+}
+
+
+
+%\setbeamertemplate{footline}[frame number]
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{darkblue}%
+    \hspace{1em}%
+    \huge\bf
+    \insertframenumber/\pageref{slide:final}\!\!
+}
+\input{intro.tex}
+
+
+
+
+\input{invariant_BL.tex}
+
+
+
+
+
+\setbeamertemplate{bibliography item}{\insertbiblabel\small}
+
+\begin{frame}[allowframebreaks]
+	\printbibliography{}
+\end{frame}
+
+%\begin{frame}[allowframebreaks]
+%	\tiny
+%	\printbibitembibliography{}
+%\end{frame}
+
+
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{frame}
+	{
+		\huge\centering
+		~\\~\\~\\~\\
+		Спасибо за внимание
+	}
+	~\\
+	\vspace{6.28em}
+	nickkolok@mail.ru, avdeev@math.vsu.ru
+	\\
+	github.com/nickkolok
+	\\
+	arxiv.org/a/avdeev\_n\_1.html
+	\label{slide:final}
+\end{frame}
+
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{darkblue}%
+    \hspace{1em}%
+    \huge\bf
+    \insertframenumber/\pageref{slide:final}\!\!
+}
+
+
+
+
+\input{contents-list.tex}
+
+
+
+\end{document}

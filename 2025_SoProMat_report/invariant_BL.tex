@@ -1,0 +1,322 @@
+\begin{frame}\frametitle{Инвариантные банаховы пределы}
+	\label{page:invariant_BL}
+
+	\vfill
+	Для любого банахова предела $B$ выполнено $B=BT$.
+	\vfill
+	Относительно каких ещё операторов банаховы пределы инвариантны?
+	\vfill
+	Даже для естественного оператора растяжения $\sigma_n$, $n\in\N_2$,
+	инвариантны не все банаховы пределы.
+	\vfill
+	Банаховых пределов, инвариантных относительно оператора Чезаро $C$,
+	ещё <<меньше>>:
+	\begin{equation}
+		B = BC \ \Rightarrow \ B = B\sigma_n \quad \mbox{для любого} \quad n \in \N
+	\end{equation}
+	\vfill
+
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}\frametitle{Инвариантные банаховы пределы }
+	\begin{ddefinition}
+		Банахов предел $B$ называется инвариантным относительно оператора $H:\ell_\infty \to \ell_\infty$,
+		если $Bx = BHx$ для любого $x\in\ell_\infty$. Обозначение: $B\in\B(H)$.
+	\end{ddefinition}
+	\vfill
+	\begin{ttheorem}[Признак Семенова--Сукочева,~\cite{Semenov2010invariant}]
+		\label{thm:Semenov_Sukochev_conditions}
+		Пусть линейный оператор $H:\ell_\infty\to\ell_\infty$ таков, что:
+		\\(i)   $H \geqslant 0, H \one=\one$;
+		\\(ii)  $H c_0 \subset c_0$;
+		\\(iii) $\limsup _{j \rightarrow \infty}(A(I-T) x)_j \geqslant 0$ для всех $x \in \ell_{\infty}, A \in R$,
+		\\где
+		\begin{equation}
+			R=R(H):=\operatorname{conv}\left\{H^n, n=1,2, \ldots\right\}
+			.
+		\end{equation}
+		Тогда $\B(H) \ne\varnothing$.
+	\end{ttheorem}
+	\vfill
+	Эти достаточные условия очень сильны и избыточны.
+	\vfill
+	Им удовлетворяют, например, операторы растяжения $\sigma_n$ и Чезаро $C$.
+\end{frame}
+
+
+
+\begin{frame}\frametitle{B-регулярные операторы}
+	\begin{ddefinition}
+		Оператор $H : \ell_\infty \to \ell_\infty$ называется \emph{эберлейновым},
+		если $\B(H) \ne\varnothing$.
+	\end{ddefinition}
+	\begin{ddefinition}[\cite{alekhno2018invariant}]
+		\label{def:B-regular_operator}
+		Оператор $H : \ell_\infty \to \ell_\infty$ называется \emph{B-регулярным},
+		если $H^*\B \subseteq \B$.
+		\\
+		(Или, что то же самое, $BH\in\B$ для любого $B\in\B$.)
+	\end{ddefinition}
+	\begin{ttheorem}[\cite{alekhno2018invariant}]
+		\label{thm:B-regular_is_Eberlein}
+		Любой B-регулярный оператор "--- эберлейнов.
+	\end{ttheorem}
+	\begin{ttheorem}[\cite{alekhno2018invariant}]
+		Оператор $H:\ell_\infty \to \ell_\infty$ является B-регулярным тогда и только тогда, когда:
+		\\(i) $H\one \in ac_1$;
+		\\(ii) $q(Hx)\geq 0$ для любого $x\geq 0$;
+		\\(iii) $H ac_0 \subseteq ac_0$.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{{Новые классы операторов}}
+	\vfill
+	\begin{ddefinition}
+		Будем называть оператор $H:\ell_\infty \to \ell_\infty$ \emph{полуэберлейновым}, если $BH\in\mathfrak B$ для некоторого $B\in\mathfrak B$.
+	\end{ddefinition}
+	\vfill
+	\begin{ddefinition}
+		Будем называть оператор $H:\ell_\infty \to \ell_\infty$ \emph{Q-регулярным}, если
+		для любого $x\in\ell_\infty$ выполнено равенство $q(Hx) = q(x)$.
+	\end{ddefinition}
+	\vfill
+\end{frame}
+
+
+\begin{frame}\frametitle{{Новые классы операторов}}
+	\vfill
+	\begin{ddefinition}
+		Разреженным назовём оператор
+		взятия подпоследовательности
+		$H: \ell_\infty \to \ell_\infty$,
+		определяемый следующим образом:
+		$$
+		H(x_1, x_2, x_3, \ldots) = (x_{m_1}, x_{m_1 + 1}, \ldots, x_{n_1 - 1}, x_{n_1};
+		x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; \ldots),
+		$$
+		где для всех
+		$k \geqslant k_0 \in \mathbb N$
+		выполнено
+		$
+		m_k \leqslant n_k < m_{k+1}\leqslant n_{k+1}
+		$,
+		при этом
+		$$
+		\lim\limits_{k \to \infty} (n_k - m_k) = \infty
+		.
+		$$
+
+		\begin{itemize}
+			\item
+				Всякий разреженный оператор является В-регулярным.
+			\item
+				Обратное, очевидно, неверно.
+			\item
+				Существует разреженный оператор, не являющийся Q-регулярным.
+		\end{itemize}
+	\end{ddefinition}
+	\vfill
+\end{frame}
+
+\begin{frame}\frametitle{{Классы операторов}}
+	$H:\ell_\infty \to \ell_\infty$
+	\begin{itemize}
+		\item
+			полуэберлейновы: такие, что $B_1 H \in\B$ для некоторого $B_1\in \B$;
+		\item
+			эберлейновы: такие, что $B_1 H = B_1$ для некоторого $B_1\in \B$;
+		\item
+			В-регулярные: такие, что $B_1 H \in \B$ для любого   $B_1\in \B$;
+		\item
+			Q-регулярные: такие, что $q(Hx) = q(x)$ для любого   $x\in \ell_\infty$.
+	\end{itemize}
+	\begin{ttheorem}
+		Каждый следующий из этих классов вложен в предыдущий и не совпадает с ним.
+	\end{ttheorem}
+\end{frame}
+
+
+\begin{frame}\frametitle{{Полуэберлейнов оператор, не являющийся эберлейновым}}
+	Пусть $B_1, B_2 \in \ext \B$.
+	Положим
+	\begin{equation}
+		\label{eq:am_not_eber_def}
+		B_3 = B_1 + 2(B_2-B_1) = 2B_2-B_1,
+	\end{equation}
+	тогда $B_3 \notin \B$.
+	Положим $Hx = (B_3 x) \cdot\one$, тогда
+	\begin{equation}
+		2 B_1 H x = B_1 x + B_1 ((B_3 x) \cdot\one) = B_1 x + B_3 x =
+		B_1 x + 2 B_2 x - B_1 x = 2B_2 x
+		,
+	\end{equation}
+	т.е. $B_1 H = B_2 \in \B$ и оператор $H$ полуэберлейнов.
+	Пусть $B = BH$ для некоторого $B\in\B$.
+	Тогда для всех $x\in\ell_\infty$ имеем
+	\begin{equation}
+		2Bx = B (x + (B_3 x) \cdot \one)
+		\Rightarrow
+		Bx =  B((B_3 x) \cdot \one)
+		\Rightarrow
+		Bx = B_3x
+		.
+	\end{equation}
+\end{frame}
+
+\begin{frame}\frametitle{{Эберлейнов оператор, не являющийся В-регулярным}}
+	\vspace{-3em}
+	\begin{multline}
+		\label{eq:oper_A_throws_out_2power_blocks}
+		Ax = (x_1, x_2, \not x_3, \not x_4, x_5, x_6, x_7, x_8, \not x_9, ..., \not x_{16}, x_{17}, x_{18}, ..., x_{31}, x_{32}, \not x_{33}, \not x_{34}, ..., \not x_{64},
+		\\
+		x_{65}, x_{66}, ..., x_{128}, \not x_{129}, ...)=
+		\\=
+		(x_1, x_2, \ x_5, x_6, x_7, x_8, \ x_{17}, x_{18}, ..., x_{31}, x_{32}, \ x_{65}, x_{66}, ..., x_{128}, \ x_{257},
+		\\
+		..., \ x_{2^{2n} +1}, x_{2^{2n} +2},  x_{2^{2n+1}}, \ \ x_{2^{2(n+1)} +1},  x_{2^{2(n+1)} +2},  x_{2^{2(n+1)+1}}, ...)
+	\end{multline}
+	Оператор $A$ является В-регулярным, разреженным, но не Q-регулярным.
+	\vfill
+
+	\begin{equation}
+		Ex = x \cdot \chi_{\cup_{m=0}^{\infty}\left[2^{2 m}+1, 2^{2 m+1}\right] \cup\{1\}}
+		.
+	\end{equation}
+	\vfill
+	Очевидно, $AE=A$.
+	Поскольку $A$ есть В-регулярный оператор, то он эберлейнов,
+	и $\B(A)\ne\varnothing$.
+	Пусть $B\in\B(A)$. Тогда
+	\begin{equation}
+		B = BA = B(AE) = (BA)E = BE
+		,
+	\end{equation}
+	то есть $B\in\B(E)$.
+	Но оператор $E$ не является В-регулярным.
+	Действительно, $q(E\one) =q(A\one) =0$, т.е. $ E\one \notin ac_1$,
+	и не выполнено условие (i) критерия В-регулярности.
+	\vfill
+\end{frame}
+
+
+\begin{frame}\frametitle{Поиск <<самого хорошего>> банахова предела}
+	\begin{equation}
+		\sigma_n (x_1, x_2, x_3, ...) = (
+		\underbrace{x_1,...,x_1}_{n~\text{раз}},
+		\underbrace{x_2,...,x_2}_{n~\text{раз}},
+		\underbrace{x_3,...,x_3}_{n~\text{раз}},
+		...)
+	\end{equation}
+
+	\begin{equation}
+		C (x_1, x_2, x_3, ...) = \left(
+		x_1,
+		\dfrac{x_1+x_2}2,
+		\dfrac{x_1+x_2 + x_3}3,
+		\dfrac{x_1+x_2+x_3+x_4}4,
+		...,
+		\dfrac{x_1+...+x_n}n,
+		...\right)
+		.
+	\end{equation}
+
+	\begin{equation}
+		\mathfrak{B}(C) \subsetneq \bigcap_{n=2}^\infty \mathfrak{B}(\sigma_n)
+		\qquad
+		\qquad
+		\diam\mathfrak{B}(C) = \operatorname{rad} \mathfrak{B}(C) = 2
+	\end{equation}
+\end{frame}
+
+
+\begin{frame}\frametitle{{Обратная задача об инвариантности}}
+	Для всякого ли банахова предела существует нетривиальный оператор, относительно которого он инвариантен?
+	\vfill
+	\begin{ddefinition}
+		Оператор $G_B x = (Bx, Bx, Bx, ...) = (Bx)\cdot\one$
+		назовём порождённым банаховым пределом $B$.
+	\end{ddefinition}
+	\vfill
+	\begin{ttheorem}
+		$\B(G_B) = \{B\}$ и $G_B^* \B = \{B\}$.
+	\end{ttheorem}
+	\vfill
+	\begin{llemma}
+		Пусть $0 \leq \lambda \leq 1$, $B_1, B_2 \in \B$.
+		Тогда
+		\begin{equation}
+			G_{\lambda B_1+(1-\lambda) B_2} =\lambda G_{B_1} + (1-\lambda)G_{B_2}
+			,
+		\end{equation}
+		\begin{equation}
+			G_{B_1} G_{B_2} = G_{B_2}
+			.
+		\end{equation}
+	\end{llemma}
+\end{frame}
+
+
+\begin{frame}\frametitle{{Мультипорождённые операторы}}
+	\begin{ddefinition}
+		Линейный непрерывный оператор $G_{\{B_k\}}$, определённый равенством
+		\begin{equation}
+			(G_{\{B_k\}}x)_n = B_n x
+			,
+		\end{equation}
+		будем называть мультипорождённым последовательностью банаховых пределов $\{B_k\}\subset \B$.
+	\end{ddefinition}
+	\vfill
+
+	\begin{llemma}
+		Всякий мультипорождённый оператор $G_{\{B_k\}}$ является В-регулярным оператором.
+	\end{llemma}
+	\vfill
+
+	\begin{llemma}
+		Пусть множество значений, которые принимают элементы последовательности ${\{B_k\}}$, конечно.
+		Тогда оператор $G_{\{B_k\}}$ компактен.
+	\end{llemma}
+	\vfill
+
+	\begin{ttheorem}
+		Мультипорождённый оператор не может иметь матричного представления.
+	\end{ttheorem}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{{Мультипорождённые операторы и инвариантность}}
+	\begin{multline}
+		Ax = (x_1, x_2, \not x_3, \not x_4, x_5, x_6, x_7, x_8, \not x_9, ..., \not x_{16}, x_{17}, x_{18}, ..., x_{31}, x_{32}, \not x_{33}, \not x_{34}, ..., \not x_{64},
+		\\
+		x_{65}, x_{66}, ..., x_{128}, \not x_{129}, ...)=
+		\\=
+		(x_1, x_2, \ x_5, x_6, x_7, x_8, \ x_{17}, x_{18}, ..., x_{31}, x_{32}, \ x_{65}, x_{66}, ..., x_{128}, \ x_{257},
+		\\
+		..., \ x_{2^{2n} +1}, x_{2^{2n} +2},  x_{2^{2n+1}}, \ \ x_{2^{2(n+1)} +1},  x_{2^{2(n+1)} +2},  x_{2^{2(n+1)+1}}, ...)
+	\end{multline}
+	Операторы $A$ и $A\sigma_2$ В-регулярны; $\B(A) \ne\varnothing$, $\B(A\sigma_2) \ne\varnothing$,
+	$\B(A) \cap \B(A\sigma_2) =\varnothing$.
+
+	\vfill
+
+	Выберем $B_1 \in \B (A)$ и $B_2 \in \B(A\sigma_2)$ и определим оператор $H$ соотношением
+	\begin{equation}
+		Hx = (B_1 x, B_1 x, \ B_2 x, B_2 x, \ B_1 x, B_1 x, B_1 x, B_1 x, \ \underbrace{B_2 x, ..., B_2 x}_{8~\mbox{раз}}, ...)
+		.
+	\end{equation}
+
+	Тогда $[B_1; B_2]\subset \B(H)$.
+	Оператор $(\sigma_2 H)^*$ переводит отрезок $[B_1; B_2]$ в $[B_2; B_1]$,
+	т.е. <<меняет местами>> два банаховых предела,
+	и $\dfrac{B_1 + B_2}2 \in \B(\sigma_2 H)$.
+\end{frame}
+
