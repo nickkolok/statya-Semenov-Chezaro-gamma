@@ -79,6 +79,17 @@
 
 \begin{frame}\frametitle{{Новые классы операторов}}
 	\vfill
+	\begin{llemma}
+		\label{lem:suff_B_reg}
+		Пусть оператор $H$ удовлетворяет следующим условиям:
+		\\(i)   $(Hx)^- \in ac_0$ для любого $x\geq 0$;
+		\\(ii)  $H\one\in ac_1$;
+		\\(iii) $H c_0 \subset ac_0$;
+		\\(iv)  $HT-TH : \ell_\infty \to ac_0$.% для некоторых $k,m \in \N_0$.
+
+		Тогда оператор $H$ является В-регулярным.
+	\end{llemma}
+    \vfill
 	\begin{ddefinition}
 		Будем называть оператор $H:\ell_\infty \to \ell_\infty$ \emph{полуэберлейновым}, если $BH\in\mathfrak B$ для некоторого $B\in\mathfrak B$.
 	\end{ddefinition}
@@ -105,9 +116,9 @@
 		где для всех
 		$k \geqslant k_0 \in \mathbb N$
 		выполнено
-		$
-		m_k \leqslant n_k < m_{k+1}\leqslant n_{k+1}
-		$,
+		\begin{equation} \label{eq:sprawling_mk_nk}
+		m_k \leqslant n_k < m_{k+1}\leqslant n_{k+1},
+	    \end{equation}
 		при этом
 		$$
 		\lim\limits_{k \to \infty} (n_k - m_k) = \infty
@@ -124,6 +135,47 @@
 		\end{itemize}
 	\end{ddefinition}
 	\vfill
+\end{frame}
+
+\begin{frame}\frametitle{{Новые классы операторов}}
+	\begin{ttheorem}
+		\label{thm:sprawling_is_B-regular}
+		Любой разреженный оператор $H$ является $B$-регулярным.
+	\end{ttheorem}
+
+		Непосредственно проверим условия леммы \ref{lem:suff_B_reg}.
+		\begin{enumerate}
+			\item[i)] From the definition, one can easily see that $H\geq 0$
+			and thus $(Hx)^- = (0,0,0...)\in ac_0$ for any $x\geq 0$.
+			\item[ii)] $H \one = \one \in ac_1$.
+			\item[iii)] The inclusion $Hc_0 \subset c_0 \subset ac_0$ holds due to the inequality~\eqref{eq:sprawling_mk_nk}.
+		\end{enumerate}
+\end{frame}
+
+\begin{frame}
+	    \begin{enumerate}
+	        \item[iv)] Наконец, покажем, что $HT - TH : \ell_\infty \to ac_0$. Имеем
+			\begin{align*}
+				THx &= T(x_{m_1}, x_{m_1 + 1}, \ldots, x_{n_1 - 1}, x_{n_1};
+				x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; \ldots) = \\
+				&= (x_{m_1 + 1}, x_{m_1 + 2}, \ldots, x_{n_1 - 1}, x_{n_1};
+				x_{m_2}, x_{m_2 + 1}, \ldots, x_{n_2 - 1}, x_{n_2}; x_{m_3}, x_{m_3 + 1}\ldots), \\
+				HTx &= ((Tx)_{m_1}, (Tx)_{m_1 + 1}, \ldots, (Tx)_{n_1 - 1}, (Tx)_{n_1}; \\
+				&(Tx)_{m_2}, (Tx)_{m_2 + 1}, \ldots, (Tx)_{n_2 - 1}, (Tx)_{n_2}; \ldots) = \\
+				&= (x_{m_1 + 1}, x_{m_1 + 2}, \ldots, x_{n_1 - 1}, x_{n_1}, x_{n_1 + 1}; x_{m_2 + 1},
+				\ldots, x_{n_2 - 1}, x_{n_2}, x_{n_2 + 1}; x_{m_3 + 1} \ldots),
+			\end{align*}
+			где $x \in \ell_\infty$. Отсюда
+			\begin{align*}
+				&(HT - TH)x = HTx - THx = \\
+				&= (\underbrace{0, 0, \ldots, 0, 0}_{n_1 - m_1}, x_{n_1 + 1} - x_{m_2}, \underbrace{0, \ldots,
+					0, 0}_{m_2 - n_2}, x_{n_2 + 1} - x_{m_3}, 0, \ldots) \in \mathcal I(ac_0) \subset ac_0,
+			\end{align*}
+			т. к. $\lim_{k \to \infty} (n_k - m_k) = \infty$.
+		\end{enumerate}
+
+		Таким образом, все условия леммы \ref{lem:suff_B_reg} выполнены, и оператор $H$ действительно является $B$-регулярным.
+
 \end{frame}
 
 \begin{frame}\frametitle{{Классы операторов}}
