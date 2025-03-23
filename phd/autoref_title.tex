@@ -1,47 +1,58 @@
 \documentclass[12pt]{article}
-%\documentclass[12pt,oneside]{book}
-%\usepackage[cp1251]{inputenc}
+% This file is in the UTF-8 encoding (codepage)
+% If you see strange symbols instead of cyrillic letters,
+% just switch your editor to UTF-8
+% This will not affect the main part of your autoref,
+% because the file is inserted as a single separate PDF
+% (see below)
 
 \usepackage [utf8]{inputenc}
+\usepackage[T2A,T1]{fontenc}
 
 \usepackage[russian]{babel}
 \usepackage{amssymb,latexsym,amsmath}
 \usepackage{amsfonts}
-\pagestyle{plain} \textwidth=165mm \textheight=240mm
-\voffset=-17mm \hoffset=-12mm
+\pagestyle{plain} \textwidth=185mm \textheight=240mm
+\voffset=-17mm \hoffset=-22mm
 \renewcommand{\baselinestretch}{1.3}
 
-\newtheorem{defin}{Определение}
-\newtheorem{theorem}{Теорема}
-\newtheorem{corollary}[theorem]{Следствие}
-\newtheorem{lemma}[theorem]{Лемма}
-\newtheorem{prop}[theorem]{Утверждение}
+
+% Для вставки подписи учёного секретаря
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
 
 \begin{document}
 \large
 
 \thispagestyle{empty}
 
+% Это не трогаем, пишется всегда
 \begin{flushright}
-на правах рукописи
+\textit{На правах рукописи}
 \end{flushright}
 
 \vspace{25mm}
 
 \begin{center}
-АВДЕЕВ НИКОЛАЙ НИКОЛАЕВИЧ
+\textbf{
+	Авдеев Николай Николаевич
+}
 \end{center}
 
 \vspace{25mm}
 
 \begin{center}
-\textbf{Инвариантные банаховы пределы}
+\textbf{\MakeUppercase{
+	% Название диссертации :)
+	Инвариантные банаховы пределы
+}}
 \end{center}
 
 \vspace{10mm}
 
 \begin{center}
-01.01.01 --- вещественный, комплексный и функциональный анализ
+	1.1.1. Вещественный, комплексный и функциональный анализ
+	%1.1.2. Дифференциальные уравнения и математическая физика
 \end{center}
 
 \vspace{5mm}
@@ -54,25 +65,47 @@
 физико-математических наук
 \end{center}
 
-\vspace{75mm}
+% И с размаху прижимаем вниз!
+\vfill
 
 \begin{center}
-Воронеж 2024
+Москва --- 2025
+%Всегда указывается город защиты - Москва
+%Независимо от города написания диссертации
 \end{center}
 
 
 \newpage
 \thispagestyle{empty}
 
-Работа выполнена в Воронежском государственном университете
+% Поджимаем междустрочный интервал - а то не влезет!
+\renewcommand{\baselinestretch}{1}
+% Отключаем абзацные отступы
+\setlength{\parindent}{0pt}
+% Уменьшем размер шрифта :(
+\fontsize{13.4}{15}\selectfont
+
+\begin{center}
+	Работа выполнена в
+	% Ниже вписываем название университета
+	Воронежском государственном университете
+\end{center}
 
 \vspace{10mm}
 
-Научный руководитель:
 
-\hspace{25mm}доктор физико-математических наук,
 
-\hspace{25mm}профессор Семенов Евгений Михайлович
+\begin{minipage}[t]{7cm}
+	Научный руководитель:
+\end{minipage}
+%
+\begin{minipage}[t]{10cm}
+
+доктор физико-математических наук,
+
+профессор Семенов Евгений Михайлович
+
+\end{minipage}
 
 \vspace{10mm}
 
@@ -95,13 +128,21 @@
 
 \vspace{10mm}
 
-Защита состоится TODO 2024 г. в TODO часов TODO минут на
-заседании диссертационного совета TODO при TODO по адресу:
-TODO.
+TODO: внести реальные дату и время защиты!
+\\
+Защита состоится 21.12.2025 г. в 15:00 минут
+на заседании диссертационного совета
+ПДС 0200.005 при Российском университете дружбы народов имени Патриса Лумумбы
+(адрес: г. Москва, ул. Орджоникидзе, д. 3).
 
 \vspace{5mm}
 
-С диссертацией можно ознакомиться в библиотеке TODO.
+С диссертацией можно ознакомиться в
+Учебно-научном информационном библиотечном центре
+(Научной библиотеке Российского университета дружбы народов)
+по адресу: 117198, г. Москва, ул. Миклухо-Маклая, д. 6
+и на сайте РУДН в сети <<Интернет>>
+(https://www.rudn.ru/science/dissovet).
 
 \vspace{10mm}
 
@@ -109,13 +150,29 @@ TODO.
 
 \vspace{10mm}
 
-Ученый секретарь
 
-\noindent диссертационного совета TODO,
+% Прижимаем вниз с размаху!
+\vfill
 
-\noindent TODO,
+\noindent
+\begin{minipage}{0.97\linewidth}
+\noindent
+Ученый секретарь диссертационного совета
+\\
+доктор физико-математических наук
+\hfill
+А. Ю. Савин
+\end{minipage}
+% Вставляем подпись - и впрямь "посверху"
+\nolinebreak
+\hspace{-5.8cm}
+\begin{minipage}{0.97\linewidth}
+\includegraphics[width=0.10\linewidth]{Savin_signature.png}
+\end{minipage}
 
-\noindent TODO \hspace{110mm}TODO
+%...но не совсем вниз...
+\vspace{2cm} % по вкусу
+
 
 
 \end{document}
