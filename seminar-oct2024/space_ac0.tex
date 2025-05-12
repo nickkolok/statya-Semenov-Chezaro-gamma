@@ -321,11 +321,11 @@
 	Пусть
 	$
 		x_n = \begin{cases}
-			 0, & \mbox{~если~} n < 2^{10},
-			\\
 			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 			\\
-			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
+			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N,
+			\\
+			 0  & \mbox{~иначе}.
 		\end{cases}
 	$
 	%Таким образом,
@@ -336,11 +336,11 @@
 	С другой стороны,
 		\begin{equation}
 		(x^3)_n = \begin{cases}
-			 0, & \mbox{~если~} n < 2^{10},
-			\\
 			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 			\\
-			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
+			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N,
+			\\
+			 0  & \mbox{~иначе}.
 		\end{cases}
 	\end{equation}
 	Получаем $p(x^3) = 0$, $q(x^3) = -2$, откуда $x^3 \notin ac$.
@@ -357,11 +357,11 @@
 		Пусть
 		\begin{equation}
 			y_n = \begin{cases}
-				 0, & \mbox{~если~} n < 2^{10},
-				\\
 				 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n\neq 2^k + 3m, m\in\N,
 				\\
-				-\sqrt[3]{2}, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N.
+				-\sqrt[3]{2}, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k \mbox{~и~}  n  =  2^k + 3m, m\in\N,
+				\\
+				 0  & \mbox{~иначе}.
 			\end{cases}
 		\end{equation}
 		Тогда $p(y) = \frac{2-\sqrt[3]2}{3}$, $q(y) = 0$, и потому $y \notin ac_0$.
