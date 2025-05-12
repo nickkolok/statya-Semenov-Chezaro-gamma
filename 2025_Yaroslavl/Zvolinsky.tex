@@ -50,6 +50,7 @@
 введённое Лоренцем в [1].
 Для того, чтобы дать этому пространству естественное определение, нам потребуется понятие банахова предела.
 
+\begin{definition}
 	Линейный функционал $B\in \ell_\infty^*$ есть банахов предел (пишем: $B \in \mathfrak{B}$),
 	если
 	\begin{enumerate}
@@ -61,6 +62,7 @@
 			$B(Tx)=B(x)$ для всех $x\in \ell_\infty$, где $T$~---
 			оператор сдвига, т.~е. $T(x_1,x_2,\ldots)=(x_2,x_3,\ldots)$.
 	\end{enumerate}
+\end{definition}
 
 Существование банаховых пределов анонсировано в 1929\,г. С.\,Мазуром~[2];
 доказательство приведено в книге С.\,Банаха~[3].
@@ -99,7 +101,8 @@ $x^\lambda = (x_1^\lambda,x_2^\lambda,x_3^\lambda,...) \in c$.
 		Тогда $x^n \in ac_0$.
 	\end{theorem}
 
-	Напомним, что $x\in \mathcal{I}(ac_0)$ тогда и только тогда, когда $x = x^+ +x^-$, $x^+\geq 0$, $x^- \leq 0$ и $x^+ \in ac_0$
+	Здесь $\mathcal{I}(ac_0)$ есть максимальный по включению идеал по умножению в пространстве $ac_0$.
+	Известно, что $x\in \mathcal{I}(ac_0)$ тогда и только тогда, когда $x = x^+ +x^-$, $x^+\geq 0$, $x^- \leq 0$ и $x^+ \in ac_0$
 	(последнее включение эквивалентно условию $x^- \in ac_0$).
 
 	Условия предыдущей теоремы существенны.
@@ -151,46 +154,44 @@ $x^\lambda = (x_1^\lambda,x_2^\lambda,x_3^\lambda,...) \in c$.
 	%\label{example:cube_out_of_ac0}
 	%Напомним, что $\mathbb{N}_k = \{k, k+1, k+2, k+3,...\}$.
 	Пусть
-	$
-		x_n = \begin{cases}
-			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k
-			\\
-				& \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
-			\\
-			-2, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k
-			\\
-				& \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N},
-			\\
-			 0  & \mbox{~иначе}.
-		\end{cases}
-	$
+    $$
+        x_n = \left\{
+        \begin{array}{ccl}
+        	-2, & \text{если} & 2^{2k} \leqslant n < 2^{2k + 1} \text{ и } n = 2^{2k} + 3m,\\% \ \ m \in \mathbb N \cup \{0\}, \\
+        	1, & \text{если} & 2^{2k} \leqslant n < 2^{2k + 1} \text{ и } n \neq 2^{2k} + 3m,\\% \ \ m \in \mathbb N \cup \{0\}, \\
+        	0, & \text{если} & 2^{2k + 1} \leqslant n < 2^{2k + 2},
+        \end{array}
+        \right.
+    $$
+    где $k,m \in \mathbb N \cup \{0\}$. Т.е.
+    \begin{multline*}
+        x = (-2, \, 0, 0, \, -2, 1, 1, -2, \, 0, 0, 0, 0, 0, 0, 0, 0, \, -2, 1, 1, \\ -2, 1, 1, -2, 1, 1,
+        -2, 1, 1, -2, 1, 1, -2,
+        \, 0, 0, \ldots) \in ac_0.
+    \end{multline*}
 	%Таким образом,
-	\begin{multline*}
-		x = (0,0,...,0,0, \; -2, 1, 1, \; -2, 1, 1, \; -2, 1, 1, ..., -2, 1, 1, \; 0, 0, 0, \\ ..., 0, 0, 0, ..., -2, 1, 1, \; -2, 1, 1, ... ) \in ac_0
-		.
-	\end{multline*}
 	С другой стороны,
-		\begin{equation*}
-		(x^3)_n = \begin{cases}
-			 1, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k
-			\\
-				& \mbox{~и~}  n\neq 2^k + 3m, m\in\mathbb{N},
-			\\
-			-8, & \mbox{~если~} n \ge 2^{10}, 2^k\le n < 2^k+3k
-			\\
-				& \mbox{~и~}  n  =  2^k + 3m, m\in\mathbb{N},
-			\\
-			 0  & \mbox{~иначе}.
-		\end{cases}
-	\end{equation*}
-	Непосредственным вычислением можно показать, что $x^3 \notin ac$.
+    $$
+        (x^3)_n = \left\{
+        \begin{array}{ccl}
+        	-8, & \text{если} & 2^{2k} \leqslant n < 2^{2k + 1} \text{ и } n = 2^{2k} + 3m, \\%\ \ m \in \mathbb N \cup \{0\}, \\
+        	1, & \text{если} & 2^{2k} \leqslant n < 2^{2k + 1} \text{ и } n \neq 2^{2k} + 3m, \\%\ \ m \in \mathbb N \cup \{0\}, \\
+        	0, & \text{если} & 2^{2k + 1} \leqslant n < 2^{2k + 2},
+        \end{array}
+        \right.
+    $$
+    где $k,m \in \mathbb N \cup \{0\}$.
+   	Непосредственным вычислением можно показать, что $x^3 \notin ac$.
 %\end{eexample}
 
 
 
 
 
-{\small Исследование выполнено при финансовой поддержке РНФ в рамках научного проекта No XXX.} %если исследование поддержано грантом, то здесь указывается ссылка
+{\small
+	Работа выполнена за счет гранта Фонда развития теоретической
+	физики и математики ``БАЗИС'' (проект №~22-7-2-27-3)
+} %если исследование поддержано грантом, то здесь указывается ссылка
 
 %Для оформления списка литературы, пожалуйста, используйте следующий образец.
 
@@ -201,18 +202,18 @@ $x^\lambda = (x_1^\lambda,x_2^\lambda,x_3^\lambda,...) \in c$.
 	{[1]}
 	%\bibitem{lorentz1948contribution}
 	{Lorentz~G.\,G.} A contribution to the theory of divergent sequences.
-	// Acta Mathematica. 1948. т. 80, No 1. с. 167--190. ISSN 0001-5962.
-	DOI: 10.1007/BF02393648
+	// Acta Mathematica. 1948. т. 80, No 1. с. 167--190.
+	DOI: 10.1007/BF02393648. ISSN 0001-5962.
 	\\
 	{[2]}
 	%\bibitem{Mazur}
 	{Mazur~S.} O metodach sumowalności. // Ann. Soc. Polon. Math.
-	(Supplement). 1929. с. 102--107.
+	(Supple\-ment). 1929. с. 102--107.
 	\\
 	{[3]}
 	%{}
 	%\bibitem{banach2001theory_rus}
-	{Банах~С.} Теория линейных операций. Регуляр. и хаот.
+	{Банах~С.} Теория линейных операций. Рег. и хаот.
 	динамика. М., 2001.
 	\\
 	{[4]}
