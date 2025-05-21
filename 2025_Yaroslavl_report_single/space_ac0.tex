@@ -1,0 +1,93 @@
+\begin{frame}\frametitle{\underline{Диадическая последовательность}}
+	\begin{ddefinition}
+		Последовательность $x\in\ell_\infty$
+		называется \emph{диадической}, если существует такое $X=\{a;b\}$,
+		что $x_k \in X$ для всех $k\in \mathbb N$.
+	\end{ddefinition}
+
+	Например, диадическими являются все последовательности из нулей и единиц.
+
+
+	\begin{llemma}
+		Пусть $x\in\ell_\infty$, $\|x\|\leq 1$.
+		Тогда найдётся такая $h\in ac_0$, что $(x+h)_n = \pm 1$ для всех $n\in\mathbb N$.
+	\end{llemma}
+
+	\begin{ccorollary}
+		Пусть $x\in\ell_\infty$.
+		Тогда найдётся такая $h\in ac_0$, что для всех $n\in\mathbb N$
+		\begin{equation*}
+			(x+h)_n \in \{\inf_{n\in\mathbb N} x_n,\sup_{n\in\mathbb N} x_n\}
+			.
+		\end{equation*}
+	\end{ccorollary}
+	\vspace{-2em}
+	\begin{ccorollary}
+		Пусть $x\in\ell_\infty$.
+		Тогда найдётся такая $h\in ac_0$, что $(x+h)_n =\pm \|x\|$ для всех $n\in\mathbb N$.
+	\end{ccorollary}
+
+	\vfill
+\end{frame}
+
+
+
+
+\begin{frame}\frametitle{Разделяющие множества}
+	\label{page:p_q_linhulls}
+	Множество $M\subset \ell_\infty$ называется разделяющим,
+	если для любых двух различных банаховых пределов $B_1$ и $B_2$
+	найдётся такой $x\in M$, что $B_1 x \ne B_2 x$.
+	\\~\\
+	Интересны <<маленькие>> разделяющие множества.
+	\\~\\
+	Например, $\Omega$ разделяющее~\cite{semenov2010characteristic}.
+	\\~\\
+	Этот результат можно получить непосредственно из теоремы о разложении.
+\end{frame}
+
+
+
+
+
+\begin{frame}\frametitle{\underline{Интервальный критерий}}
+	%\begin{theorem}
+		\label{thm:M_j_ac0_inf_lim}
+		Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
+		\begin{equation}
+			\label{eq:definition_M_j}
+			M(j) = \liminf_{i\to\infty} \left(n_{i+j} - n_i\right),
+		\end{equation}
+		\begin{equation}
+			x_k = \left\{\begin{array}{ll}
+				1, & \mbox{~если~} k = n_i
+				\\
+				0  & \mbox{~иначе~}
+			\end{array}\right.
+		\end{equation}
+		Тогда следующие условия эквивалентны:
+		\\~\\
+		(i)   $x \in ac_0$;
+		\\~\\
+		(ii)  $\lim\limits_{j \to \infty} \dfrac{M(j)}{j} = +\infty$;
+		\\~\\
+		(iii) $\inf\limits_{j \in \N}     \dfrac{M(j)}{j} = +\infty$.
+	%\end{theorem}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{\underline{Усиленная теорема Коннора}}
+	Пусть на множестве $\Omega=\{0,1\}^\N$ задана вероятностная мера <<честной монетки>> $\mu$.
+	Коннор доказал~\cite{connor1990almost}, что $\mu(\Omega\cap ac)=0$.
+
+	Обобщим этот результат.
+
+	\begin{ttheorem}
+	%\label{thm:Connor_generalized}
+	Мера множества $F=\{x\in\Omega : q(x) = 0 \wedge p(x)= 1\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона соответственно,
+	равна 1.
+	\end{ttheorem}
+\end{frame}
+

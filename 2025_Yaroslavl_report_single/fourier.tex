@@ -1,0 +1,105 @@
+\begin{frame}\frametitle{Система Хаара}
+	\label{page:Haar}
+
+
+Обозначим через $F$ множество индексов $(n,k)$ таких, что
+$k=0,1$ для $n=0$ и $1\leq k \leq 2^n$ для $n\geq 1$, а для любых
+$(n,k)\in F$ через $\Delta_n^k$ обозначим интервал $
+(\frac{k-1}{2^n},\frac{k}{2^n})$.
+
+\emph{Система Хаара} ~--- последовательность функций $\varphi_{0,0}=1$,
+$$\varphi_{n,k} (t)=\begin{cases} 2^\frac{n}2, &t\in \Delta_{n+1}^{2k-1}\\
+-2^\frac{n}2, &t\in \Delta_{n+1}^{2k}\\0,  &\text{для} \,\, t \,\,
+\text{из остальных} \, \Delta_i^j,
+\end{cases}$$
+Значения в концах отрезка $[0,1]$ и в
+точках разрыва выбираются из условий
+\begin{equation}
+	\varphi_{n,k} (0)= \!\lim_{\delta \to 0+}\!\varphi_{n,k}
+	(\delta);
+	\hfill
+	\varphi_{n,k} (1)= \!\lim_{\delta \to
+	0+}\!\varphi_{n,k} (1-\delta);
+	\hfill
+	\varphi_{n,k} (t)= \lim_{\delta \to 0}\frac{\varphi_{n,k}
+	(t+\delta)+\varphi_{n,k} (t-\delta)}2
+\end{equation}
+
+
+$f_{n,k}(x)$ ~--- коэффициенты Фурье по
+системе Хаара функции $x\in~L_1 [0,1]$.
+
+Биекция $F \leftrightarrow \N$ задаётся формулой
+$m=2^n+k$, где
+$(n,k)\in F$.
+
+\vfill
+
+Система Хаара не является равномерно ограниченной.
+
+\end{frame}
+
+\begin{frame}\frametitle{Пространства $L_{p,\infty}$}
+
+	Пусть $h(t)$ "--- некоторая измеримая на $[0;1]$ функция.
+	Тогда её функция распределения:
+	\begin{equation}
+		\eta_h(\tau) = \mes \{t : h(t) > \tau \}
+		.
+	\end{equation}
+
+	Невозрастающая перестановка $h^* : [0;1] \to \R$:
+	\begin{equation}
+		h^*(t) = \inf\{\tau: \eta_{|h|}(\tau) \leq t \}.
+	\end{equation}
+
+
+	$L_{p,\infty}\quad(1<p<\infty)$ "--- пространство
+	функций с нормой
+	\begin{equation}
+		\| x \|_{p,\infty}=\sup\limits_{0\leq \tau \leq
+		1} \tau^{\frac{1}{p}-1}\int_0^\tau  x^*(t)dt =
+		%\\=
+		%\| x \|_{p,\infty}=
+		\sup_{e\subset[0,1], \ \mes\, e > 0}
+		\{(\mes\, e)^{\frac{1}{p}-1}\int_e \mid x(t)\mid dt\}<\infty
+		.
+	\end{equation}
+
+
+\end{frame}
+
+\begin{frame}\frametitle{Коэффициенты Фурье-Хаара (Усачев, 2009)}
+
+
+	\begin{ttheorem}[Мерсера]
+		Коэффициенты Фурье любой суммируемой функции
+		по равномерно ограниченной ортонормированной системе
+		стремятся к нулю.
+	\end{ttheorem}
+
+	\vfill
+
+	Система Хаара не является равномерно ограниченной.
+
+	Существует функция $h\in L_p$, $1<p<2$, коэффициенты Фурье-Хаара
+	которой не стремятся к нулю.
+
+
+	\begin{ttheorem}
+		Если $1<p<\infty$, $h\in
+		L_{p,\infty}$, то $\left\{m^{\frac{1}2-\frac{1}p}\,
+		f_m(h)\right\}_{m=1}^\infty \in ac_0$.
+	\end{ttheorem}
+
+	\begin{ccorollary}
+		Если $h\in L_{2,\infty}$, то
+		$\left\{f_m(h)\right\}_{m=1}^\infty\in ac_0$.
+	\end{ccorollary}
+
+	\vfill
+
+	Это аналог теоремы Мерсера для
+	пространства $L_{2,\infty}$ и системы Хаара.
+
+\end{frame}
