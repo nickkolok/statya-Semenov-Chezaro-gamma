@@ -1,3 +1,39 @@
+\begin{frame}\frametitle{\underline{Диадическая последовательность}}
+	\begin{ddefinition}
+		Последовательность $x\in\ell_\infty$
+		называется \emph{диадической}, если существует такое $X=\{a;b\}$,
+		что $x_k \in X$ для всех $k\in \mathbb N$.
+	\end{ddefinition}
+
+	Например, диадическими являются все последовательности из нулей и единиц.
+
+
+	\begin{llemma}
+		Пусть $x\in\ell_\infty$, $\|x\|\leq 1$.
+		Тогда найдётся такая $h\in ac_0$, что $(x+h)_n = \pm 1$ для всех $n\in\mathbb N$.
+	\end{llemma}
+
+	\begin{ccorollary}
+		Пусть $x\in\ell_\infty$.
+		Тогда найдётся такая $h\in ac_0$, что для всех $n\in\mathbb N$
+		\begin{equation*}
+			(x+h)_n \in \{\inf_{n\in\mathbb N} x_n,\sup_{n\in\mathbb N} x_n\}
+			.
+		\end{equation*}
+	\end{ccorollary}
+	\vspace{-2em}
+	\begin{ccorollary}
+		Пусть $x\in\ell_\infty$.
+		Тогда найдётся такая $h\in ac_0$, что $(x+h)_n =\pm \|x\|$ для всех $n\in\mathbb N$.
+	\end{ccorollary}
+
+	\vfill
+\end{frame}
+
+
+
+
+
 \begin{frame}\frametitle{\underline{Пороговый критерий}}
 	\label{page:space_ac0}
 	Определим (нелинейный) оператор $\lambda$--порога $A_\lambda$ на пространстве $\ell_\infty$.
