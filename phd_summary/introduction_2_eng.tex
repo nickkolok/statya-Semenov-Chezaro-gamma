@@ -1,81 +1,76 @@
-
-В главе 2
-%TODO: \ref ???
-изучается $\alpha$--функция, введённая в~\cite{our-vzms-2018}:
+In Chapter 2,
+the $\alpha$--function is studied, introduced in~\cite{our-vzms-2018}:
 \begin{equation}
 	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
 	.
 \end{equation}
-%
-%TODO: ссылка на статью Семенова!
-%
-Поскольку $\alpha(c)=0$,
-то $\alpha$--функцию также можно считать <<мерой несходимости>> последовательности;
-равенство $\alpha(x) = 0$, однако, вовсе не гарантирует сходимость.
+Since $\alpha(c)=0$,
+the $\alpha$--function can also be considered the <<measure of non-convergence>> of a sequence;
+equality $\alpha(x) = 0$, however, does not guarantee convergence at all.
 
-Устанавливается, что $\alpha$--функция не инвариантна относительно оператора сдвига $T$,
-и даётся оценка на $\alpha(T^n x)$.
-С другой стороны, $\alpha$--функция, в отличие от некоторых банаховых пределов
+It is established that the $\alpha$--function is not shift-invariant with respect to the shift operator $T$,
+and an estimate on $\alpha(T^n x)$ is given.
+On the other hand, the $\alpha$--function, unlike some Banach limits
 \cite{Semenov2010invariant,Semenov2011dan},
-инвариантна относительно операторов растяжения $\sigma_n$.
-Затем выявляется связь между $\alpha$--функцией, расстоянием от заданнной последовательности до пространства $c$
-и почти сходимостью.
-Рассмотрены и другие свойства $\alpha$--функции.
-Приведём основные результаты.
+is invariant with respect to dilation operators $\sigma_n$.
+Then, the connection between the $\alpha$--function, the distance from a given sequence to the space $c$
+and almost convergence is revealed.
+Other properties of the $\alpha$--function are also considered.
+We present the main results.
 
 \reflectcorollary{thm:est_alpha_Tn_x_full}
-	Для любых $x\in\ell_\infty$ и $n \in \N$
+	For any $x\in\ell_\infty$ and $n \in \N$
 	\begin{equation}\label{est_alpha_Tn_x}
 		\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
 		.
 	\end{equation}
 
 \reflecttheorem{thm:alpha_beta_T_seq}
-	Пусть $\beta_k$~--- монотонная невозрастающая последовательность,
+	Let $\beta_k$~--- a monotonically nonincreasing sequence,
 	$\beta_k \to \beta$, $\beta\in\left[\frac{1}{2}; 1\right]$, $\beta_1 \leq 1$.
-	Тогда существует такой $x\in\ell_\infty$, что для любого натурального $n$
+	Then there exists such an $x\in\ell_\infty$ that for any natural $n$
 	\begin{equation}
 		\frac{\alpha(T^n x)}{\alpha(x)} = \beta_n.
 	\end{equation}
 
 \reflecttheorem{thm:alpha_sigma_n}
-	Для любого $x\in\ell_\infty$ и для любого натурального $n$ верно равенство
+	For any $x\in\ell_\infty$ and any natural $n$ the equality holds
 	\begin{equation}
 		\alpha(\sigma_n x) = \alpha(x)
 		.
 	\end{equation}
 
 \reflecttheorem{thm:alpha_sigma_1_n}
-	Для любого $n\in\N$ и любого $x\in\ell_\infty$ выполнено
+	For any $n\in\N$ and any $x\in\ell_\infty$ it holds
 	\begin{equation}
 		\alpha(\sigma_{1/n} x) \leq \left( 2- \frac{1}{n} \right) \alpha(x)
 		.
 	\end{equation}
 
 \reflecttheorem{thm:alpha_Cx_no_gamma}
-	Имеет место равенство
+	The equality holds
 	\begin{equation}
 		\sup_{x\in\ell_\infty, \alpha(x)\neq 0} \frac{\alpha(Cx)}{\alpha(x)}=1
 		.
 	\end{equation}
 
 \reflecttheorem{thm:alpha_xy}
-	Пусть $(x\cdot y)_k = x_k\cdot y_k$.
-	Тогда
+	Let $(x\cdot y)_k = x_k\cdot y_k$.
+	Then
 	$\alpha(x\cdot y)\leq \alpha(x)\cdot \|y\|_* + \alpha(y)\cdot \|x\|_*$,
-	где
+	where
 	\begin{equation}
 		\|x\|_* = \limsup_{k\to\infty} |x_k|
 	\end{equation}
-	есть  фактор-норма по $c_0$ на пространстве $\ell_\infty$.
+	is the quotient-norm by $c_0$ on the space $\ell_\infty$.
 
-В параграфе~\ref{sec:space_A0} исследуется пространство $A_0 = \{x: \alpha(x) = 0\}$.
-Это пространство несепарабельно, замкнуто относительно покоординатного умножения,
-операторов левого и правого сдвигов, оператора Чезаро,
-операторов растяжения $\sigma_n$ и усредняющего сжатия $\sigma_{1/n}$.
+In paragraph~\ref{sec:space_A0}, the space $A_0 = \{x: \alpha(x) = 0\}$ is discussed.
+This space is non-separable, closed under coordinatewise multiplication,
+left and right shift operators, Cesàro operator,
+dilation operators $\sigma_n$, and averaging contraction $\sigma_{1/n}$.
 
-В параграфе~\ref{sec:noncomplementarity} устанавливается, что в цепочке вложений
+In paragraph~\ref{sec:noncomplementarity}, it is established that both embeddings
 \begin{equation}
 	c_0 \subset A_0 \subset \ell_\infty
 \end{equation}
-оба подпространства недополняемы.
+are non-complemented.
