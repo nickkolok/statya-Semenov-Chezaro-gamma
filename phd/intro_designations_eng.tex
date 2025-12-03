@@ -1,0 +1,177 @@
+Below we list the main mathematical objects and notions,
+as well as notations that may be used in the thesis text without additional explanation.
+
+\paragraph{Sets of Numbers.}
+We denote the set of natural numbers (positive integers) by \(\N\): \(\N = \{1;2;3;4;...\}\).
+We denote by \(\N_k\) the set of integers not less than \(k\) (to avoid cumbersome notations like: let \(n\in \N\), \(n \geq 2\), …).
+Thus,
+\begin{equation}
+	\N_1 = \N
+	,
+	\quad
+	\N_0 = \N \cup\{0\} = \{0;1;2;3;4;...\}
+	,
+	\quad
+	\N_3 = \{3;4;5;6;7;...\}
+	.
+\end{equation}
+
+We denote the sets of rational and real numbers by \(\Q\) and \(\R\) respectively;
+the sets of positive rationals, negative rationals,
+positive reals, and negative reals by \(\Q^+\), \(\Q^-\), \(\R^+\), and \(\R^-\) respectively.
+
+\paragraph{Spaces of Sequences and Their Subsets.}
+
+The main space used is the space \(\ell_\infty\) of bounded sequences with the standard norm
+\begin{equation}
+	\|x\| = \sup_{n\in\N} |x_n|
+	.
+\end{equation}
+This norm is also used in the other spaces and sets, such as:
+\begin{itemize}
+	\item
+		\(c\) — the space of convergent sequences;
+	\item
+		\(c_\lambda\) — the set of sequences converging to \(\lambda \in \R\), in particular,
+	\item
+		\(c_0\) — the space of null sequences;
+	\item
+		\(c_{00}\) — the space of sequences with finite support~\cite[Theorem 4]{ASSU2};
+	\item
+		\(ac\) — the space of almost convergent sequences;
+	\item
+		\(ac_\lambda\) — the set of sequences almost convergent to \(\lambda \in \R\), in particular,
+	\item
+		\(ac_0\) — the space of sequences almost convergent to zero;
+	\item
+		\(\Iac\) — the maximal (by inclusion) multiplication ideal in the space \(ac_0\) (see Theorem~\ref{thm:Iac_criterion_pos_neg});
+	\item
+		\(A_0 = \{ x\in\ell_\infty : \alpha(x) = 0\}\) (see below; for properties of this space, see, e.g., Theorem~\ref{thm:A0_is_space} and further);
+	\item
+		\(\Omega = \{0;1\}^\N\) — the set of 0-1-sequences.
+\end{itemize}
+
+\paragraph{Norms.}
+The notation \(\|\cdot\|\) by default denotes the norm in \(\ell_\infty\), \(\ell_\infty^*\),
+or in the space of bounded linear operators from \(\ell_\infty\) to \(\ell_\infty\)
+(denoted by \(\mathcal L (\ell_\infty, \ell_\infty)\)) depending on the norm argument's nature.
+If a different norm needs to be introduced (for example, the quotient norm \(\ell_\infty / c_0\),
+as in Theorem~\ref{thm:alpha_xy}), this is stated explicitly.
+
+\paragraph{Sequences.}
+For any \(x\in\ell_\infty\), we by default assume that
+\begin{equation}
+	x=(x_1, x_2, x_3, x_4, ...)
+	.
+\end{equation}
+Also, we often use the constant unit \(\one = (1, 1, 1, 1, ...)\).
+
+We write \(x\geq 0\) if \(x_n \geq 0\) for any \(n\in \N\), and \(x\leq 0\) if \(x_n \leq 0\) for any \(n\in \N\).
+%TODO: periodic sequences and concatenation
+
+Following~\cite{hall1992behrend}, we denote by \(\mathscr{M}A\) the set of multiples of \(A\subset\N\), i.e.
+\begin{equation}
+	\mathscr{M}A = \{ka: k\in\N, a\in A\}
+	,
+\end{equation}
+by \(\chi F\) — the characteristic function of the set \(F\).
+
+For example,
+\begin{gather}
+	\chi \mathscr{M}\!A(\{2\}) = \chi \mathscr{M}\!A(\{2, 4\}) = \chi \mathscr{M}\!A(\{2,4,8,16,...\})
+	= (0,1,0,1,0,1,0,1,0,...),
+\\
+	\chi \mathscr{M}\!A(\{3\}) = \chi \mathscr{M}\!A(\{3,9,27,...\}) = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
+\\
+	\chi \mathscr{M}\!A(\{2,3\}) = \chi \mathscr{M}\!A(\{2,3,6\}) = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
+\end{gather}
+
+\paragraph{Operators.}
+The following operator notations are widely used in the thesis.
+\begin{itemize}
+	\item
+		Identity operator:
+		\begin{equation}
+			I(x_1, x_2, x_3, x_4, ...) = (x_1, x_2, x_3, x_4, ...)
+			.
+		\end{equation}
+	\item
+		Left shift operator:
+		\begin{equation}
+			T(x_1, x_2, x_3, x_4, ...) = (x_2, x_3, x_4, ...)
+			.
+		\end{equation}
+	\item
+		Right shift operator:
+		\begin{equation}
+			U(x_1, x_2, x_3, x_4, ...) = (0, x_1, x_2, x_3, x_4, ...)
+			.
+		\end{equation}
+	\item
+		Dilation operator (\(n\in\N\)):
+		\begin{equation}
+			\sigma_n (x_1, x_2, x_3, ...) = (
+				\underbrace{x_1,...,x_1}_{n~\text{times}},
+				\underbrace{x_2,...,x_2}_{n~\text{times}},
+				\underbrace{x_3,...,x_3}_{n~\text{times}},
+				...)
+			.
+		\end{equation}
+	\item
+		Averaging compression operator (\(n\in\N\)):
+		\begin{equation}
+			\sigma_{1/n} x = n^{-1}
+			\left(
+				\sum_{i=1}^{n} x_i,
+				\sum_{i=n+1}^{2n} x_i,
+				\sum_{i=2n+1}^{3n} x_i,
+				...
+			\right).
+		\end{equation}
+	\item
+		Cesàro operator (sometimes called the Hardy operator):
+		%TODO: references where it is Hardy?
+		\begin{equation}
+			(Cx)_n = n^{-1} \cdot \sum_{k=1}^n x_k
+			,
+		\end{equation}
+		i.e.
+		\begin{equation}
+			C (x_1, x_2, x_3, ...) = \left(
+			x_1,
+			\dfrac{x_1+x_2}2,
+			\dfrac{x_1+x_2 + x_3}3,
+			\dfrac{x_1+x_2+x_3+x_4}4,
+			...,
+			\dfrac{x_1+...+x_n}n,
+			...\right)
+			.
+		\end{equation}
+
+	\item
+		Superposition operator (coordinate-wise multiplication):
+		\begin{equation}
+			x \cdot y = (x_1\cdot y_1; ~~x_2\cdot y_2; ~~x_3\cdot y_3; ~...)
+		\end{equation}
+\end{itemize}
+
+\paragraph{Special Functions and Sets.}
+
+By \(\B\), we denote the set of all Banach limits;
+by \(\B(H)\) — the set of all Banach limits invariant with respect to an operator \(H\).
+
+By \(\ext A\), we denote the set of extreme points of the set \(A\).
+
+The lower and upper Sucheston functionals respectively~\cite{sucheston1967banach}:
+\begin{equation*}
+	q(x) = \lim_{n\to\infty} \inf_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	~~~~\mbox{and}~~~~
+	p(x) = \lim_{n\to\infty} \sup_{m\in\N}  \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
+	.
+\end{equation*}
+
+Additionally, we often use the function~\selfcite{our-vzms-2018}:
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	.
+\end{equation}
