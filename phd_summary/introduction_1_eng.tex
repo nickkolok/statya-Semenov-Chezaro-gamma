@@ -1,21 +1,20 @@
-В главе 1 обсуждается пространство $ac$ и его подпространство $ac_0$,
-даётся критерий почти сходимости к нулю (т.е. принадлежности пространству $ac_0$)
-знакопоcтоянной последовательности.
+Chapter 1 discusses the space $ac$ and its subspace $ac_0$, gives a criterion for almost convergence to zero
+(i.e., belonging to the space $ac_0$) for a nonnegative sequence.
 
 \reflecttheorem{thm:M_j_ac0_inf_lim}
-	Пусть $n_i$~--- строго возрастающая последовательность натуральных чисел,
+	Let $n_i$ be a strictly increasing sequence of natural numbers,
 	\begin{equation}
 		\label{eq:definition_M_j}
 		M(j) = \liminf_{i\to\infty} n_{i+j} - n_i,
 	\end{equation}
 	\begin{equation}
 		x_k = \left\{\begin{array}{ll}
-			1, & \mbox{~если~} k = n_i
+			1, & \mbox{~if~} k = n_i
 			\\
-			0  & \mbox{~иначе~}
+			0  & \mbox{~otherwise~}
 		\end{array}\right.
 	\end{equation}
-	Тогда следующие условия эквивалентны:
+	Then the following conditions are equivalent:
 	\\
 	(i)   $x \in ac_0$;
 	\\\\
@@ -25,39 +24,39 @@
 
 
 \reflecttheorem{thm:crit_ac0_Mj_lambda}
-	Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
-	Обозначим через $n^{(\lambda)}_i$ возрастающую последовательность
-	индексов таких элементов $x$, что $x_k \geq \lambda$ тогда и только тогда,
-	когда $k=n^{(\lambda)}_i$ для некоторого $i$.
-	Обозначим
+	Let $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
+	Denote by $n^{(\lambda)}_i$ an increasing sequence
+	of indices of elements of $x$ such that $x_k \geq \lambda$ if and only if
+	$k=n^{(\lambda)}_i$ for some $i$.
+	Denote
 	\begin{equation}
 		M^{(\lambda)}(j) = \liminf_{i\to\infty} n^{(\lambda)}_{i+j} - n^{(\lambda)}_i
 		.
 	\end{equation}
 
 
-	Тогда для того, чтобы $x\in ac_0$, необходимо и достаточно, чтобы
-	для любого $\lambda>0$ было выполнено
+	Then for $x\in ac_0$, it is necessary and sufficient that
+	for any $\lambda>0$ one has
 	\begin{equation}
 		\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
 		.
 	\end{equation}
 
 \reflecttheorem{thm:rho_x_c_leq_alpha_t_s_x_united}
-	Для любого $x\in ac$
+	For any $x\in ac$
 	\begin{equation}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
 		.
 	\end{equation}
 
 \reflectcorollary{cor:rho_x_c0_leq_alpha_t_s_x_united}
-	Для любого $x\in ac_0$
+	For any $x\in ac_0$
 	\begin{equation}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x)
 		.
 	\end{equation}
 
 \reflecttheorem{thm:Connor_generalized}
-	Мера множества $F=\{x\in\Omega : q(x) = 0 \wedge p(x)= 1\}$,
-	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона соответственно,
-	равна 1.
+	The measure of the set $F=\{x\in\Omega : q(x) = 0 \wedge p(x)= 1\}$,
+	where $p(x)$ and $q(x)$ are the upper and lower Sucheston functionals respectively,
+	is equal to 1.
