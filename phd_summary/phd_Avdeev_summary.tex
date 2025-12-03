@@ -181,7 +181,7 @@ avdeev2024set_DAN_rus}
 \patchcmd{\subsection}      {\large \bfseries}{       \bfseries \centering }{}{\ddy}
 \makeatother
 
-
+\setlength{\bibindent}{0pt}
 
 \begin{document}
 
@@ -249,6 +249,7 @@ are indexed by Web of Science and/or Scopus.
 \makeatletter
 \def\@biblabel#1{#1. }
 \makeatother
+\renewcommand{\chapter}[2]{}%
 
 \input{references_my_minor.tex}
 %\printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
