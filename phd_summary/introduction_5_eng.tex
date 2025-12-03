@@ -1,48 +1,46 @@
-Глава 5 посвящена связи мультипликативных свойств носителя последовательности из нулей и единиц
-и значений, которые могут принимать функционалы Сачестона на такой последовательности.
-
+Chapter 5 is devoted to the connection between the multiplicative properties of the support of a 0-1-sequence
+and the values that the Sucheston functionals can take on such a sequence.
 
 \reflectcorollary{cor:ac0_powers_finite_set_of_numbers}
-	Пусть $\{p_1, ..., p_k\} \subset \N$,
+	Let $\{p_1, ..., p_k\} \subset \N$,
 	\begin{equation}
 		x_k = \begin{cases}
-			1, &\mbox{~если~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~для некоторых~} j_1,...,j_k\in\N,
+			1, &\mbox{if~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~for some~} j_1,...,j_k\in\N,
 			\\
-			0  &\mbox{~иначе}.
+			0  &\mbox{otherwise}.
 		\end{cases}
 	\end{equation}
-	Тогда $x\in ac_0$.
+	Then $x\in ac_0$.
 
 \reflectdefinition{def:P-property}
-	Будем говорить, что множество $A\subset\N$ обладает $P$-свойством,
-	если для любого $n\in\N$ найдётся набор попарно взаимно простых чисел
+	The set $A\subset\N$ has the $P$-property if for any $n\in\N$ there exists a set of pairwise coprime numbers
 	\begin{equation}
 		\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
 		.
 	\end{equation}
 
 \reflecttheorem{thm:p_x_infinite_multiples}
-	Пусть $A\subset \N\setminus\{1\}$.
-	Тогда следующие условия эквивалентны:
+	Let $A\subset \N\setminus\{1\}$.
+	Then the following conditions are equivalent:
 	\begin{enumerate}[label=(\roman*)]
 		\item
-			$A$ обладает $P$-свойством
+			$A$ has the $P$-property
 		\item
-			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+			There exists an infinite subset of pairwise coprime numbers in $A$
 		\item
 			$p(\chi\mathscr{M}A)=1$.
 	\end{enumerate}
 
 \reflectcorollary{cor:ac0_primes_p_psi_A_prod}
-	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел
-	и $a_{n+1}>a_1\cdot...\cdot a_n$.
-	Тогда
+	Let $A = \{a_1, a_2, ..., a_n,...\}$ be an infinite set of pairwise coprime numbers
+	with $a_{n+1}>a_1\cdot...\cdot a_n$.
+	Then
 	\begin{equation}
 		q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
 		.
 	\end{equation}
 
 \reflectlemma{lem:q_x_infinite_Euler}
-	Пусть $\varepsilon \in  (0; 1{]}$.
-	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
-	$A_i$ такое, что $q(\chi\mathscr{M}A_i)\geq\varepsilon$ для любого $i\in\N$.
+	Let $\varepsilon \in  (0; 1{]}$.
+	There exists an infinite family of pairwise disjoint subsets of prime numbers
+	$A_i$ such that $q(\chi\mathscr{M}A_i)\geq\varepsilon$ for each $i\in\N$.
