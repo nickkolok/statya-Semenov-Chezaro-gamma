@@ -1,0 +1,249 @@
+\documentclass[12pt,a4paper,openbib]{report}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsfonts,amssymb}
+\usepackage{latexsym}
+\usepackage{euscript}
+\usepackage{enumerate}
+\usepackage{graphics}
+\usepackage[dvips]{graphicx}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\usepackage{bbm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+
+
+\usepackage{xr}
+\externaldocument{phd_Avdeev}
+
+
+% https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
+\hypersetup{pdfpagemode=UseNone}
+
+
+\righthyphenmin=2
+
+%\usepackage[14pt]{extsizes}
+
+\geometry{left=2.5cm}% левое поле
+\geometry{right=1cm}% правое поле
+\geometry{top=2cm}% верхнее поле
+\geometry{bottom=2cm}% нижнее поле
+
+\renewcommand{\baselinestretch}{1.3}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant} % И делись оно всё нулём!
+
+\renewcommand{\varlimsup}{\limsup}
+\renewcommand{\varliminf}{\liminf} % ... по самую асимптоту!
+
+
+
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\mes}{mes}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\diam}{diam}
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\B}{\ensuremath{\mathfrak{B}}}
+\newcommand{\Iac}{\mathcal{I}(ac_0)}
+\newcommand{\Dac}{\mathcal{D}(ac_0)}
+\newcommand{\one}{\ensuremath{\mathbbm 1}}
+
+
+\newcommand{\longcomment}[1]{}
+
+\usepackage[backend=biber,style=gost-numeric,sorting=none,maxnames=4,movenames=false]{biblatex}
+%\usepackage[backend=biber,style=gost-footnote,sorting=none,bibstyle=gost-numeric]{biblatex}
+
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=author,
+            match=\detokenize{Avdeev},
+            final]
+      \step[fieldset=keywords, fieldvalue=avdeev]
+    }
+    \map{
+      \step[fieldsource=author,
+            match=\detokenize{Авдеев},
+            final]
+      \step[fieldset=keywords, fieldvalue=avdeev]
+    }
+  }
+}
+
+
+
+
+\addbibresource{../bib/Semenov.bib}
+\addbibresource{../bib/my.bib}
+\addbibresource{../bib/ext.bib}
+\addbibresource{../bib/classic.bib}
+\addbibresource{../bib/Damerau-Levenstein.bib}
+\addbibresource{../bib/general_monographies.bib}
+\addbibresource{../bib/Bibliography_from_Usachev.bib}
+
+\input{../bib/ext.hyphens.bib}
+
+
+\def\selfcite{\parencite}
+%\renewcommand\cite[2][]{\footfullcite{#2}}
+%\renewcommand\cite[2][]{\splitfootfullcite{#2}}
+%\renewcommand\cite[2][]{\splitfootfullcite{\detokenize{#2}}}
+
+
+\DeclareBibliographyCategory{HSEpapers}
+\def\HSEpaperskeys{
+%Солидные статьи
+our-mz2019ac0,
+our-mz2019measure,
+our-mz2021linearhulls,
+avdeed2021AandA,
+avdeev2021vmzprimes,
+avdeev2024decomposition,
+avdeev2024set_DAN_rus}
+\addtocategory{HSEpapers}{\HSEpaperskeys}
+
+
+%Splitting the footnoterefs
+%\usepackage{etoolbox}
+
+\newcounter{citefootnote}
+\makeatletter
+\newcommand\splitfootfullcite[1]{%
+    \begingroup
+    \setcounter{citefootnote}{0} % reset footnote counter
+    \forcsvlist{\makeenumerate@item}{#1}%
+    \endgroup
+}
+\newcommand\makeenumerate@item[1]{%
+    \ifnum\c@citefootnote>0{\textsuperscript{,}}\fi % Adjust this line to change the separator
+    \footfullcite{#1}%
+    \addtocounter{citefootnote}{1}%
+}
+\makeatother
+
+
+
+
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{theorem}[lemma]{Теорема}
+\newtheorem{example}[lemma]{Пример}
+\newtheorem{property}[lemma]{Свойство}
+\newtheorem{remark}[lemma]{Замечание}
+\newtheorem{definition}[lemma]{Определение}
+\newtheorem{proposition}[lemma]{Утверждение}
+\newtheorem{corollary}[lemma]{Следствие}
+
+
+
+
+%For the introduction
+\newcommand\reflecttheorem[1]{\paragraph{Теорема \ref{#1}}}
+\newcommand\reflectlemma[1]{\paragraph{Лемма \ref{#1}}}
+\newcommand\reflectcorollary[1]{\paragraph{Следствие \ref{#1}}}
+\newcommand\reflectdefinition[1]{\paragraph{Определение \ref{#1}}}
+
+%Only referenced equations are numbered
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+
+%\mathtoolsset{showonlyrefs=false}
+% (an equation/multline to be force-numbered)
+%\mathtoolsset{showonlyrefs=true}
+
+% https://superuser.com/questions/517025/how-can-i-append-two-pdfs-that-have-links
+\usepackage{pdfpages}% http://ctan.org/pkg/pdfpages
+
+
+
+% Центрируем заголовки, как того требует ГОСТ
+\makeatletter
+\patchcmd {\@makechapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+\patchcmd {\@makechapterhead}{\huge \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\@makeschapterhead}{\Huge \bfseries}{\Large \bfseries \centering }{}{\ddy}
+
+\patchcmd{\section}         {\Large \bfseries}{\large \bfseries \centering }{}{\ddy}
+\patchcmd{\subsection}      {\large \bfseries}{       \bfseries \centering }{}{\ddy}
+\makeatother
+
+
+
+\begin{document}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\includepdf[scale=1,pages={1-}]{title_HSE_resume.pdf}
+\setcounter{page}{2}
+
+\nocite{\HSEpaperskeys}
+
+\chapter*{Введение}
+\addcontentsline{toc}{chapter}{Введение}
+
+\section*{Общая характеристика работы}
+\addcontentsline{toc}{section}{Общая характеристика работы}
+\input{introduction_common_phd.tex}
+
+\section*{Используемые обозначения}
+\addcontentsline{toc}{section}{Используемые обозначения}
+\input{intro_designations.tex}
+
+\section*{Краткое содержание работы}
+\addcontentsline{toc}{section}{Краткое содержание работы}
+\input{introduction.tex}
+
+
+\chapter*{Заключение}
+\addcontentsline{toc}{chapter}{Заключение}
+\input{conclusion.tex}
+%\input{acknowledgements.tex}
+
+
+
+\makeatletter
+\ltx@iffilelater{biblatex-gost.def}{2017/02/01}%
+{\toggletrue{bbx:gostbibliography}%
+\renewcommand*{\revsdnamepunct}{\addcomma}}{}
+\makeatother
+
+
+
+
+\section*{Работы автора по теме диссертации}
+\paragraph{Статьи в научных журналах, входящих в Списки A, B, C}
+
+\printbibliography[keyword=avdeev,category=HSEpapers,heading=none,title={~}]{}
+
+Все работы~\selfcite{\HSEpaperskeys}
+из списка опубликованы в изданиях, индексируемых базами данных Web of Science и/или Scopus.
+
+
+\paragraph{Прочие статьи и тезисы конференций}
+
+
+\printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
+
+\section*{Список использованных источников}
+
+\printbibliography[notkeyword=avdeev,heading=none,title={~}]{}
+
+%\bigskip
+
+%\input{abstract_autoref.tex}
+
+\end{document}
