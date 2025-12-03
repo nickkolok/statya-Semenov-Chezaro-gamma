@@ -1,36 +1,32 @@
+Chapters 4 and 5 are devoted to the upper and lower Sucheston functionals $p(x)$ and $q(x)$ —
+analogues of the upper and lower limits of a sequence.
+In Chapter 4, separating sets are discussed.
 
-Главы 4 и 5 посвящены верхнему и нижнему функционалам Сачестона $p(x)$ и $q(x)$"--- аналогам верхнего и нижнего пределов последовательности.
-В главе 4 изучаются разделяющие множества.
-
-Обозначим через $\Omega$ множество всех последовательностей, состоящих из нулей и единиц.
+Denote by $\Omega$ the set of all 0-1-sequences.
 
 \reflecttheorem{thm:Lin_Omega_Sucheston}
-	Пусть
-	$1 \geq a > b \geq 0$ и
+	Let
+	$1 \geq a > b \geq 0$ and
 	$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$,
-	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
-	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
-
+	where $p(x)$ and $q(x)$ are the upper and lower Sucheston functionals~\cite{sucheston1967banach} respectively.
+	Then $\Omega \subset \operatorname{Lin} \Omega^a_b$.
 
 \reflectcorollary{crl:Lin_Omega_Sucheston}
-	Множество $\Omega^a_b$ является разделяющим.
-	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль~\cite{semenov2010characteristic,connor1990almost},
-	то оно является разделяющим множеством нулевой меры.
+	The set $\Omega^a_b$ is separating.
+	Since for $a\neq 1$ or $b\neq 0$ the set $\Omega^a_b$ has measure zero~\cite{semenov2010characteristic,connor1990almost},
+	it is a separating set of zero measure.
 
-
-Пусть $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
+Let $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, where $a>b$.
 \reflecttheorem{thm:A_0_c_infty_lin}
-	Пусть $a\neq -b$.
-	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0$.
+	Let $a\neq -b$.
+	Then the equality $\operatorname{Lin} Y^a_b = A_0$ holds.
 
 \reflecttheorem{thm:Lin_ell_infty}
-	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+	The equality $\operatorname{Lin} X^a_b = \ell_\infty$ holds.
 
-Через $\dim_H E$ будем обозначать хаусдорфову размерность множества $E$.
+We denote by $\dim_H E$ the Hausdorff dimension of the set $E$.
 
 \reflecttheorem{thm:Hausdorf_measure_1_n}
-	Пусть $n\in\N$.
-	Тогда существует разделяющее множество $E\subset\Omega$ такое,
-	что $\dim_H E = 1/n$.
-
-%Конец главы 4
+	Let $n\in\N$.
+	Then there exists a separating set $E\subset\Omega$ such that
+	$\dim_H E = 1/n$.
