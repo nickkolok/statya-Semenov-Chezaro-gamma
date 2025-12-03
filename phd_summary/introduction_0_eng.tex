@@ -1,34 +1,34 @@
-Сходящиеся последовательности, т.е. последовательности, имеющие предел в смысле классического математического анализа,
-изучены достаточно хорошо.
-В частности, любая сходящаяся последовательность является ограниченной.
-Пространство ограниченных последовательностей будем, вслед за классиками \cite{wojtaszczyk1996banach,lindenstrauss1973classical},
-обозначать через $\ell_\infty$ и снабжать его нормой
+Convergent sequences, i.e., sequences that have a limit in the sense of classical mathematical analysis,
+are studied sufficiently well.
+In particular, any convergent sequence is bounded.
+We will denote the space of bounded sequences, following the classics \cite{wojtaszczyk1996banach,lindenstrauss1973classical},
+by $\ell_\infty$ and equip it with the norm
 \begin{equation*}
 	\|x\| = \sup_{n\in\mathbb{N}}|x_n|
 	.
 \end{equation*}
 
-Однако в приложениях часто возникают ограниченные последовательности,
-которые не являются сходящимися.
-В таком случае возникает закономерный вопрос:
-как измерить <<недостаток сходимости>>?
-<<насколько не сходится>> последовательность?
+However, in applications, bounded sequences often arise
+that are not convergent.
+In such a case, it is natural to ask:
+how to measure the <<lack of convergence>>?
+<<How much does the sequence diverge?>>
 
-Наиболее очевидным кажется вычисление расстояния $\rho(x,c)$ от заданного элемента $x\in\ell_\infty$
-до пространства сходящихся последовательностей $c$
-(которое равно половине разности верхнего и нижнего пределов последовательности).
-Однако выясняется, что имеют место быть и другие подходы.
+The most obvious seems to be computing the distance $\rho(x,c)$ from a given element $x\in\ell_\infty$
+to the space of convergent sequences $c$
+(which equals half the difference of the upper and lower limits of the sequence).
+However, it turns out that other approaches exist.
 
-Нетрудно заметить, что операция взятия классического предела на пространстве сходящихся последовательностей
-является непрерывным (в норме $\ell_\infty$) линейным функционалом.
-В 1929 г. С. Мазур анонсировал~\cite{Mazur},
-что этот функционал может быть непрерывно продолжен на всё пространство $\ell_\infty$
-(доказательство приведено в книге С.~Банаха~\cite{banach2001theory_rus}).
-На основе этой идеи были определены банаховы пределы
-(иногда также называемые пределами Банаха--Мазура \cite{alekhno2012superposition,alekhno2015banach})
-следующим образом.
+It is easy to notice that the operation of taking the classical limit on the space of convergent sequences
+is a continuous (in the $\ell_\infty$ norm) linear functional.
+In 1929, S. Mazur announced~\cite{Mazur},
+that this functional can be continuously extended to the entire space $\ell_\infty$
+(the proof is given in S. Banach's book~\cite{banach2001theory_rus}).
+Based on this idea, Banach limits
+(sometimes also called Banach--Mazur limits \cite{alekhno2012superposition,alekhno2015banach})
+are defined as follows.
 
-Банаховым пределом называется функционал $B\in \ell_\infty^*$ такой, что:
+A Banach limit is a functional $B\in \ell_\infty^*$ such that:
 \begin{enumerate}
 	\item
 		$B \geqslant 0$
@@ -38,38 +38,38 @@
 		$B=BT$
 \end{enumerate}
 
-Простейшие свойства:
+Basic properties:
 \begin{itemize}
 	\item
 		$\|B\|_{\ell_\infty^*} = 1$
 	\item
-		$Bx = \lim\limits_{n\to\infty} x_n$ для любого $x=(x_1, x_2, ...) \in c$.
-
-		Таким образом,
-		банахов предел~--- действительно естественное обобщение понятия предела сходящейся последовательности
-		на все ограниченные последовательности.
+		$Bx = \lim\limits_{n\to\infty} x_n$ for any $x=(x_1, x_2, ...) \in c$.
 \end{itemize}
 
-Множество банаховых пределов обычно обозначают через $\mathfrak{B}$
-(реже через $BM$~--- см., например~\cite{alekhno2012superposition,alekhno2015banach}).
+Thus,
+the Banach limit is indeed a natural generalization of the concept of the limit of a convergent sequence
+to all bounded sequences.
 
-Лоренц \cite{lorentz1948contribution} установил, что существует подпространство $\ell_\infty$,
-на котором все банаховы пределы принимают одинаковое значение.
-Это пространство названо пространством почти сходящихся последовательностей и обычно обозначается через $ac$
-(от англ. <<almost convergent>>).
-Включение $c \subset ac$ собственное, т.е. $ac \setminus c \neq \varnothing$.
-Более того, Лоренц доказал, что для заданных $t\in\R$ и $x\in\ell_\infty$ равенство $Bx=t$ выполнено для всех $B\in\mathfrak{B}$
-тогда и только тогда, когда
+The set of Banach limits is usually denoted by $\mathfrak{B}$
+(rarely by $BM$~--- see, for example~\cite{alekhno2012superposition,alekhno2015banach}).
+
+Lorentz \cite{lorentz1948contribution} established that there exists a subspace $\ell_\infty$,
+on which all Banach limits take the same value.
+This space is called the space of almost convergent sequences and is usually denoted by $ac$
+(from <<almost convergent>>).
+The embedding $c \subset ac$ is proper, i.e., $ac \setminus c \neq \varnothing$.
+Moreover, Lorentz proved that for given $t\in\R$ and $x\in\ell_\infty$, the equality $Bx=t$ holds for all $B\in\mathfrak{B}$
+if and only if
 \begin{equation}
 	\label{eq:crit_Lorentz}
 	\lim_{n\to\infty} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k = t
 \end{equation}
-равномерно по $m\in\N$.
-Это утверждение называют критерием Лоренца.
+uniformly in $m\in\N$.
+This statement is called the Lorentz criterion.
 
 
-Обобщая критерий Лоренца, Сачестон \cite{sucheston1967banach} доказал, что для любого $x\in\ell_\infty$
-и любого $B\in\mathfrak{B}$
+Generalizing the Lorentz criterion, Sucheston \cite{sucheston1967banach} proved that for any $x\in\ell_\infty$
+and any $B\in\mathfrak{B}$
 \begin{equation*}
 	q(x) =
 	\lim_{n\to\infty} \sup_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
@@ -79,51 +79,55 @@
 	\lim_{n\to\infty} \inf_{m\in\mathbb{N}} \frac{1}{n} \sum_{k=m+1}^{m+n} x_k
 	= p(x)
 \end{equation*}
-и, более того,
+and, moreover,
 \begin{equation*}
 	\mathfrak{B}x = [q(x), p(x)]
 	.
 \end{equation*}
 
 
-За более подробным обзором ранних исследований банаховых пределов отсылаем читателя к~\cite{greenleaf1969invariant,day1973normed,kangro1976theory}.
-Вскоре после работ Сачестона Дж. Куртц распространил понятие банаховых пределов
-на векторные последовательности~\cite{kurtz1970almost},
-а затем и на последовательности в произвольных банаховых пространствах~\cite{kurtz1972almost}.
-За обсуждением банаховых пределов в векторных пространствах отсылаем читателя
-к~\cite{deeds1968summability,hajdukovic1975almost,armario2013vectorvalued_rus,garcia2015extremal,garcia2016fundamental_rus}.
-В недавней работе~\cite{chen2007characterizations} Ч.~Чен и М.~Куо изучают обобщения банаховых пределов
-на произвольные гильбертовы пространства и на пространства суммируемых функций $L_p$.
-Другим обобщениям банаховых пределов посвящены работы
+For a more detailed review of early research on Banach limits,
+we refer the reader to~\cite{greenleaf1969invariant,day1973normed,kangro1976theory}.
+Shortly after Sucheston's works, J. Kurtz extended the notion of Banach limits
+to vector sequences~\cite{kurtz1970almost},
+and then to sequences in arbitrary Banach spaces~\cite{kurtz1972almost}.
+For a discussion of Banach limits in vector spaces, we refer the reader
+to~\cite{deeds1968summability,hajdukovic1975almost,armario2013vectorvalued_rus,garcia2015extremal,garcia2016fundamental_rus}.
+In the recent work~\cite{chen2007characterizations}, C.-P. Chen and M.-K. Kuo study generalizations of Banach limits
+to arbitrary Hilbert spaces and to spaces of summable functions $L_p$.
+Other generalizations of Banach limits are discussed in
 \cite{hajdukovic1975functionals,koga2016generalization}.
 
 
-Ещё одним достаточно плодотворным обобщением банаховых пределов оказались их аналоги на двойных последовательностях~\cite{robison1926divergent}, введённые Дж.~Д.~Хиллом в~\cite{hill1965almost}.
-За дальнейшими результатами в этом направлении отсылаем читателя
-к~\cite{moricz1988almost,bacsarir1995strong,mursaleen2003almost,edely2004almost,mursaleen2004almost}.
-Из недавних работ стоит отдельно отметить статью М. Мурсалена и С.А. Мухиддина~\cite{mursaleen2012banach},
-в которой с помощью понятия почти сходимости в пространстве ограниченных двойных последовательностей вводится ряд новых интересных подпространств.
+Another fairly fruitful generalization of Banach limits turned out to be their analogues on double sequences~\cite{robison1926divergent},
+introduced by J. D. Hill in~\cite{hill1965almost}.
+For further results in this direction, we refer the reader
+to~\cite{moricz1988almost,bacsarir1995strong,mursaleen2003almost,edely2004almost,mursaleen2004almost}.
+Among recent works, the paper by M. Mursaleen and S. A. Mohiuddine~\cite{mursaleen2012banach}
+is worth noting separately,
+in which using the concept of almost convergence in the space of bounded double sequences
+introduces a number of new interesting subspaces.
 
-Наконец, если исключить из определения банахова предела требование трансляционной инвариантности,
-то мы получим объект, называемый обобщённым пределом,
-подробно изучавшийся М.~Джерисоном в~\cite{jerison1957set} и многих других работах.
+Finally, if we exclude the requirement of shift-invariance from the definition of a Banach limit,
+then we get an object called a generalized limit,
+studied in detail by M. Jerison in~\cite{jerison1957set} and many other works.
 
 
-Таким образом, на вопрос: <<Насколько не сходится последовательность?>> %~---
-можно дать ответ в терминах почти сходимости, т.е. принадлежности пространству $ac$,
-а на вопрос: <<Насколько почти не сходится последовательность?>>~---
-назвать длину отрезка $[q(x), p(x)]$.
-В дальнейшем пространство почти сходящихся последовательностей неоднократно становилось предметом
-различных исследований
+Thus, the question: <<How much does the sequence diverge?>> %~---
+can be answered in terms of almost convergence, i.e., belonging to the space $ac$,
+and the question: <<How much does the sequence not almost converge?>>~---
+by naming the length of the interval $[q(x), p(x)]$.
+Further, the space of almost convergent sequences has repeatedly become the subject of
+various studies
 \cite{semenov2006ac,usachev2008transforms}.
-В частности, в работе~\cite{connor1990almost} доказано,
-что последовательность из нулей и единиц почти наверное не принадлежит пространству $ac$.
-Этот факт демонстрирует, что почти сходящиеся последовательности <<достаточно редки>>.
+In particular, in~\cite{connor1990almost}, it is proved
+that almost all 0-1-sequences are not in the space $ac$.
+This fact demonstrates that almost convergent sequences are <<quite rare>>.
 
 
-Банаховы пределы также нашли своё применение в приложениях
+Banach limits have also found their application in applications
 \cite{semenov2015banachtraces,SU,strukova2015spectres}.
 
-В настоящей работе рассматриваются некоторые вопросы асимптотических характеристик ограниченных последовательностей,
-в том числе банаховых пределов.
-Нумерация приводимых ниже теорем, лемм, определений и следствий совпадает с их нумерацией в диссертации.
+In the present work, some questions of asymptotic characteristics of bounded sequences are considered,
+including Banach limits.
+The numbers of the theorems, lemmas, definitions, and corollaries presented below corresponds with their numbers in the thesis.
