@@ -1,0 +1,48 @@
+Глава 5 посвящена связи мультипликативных свойств носителя последовательности из нулей и единиц
+и значений, которые могут принимать функционалы Сачестона на такой последовательности.
+
+
+\reflectcorollary{cor:ac0_powers_finite_set_of_numbers}
+	Пусть $\{p_1, ..., p_k\} \subset \N$,
+	\begin{equation}
+		x_k = \begin{cases}
+			1, &\mbox{~если~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~для некоторых~} j_1,...,j_k\in\N,
+			\\
+			0  &\mbox{~иначе}.
+		\end{cases}
+	\end{equation}
+	Тогда $x\in ac_0$.
+
+\reflectdefinition{def:P-property}
+	Будем говорить, что множество $A\subset\N$ обладает $P$-свойством,
+	если для любого $n\in\N$ найдётся набор попарно взаимно простых чисел
+	\begin{equation}
+		\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
+		.
+	\end{equation}
+
+\reflecttheorem{thm:p_x_infinite_multiples}
+	Пусть $A\subset \N\setminus\{1\}$.
+	Тогда следующие условия эквивалентны:
+	\begin{enumerate}[label=(\roman*)]
+		\item
+			$A$ обладает $P$-свойством
+		\item
+			В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+		\item
+			$p(\chi\mathscr{M}A)=1$.
+	\end{enumerate}
+
+\reflectcorollary{cor:ac0_primes_p_psi_A_prod}
+	Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел
+	и $a_{n+1}>a_1\cdot...\cdot a_n$.
+	Тогда
+	\begin{equation}
+		q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+		.
+	\end{equation}
+
+\reflectlemma{lem:q_x_infinite_Euler}
+	Пусть $\varepsilon \in  (0; 1{]}$.
+	Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
+	$A_i$ такое, что $q(\chi\mathscr{M}A_i)\geq\varepsilon$ для любого $i\in\N$.

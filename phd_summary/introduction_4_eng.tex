@@ -1,0 +1,36 @@
+
+Главы 4 и 5 посвящены верхнему и нижнему функционалам Сачестона $p(x)$ и $q(x)$"--- аналогам верхнего и нижнего пределов последовательности.
+В главе 4 изучаются разделяющие множества.
+
+Обозначим через $\Omega$ множество всех последовательностей, состоящих из нулей и единиц.
+
+\reflecttheorem{thm:Lin_Omega_Sucheston}
+	Пусть
+	$1 \geq a > b \geq 0$ и
+	$\Omega^a_b = \{x\in\Omega : p(x) = a, q(x) = b\}$,
+	где $p(x)$ и $q(x)$~--- верхний и нижний функционалы Сачестона~\cite{sucheston1967banach} соответственно.
+	Тогда $\Omega \subset \operatorname{Lin} \Omega^a_b$.
+
+
+\reflectcorollary{crl:Lin_Omega_Sucheston}
+	Множество $\Omega^a_b$ является разделяющим.
+	Т.к. при $a\neq 1$ или $b\neq 0$ множество $\Omega^a_b$ имеет меру нуль~\cite{semenov2010characteristic,connor1990almost},
+	то оно является разделяющим множеством нулевой меры.
+
+
+Пусть $X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
+\reflecttheorem{thm:A_0_c_infty_lin}
+	Пусть $a\neq -b$.
+	Тогда справедливо равенство $\operatorname{Lin} Y^a_b = A_0$.
+
+\reflecttheorem{thm:Lin_ell_infty}
+	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
+
+Через $\dim_H E$ будем обозначать хаусдорфову размерность множества $E$.
+
+\reflecttheorem{thm:Hausdorf_measure_1_n}
+	Пусть $n\in\N$.
+	Тогда существует разделяющее множество $E\subset\Omega$ такое,
+	что $\dim_H E = 1/n$.
+
+%Конец главы 4
