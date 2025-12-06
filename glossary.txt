@@ -19,6 +19,10 @@
 
 оператор растяжения - dilation operator
 
+
+банаховы пределы, инвариантные относительно оператора Чезаро - Cesàro-invariant Banach limits
+
+
 диссертация - thesis
 
 
@@ -36,8 +40,10 @@
 
 Лоренц - Lorentz
 
+Банах - Banach
 
 
 
 
+Please preserve tabs and LaTeX delimiters as well!
 
