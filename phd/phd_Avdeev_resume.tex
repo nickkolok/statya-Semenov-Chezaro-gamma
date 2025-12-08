@@ -19,6 +19,13 @@
 \usepackage{xr}
 \externaldocument{phd_Avdeev}
 
+\usepackage{mdframed}
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{siderules}
 
 % https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
 \hypersetup{pdfpagemode=UseNone}
@@ -235,8 +242,13 @@ avdeev2024set_DAN_rus}
 
 \paragraph{Прочие статьи и тезисы конференций}
 
-
 \printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
+
+\begin{siderules}
+	Из совместных работ~\selfcite{our-mz2019measure,avdeed2021AandA,avdeev2024decomposition,avdeev2024set_DAN_rus,our-vzms-2018}
+	в диссертацию вошли только результаты, принадлежащие лично диссертанту.
+\end{siderules}
+
 
 \section*{Список использованных источников}
 
