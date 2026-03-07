@@ -23,36 +23,28 @@ Chapter 1 discusses the space $ac$ and its subspace $ac_0$, gives a criterion fo
 	(iii) $\inf\limits_{j \in \N}     \dfrac{M(j)}{j} = +\infty$.
 
 
-\reflecttheorem{thm:crit_ac0_Mj_lambda}
-	Let $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
-	Denote by $n^{(\lambda)}_i$ an increasing sequence
-	of indices of elements of $x$ such that $x_k \geq \lambda$ if and only if
-	$k=n^{(\lambda)}_i$ for some $i$.
-	Denote
+\reflecttheorem{thm:ac0_threshold}
+	Let $x\in\ell_\infty$, $x\geq 0$.
+	Then
 	\begin{equation}
-		M^{(\lambda)}(j) = \liminf_{i\to\infty} n^{(\lambda)}_{i+j} - n^{(\lambda)}_i
-		.
-	\end{equation}
-
-
-	Then for $x\in ac_0$, it is necessary and sufficient that
-	for any $\lambda>0$ one has
-	\begin{equation}
-		\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
+		x\in ac_0 \Leftrightarrow
+		\forall(\lambda>0)[A_\lambda x \in ac_0]
 		.
 	\end{equation}
 
 \reflecttheorem{thm:rho_x_c_leq_alpha_t_s_x_united}
-	For any $x\in ac$
+	For any $x\in ac$, $s\in \N$
 	\begin{equation}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
+		\leq \alpha(x)
 		.
 	\end{equation}
 
 \reflectcorollary{cor:rho_x_c0_leq_alpha_t_s_x_united}
-	For any $x\in ac_0$
+	For any $x\in ac_0$, $s\in \N$
 	\begin{equation}
 		\frac{1}{2} \alpha(x) \leq \rho(x,c_0)\leq \lim_{s\to\infty} \alpha(T^s x)
+		\leq \alpha(x)
 		.
 	\end{equation}
 
