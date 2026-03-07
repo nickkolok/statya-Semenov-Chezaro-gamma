@@ -19,6 +19,13 @@
 \usepackage{xr}
 \externaldocument{../phd/phd_Avdeev}
 
+\usepackage{mdframed}
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{siderules}
 
 % https://tex.stackexchange.com/questions/634509/show-hide-thumbnail-sidebar-by-default-in-pdf
 \hypersetup{pdfpagemode=UseNone}
@@ -256,6 +263,12 @@ are indexed by Web of Science and/or Scopus.
 
 \input{references_my_minor.tex}
 %\printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
+
+\begin{siderules}
+	From the joint works~\selfcite{avdeev2019banach,avdeev2021AandA_eng,avdeev2024decomposition,avdeev2024set_DAN_eng,our-vzms-2018}
+	only the results belonging personally to the author have been included in the thesis.
+\end{siderules}
+
 
 \section*{References}
 
