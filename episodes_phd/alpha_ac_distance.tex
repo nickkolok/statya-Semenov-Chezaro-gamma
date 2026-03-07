@@ -1,48 +1,41 @@
-Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от $x$ до пространства сходящихся последовательностей $c$
+Изучем теперь связь между сходимостью, почти сходимостью и $\alpha$--функцией
+\begin{equation}
+	\alpha(x) = \varlimsup_{i\to\infty} \max_{i<j\leqslant 2i} |x_i - x_j|
+	,
+\end{equation}
+которая будет более подробно изучаться в дальнейшем.
+
+Пусть $\rho(x,c)$ и $\rho(x,c_0)$~--- расстояния от последовательности $x$ до пространства сходящихся последовательностей $c$
 и пространства сходящихся к нулю последовательностей $c_0$ соответственно.
 
-Из условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
-и того, что на пространстве $c$
-всех сходящихся последовательностей
-$\alpha$--функция обращается в нуль следует
-
-\begin{lemma}
-\label{thm:alpha_x_leq_2_rho_x_c}
-	Для любого $x\in\ell_\infty$
+\begin{theorem}
+	\label{thm:rho_x_c_leq_alpha_t_s_x_united}
+	Для любого $x\in ac$ и для любого натурального $s$
 	\begin{equation}
-		\alpha(x) \leq 2\rho(x, c)
+		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
+		\leq \alpha(x)
 		.
 	\end{equation}
-\end{lemma}
+\end{theorem}
 
-%TODO2: доказывать или очевидно?
-
-Эта оценка точна.
-\begin{example}
-\label{ex:alpha_ac_rho_x_c}
+\begin{proof}
+	Неравенство $\alpha(x) \leq 2\rho(x, c)$ следует из
+	условия Липшица на $\alpha$--функцию \eqref{alpha_Lipshitz}
+	и того, что на пространстве $c$
+	всех сходящихся последовательностей
+	$\alpha$--функция обращается в нуль.
+	Неравенство
 	\begin{equation}
-	\label{eq:alpha_ac_distance_example_y}
-		x_k = \begin{cases}
-			(-1)^n, &\mbox{~если~} k = 2^n,
-			\\
-			0 &\mbox{~иначе.}
-		\end{cases}
+		\lim_{s\to\infty} \alpha(T^s x)
+		\leq \alpha(x)
 	\end{equation}
-\end{example}
-Здесь $\alpha(x) = 2$, $\alpha(T^s x) = 1$ для любого $s\in\N$, $\rho(x,c) = \rho(x, c_0) = 1$.
-
-Как выясняется, верна и оценка с другой стороны.
-
-\begin{lemma}
-\label{thm:rho_x_c_leq_alpha_t_s_x}
-	Для любого $x\in ac$ и для любого натурального $s$
+	обеспечивается следствием~\ref{thm:est_alpha_Tn_x_full}.
+	Таким образом, нам остаётся только доказать, что
 	\begin{equation}
 		\rho(x,c)\leq \alpha(T^s x)
 		.
 	\end{equation}
-\end{lemma}
 
-\begin{proof}
 	Зафиксируем $s$.
 	Пусть $x\in ac$, $\alpha(T^s x)=\varepsilon$.
 	Так как $x\in ac$, то по критерию Лоренца существует такое число $t$,
@@ -123,21 +116,6 @@ $\alpha$--функция обращается в нуль следует
 	что и требовалось доказать.
 \end{proof}
 
-
-Из лемм \ref{thm:alpha_x_leq_2_rho_x_c} и \ref{thm:rho_x_c_leq_alpha_t_s_x}
-незамедлительно следует
-\begin{theorem}
-	\label{thm:rho_x_c_leq_alpha_t_s_x_united}
-	Для любого $x\in ac$
-	\begin{equation}
-		\frac{1}{2} \alpha(x) \leq \rho(x,c)\leq \lim_{s\to\infty} \alpha(T^s x)
-		\leq \alpha(x)
-		.
-	\end{equation}
-\end{theorem}
-
-Последнее неравенство обеспечивается следствием~\ref{thm:est_alpha_Tn_x_full}.
-
 \begin{corollary}
 	\label{cor:rho_x_c0_leq_alpha_t_s_x_united}
 	Для любого $x\in ac_0$
@@ -147,7 +125,22 @@ $\alpha$--функция обращается в нуль следует
 	\end{equation}
 \end{corollary}
 
-Точность оценок показывают пример \ref{ex:alpha_ac_rho_x_c} и следующие примеры.
+Точность оценок показывают следующие примеры.
+
+\begin{example}
+\label{ex:alpha_ac_rho_x_c}
+	\begin{equation}
+	\label{eq:alpha_ac_distance_example_y}
+		x_k = \begin{cases}
+			(-1)^n, &\mbox{~если~} k = 2^n,
+			\\
+			0 &\mbox{~иначе.}
+		\end{cases}
+	\end{equation}
+\end{example}
+Здесь $\alpha(x) = 2$, $\alpha(T^s x) = 1$ для любого $s\in\N$, $\rho(x,c) = \rho(x, c_0) = 1$.
+
+
 \begin{example}
 	\begin{equation}
 		x_k = \begin{cases}
