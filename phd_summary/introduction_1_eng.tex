@@ -24,8 +24,16 @@ Chapter 1 discusses the space $ac$ and its subspace $ac_0$, gives a criterion fo
 
 
 \reflecttheorem{thm:ac0_threshold}
-	Let $x\in\ell_\infty$, $x\geq 0$.
-	Then
+	Let us define the (nonlinear) $\lambda$--threshold operator $A_\lambda$ on the space $\ell_\infty$.
+	For $x = (x_1, x_2, ...) \in \ell_\infty$ we set
+	\begin{equation}
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~if~} x_k \geq \lambda
+			\\
+			0  & \mbox{~otherwise.~}
+		\end{cases}
+	\end{equation}
+	Then for any $x\geq 0$ we have
 	\begin{equation}
 		x\in ac_0 \Leftrightarrow
 		\forall(\lambda>0)[A_\lambda x \in ac_0]

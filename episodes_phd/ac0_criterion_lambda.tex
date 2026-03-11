@@ -1,16 +1,16 @@
-Определим (нелинейный) оператор $\lambda$--порога $A_\lambda$ на пространстве $\ell_\infty$.
-Для $x = (x_1, x_2, ...) \in \ell_\infty$ положим
-\begin{equation}
-	(A_\lambda x)_k = \begin{cases}
-		1, & \mbox{~если~} x_k \geq \lambda
-		\\
-		0  & \mbox{~иначе.~}
-	\end{cases}
-\end{equation}
-
 \begin{theorem}
 	[Пороговый критерий почти сходимости к нулю неотрицательной последовательности]
-	Пусть $x\in\ell_\infty$, $x\geq 0$.
+	\label{thm:ac0_threshold}
+	Определим (нелинейный) оператор $\lambda$--порога $A_\lambda$ на пространстве $\ell_\infty$.
+	Для $x = (x_1, x_2, ...) \in \ell_\infty$ положим
+	\begin{equation}
+		(A_\lambda x)_k = \begin{cases}
+			1, & \mbox{~если~} x_k \geq \lambda
+			\\
+			0  & \mbox{~иначе.~}
+		\end{cases}
+	\end{equation}
+	Пусть $x\geq 0$.
 	Тогда
 	\begin{equation}
 		x\in ac_0 \Leftrightarrow
@@ -138,7 +138,7 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 
 Сформулируем теперь этот критерий в терминах функций $M^{(\lambda)}(j)$.
 
-\begin{theorem}
+\begin{corollary}
 	\label{thm:crit_ac0_Mj_lambda}
 	Пусть $x\in\ell_\infty$, $x \geq 0$, $\lambda>0$.
 	Обозначим через $n^{(\lambda)}_i$ возрастающую последовательность
@@ -157,4 +157,4 @@ $n_0 = n_1$ и отыщем $n$ и $m$.
 		\lim_{j \to \infty} \frac{M^{(\lambda)}(j)}{j} = +\infty
 		.
 	\end{equation}
-\end{theorem}
+\end{corollary}
