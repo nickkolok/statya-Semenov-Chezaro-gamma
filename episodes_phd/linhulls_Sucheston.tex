@@ -11,7 +11,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 
 Пусть $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
-Подготовим сначала вспомогательные леммы о константе.
+Подготовим сначала лемму о константе.
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
@@ -21,7 +21,9 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{proof}
 	Не теряя общности, будем полагать, что $a>0$.
+	Рассмотрим два случая.
 
+	Пусть сначала $b \ne -a$.
 	Снова определим оператор $S:\ell_\infty \to \ell_\infty$ следующим образом:
 	\begin{equation}\label{operator_S}
 		(Sy)_k = y_{i+2}, \mbox{ где } 2^i < k \leq 2^i+1
@@ -51,16 +53,8 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 		,
 	\end{equation}
 	откуда и следует, что $\one\in Y^a_b$.
-\end{proof}
 
-
-\begin{lemma}
-	\label{lem:const_Lin_alpha_0_a_eq_-b}
-	Справедливо включение
-	$\one\in \operatorname{Lin} Y^a_{-a}$.
-\end{lemma}
-
-\begin{proof}
+	Пусть теперь $b=-a$.
 	Определим линейный оператор $M:\ell_\infty \to \ell_\infty$ следующим образом:
 	\begin{multline}
 		M\omega=
@@ -140,7 +134,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	Пусть сначала $p(x) = q(x)$.
 	Тогда $x\in ac $ и потому, согласно теореме~\ref{thm:rho_x_c_leq_alpha_t_s_x_united}, $x\in c$
 	и $x$ может быть представлен в виде суммы константы и последовательности из $c_0$.
-	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0}, ~\ref{lem:const_Lin_alpha_0_a_eq_-b} и~\ref{lem:c_0_Lin_alpha_0}.
+	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0} и~\ref{lem:c_0_Lin_alpha_0}.
 
 	Пусть теперь $p(x) > q(x)$.
 	Положим
