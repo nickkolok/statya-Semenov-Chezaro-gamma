@@ -29,7 +29,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{proof}
 	Правое включение следует из того, что $Y^a_b \subset X^a_b$.
-		
+
 	Не теряя общности, будем полагать, что $a>0$.
 	Рассмотрим два случая.
 
@@ -120,18 +120,6 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	откуда $\one \in \operatorname{Lin} Y^a_{-a}$.
 \end{proof}
 
-
-\begin{lemma}
-	\label{lem:c_0_Lin_alpha_0}
-	Справедливо включение $c_0 \subset \operatorname{Lin} Y^a_b$.
-\end{lemma}
-
-\begin{proof}
-	Зафиксируем $z\in c_0$.
-	Выберем произвольный $x \in Y^a_b$.
-	Тогда $x+z\in Y^a_b$ и, очевидно, $z=(x+z)-x$.
-\end{proof}
-
 \begin{theorem}
 	\label{thm:A_0_c_infty_lin}
 	Справедливы равенства:
@@ -147,8 +135,23 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 	Пусть сначала $p(x) = q(x)$.
 	Тогда $x\in ac $ и потому, согласно теореме~\ref{thm:rho_x_c_leq_alpha_t_s_x_united}, $x\in c$
-	и $x$ может быть представлен в виде суммы константы и последовательности из $c_0$.
-	Утверждение теоремы следует из лемм~\ref{lem:const_Lin_alpha_0} и~\ref{lem:c_0_Lin_alpha_0}.
+	и $x=k\cdot \one + y$, где $k\in\R$ и $y\in c_0$.
+	В силу леммы~\ref{lem:const_Lin_alpha_0} достаточно показать, что $y\in\operatorname{Lin} Y^a_b$.
+	Действительно,
+	выберем произвольный $u \in Y^a_b$.
+	Тогда
+	\begin{equation}
+		p(u+y) = p(u)
+		,
+		\quad
+		q(u+y) = q(u)
+		\quad
+		\mbox{и}
+		\quad
+		\alpha(u+y) = \alpha(u)
+		,
+	\end{equation}
+	поэтому $u+y\in Y^a_b$ и, очевидно, $y=(u+y)-u\in\operatorname{Lin} Y^a_b$.
 
 	Пусть теперь $p(x) > q(x)$.
 	Положим
@@ -167,7 +170,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 		.
 	\end{equation}
 	Представление~\eqref{eq:x_representation} искомое.
-	Действительно, в силу лемм~\ref{lem:const_Lin_alpha_0}~и~\ref{lem:const_Lin_alpha_0_a_eq_-b} выполнено
+	Действительно, в силу леммы~\ref{lem:const_Lin_alpha_0}~и выполнено
 	$C\cdot\one\in Y^a_b$; кроме того,
 	\begin{equation}
 		p(y) = k\cdot p(x) + C
