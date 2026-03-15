@@ -10,16 +10,26 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 уже знакомое нам, например, по параграфу~\ref{sec:noncomplementarity}.
 
 
-Пусть $Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}$, где $a>b$.
+Пусть $a>b$,
+\begin{equation}
+	X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}
+	,
+\end{equation}
+\begin{equation}
+	Y^a_b = \{x\in A_0 : p(x) = a, q(x) = b\}
+	.
+\end{equation}
 Подготовим сначала лемму о константе.
 
 \begin{lemma}
 	\label{lem:const_Lin_alpha_0}
 	Справедливо включение
-	$\one\in \operatorname{Lin} Y^a_b$.
+	$\one\in \operatorname{Lin} Y^a_b \operatorname{Lin} X^a_b$.
 \end{lemma}
 
 \begin{proof}
+	Правое включение следует из того, что $Y^a_b \subset X^a_b$.
+		
 	Не теряя общности, будем полагать, что $a>0$.
 	Рассмотрим два случая.
 
@@ -179,25 +189,6 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:A_0_c_infty_lin}, верен и для
 всего пространства $\ell_\infty$:
-$\ell_\infty\subset \operatorname{Lin} X^a_b$, где
-$X^a_b = \{x\in\ell_\infty : p(x) = a,~ q(x) = b\}$, $a>b$.
-
-
-\begin{lemma}
-	\label{lem:const_Lin_ell_infty}
-	Справедливо включение
-	$\one\in \operatorname{Lin} X^a_b$.
-\end{lemma}
-
-\begin{proof}
-	В самом деле,
-	$Y^a_b \subset X^a_b$
-	и, следовательно,
-	\begin{equation}
-		\one \in \operatorname{Lin} Y^a_b \subset \operatorname{Lin} X^a_b
-		.
-	\end{equation}
-\end{proof}
 
 \begin{theorem}
 	\label{thm:Lin_ell_infty}
