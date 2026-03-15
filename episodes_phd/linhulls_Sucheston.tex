@@ -134,11 +134,15 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 
 \begin{theorem}
 	\label{thm:A_0_c_infty_lin}
-	%Пусть $a\neq -b$.
-	Справедливо равенство $\operatorname{Lin} Y^a_b = A_0$.
+	Справедливы равенства:
+	\\
+	(i) $\operatorname{Lin} Y^a_b = A_0$;
+	\\
+	(ii) $\operatorname{Lin} X^a_b = \ell_\infty$.
 \end{theorem}
 
 \begin{proof}
+	\textit{(i).}
 	Зафиксируем $x \in A_0$.
 
 	Пусть сначала $p(x) = q(x)$.
@@ -184,18 +188,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 		.
 	\end{equation}
 
-
-\end{proof}
-
-Факт, аналогичный теоремам~\ref{thm:Lin_Omega_Sucheston} и~\ref{thm:A_0_c_infty_lin}, верен и для
-всего пространства $\ell_\infty$:
-
-\begin{theorem}
-	\label{thm:Lin_ell_infty}
-	Справедливо равенство $\operatorname{Lin} X^a_b = \ell_\infty$.
-\end{theorem}
-
-\begin{proof}
+	\textit{(ii).}
 	Зафиксируем $x \in \ell_\infty$ и представим его в виде линейной комбинации последовательностей из $X^a_b$.
 
 	Не теряя общности, положим $x\geq 0$
@@ -217,7 +210,7 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 	Таким образом, случай $p(x) = q(x)$ можно исключить,
 	и, не теряя общности, рассматривать только такие $x$, что $p(x) > q(x)$.
 
-	Снова, как и в доказательстве теоремы~\ref{thm:A_0_c_infty_lin},
+	Снова, как и в доказательстве пункта (i),
 	положим
 	\begin{equation}
 		y=k\cdot x + C\cdot\one,
@@ -227,5 +220,5 @@ $A_0 = \{ x \in \ell_\infty : \alpha(x) =0 \}$,
 		C=\frac{bp(x)-aq(x)}{p(x)-q(x)}
 		.
 	\end{equation}
-	Дальнейшее доказательство переносится дословно.
+	Дальнейшее доказательство переносится из пункта (i) дословно.
 \end{proof}
