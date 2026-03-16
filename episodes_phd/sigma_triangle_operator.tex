@@ -8,27 +8,24 @@
 	.
 \end{equation}
 
-\begin{remark}
 	Оператор $\sigma_\triangle x$ естественным образом возник в работах А.С. Усачёва~\cite{usachev2009_phd_vsu},
 	где обозначался $\overline{x}$ и
 	использовался для изучения коэффициентов Фурье--Хаара
 	и расстояния от произвольной последовательности $x\in\ell_\infty$
 	до пространства $ac$.
-\end{remark}
-
 Нам потребуется один факт об операторе $\sigma_\triangle$,
 доказанный А.С. Усачёвым в~\cite[теорема 19]{usachev2009_phd_vsu}.
 Мы приведём его эквивалентную формулировку, более удобную для нас в дальнейшем.
 
-\begin{theorem}
+\begin{theorem}[{\cite[теорема 19]{usachev2009_phd_vsu}}]
 	\label{thm:usachev_overline_x_ac_s}
 	Пусть $x\in\ell_\infty$, $s\in\R$.
 	Тогда условия $x\in ac_s$ и $\sigma_\triangle x \in ac_s$ эквивалентны.
 \end{theorem}
 
-\begin{theorem}
+\begin{proposition}
 	Оператор $\sigma_\triangle$ является В-регулярным.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 	Снова воспользуемся леммой~\ref{lem:suff_B_reg}.
@@ -55,42 +52,3 @@
 	и оператор $\sigma_\triangle$ действительно является В-регулярным.
 \end{proof}
 
-\begin{hypothesis}
-	\label{hyp:sprawling_ac_B-regular}
-	Разреженным
-	% Размашистым (sprawling)
-	% https://github.com/ualexandr/Problems-for-our-grant/issues/30
-	назовём оператор взятия подпоследовательности $H:\ell_\infty \to \ell_\infty$ такой, что
-	\begin{equation}
-		H(x_1,x_2, x_3, ...) =
-		(
-		x_{m_1},x_{m_1+1},...x_{n_1-1},x_{n_1};\;
-		x_{m_2},x_{m_2+1},...x_{n_2-1},x_{n_2};\;
-		...)
-		,
-	\end{equation}
-	где для всех $k\in\N$ выполнено $m_k\leq n_k$,
-	и для всех $k > k_0 \in \N$ выполнено
-	$m_{k+1} \geq m_k$, $n_{k+1} \geq n_k$,
-	при этом
-	\begin{equation}
-		\lim_{k\to\infty} n_k = \infty, \quad \lim_{k\to\infty} n_k - m_k = \infty
-		.
-	\end{equation}
-	Гипотеза заключается в том, что любой разреженный оператор
-	(а) переводит $ac_0$ в $ac_0$ (или, слабее "--- $c_0$ в $ac_0$) и
-	(б) является В-регулярным.
-	Операторы $A$ и $\sigma_\triangle$ из этого параграфа являются разреженными.
-\end{hypothesis}
-
-В пользу гипотезы~\ref{hyp:sprawling_ac_B-regular} говорит~\cite[теорема 1]{usachev2008transforms} (приводим её в эквивалентной формулировке и более удобных обозначениях).
-
-\begin{theorem}
-	Определим линейный оператор $H:\ell_\infty\to\ell_\infty$ равенством
-	\begin{equation}
-		H(x_1, x_2, ...) = \left(x_{m_1}, x_{m_1+1}, \ldots, x_{m_1+n_1} ; x_{m_2}, x_{m_2+1}, \ldots, x_{m_2+n_2} ; \ldots\right)
-		,
-	\end{equation}
-	где $m_k, n_k$ "--- последовательности натуральных чисел и $\lim_{n\to\infty} n_k = \infty$.
-	Пусть $x\in ac_s$, $s\in\R$. Тогда $Hx \in ac_s$.
-\end{theorem}
