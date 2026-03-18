@@ -111,12 +111,20 @@
 Таким образом, $\alpha(Tx) = 1 \neq 2 = \alpha(x)$,
 что и требовалось показать.
 
-Верно следующее
+
+
 \begin{proposition}
-	Для любого $x \in \ell_\infty$ выполнено неравенство $\alpha(Tx)\leq \alpha(x)$.
+	\label{thm:est_alpha_Tn_x_full}
+	Для любых $x\in\ell_\infty$ и $n \in \N$
+	\begin{equation}\label{est_alpha_Tn_x}
+		\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
+		.
+	\end{equation}
 \end{proposition}
 
+
 \begin{proof}
+	Докажем сначала правое неравенство.
 	\begin{multline}
 		\alpha(Tx)
 		=
@@ -141,18 +149,9 @@
 		\alpha(x)
 		.
 	\end{multline}
-\end{proof}
+	Повторив эти рассуждения $n$ раз, получаем требуемое.
 
-Более интересна, однако, следующая оценка.
-\begin{proposition}
-	Для любого $n\in\N$
-	\begin{equation}
-		\alpha(T^n x) \geq \frac{1}{2} \alpha(x)
-		.
-	\end{equation}
-\end{proposition}
-
-\begin{proof}
+	Докажем теперь левое неравенство.
 	Зафиксируем $n$.
 	Заметим, что
 	\begin{equation}
@@ -277,17 +276,6 @@
 	Таким образом, $\alpha(T^n x) \geq \frac{1}{2} \alpha(x)$,
 	что и требовалось доказать.
 \end{proof}
-
-Два предыдущих утверждения немедленно влекут
-
-\begin{corollary}
-	\label{thm:est_alpha_Tn_x_full}
-	Для любых $x\in\ell_\infty$ и $n \in \N$
-	\begin{equation}\label{est_alpha_Tn_x}
-		\frac{1}{2}\alpha(x) \leq \alpha(T^n x) \leq \alpha(x)
-		.
-	\end{equation}
-\end{corollary}
 
 \begin{remark}
 	Оценки \eqref{est_alpha_Tn_x} точны: нижняя достигается, например,
