@@ -66,15 +66,21 @@ $H:\ell_\infty \to \ell_\infty$, что $H-I:\ell_\infty \to ac_0$ и,
 	(теорема~\ref{thm:Semenov_Sukochev_conditions}).
 	Более того, порождённый оператор $G_B$ является в некотором смысле крайним примером В-регулярного оператора,
 	поскольку $G_B^* \B = \{B\}$.
+	Говоря о взаимодействии двух различных порождённых операторов,
+	можно сформулировать следующее
 
-\begin{lemma}
+\begin{proposition}
 	Пусть $0 \leq \lambda \leq 1$, $B_1, B_2 \in \B$.
 	Тогда
 	\begin{equation}
 		G_{\lambda B_1+(1-\lambda) B_2} =\lambda G_{B_1} + (1-\lambda)G_{B_2}
+	\end{equation}
+	и
+	\begin{equation}
+		G_{B_1} G_{B_2} = G_{B_2}
 		.
 	\end{equation}
-\end{lemma}
+\end{proposition}
 
 
 \begin{proof}
@@ -89,19 +95,6 @@ $H:\ell_\infty \to \ell_\infty$, что $H-I:\ell_\infty \to ac_0$ и,
 		\lambda G_{B_1} x +(1-\lambda) G_{B_2} x
 		.
 	\end{multline}
-\end{proof}
-
-
-\begin{lemma}
-	Пусть $B_1, B_2 \in \B$.
-	Тогда
-	\begin{equation}
-		G_{B_1} G_{B_2} = G_{B_2}
-		.
-	\end{equation}
-\end{lemma}
-\begin{proof}
-	Пусть $x\in\ell_\infty$, тогда
 	\begin{equation}
 		G_{B_1}G_{B_2}x =
 		G_{B_1} ( (B_2 x) \cdot \one ) =
