@@ -100,7 +100,7 @@
 Для каждого $k \geq n$ положим
 \begin{equation}
 	\label{eq:Br(k+1,d)}
-	\operatorname{Br}(k+1,d) = \operatorname{Br}(k,d) + T^{2^k}\operatorname{Br}(k,d) + (d_{(k+1)}-2d_{(k)})e_{2^k+2^n-d_{(n)}}
+	\operatorname{Br}(k+1,d) = \operatorname{Br}(k,d) + U^{2^k}\operatorname{Br}(k,d) + (d_{(k+1)}-2d_{(k)})e_{2^k+2^n-d_{(n)}}
 	,
 \end{equation}
 где через $e_j$ обозначен $j$-й орт.
@@ -118,7 +118,7 @@
 	приводит к улучшению приближения.
 	Более того,
 	\begin{multline}
-		\left(\operatorname{Br}(k,d) + T^{2^k}\operatorname{Br}(k,d)\right)_{2^k+2^n-d_{(n)}}
+		\left(\operatorname{Br}(k,d) + U^{2^k}\operatorname{Br}(k,d)\right)_{2^k+2^n-d_{(n)}}
 		=
 		(\operatorname{Br}(k,d))_{2^n-d_{(n)}}
 		=
@@ -165,14 +165,14 @@
 \begin{proof}
 	Представление~\eqref{eq:Br(k+1,d)} может быть переписано в виде:
 	\begin{equation}
-		\operatorname{Br}(m+1,d) = \sum_{j=0}^{1} T^{j2^m} \operatorname{Br}(m,d) + \sum_{j=0}^{1} \gamma_{j} e_{j 2^m+2^n-d_{(n)}}
+		\operatorname{Br}(m+1,d) = \sum_{j=0}^{1} U^{j2^m} \operatorname{Br}(m,d) + \sum_{j=0}^{1} \gamma_{j} e_{j 2^m+2^n-d_{(n)}}
 		,
 	\end{equation}
 	где $\gamma_{j} \in \{0,1\}$.
 	Продолжая по индукции, получаем
 	\begin{equation}
-		\operatorname{Br}(k,d) = \sum_{j=0}^{2^{k-m}-1} T^{j2^m} \operatorname{Br}(m,d) +
-		\sum_{j=0}^{2^{k-m}-1} T^{j2^m} \gamma_{j} e_{j2^m+2^n-d_{(n)}}
+		\operatorname{Br}(k,d) = \sum_{j=0}^{2^{k-m}-1} U^{j2^m} \operatorname{Br}(m,d) +
+		\sum_{j=0}^{2^{k-m}-1} U^{j2^m} \gamma_{j} e_{j2^m+2^n-d_{(n)}}
 		.
 	\end{equation}
 	Тогда
