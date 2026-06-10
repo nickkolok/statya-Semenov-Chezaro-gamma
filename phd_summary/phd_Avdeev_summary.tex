@@ -245,8 +245,7 @@ avdeev2024set_DAN_eng}
 \sloppy
 \selectlanguage{english}
 
-\section*{The Author's works on the thesis topic}
-\paragraph{Articles in journals from HSE Lists A, B, C}
+\section*{The main results of the thesis has been published in:}
 
 \printbibliography[keyword=avdeev,category=HSEpapers,heading=none,title={~}]{}
 
@@ -255,15 +254,6 @@ are indexed by Web of Science and/or Scopus.
 
 \medskip
 
-\paragraph{Another Author's works on the thesis topic}
-
-\makeatletter
-\def\@biblabel#1{#1. }
-\makeatother
-\renewcommand{\chapter}[2]{}%
-
-\input{references_my_minor.tex}
-%\printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
 
 \begin{siderules}
 	From the joint works~\selfcite{avdeev2019banach,avdeev2021AandA_eng,avdeev2024decomposition,avdeev2024set_DAN_eng,our-vzms-2018}
@@ -273,6 +263,13 @@ are indexed by Web of Science and/or Scopus.
 
 \section*{References}
 
+\makeatletter
+\def\@biblabel#1{#1. }
+\makeatother
+\renewcommand{\chapter}[2]{}%
+
+\input{references_my_minor.tex}
+%\printbibliography[keyword=avdeev,notcategory=HSEpapers,heading=none,title={~}]{}
 \printbibliography[notkeyword=avdeev,heading=none,title={~}]{}
 
 %\newpage\printbibitembibliography{}{}
