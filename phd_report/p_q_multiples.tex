@@ -1,0 +1,138 @@
+\begin{frame}\frametitle{Сходимость по Чезаро}
+	\label{page:p_q_multiples}
+	Дальнейшее ослабление понятия сходимости~---
+	\\
+	сходимость по Чезаро (сходимость в среднем).
+	\vfill
+	Последовательность $\{x_n\}\in\ell_\infty$ сходится по Чезаро к $t$, если
+	\begin{equation}
+		\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i = t
+	\end{equation}
+
+	Напомним: последовательность $\{x_n\}\in\ell_\infty$ почти сходится к $t$, если
+
+	\begin{equation}
+			\lim_{n\to\infty}  \frac1{n}\sum_{i=m+1}^{m+n} x_i = t
+			\qquad
+			\mbox{равномерно по~~}
+			m\in\mathbb{N}
+	\end{equation}
+
+	\vfill
+
+	\begin{equation}
+		\label{eq:generalization_of_limits}
+		\liminf_{n\to\infty} x_n \leq q(x) \leq \liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+		\leq
+		%\\ \leq
+		\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n x_i
+		\leq p(x)
+		\leq \limsup_{n\to\infty} x_n
+	\end{equation}
+
+\end{frame}
+
+\begin{frame}\frametitle{Sets of multiples}
+
+	Каждый $x\in \Omega$ отождествим с подмножеством множества натуральных чисел
+	$\supp x \subset \N$.
+
+	Вслед за~\cite{hall1992behrend} обозначим
+	$
+		\mathscr{M}A = \{ka: k\in\N, a\in A\}
+		,
+	$
+	через $\chi F$ "--- характеристическую функцию множества $F$.
+
+	Например,
+	\begin{gather}
+		\chi \mathscr{M}\{2\} = \chi \mathscr{M}\{2, 4\} = \chi \mathscr{M}\{2,4,8,16,...\}
+		= (0,1,0,1,0,1,0,1,0,...),
+	\\
+		\chi \mathscr{M}\{3\} = \chi \mathscr{M}\{3,9,27,...\} = (0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;0,0,1,\;...),
+	\\
+		\chi \mathscr{M}\{2,3\} = \chi \mathscr{M}\{2,3,6\} = (0,1,1,1,0,1,\;0,1,1,1,0,1,\;0,1,1,1,0,1,...).
+	\end{gather}
+
+	Как связана структура множества $A$
+	и  обобщения верхнего и нижнего пределов на последовательности $\chi \mathscr{M}\!A$ ?
+	В~\cite{davenport1936sequences,davenport1951sequences} доказано, что для любого
+	$A=\{a_1,a_2,...\}\subset\N$
+	\begin{equation}
+		\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i =
+		\lim_{j\to\infty}\lim_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}\{a_1,a_2,...,a_j\})_i
+		.
+	\end{equation}
+	В работе~\cite[{\S 7}]{besicovitch1935density} построено такое множество $A\subset\N$, что
+	\begin{equation}
+		\liminf_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i \neq
+		\limsup_{n\to\infty}\frac1{n}\sum_{i=1}^n (\chi\mathscr{M}A)_i
+		.
+	\end{equation}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{Верхний функционал Сачестона}}
+
+
+	\begin{llemma}
+		Пусть $\{p_1, ..., p_k\} \subset \N$,
+		\begin{equation}
+			x_k = \begin{cases}
+				1, &\mbox{~если~} k = p_1^{j_1}\cdot p_2^{j_2}\cdot ... \cdot p_k^{j_k} \mbox{~для некоторых~} j_1,...,j_k\in\N,
+				\\
+				0  &\mbox{~иначе}.
+			\end{cases}
+		\end{equation}
+		Тогда $x\in ac_0$.
+	\end{llemma}
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{Верхний функционал Сачестона}}
+
+	\begin{ddefinition}
+		Будем говорить, что множество $A\subset\N$ обладает $P$-свойством,
+		если для любого $n\in\N$ найдётся набор попарно взаимно простых чисел
+		\begin{equation}
+			\{a_{n,1}, a_{n,2}, ..., a_{n,n}  \} \subset A
+			.
+		\end{equation}
+	\end{ddefinition}
+
+	\begin{ttheorem}
+		Пусть $A\subset \N\setminus\{1\}$.
+		Тогда следующие условия эквивалентны:
+		\begin{enumerate}%[label=(\roman*)]
+			\item
+				$A$ обладает $P$-свойством
+			\item
+				В $A$ существует бесконечное подмножество попарно взаимно простых чисел
+			\item
+				$p(\chi\mathscr{M}A)=1$.
+		\end{enumerate}
+	\end{ttheorem}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{\underline{Нижний функционал Сачестона}}
+
+
+	\begin{ttheorem}
+		Пусть $A = \{a_1, a_2, ..., a_n,...\}$ "--- бесконечное множество попарно взаимно простых чисел
+		и $a_{n+1}>a_1\cdot...\cdot a_n$.
+		Тогда
+		\begin{equation}
+			q(\chi\mathscr{M}A) = 1-\prod_{j=1}^\infty \left(1-\frac{1}{a_j}\right)
+			.
+		\end{equation}
+	\end{ttheorem}
+
+	\begin{llemma}
+		Пусть $\varepsilon \in  (0; 1{]}$.
+		Существует бесконечное множество попарно непересекающихся подмножеств простых чисел
+		$A_i$ такое, что $q(\chi\mathscr{M}A_i)\geq\varepsilon$ для любого $i\in\N$.
+	\end{llemma}
+\end{frame}
